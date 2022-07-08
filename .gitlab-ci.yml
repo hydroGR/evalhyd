@@ -1,6 +1,7 @@
 pages:
   script:
     - shopt -s extglob dotglob
+    - mkdir public
     - mv !(public) public
     - shopt -u dotglob
   artifacts:
