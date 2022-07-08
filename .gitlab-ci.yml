@@ -1,6 +1,6 @@
 pages:
   script:
-    - mv . public/
+    - mv * public/
   artifacts:
     paths:
       - public
