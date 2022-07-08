@@ -1,5 +1,6 @@
 pages:
   script:
+    - mkdir public
     - mv * public/
   artifacts:
     paths:
