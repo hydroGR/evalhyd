@@ -1,7 +1,8 @@
 pages:
   script:
-    - mkdir public
-    - mv !(public) public/
+    - shopt -s extglob dotglob
+    - mv !(public) public
+    - shopt -u dotglob
   artifacts:
     paths:
       - public
