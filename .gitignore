@@ -1,0 +1,5 @@
+# Sphinx local build directory
+__build
+
+# macOS specific
+.DS_Store
