@@ -18,6 +18,7 @@ generate-xml:
   artifacts:
     paths:
       - __build/xml/
+    expire_in: 1 hour
 
 # generate HTML with Sphinx and deploy
 pages:
