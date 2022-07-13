@@ -7,8 +7,9 @@ generate-xml:
   stage: build
   image: alpine
   script:
-    # add Doxygen
-    - apk update && apk add doxygen
+    # add Doxygen and git
+    - apk update
+    - apk add doxygen git
     # clone evalhyd core C++ library
     - git clone https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd.git
     # generate XML for C++ API with Doxygen
