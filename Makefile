@@ -31,6 +31,6 @@ local_html:
 	$(MAKE) local_clean
 # generate doxygen XML for C++ API docs
 	mkdir -p $(BUILDDIR)/xml/cpp
-	(cd $(SOURCEDIR)/cpp && doxygen Doxyfile)
+	(cd $(SOURCEDIR)/cpp && doxygen Doxyfile-local)
 # build docs html with sphinx
 	$(MAKE) html
