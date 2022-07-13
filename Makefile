@@ -23,21 +23,6 @@ clean:
 %: Makefile
 	@$(SPHINXBUILD) -M $@ "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
 
-gitlab_clean:
-	find . \( -type d -maxdepth 1 ! -name "." \) \
-	-and \( -type d -maxdepth 1 ! -name ".*" \) \
-	-and \( -type d -maxdepth 1 ! -name "__*" \) \
-	-exec rm -rf {} +
-	rm -f *.html *.js *.inv .buildinfo
-
-gitlab_html:
-	$(MAKE) gitlab_clean
-	$(MAKE) local_html
-	cp -a $(BUILDDIR)/html/. .
-ifdef VERSION_RELEASE
-	cp -a $(BUILDDIR)/html/. ./$(VERSION_RELEASE)
-endif
-
 local_clean:
 	rm -rf $(SOURCEDIR)/cpp/functions/xml/*
 	rm -rf $(BUILDDIR)/*

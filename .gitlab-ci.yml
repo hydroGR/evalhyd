@@ -1,9 +1,34 @@
-pages:
+stages:
+  - build
+  - deploy
+
+# generate XML with Doxygen
+generate-xml:
+  stage: build
+  image: alpine
   script:
-    - shopt -s extglob dotglob
-    - mkdir public
-    - mv !(public) public
-    - shopt -u dotglob
+    # add Doxygen
+    - apk update && apk add doxygen
+    # clone evalhyd core C++ library
+    - git clone https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd.git
+    # generate XML for C++ API with Doxygen
+    - mkdir -p __build/xml/cpp
+    - (cd __source/cpp && doxygen Doxyfile-gitlab)
+  artifacts:
+    paths:
+      - __build/xml/
+
+# generate HTML with Sphinx and deploy
+pages:
+  stage: deploy
+  image: python:3.9.13
+  script:
+    # install required packages to build docs
+    - python -m pip install -r requirements.txt
+    # generate docs with Sphinx
+    - sphinx-build -b html __source public
+  dependencies:
+    - generate-xml
   artifacts:
     paths:
       - public
