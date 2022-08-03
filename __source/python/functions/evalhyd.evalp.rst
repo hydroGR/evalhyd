@@ -1,6 +1,6 @@
 ﻿.. default-role:: obj
 
-evalhyd.evald
+evalhyd.evalp
 =============
 
 .. function:: evalhyd.evalp(q_obs, q_prd, metrics, q_thr=[], t_msk=[[]])
