@@ -7,8 +7,8 @@ Installation
 
 .. code-block:: console
 
-   $ git clone "https://gitlab.irstea.fr/evalhyd/evalhyd-python.git"
-   $ cmake -S. -Bbuild
+   $ git clone --recursive "https://gitlab.irstea.fr/hycar-hydro/evalhyd/evalhyd-cli.git"
+   $ cmake -Sevalhyd-cli -Bbuild
    $ cmake --build build
 
 .. admonition:: Requirements
