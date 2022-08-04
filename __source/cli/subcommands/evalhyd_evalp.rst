@@ -80,6 +80,15 @@ Optionals
 
    Vector of streamflow thresholds
 
+.. option:: --t_msk <TEXT:FILE>
+
+   Path to CSV file containing masks to generate temporal subsets of
+   the whole streamflow time series (where 1/0 is used for the time
+   steps to include/discard in a given subset). If not provided, no
+   subset is performed and only one set of metrics is returned
+   corresponding to the whole time series. If provided, as many sets of
+   metrics are returned as they are masks provided.
+
 .. option:: --out_dir <TEXT>
 
    Path to output directory.
@@ -98,3 +107,8 @@ Examples
 
    $ ./evalhyd evalp "./q_obs" "./q_prd" "CRPS"
    {{{ 0.241935}}}
+
+.. code-block:: console
+
+   $ ./evalhyd evalp "./q_obs" "./q_prd" "CRPS" --t_msk "t_msk.csv"
+   {{{ 0.215054}}}
