@@ -50,7 +50,7 @@ Positionals
       │   ├── site_b.csv
       │   ┆   ···
       │   └── site_z.csv
-      ┆
+      ┆   ···
       └── leadtime_9
           ├── site_a.csv
           ├── site_b.csv
