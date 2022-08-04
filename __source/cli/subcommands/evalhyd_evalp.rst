@@ -30,6 +30,11 @@ Positionals
       ┆   ···
       └── site_z.csv
 
+   .. important::
+
+      Each CSV file must feature one line and as many columns as there
+      are time steps in the study period [shape: (1, time)].
+
 .. option:: q_prd <TEXT:DIR>
 
    Path to directory where streamflow predictions CSV files are,
@@ -61,6 +66,12 @@ Positionals
    site, whose filenames must match those found in *q_obs*, and each
    site must be found across all leadtimes.
 
+   .. important::
+
+      Each CSV file must feature as many lines as there are ensemble
+      members, and as many columns as there are time steps in the study
+      period [shape: (members, time)].
+
 .. option:: metrics <TEXT ...>
 
    List of evaluation metrics to compute.
@@ -88,6 +99,12 @@ Optionals
    subset is performed and only one set of metrics is returned
    corresponding to the whole time series. If provided, as many sets of
    metrics are returned as they are masks provided.
+
+   .. important::
+
+      Each CSV file must feature as many lines as there are temporal
+      subsets, and as many columns as there are time steps in the study
+      period [shape: (subsets, time)].
 
 .. option:: --out_dir <TEXT>
 
