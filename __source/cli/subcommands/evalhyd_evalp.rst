@@ -27,7 +27,7 @@ Positionals
       <q_obs>
       ├── site_a.csv
       ├── site_b.csv
-      ：
+      ⁚
       └── site_z.csv
 
 .. option:: q_prd <TEXT:DIR>
@@ -43,18 +43,18 @@ Positionals
       ├── leadtime_1
       │   ├── site_a.csv
       │   ├── site_b.csv
-      │   ：
+      │   ⁚
       │   └── site_z.csv
       ├── leadtime_2
       │   ├── site_a.csv
       │   ├── site_b.csv
-      │   ：
+      │   ⁚
       │   └── site_z.csv
-      ：
+      ⁚
       └── leadtime_9
           ├── site_a.csv
           ├── site_b.csv
-          ：
+          ⁚
           └── site_z.csv
 
    The leadtime sub-directories must contain separate files for each
