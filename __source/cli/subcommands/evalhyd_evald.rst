@@ -101,14 +101,14 @@ Examples
 
 .. code-block:: console
 
-   $ ./evalhyd evald "q_obs.csv" "q_prd.csv" "NSE" --transform "log" --epsilon 0.5
+   $ ./evalhyd evald "q_obs.csv" "q_prd.csv" "NSE" --transform "log" --epsilon .5
    {{ 0.581342},
     {-0.045892},
     { 0.714327}}
 
 .. code-block:: console
 
-   $ ./evalhyd evald "q_obs.csv" "q_prd.csv" "NSE" --transform "pow" --exponent 0.8
+   $ ./evalhyd evald "q_obs.csv" "q_prd.csv" "NSE" --transform "pow" --exponent .8
    {{ 0.617575},
     { 0.023426},
     { 0.67871 }}

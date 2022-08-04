@@ -22,6 +22,7 @@ Positionals
    filenames must match those found in *q_prd*.
 
    .. code-block:: text
+      :caption: Directory structure to follow for observations.
 
       <q_obs>
       ├── site_a.csv
@@ -36,6 +37,7 @@ Positionals
    and each site:
 
    .. code-block:: text
+      :caption: Directory structure to follow for predictions.
 
       <q_prd>
       ├── leadtime_1
