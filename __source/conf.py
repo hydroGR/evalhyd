@@ -88,8 +88,6 @@ rst_prolog = """
 
 # -- Options for HTML output -------------------------------------------------
 
-html_title = 'evalhyd'
-
 html_theme = 'pydata_sphinx_theme'
 
 html_static_path = ['../__static']
