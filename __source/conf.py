@@ -109,6 +109,9 @@ html_baseurl = 'https://hycar-hydro.gitlab.irstea.page/evalhyd/evalhyd-docs'
 html_permalinks_icon = '<span class="fa fa-link">'
 
 html_theme_options = {
+    "logo": {
+        "text": html_short_title,
+    },
     "icon_links": [
         {
             "name": "GitLab",
