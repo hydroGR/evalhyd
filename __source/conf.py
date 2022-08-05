@@ -22,8 +22,10 @@ copyright = (
 
 if os.getenv('VERSION_RELEASE'):
     version = f"v{os.getenv('VERSION_RELEASE')}"
+    release = f"v{os.getenv('VERSION_RELEASE')}"
 else:
     version = 'latest'
+    release = 'latest'
 
 import pydata_sphinx_theme
 
