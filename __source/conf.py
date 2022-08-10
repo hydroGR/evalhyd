@@ -116,7 +116,7 @@ html_theme_options = {
         {
             "name": "GitLab",
             "url": "https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd",
-            "icon": "fab fa-gitlab",
+            "icon": "fa-brands fa-gitlab",
         }
     ],
     "show_prev_next": False,
