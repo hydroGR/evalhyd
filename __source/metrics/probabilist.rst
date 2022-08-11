@@ -32,8 +32,9 @@ steps.
       ...        [4.3, 4.2, 4.7, 4.3, 3.3],
       ...        [5.3, 5.2, 5.7, 2.3, 3.9]]]]
       ... )
+      ... thr = numpy.array([[4., 5.]])
       >>> import evalhyd
-      ... evalhyd.evalp(obs, prd, ["BS"], [4., 5.])
+      ... evalhyd.evalp(obs, prd, ["BS"], thr)
       [array([[[[0.22222222, 0.13333333]]]])]
 
 
@@ -52,8 +53,11 @@ steps.
       +     ),
       +     dim = c(1, 1, 3, 5)
       + )
+      > obs = rbind(
+      +     c(4., 5.)
+      + )
       > library(evalhyd)
-      > evalhyd::evalp(obs, prd, c("BS"), c(4., 5.))
+      > evalhyd::evalp(obs, prd, c("BS"), thr)
       [[1]]
       , , 1, 1
       
@@ -69,7 +73,7 @@ steps.
 
    .. code-block:: console
 
-      $ ./evalhyd evalp "./obs/" "./prd/" "BS" --q_thr 4 5
+      $ ./evalhyd evalp "./obs/" "./prd/" "BS" --q_thr "./thr/"
       {{{{ 0.222222,  0.133333}}}}
 
 BSS
