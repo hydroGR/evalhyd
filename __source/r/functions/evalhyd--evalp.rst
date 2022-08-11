@@ -10,32 +10,41 @@ evalhyd::evalp
    :Parameters:
 
       q_obs
-         A numeric vector (or numeric matrix) of streamflow observations.
+         A numeric array of streamflow observations.
+         shape: (sites, time)
 
       q_prd
-         A numeric vector (or numeric matrix) of streamflow prediction.
+         A numeric array of streamflow predictions.
+         shape: (sites, lead times, members, time)
 
       metrics
-         A character vector of evaluation metrics to be computed.
+         A string vector of evaluation metrics to be computed.
+         shape: (metrics,)
 
       q_thr, optional
-         A numeric vector of streamflow thresholds to consider for
+         A numeric array of streamflow thresholds to consider for
          the metrics assessing the prediction of exceedance events.
-         If not provided, set to default value as an empty vector.
+         If the number of thresholds differs across sites, `NA` can be
+         set as threshold for those sites with fewer thresholds.
+         shape: (sites, thresholds)
 
       t_msk, optional
-        A logical matrix of masks to generate temporal subsets of the
-        whole streamflow time series (where True/False is used for the
-        time steps to include/discard in a given subset). If not
-        provided, no subset is performed and only one set of metrics
-        is returned corresponding to the whole time series. If
-        provided, as many sets of metrics are returned as they are
-        masks provided.
+         A logical array of masks to generate temporal subsets of the
+         whole streamflow time series (where True/False is used for the
+         time steps to include/discard in a given subset). If not
+         provided, no subset is performed and only one set of metrics
+         is returned corresponding to the whole time series. If
+         provided, as many sets of metrics are returned as they are
+         masks provided.
+         shape: (sites, subsets, time)
 
    :Returns:
 
       A list of numeric arrays containing evaluation metrics
       computed in the same order as given in *metrics*.
+      shape: [(sites, lead times, subsets, {quantiles,} {thresholds,}
+      {components}), ...]
+
 
    :Examples:
 
@@ -52,11 +61,14 @@ evalhyd::evalp
          +     ),
          +     dim=c(1, 1, 3, 5)
          + )
+         > thr = rbind(
+         +     c(4., 5.)
+         + )
 
       .. code-block:: rconsole
 
          > library(evalhyd)
-         > results = evalhyd::evalp(obs, prd, c("BS", "BS_LBD"), c(4., 5.))
+         > results = evalhyd::evalp(obs, prd, c("BS", "BS_LBD"), thr)
          > results[[1]][1,1,1,]  # BS
          [1] 0.2222222 0.1333333
          > results[[2]][1,1,1,,]  # BS_LBD
