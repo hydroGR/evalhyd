@@ -97,7 +97,8 @@ html_static_path = ['../__static']
 htmlhelp_basename = 'evalhyd-docs'
 
 html_css_files = [
-    'custom.css', 'my_pygments_light.css', 'my_pygments_dark.css'
+    'custom.css', 'my_pygments_light.css', 'my_pygments_dark.css',
+    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css'
 ]
 
 html_sidebars = {}
