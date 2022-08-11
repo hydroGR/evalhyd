@@ -3,7 +3,7 @@
 evalhyd.evalp
 =============
 
-.. function:: evalhyd.evalp(q_obs, q_prd, metrics, q_thr=[], t_msk=[[]])
+.. function:: evalhyd.evalp(q_obs, q_prd, metrics, q_thr=[[]], t_msk=[[[]]])
 
    Function to evaluate probabilistic streamflow predictions.
 
@@ -19,29 +19,32 @@ evalhyd.evalp
 
        metrics: `List[str]`
            The sequence of evaluation metrics to be computed.
+           shape: (metrics,)
 
-       q_thr: `List[float]`, optional
-           The streamflow threshold(s) to consider for the *metrics*
-           assessing the prediction of exceedance events. If not
-           provided, set to default value as an empty `list`.
-           shape: (thresholds,)
+       q_thr: `numpy.ndarray`, optional
+           2D array of streamflow threshold(s) to consider for the
+           *metrics* assessing the prediction of exceedance events. If
+           the number of thresholds differs across sites, `numpy.nan`
+           can be set as threshold for those sites with fewer thresholds.
+           shape: (sites, thresholds)
 
        t_msk: `numpy.ndarray`, optional
-           2D array of masks to generate temporal subsets of the whole
+           3D array of masks to generate temporal subsets of the whole
            streamflow time series (where True/False is used for the
            time steps to include/discard in a given subset). If not
            provided, no subset is performed and only one set of metrics
            is returned corresponding to the whole time series. If
            provided, as many sets of metrics are returned as they are
            masks provided.
-           shape: (subsets, time)
+           shape: (sites, subsets, time)
 
    :Returns:
 
        `List[numpy.ndarray]`
            The sequence of evaluation metrics computed
            in the same order as given in *metrics*.
-           shape: [(sites, lead times, subsets, {quantiles,} {thresholds,} {components}), ...]
+           shape: [(sites, lead times, subsets, {quantiles,} {thresholds,}
+           {components}), ...]
 
    :Examples:
 
@@ -56,7 +59,7 @@ evalhyd.evalp
       ...        [5.3, 5.2, 5.7, 2.3, 3.9]]]]
       ... )
 
-      >>> bs, bs_lbd = evalhyd.evalp(obs, prd, ['BS', 'BS_LBD'], [4., 5.])
+      >>> bs, bs_lbd = evalhyd.evalp(obs, prd, ['BS', 'BS_LBD'], [[4., 5.]])
       >>> print(bs)
       [[[[0.22222222 0.13333333]]]]
       >>> print(bs_lbd)
