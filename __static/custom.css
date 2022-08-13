@@ -85,6 +85,15 @@ html[data-theme="dark"] {
     --my-shadow: var(--pst-color-shadow);
 }
 
+/* turn off filter on image for dark mode */
+html[data-theme="dark"] img {
+    filter: none;
+}
+
+.navbar-brand img {
+    margin-bottom: 0;
+}
+
 /* override style for nav-links */
 #navbar-icon-links i.fab::before {
     color: rgba(var(--pst-color-text-base),1);
