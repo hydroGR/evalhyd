@@ -15,7 +15,7 @@ R bindings, as well as a Command Line Interface (CLI).
 
    ---
 
-   .. image:: https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg
+   .. image:: ../__images/evalhyd-cpp_logo.svg
       :height: 100px
       :align: center
 
@@ -28,7 +28,7 @@ R bindings, as well as a Command Line Interface (CLI).
 
    ---
 
-   .. image:: https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg
+   .. image:: ../__images/evalhyd-python_logo.svg
       :height: 100px
       :align: center
 
@@ -41,7 +41,7 @@ R bindings, as well as a Command Line Interface (CLI).
 
    ---
 
-   .. image:: https://www.r-project.org/logo/Rlogo.svg
+   .. image:: ../__images/evalhyd-r_logo.svg
       :height: 100px
       :align: center
 
@@ -54,7 +54,7 @@ R bindings, as well as a Command Line Interface (CLI).
 
    ---
 
-   .. image:: https://upload.wikimedia.org/wikipedia/commons/4/4b/Bash_Logo_Colored.svg
+   .. image:: ../__images/evalhyd-cli_logo.svg
       :height: 100px
       :align: center
 

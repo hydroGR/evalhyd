@@ -104,15 +104,15 @@ html_css_files = [
 html_sidebars = {}
 
 html_baseurl = 'https://hycar-hydro.gitlab.irstea.page/evalhyd/evalhyd-docs'
-# html_logo = '../__images/logo.svg'
-# html_favicon = '../__images/favicon.ico'
+html_logo = '../__images/evalhyd_logo+text.svg'
+html_favicon = '../__images/evalhyd_favicon.ico'
 
 html_permalinks_icon = '<span class="fa fa-link">'
 
 html_theme_options = {
-    "logo": {
-        "text": html_short_title,
-    },
+    # "logo": {
+    #     "text": html_short_title,
+    # },
     "icon_links": [
         {
             "name": "GitLab",
