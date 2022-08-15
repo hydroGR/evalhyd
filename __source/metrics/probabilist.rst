@@ -53,7 +53,7 @@ steps.
       +     ),
       +     dim = c(1, 1, 3, 5)
       + )
-      > obs = rbind(
+      > thr = rbind(
       +     c(4., 5.)
       + )
       > library(evalhyd)
