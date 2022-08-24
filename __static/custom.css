@@ -2,12 +2,16 @@
 @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&display=swap");
 
 :root {
-    /* light blue "irstea": #259bd2 (37, 155, 210) */
-    --my-color-1: rgb(37, 155, 210);
-    /* green "irstea": #a3c208 (163, 194, 8) */
-    --my-color-2: rgb(163, 194, 8);
-    /* dark blue "irstea": #003a80 (0, 58, 128) */
-    --my-color-3: rgb(0, 58, 128);
+    /* blue "inrae": #00a3a6 (0, 163, 166) */
+    --my-color-1: rgb(0, 163, 166);
+    /* pink "inrae": #ed6e6c (237, 110, 108) */
+    --my-color-2: rgb(237, 110, 108);
+    /* green "inrae": #9dc544 (157, 197, 68) */
+    --my-color-3: rgb(157, 197, 68);
+    /* light blue "inrae": #9ed6e3 (158, 214, 227) */
+    --my-color-4: rgb(158, 214, 227);
+    /* purple "inrae": #9ed6e3 (66, 48, 137) */
+    --my-color-5: rgb(66, 48, 137);
 
     --pst-font-size-h1: 30px;
     --pst-font-size-h2: 26px;
@@ -26,11 +30,16 @@ html[data-theme="light"] {
     --pst-color-primary: var(--my-color-1);
     --pst-color-border: rgb(201, 201, 201);
 
+    --pst-color-info: var(--my-color-1);
+    --pst-color-success: var(--my-color-3);
+    --pst-color-warning: var(--my-color-2);
+    --pst-color-danger: var(--my-color-2);
+
     --pst-color-active-navigation: var(--my-color-1);
 
     --pst-color-link: var(--my-color-1);
     --pst-color-link-hover: var(--my-color-1);
-    --pst-color-link-active: var(--my-color-3);
+    --pst-color-link-active: var(--my-color-2);
 
     --pst-color-preformatted-background: rgb(250, 250, 250);
     --pst-color-surface: var(--pst-color-preformatted-background);
@@ -58,11 +67,16 @@ html[data-theme="dark"] {
     --pst-color-primary: var(--my-color-1);
     --pst-color-border: rgb(72, 72, 72);
 
+    --pst-color-info: var(--my-color-1);
+    --pst-color-success: var(--my-color-3);
+    --pst-color-warning: var(--my-color-2);
+    --pst-color-danger: var(--my-color-2);
+
     --pst-color-active-navigation: var(--my-color-1);
 
     --pst-color-link: var(--my-color-1);
     --pst-color-link-hover: var(--my-color-1);
-    --pst-color-link-active: var(--my-color-3);
+    --pst-color-link-active: var(--my-color-2);
 
     --pst-color-preformatted-background: rgb(40, 40, 40);
     --pst-color-surface: var(--pst-color-preformatted-background);
@@ -92,6 +106,7 @@ html[data-theme="dark"] img {
 
 .navbar-brand img {
     margin-bottom: 0;
+    height: 53px;
 }
 
 /* override style for nav-links */
@@ -274,4 +289,34 @@ rect.highlighted {
 
 .tabbed-content {
     background-color: var(--pst-color-preformatted-background);
+}
+
+/* customise footer */
+.footer-item {
+    box-sizing: border-box;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    width: 49%;
+}
+
+.footer-item:first-child {
+    text-align: left;
+}
+
+.footer-item:last-child {
+    text-align: right;
+}
+
+.navbar-corporate img {
+    margin-bottom: 0;
+    height: 77px;
+}
+
+.navbar-corporate img {
+    margin-bottom: 0;
+    height: 77px;
+}
+a.navbar-corporate, a.navbar-corporate:hover {
+    border-bottom: hidden;
 }

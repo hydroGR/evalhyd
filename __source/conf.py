@@ -128,7 +128,7 @@ html_theme_options = {
     # "navbar_center": ["navbar-nav", "navbar-version"],  # Just for testing
     "navbar_end": ["theme-switcher", "navbar-icon-links"],
     # "left_sidebar_end": ["custom-template.html", "sidebar-ethical-ads.html"],
-    # "footer_items": ["copyright", "sphinx-version", ""]
+    "footer_items": ["copyright+sphinx-version+last-updated", "corporate-logo"],
     "switcher": {
         "json_url": f"{html_baseurl}/_static/switcher.json",
         "version_match": version

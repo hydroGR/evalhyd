@@ -1,0 +1,17 @@
+{% if show_copyright and copyright %}
+<p class="copyright">
+{% if hasdoc('copyright') %}
+    {% trans path=pathto('copyright'), copyright=copyright|e %}&copy; <a href="{{ path }}">Copyright</a> {{ copyright }}.{% endtrans %}<br>
+{% else %}
+    {% trans copyright=copyright|e %}&copy; Copyright {{ copyright }}.{% endtrans %}<br>
+{% endif %}
+</p>
+{% endif %}
+{% if show_sphinx %}
+<p class="sphinx-version">
+{% trans sphinx_version=sphinx_version|e %}Created using <a href="http://sphinx-doc.org/">Sphinx</a> {{ sphinx_version }}.{% endtrans %}<br>
+</p>
+{% endif %}
+<p class="last-updated">
+{% trans last_updated=last_updated|e %}Last updated on {{ last_updated }}.{% endtrans %}<br>
+</p>
