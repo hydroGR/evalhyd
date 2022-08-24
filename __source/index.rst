@@ -5,8 +5,8 @@ A polyglot evaluator for streamflow predictions
 ===============================================
 
 `evalhyd` is a utility to evaluate deterministic and probabilistic streamflow
-predictions. It is developed in C++ and comes with Python bindings and
-R bindings, as well as a Command Line Interface (CLI).
+predictions. It is developed as a core library in C++ and comes with
+Python bindings and R bindings, as well as a Command Line Interface (CLI).
 
 .. panels::
    :card: + intro-card text-center
