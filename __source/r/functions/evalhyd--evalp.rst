@@ -10,11 +10,17 @@ evalhyd::evalp
    :Parameters:
 
       q_obs
-         A numeric array of streamflow observations.
+         A numeric array of streamflow observations. Time steps with
+         missing observations must be assigned `NA` values. Those time
+         steps will be ignored both in the observations and in the
+         predictions before the *metrics* are computed.
          shape: (sites, time)
 
       q_prd
-         A numeric array of streamflow predictions.
+         A numeric array of streamflow predictions. Time steps with
+         missing predictions must be assigned `NA` values. Those time
+         steps will be ignored both in the observations and in the
+         predictions before the *metrics* are computed.
          shape: (sites, lead times, members, time)
 
       metrics

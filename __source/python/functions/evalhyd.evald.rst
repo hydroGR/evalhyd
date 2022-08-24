@@ -10,11 +10,21 @@ evalhyd.evald
    :Parameters:
 
        q_obs: `numpy.ndarray`
-           1D or 2D array of streamflow observations.
-           shape: (time,) or (1, time)
+           1D or 2D array of streamflow observations. Time steps with
+           missing observations must be assigned `numpy.nan` values.
+           Those time steps will be ignored both in the observations and
+           in the predictions before the *metrics* are computed.
+           Observations and predictions must feature the same number of
+           dimensions and they must be broadcastable.
+           shape: (time,) or (1+, time)
 
        q_prd: `numpy.ndarray`
-           1D or 2D array of streamflow predictions.
+           1D or 2D array of streamflow predictions. Time steps with
+           missing predictions must be assigned `numpy.nan` values.
+           Those time steps will be ignored both in the observations and
+           the predictions before the *metrics* are computed.
+           Observations and predictions must feature the same number of
+           dimensions and they must be broadcastable.
            shape: (time,) or (1+, time)
 
        metrics: `List[str]`

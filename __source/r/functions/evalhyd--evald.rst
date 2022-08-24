@@ -11,9 +11,19 @@ evalhyd::evald
 
       q_obs
          A numeric vector (or numeric matrix) of streamflow observations.
+         Time steps with missing observations must be assigned `NA`
+         values. Those time steps will be ignored both in the
+         observations and in the predictions before the *metrics* are
+         computed. Observations and predictions must feature the same
+         number of dimensions and they must be broadcastable.
 
       q_prd
          A numeric vector (or numeric matrix) of streamflow prediction.
+         Time steps with missing predictions must be assigned `NA`
+         values. Those time steps will be ignored both in the
+         observations and in the predictions before the *metrics* are
+         computed. Observations and predictions must feature the same
+         number of dimensions and they must be broadcastable.
 
       metrics
          A character vector of evaluation metrics to be computed.

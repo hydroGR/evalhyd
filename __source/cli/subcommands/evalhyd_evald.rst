@@ -19,15 +19,42 @@ Positionals
 
 .. option:: q_obs <TEXT:FILE>
 
-   Path to streamflow observations CSV file.
+   Path to streamflow observations CSV file. Time steps with missing
+   observations must be assigned `NAN` values. Those time steps will
+   be ignored both in the observations and in the predictions before
+   the *metrics* are computed.
+
+   .. important::
+
+      The CSV file must feature one line or more (if more, the number of
+      lines must be the same as in the predictions file, unless this one
+      features only one line) and as many columns as there are time
+      steps in the study period [shape: (1+, time)].
+
 
 .. option:: q_prd <TEXT:FILE>
 
-   Path to streamflow predictions CSV file.
+   Path to streamflow predictions CSV file. Time steps with missing
+   predictions must be assigned `NAN` values. Those time steps will
+   be ignored both in the observations and in the predictions before
+   the *metrics* are computed.
+
+   .. important::
+
+      The CSV file must feature one line or more (if more, the number of
+      lines must be the same as in the observations file, unless this one
+      features only one line) and as many columns as there are time
+      steps in the study period [shape: (1+, time)].
 
 .. option:: metrics <TEXT ...>
 
    List of evaluation metrics to compute.
+
+   .. note::
+
+      For each computed metric, the output shape is (1+, 1), i.e. as
+      many lines as the maximum number of lines between the
+      observations or the predictions, and one column.
 
 Optionals
 ---------

@@ -10,11 +10,17 @@ evalhyd.evalp
    :Parameters:
 
        q_obs: `numpy.ndarray`
-           2D array of streamflow observations.
+           2D array of streamflow observations. Time steps with missing
+           observations must be assigned `numpy.nan` values. Those time
+           steps will be ignored both in the observations and in the
+           predictions before the *metrics* are computed.
            shape: (sites, time)
 
        q_prd: `numpy.ndarray`
-           4D array of streamflow predictions.
+           4D array of streamflow predictions. Time steps with missing
+           predictions must be assigned `numpy.nan` values. Those time
+           steps will be ignored both in the observations and in the
+           predictions before the *metrics* are computed.
            shape: (sites, lead times, members, time)
 
        metrics: `List[str]`

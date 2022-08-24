@@ -33,7 +33,10 @@ Positionals
    .. important::
 
       Each CSV file must feature one line and as many columns as there
-      are time steps in the study period [shape: (1, time)].
+      are time steps in the study period [shape: (1, time)]. Time steps
+      with missing observations must be assigned `NAN` values. Those
+      time steps will be ignored both in the observations and in the
+      predictions before the *metrics* are computed.
 
 .. option:: q_prd <TEXT:DIR>
 
@@ -64,13 +67,17 @@ Positionals
 
    The leadtime sub-directories must contain separate files for each
    site, whose filenames must match those found in *q_obs*, and each
-   site must be found across all leadtimes.
+   site must be found across all leadtimes. Time steps with missing
+   observations must be assigned `NAN` values.
 
    .. important::
 
       Each CSV file must feature as many lines as there are ensemble
       members, and as many columns as there are time steps in the study
-      period [shape: (members, time)].
+      period [shape: (members, time)]. Time steps with missing
+      observations must be assigned `NAN` values. Those time steps will
+      be ignored both in the observations and in the predictions before
+      the *metrics* are computed.
 
 .. option:: metrics <TEXT ...>
 
