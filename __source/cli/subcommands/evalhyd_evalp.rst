@@ -224,9 +224,9 @@ Optionals
 
       The generated content in the output directory will follow the same
       structure and the same namings as *q_thr*, i.e. each leadtime in a
-      separate folder, and each site in a separate file within it. The
-      shape in each CSV output file is (subsets, {quantiles,}
-      {thresholds,} {components}).
+      separate folder, and each site (and each metric) in a separate
+      file within it. The shape in each CSV output file is (subsets,
+      {quantiles,} {thresholds,} {components}).
 
       .. important::
 

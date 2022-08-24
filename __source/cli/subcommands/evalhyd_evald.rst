@@ -54,7 +54,7 @@ Positionals
 
       For each computed metric, the output shape is (1+, 1), i.e. as
       many lines as the maximum number of lines between the
-      observations or the predictions, and one column.
+      observations and the predictions, and one column.
 
 Optionals
 ---------
@@ -70,6 +70,10 @@ Optionals
 .. option:: --out_dir <TEXT:DIR>
 
    Path to output directory.
+
+   .. note::
+
+      Each metric is returned in a separate CSV file.
 
 .. option:: --transform <TEXT>
 
