@@ -10,6 +10,8 @@ NSE
 Nash-Sutcliffe Efficiency (`"NSE"`) as per `Nash and Sutcliffe (1970)
 <https://doi.org/10.1016/0022-1694(70)90255-6>`_.
 
+The metric returned shape is `({...,}, 1)`.
+
 .. tabbed:: Python
 
    .. code-block:: python
@@ -44,6 +46,8 @@ RMSE
 
 Root Mean Square Error (`"RMSE"`).
 
+The metric returned shape is `({...,}, 1)`.
+
 
 KGE
 ---
@@ -51,9 +55,13 @@ KGE
 Kling-Gupta Efficiency (`"KGE"`) as per `Gupta et al., 2009
 <https://doi.org/10.1016/j.jhydrol.2009.08.003>`_.
 
+The metric returned shape is `({...,}, 1)`.
+
 
 KGEPRIME
 --------
 
 Modified Kling-Gupta Efficiency (`"KGEPRIME"`) as per `Kling et al., 2012
 <https://doi.org/10.1016/j.jhydrol.2012.01.011>`_.
+
+The metric returned shape is `({...,}, 1)`.

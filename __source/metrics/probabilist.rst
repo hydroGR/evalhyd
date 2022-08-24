@@ -19,6 +19,8 @@ where, for a dichotomous event, :math:`y_k` is the event forecast probability,
 :math:`o_k` is the observed event outcome, and :math:`n` is the number of time
 steps.
 
+The metric returned shape is `(sites, lead times, subsets, thresholds)`.
+
 .. tabbed:: Python
 
    .. code-block:: python
@@ -81,22 +83,36 @@ BSS
 
 Brier Skill Score (`"BSS"`).
 
+The metric returned shape is `(sites, lead times, subsets, thresholds)`.
+
 BS_CRD
 ------
 
-Calibration-Refinement Decomposition of the Brier Score (`"BS_CRD"`).
+Calibration-Refinement Decomposition of the Brier Score (`"BS_CRD"`)
+into the three components reliability, resolution, and uncertainty
+[returned in this order].
+
+The metric returned shape is `(sites, lead times, subsets, thresholds, 3)`.
 
 BS_LBD
 ------
 
-Likelihood-Base rate Decomposition of the Brier Score (`"BS_LBD"`).
+Likelihood-Base rate Decomposition of the Brier Score (`"BS_LBD"`)
+into the three components type 2 bias, discrimination, and sharpness
+(a.k.a. refinement) [returned in this order].
+
+The metric returned shape is `(sites, lead times, subsets, thresholds, 3)`.
 
 QS
 --
 
 Quantile Scores (`"QS"`).
 
+The metric returned shape is `(sites, lead times, subsets, quantiles)`.
+
 CRPS
 ----
 
 Continuous Ranked Probability Score (`"CRPS"`).
+
+The metric returned shape is `(sites, lead times, subsets)`.
