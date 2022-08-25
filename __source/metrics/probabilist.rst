@@ -130,8 +130,6 @@ Required inputs            Optional inputs  Output shape
 `q_obs`, `q_prd`           `t_msk`          `(sites, lead times, subsets, quantiles)`
 =========================  ===============  =============================================
 
-The metric returned shape is `(sites, lead times, subsets, quantiles)`.
-
 CRPS
 ----
 
