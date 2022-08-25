@@ -69,6 +69,11 @@ Required inputs     Optional inputs                       Output shape
 `q_obs`, `q_prd`     `transform`, `exponent`, `epsilon`   `({...,}, 1)`
 ==================  ====================================  =====================
 
+.. warning::
+
+   Using a log-transform for this metric is not recommended (see `Santos
+   et al., 2018 <https://doi.org/10.5194/hess-22-4583-2018>`_).
+
 
 KGEPRIME
 --------
@@ -81,3 +86,8 @@ Required inputs     Optional inputs                       Output shape
 ==================  ====================================  =====================
 `q_obs`, `q_prd`     `transform`, `exponent`, `epsilon`   `({...,}, 1)`
 ==================  ====================================  =====================
+
+.. warning::
+
+   Using a log-transform for this metric is not recommended (see `Santos
+   et al., 2018 <https://doi.org/10.5194/hess-22-4583-2018>`_).
