@@ -100,12 +100,11 @@ Calibration-Refinement Decomposition of the Brier Score (`"BS_CRD"`)
 into the three components reliability, resolution, and uncertainty
 [returned in this order].
 
-+-------------------+-----------------+---------------------------------------+
-| Required inputs   | Optional inputs | Output shape                          |
-+===================+=================+=======================================+
-| `q_obs`, `q_prd`, | `t_msk`         | `(sites, lead times, subsets,         |
-| `q_thr`           |                 | thresholds, 3)`                       |
-+-------------------+-----------------+---------------------------------------+
+=========================  ===============  =============================================
+Required inputs            Optional inputs  Output shape
+=========================  ===============  =============================================
+`q_obs`, `q_prd`, `q_thr`  `t_msk`          `(sites, lead times, subsets, thresholds, 3)`
+=========================  ===============  =============================================
 
 BS_LBD
 ------
