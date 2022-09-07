@@ -44,7 +44,7 @@ evalhyd.evalp
            masks provided.
            shape: (sites, subsets, time)
 
-           .. seealso:: :doc:`../../functionality/temporal-masking`
+           .. seealso:: :doc:`../../functionalities/temporal-masking`
 
        m_cdt: `numpy.ndarray`, optional
            2D array of conditions to generate temporal subsets. Each
@@ -57,7 +57,7 @@ evalhyd.evalp
            are returned as they are conditions provided.
            shape: (sites, subsets)
 
-           .. seealso:: :doc:`../../functionality/conditional-masking`
+           .. seealso:: :doc:`../../functionalities/conditional-masking`
 
    :Returns:
 

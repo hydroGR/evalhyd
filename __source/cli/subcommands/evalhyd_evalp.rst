@@ -155,7 +155,7 @@ Optionals
       subsets, and as many columns as there are time steps in the study
       period [shape: (subsets, time)].
 
-   .. seealso:: :doc:`../../functionality/temporal-masking`
+   .. seealso:: :doc:`../../functionalities/temporal-masking`
 
 .. option:: --m_cdt <TEXT:DIR>
 
@@ -183,7 +183,7 @@ Optionals
       Each CSV file must feature as many lines as there are temporal
       subsets, and one column [shape: (conditions, 1)].
 
-   .. seealso:: :doc:`../../functionality/conditional-masking`
+   .. seealso:: :doc:`../../functionalities/conditional-masking`
 
 .. option:: --out_dir <TEXT:DIR>
 

@@ -44,7 +44,7 @@ evalhyd::evalp
          masks provided.
          shape: (sites, subsets, time)
 
-         .. seealso:: :doc:`../../functionality/temporal-masking`
+         .. seealso:: :doc:`../../functionalities/temporal-masking`
 
    :Returns:
 

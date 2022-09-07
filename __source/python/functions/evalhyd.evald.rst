@@ -78,7 +78,7 @@ evalhyd.evald
           with both of them.
           shape: (time,) or (1+, time)
 
-          .. seealso:: :doc:`../../functionality/temporal-masking`
+          .. seealso:: :doc:`../../functionalities/temporal-masking`
 
        m_cdt: `numpy.ndarray`, optional
           1D or 2D array of masking condition(s) to use to generate
@@ -90,7 +90,7 @@ evalhyd.evald
           time series of observations can be provided.
           shape: (time,) or (1+, time)
 
-          .. seealso:: :doc:`../../functionality/conditional-masking`
+          .. seealso:: :doc:`../../functionalities/conditional-masking`
 
 
    :Returns:

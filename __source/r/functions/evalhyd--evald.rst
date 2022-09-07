@@ -73,7 +73,7 @@ evalhyd::evald
          the subset). If provided, there must be as many masks as there
          are time series of observations.
 
-         .. seealso:: :doc:`../../functionality/temporal-masking`
+         .. seealso:: :doc:`../../functionalities/temporal-masking`
 
 
    :Returns:
