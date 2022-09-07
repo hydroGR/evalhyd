@@ -3,7 +3,7 @@
 evalhyd.evalp
 =============
 
-.. function:: evalhyd.evalp(q_obs, q_prd, metrics, q_thr=[[]], t_msk=[[[]]])
+.. function:: evalhyd.evalp(q_obs, q_prd, metrics, q_thr=None, t_msk=None, m_cdt=None)
 
    Function to evaluate probabilistic streamflow predictions.
 
