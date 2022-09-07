@@ -70,6 +70,7 @@ Python bindings and R bindings, as well as a Command Line Interface (CLI).
    :maxdepth: 1
 
    metrics/index
+   functionality/index
    cpp/index
    python/index
    r/index
