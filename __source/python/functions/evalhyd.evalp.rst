@@ -36,13 +36,28 @@ evalhyd.evalp
 
        t_msk: `numpy.ndarray`, optional
            3D array of masks to generate temporal subsets of the whole
-           streamflow time series (where True/False is used for the
+           streamflow time series (where `True`/`False` is used for the
            time steps to include/discard in a given subset). If not
            provided, no subset is performed and only one set of metrics
            is returned corresponding to the whole time series. If
            provided, as many sets of metrics are returned as they are
            masks provided.
            shape: (sites, subsets, time)
+
+           .. seealso:: :doc:`../../functionality/temporal-masking`
+
+       m_cdt: `numpy.ndarray`, optional
+           2D array of conditions to generate temporal subsets. Each
+           condition consists in a string and can be specified on
+           observed streamflow values or on time indices. If provided
+           in combination with t_msk, the latter takes precedence. If
+           not provided and neither is t_msk, no subset is performed
+           and only one set of metrics is returned corresponding to
+           the whole time series. If provided, as many sets of metrics
+           are returned as they are conditions provided.
+           shape: (sites, subsets)
+
+           .. seealso:: :doc:`../../functionality/conditional-masking`
 
    :Returns:
 

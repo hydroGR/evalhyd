@@ -113,6 +113,38 @@ Optionals
    is used as value for epsilon, as recommended by `Pushpalatha et al.
    (2012) <https://doi.org/10.1016/j.jhydrol.2011.11.055>`_.
 
+.. option:: --t_msk <TEXT:FILE>
+
+   Path to CSV file containing the temporal subsets. Each subset consists
+   in a series of `0`/`1` indicating which time steps to include/discard.
+   If not provided and neither is *m_cdt*, no subset is performed. If
+   provided, as many subsets as they are observed time series must be
+   provided.
+
+   .. important::
+
+      The CSV file must feature as many lines as there are temporal
+      subsets, and as many columns as there are time steps in the study
+      period [shape: (1+, time)].
+
+   .. seealso:: :doc:`../../functionality/temporal-masking`
+
+.. option:: --m_cdt <TEXT:FILE>
+
+   Path to CSV file containing the masking conditions. Each condition
+   consists in a string and can be specified on observed streamflow or
+   on time indices. If provided in combination with *t_msk*, the latter
+   takes precedence. If not provided and neither is *t_msk*, no subset is
+   performed. If provided, as many conditions as they are observed time
+   series must be provided.
+
+   .. important::
+
+      The CSV file must feature as many lines as there are masking
+      conditions, and one column [shape: (1+, 1)].
+
+   .. seealso:: :doc:`../../functionality/conditional-masking`
+
 Examples
 --------
 

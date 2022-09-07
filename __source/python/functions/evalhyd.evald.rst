@@ -12,19 +12,19 @@ evalhyd.evald
        q_obs: `numpy.ndarray`
            1D or 2D array of streamflow observations. Time steps with
            missing observations must be assigned `numpy.nan` values.
-           Those time steps will be ignored both in the observations and
-           in the predictions before the *metrics* are computed.
-           Observations and predictions must feature the same number of
-           dimensions and they must be broadcastable.
+           Those time steps will be ignored both in the observations
+           and in the predictions before the *metrics* are computed.
+           Observations and predictions must feature the same number
+           of dimensions and they must be broadcastable.
            shape: (time,) or (1+, time)
 
        q_prd: `numpy.ndarray`
            1D or 2D array of streamflow predictions. Time steps with
            missing predictions must be assigned `numpy.nan` values.
-           Those time steps will be ignored both in the observations and
-           the predictions before the *metrics* are computed.
-           Observations and predictions must feature the same number of
-           dimensions and they must be broadcastable.
+           Those time steps will be ignored both in the observations
+           and the predictions before the *metrics* are computed.
+           Observations and predictions must feature the same number
+           of dimensions and they must be broadcastable.
            shape: (time,) or (1+, time)
 
        metrics: `List[str]`
@@ -67,6 +67,31 @@ evalhyd.evald
           is used as value for epsilon, as recommended by
           `Pushpalatha et al. (2012)
           <https://doi.org/10.1016/j.jhydrol.2011.11.055>`_.
+
+       t_msk: `numpy.ndarray`, optional
+          1D or 2D array of mask(s) used to generate temporal subsets of
+          the whole streamflow time series (where `True`/`False` is used
+          for the time steps to include/discard in a given subset). If
+          not provided and neither is *m_cdt*, no subset is performed.
+          If provided, masks must feature the same number of dimensions
+          as observations and predictions, and it must broadcastable
+          with both of them.
+          shape: (time,) or (1+, time)
+
+          .. seealso:: :doc:`../../functionality/temporal-masking`
+
+       m_cdt: `numpy.ndarray`, optional
+          1D or 2D array of masking condition(s) to use to generate
+          temporal subsets. Each condition consists in a string and
+          can be specified on observed streamflow values or on time
+          indices. If provided in combination with *t_msk*, the latter
+          takes precedence. If not provided and neither is *t_msk*, no
+          subset is performed. If provided, only one condition per
+          time series of observations can be provided.
+          shape: (time,) or (1+, time)
+
+          .. seealso:: :doc:`../../functionality/conditional-masking`
+
 
    :Returns:
 

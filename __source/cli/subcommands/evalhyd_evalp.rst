@@ -134,9 +134,9 @@ Optionals
    Path to directory where CSV files containing temporal subsets are.
    The directory must contain separate files for each site, whose
    filenames must match those found in *q_obs*. Each subset consists in
-   a series of 0/1 indicating which time steps to include/discard. If
-   not provided and neither is *m_cdt*, no subset is performed and only
-   one set of metrics is returned corresponding to the whole time
+   a series of `0`/`1` indicating which time steps to include/discard.
+   If not provided and neither is *m_cdt*, no subset is performed and
+   only one set of metrics is returned corresponding to the whole time
    series. If provided, as many sets of metrics are returned as they
    are masks provided.
 
@@ -154,6 +154,8 @@ Optionals
       Each CSV file must feature as many lines as there are temporal
       subsets, and as many columns as there are time steps in the study
       period [shape: (subsets, time)].
+
+   .. seealso:: :doc:`../../functionality/temporal-masking`
 
 .. option:: --m_cdt <TEXT:DIR>
 
@@ -181,40 +183,7 @@ Optionals
       Each CSV file must feature as many lines as there are temporal
       subsets, and one column [shape: (conditions, 1)].
 
-
-   The conditions can be specified on:
-
-   - observed streamflow with one of the following syntaxes:
-
-     .. code-block:: text
-
-        q{<opr><val>}
-        q{<opr><val>,<opr><val>}
-
-     where ``<opr>`` can be one of the following operators: `>`, `<`, `>=`,
-     `<=`, `==`, `\!=`, and where `<val>` is the observed streamflow value
-     as a floating point number. Combinations of conditions are allowed
-     and must be comma-separated inside the curly brackets. Examples of
-     valid conditions are: `q{>30}`, `q{<=10}`, `q{<=5,>35}`. Time steps
-     where observed streamflow complies with the condition(s) are included
-     in the temporal subset.
-
-   - time indices with one of the following syntaxes:
-
-     .. code-block:: text
-
-        t{<idx_#>,<idx_#>,...}
-        t{<start_idx>:<stop_idx>}
-
-     where ``<idx_#>`` is the position of the given time step to include in
-     the temporal subset (with first time step at index 0), and where
-     ``<start_idx>`` and ``<stop_idx>`` are the beginning and ending
-     positions of the time steps determining the period to include in the
-     temporal subset, respectively (with [start, stop[, i.e. start
-     included and stop excluded). Combinations of conditions are allowed
-     and must be comma-separated inside the curly brackets. Examples of
-     valid conditions are: `t{0:100}`, `t{2,3,4}`, `t{0:10,15,16}`. Note
-     that `t{0,1,2,3}` and `t{0:4}` are strictly equivalent.
+   .. seealso:: :doc:`../../functionality/conditional-masking`
 
 .. option:: --out_dir <TEXT:DIR>
 

@@ -13,7 +13,7 @@ Nash-Sutcliffe Efficiency (`"NSE"`) as per `Nash and Sutcliffe (1970)
 ==================  ====================================  =====================
 Required inputs     Optional inputs                       Output shape
 ==================  ====================================  =====================
-`q_obs`, `q_prd`     `transform`, `exponent`, `epsilon`   `({...,}, 1)`
+`q_obs`, `q_prd`    `transform`, `exponent`, `epsilon`    `({...,} 1)`
 ==================  ====================================  =====================
 
 .. tabbed:: Python
@@ -53,7 +53,7 @@ Root Mean Square Error (`"RMSE"`).
 ==================  ====================================  =====================
 Required inputs     Optional inputs                       Output shape
 ==================  ====================================  =====================
-`q_obs`, `q_prd`     `transform`, `exponent`, `epsilon`   `({...,}, 1)`
+`q_obs`, `q_prd`    `transform`, `exponent`, `epsilon`    `({...,} 1)`
 ==================  ====================================  =====================
 
 
@@ -66,7 +66,7 @@ Kling-Gupta Efficiency (`"KGE"`) as per `Gupta et al., 2009
 ==================  ====================================  =====================
 Required inputs     Optional inputs                       Output shape
 ==================  ====================================  =====================
-`q_obs`, `q_prd`     `transform`, `exponent`, `epsilon`   `({...,}, 1)`
+`q_obs`, `q_prd`    `transform`, `exponent`, `epsilon`    `({...,} 1)`
 ==================  ====================================  =====================
 
 .. warning::
@@ -84,7 +84,7 @@ Modified Kling-Gupta Efficiency (`"KGEPRIME"`) as per `Kling et al., 2012
 ==================  ====================================  =====================
 Required inputs     Optional inputs                       Output shape
 ==================  ====================================  =====================
-`q_obs`, `q_prd`     `transform`, `exponent`, `epsilon`   `({...,}, 1)`
+`q_obs`, `q_prd`    `transform`, `exponent`, `epsilon`    `({...,} 1)`
 ==================  ====================================  =====================
 
 .. warning::

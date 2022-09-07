@@ -36,13 +36,15 @@ evalhyd::evalp
 
       t_msk, optional
          A logical array of masks to generate temporal subsets of the
-         whole streamflow time series (where True/False is used for the
-         time steps to include/discard in a given subset). If not
+         whole streamflow time series (where `TRUE`/`FALSE` is used for
+         the time steps to include/discard in a given subset). If not
          provided, no subset is performed and only one set of metrics
          is returned corresponding to the whole time series. If
          provided, as many sets of metrics are returned as they are
          masks provided.
          shape: (sites, subsets, time)
+
+         .. seealso:: :doc:`../../functionality/temporal-masking`
 
    :Returns:
 

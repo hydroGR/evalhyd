@@ -29,42 +29,52 @@ evalhyd::evald
          A character vector of evaluation metrics to be computed.
 
       transform, optional
-          The transformation to apply to both streamflow observations
-          and predictions prior to the calculation of the *metrics*.
-          The options are listed in the table below.
+         The transformation to apply to both streamflow observations
+         and predictions prior to the calculation of the *metrics*.
+         The options are listed in the table below.
 
-          ========================  ==================================
-          transformations           details
-          ========================  ==================================
-          ``"sqrt"``                The square root function
-                                    **f(Q) = √Q** is applied.
-          ``"pow"``                 The power function
-                                    **f(Q) = Qⁿ** is applied (where
-                                    the power **n** can be set through
-                                    the *exponent* parameter).
-          ``"inv"``                 The reciprocal function
-                                    **f(Q) = 1/Q** is applied.
-          ``"log"``                 The natural logarithm function
-                                    **f(Q) = ln(Q)** is applied.
-          ========================  ==================================
+         ========================  ==================================
+         transformations           details
+         ========================  ==================================
+         ``"sqrt"``                The square root function
+                                   **f(Q) = √Q** is applied.
+         ``"pow"``                 The power function
+                                   **f(Q) = Qⁿ** is applied (where
+                                   the power **n** can be set through
+                                   the *exponent* parameter).
+         ``"inv"``                 The reciprocal function
+                                   **f(Q) = 1/Q** is applied.
+         ``"log"``                 The natural logarithm function
+                                   **f(Q) = ln(Q)** is applied.
+         ========================  ==================================
 
-       exponent, optional
-          The value of the exponent n to use when the *transform* is
-          the power function. If not provided (or set to default value
-          1), the streamflow observations and predictions remain
-          untransformed.
+      exponent, optional
+         The value of the exponent n to use when the *transform* is
+         the power function. If not provided (or set to default value
+         1), the streamflow observations and predictions remain
+         untransformed.
 
-       epsilon, optional
-          The value of the small constant ε to add to both the
-          streamflow observations and predictions prior to the
-          calculation of the *metrics* when the *transform* is the
-          reciprocal function, the natural logarithm, or the power
-          function with a negative exponent (since none are defined
-          for 0). If not provided (or set to default value -9),
-          one hundredth of the mean of the streamflow observations
-          is used as value for epsilon, as recommended by
-          `Pushpalatha et al. (2012)
-          <https://doi.org/10.1016/j.jhydrol.2011.11.055>`_.
+      epsilon, optional
+         The value of the small constant ε to add to both the
+         streamflow observations and predictions prior to the
+         calculation of the *metrics* when the *transform* is the
+         reciprocal function, the natural logarithm, or the power
+         function with a negative exponent (since none are defined
+         for 0). If not provided (or set to default value -9),
+         one hundredth of the mean of the streamflow observations
+         is used as value for epsilon, as recommended by
+         `Pushpalatha et al. (2012)
+         <https://doi.org/10.1016/j.jhydrol.2011.11.055>`_.
+
+      t_msk, optional
+         A logical vector (or logical array) of mask(s) to use to
+         temporally subset of the whole streamflow time series (where
+         `TRUE`/`FALSE` is used for the time steps to include/discard in
+         the subset). If provided, there must be as many masks as there
+         are time series of observations.
+
+         .. seealso:: :doc:`../../functionality/temporal-masking`
+
 
    :Returns:
 
