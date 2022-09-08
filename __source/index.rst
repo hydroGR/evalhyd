@@ -75,7 +75,7 @@ implemented in the C++ core.
    :maxdepth: 1
 
    metrics/index
-   functionality/index
+   functionalities/index
    cpp/index
    python/index
    r/index
