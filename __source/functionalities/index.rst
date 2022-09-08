@@ -1,8 +1,8 @@
 .. currentmodule:: evalhyd
 .. default-role:: obj
 
-Functionality
-=============
+Functionalities
+===============
 
 .. toctree::
    :maxdepth: 2
