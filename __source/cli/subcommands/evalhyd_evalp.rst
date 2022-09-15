@@ -131,23 +131,38 @@ Optionals
 
 .. option:: --t_msk <TEXT:DIR>
 
-   Path to directory where CSV files containing temporal subsets are.
-   The directory must contain separate files for each site, whose
-   filenames must match those found in *q_obs*. Each subset consists in
-   a series of `0`/`1` indicating which time steps to include/discard.
-   If not provided and neither is *m_cdt*, no subset is performed and
-   only one set of metrics is returned corresponding to the whole time
-   series. If provided, as many sets of metrics are returned as they
-   are masks provided.
+   Path to directory where CSV files containing temporal subsets are,
+   whose structure must be the same as for *q_prd* to distinguish each
+   leadtime and each site:
 
    .. code-block:: text
       :caption: Directory structure to follow for temporal masks.
 
       <t_msk>
-      ├── site_a.csv
-      ├── site_b.csv
+      ├── leadtime_1
+      │   ├── site_a.csv
+      │   ├── site_b.csv
+      │   ┆   ···
+      │   └── site_z.csv
+      ├── leadtime_2
+      │   ├── site_a.csv
+      │   ├── site_b.csv
+      │   ┆   ···
+      │   └── site_z.csv
       ┆   ···
-      └── site_z.csv
+      └── leadtime_9
+          ├── site_a.csv
+          ├── site_b.csv
+          ┆   ···
+          └── site_z.csv
+
+   The leadtime sub-directories must contain separate files for each
+   site, whose filenames must match those found in *q_prd*. Each subset
+   consists in a series of `0`/`1` indicating which time steps to
+   include/discard. If not provided and neither is *m_cdt*, no subset is
+   performed and only one set of metrics is returned corresponding to
+   the whole time series. If provided, as many sets of metrics are
+   returned as they are masks provided.
 
    .. important::
 
@@ -162,12 +177,13 @@ Optionals
    Path to directory where CSV files containing masking conditions are.
    The directory must contain separate files for each site, whose
    filenames must match those found in *q_obs*. Each condition consists
-   in a string and can be specified on observed streamflow or on time
-   indices. If provided in combination with *t_msk*, the latter takes
-   precedence. If not provided and neither is *t_msk*, no subset is
-   performed and only one set of metrics is returned corresponding to
-   the whole time series. If provided, as many sets of metrics are
-   returned as they are conditions provided.
+   in a string and can be specified on observed/predicted streamflow
+   values/statistics (mean, median, quantile), or on time indices. If
+   provided in combination with *t_msk*, the latter takes precedence.
+   If not provided and neither is *t_msk*, no subset is performed and
+   only one set of metrics is returned corresponding to the whole time
+   series. If provided, as many sets of metrics are returned as they are
+   conditions provided.
 
    .. code-block:: text
       :caption: Directory structure to follow for masking conditions.
@@ -226,4 +242,4 @@ Examples
 .. code-block:: console
 
    $ ./evalhyd evalp "./q_obs" "./q_prd" "CRPS" --t_msk "./t_msk"
-   {{{ 0.215054}}}
+   {{{ 0.1875}}}

@@ -83,11 +83,12 @@ evalhyd.evald
        m_cdt: `numpy.ndarray`, optional
           1D or 2D array of masking condition(s) to use to generate
           temporal subsets. Each condition consists in a string and
-          can be specified on observed streamflow values or on time
-          indices. If provided in combination with *t_msk*, the latter
-          takes precedence. If not provided and neither is *t_msk*, no
-          subset is performed. If provided, only one condition per
-          time series of observations can be provided.
+          can be specified on observed streamflow values/statistics
+          (mean, median, quantile), or on time indices. If provided in
+          combination with *t_msk*, the latter takes precedence. If not
+          provided and neither is *t_msk*, no subset is performed. If
+          provided, only one condition per time series of observations
+          can be provided.
           shape: (time,) or (1+, time)
 
           .. seealso:: :doc:`../../functionalities/conditional-masking`

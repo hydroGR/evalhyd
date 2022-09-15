@@ -22,21 +22,40 @@ masking. It generates temporal subsets from user-provided conditions.
 
 The conditions can be specified on:
 
-- observed streamflow with one of the following syntaxes:
+- observed/predicted streamflow variables with one of the following syntaxes:
 
   .. code-block:: text
 
-     q{<opr><val>}
-     q{<opr><val>,<opr><val>}
+     <var>{<opr><val>}
+     <var>{<opr><val>,<opr><val>}
 
-  where ``<opr>`` can be one of the following operators: `>`, `<`, `>=`,
-  `<=`, `==`, `\!=`, and where `<val>` is the observed streamflow value
-  as a floating point number. Combinations of two conditions are allowed
-  and must be comma-separated inside the curly brackets. Examples of
-  valid conditions are: `q{>30}`, `q{<=10}`, `q{<=5,>35}`. Time steps
-  where observed streamflow complies with the condition(s) are included
-  in the temporal subset. Note that `q{<=5,>35}` and `q{>5,<=35}` are
-  complement conditions of one another.
+  where:
+
+  - ``<var>`` can be `q_obs` (and `q_prd_median` or `q_prd_mean` for
+    probabilist evaluation, corresponding to the median or the mean
+    across the ensemble members of the predictions, respectively) ;
+  - ``<opr>`` can be one of the following operators: `>`, `<`, `>=`,
+    `<=`, `==`, `\!=` ;
+  - ``<val>`` can be the streamflow value as a floating point number or
+    as a statistic (`mean`, `median`, `quantile#`) applied on ``<var>``.
+
+  .. raw:: html
+
+   <br/>
+
+  Combinations of two conditions are allowed and must be comma-separated
+  inside the curly brackets.
+
+  Examples of valid conditions are: `q_obs{>30}`, `q_prd_median{<=10}`,
+  `q_prd_mean{<=5,>35}`, `q_obs{>mean}`, `q_prd_median{<=quantile0.7}`.
+
+  Time steps where the streamflow variable complies with the condition(s)
+  are included in the temporal subset.
+
+  .. note::
+
+     `q_obs{<=5,>35}` and `q_obs{>5,<=35}` are complement conditions of
+     one another.
 
   To illustrate, see the examples below.
 
@@ -44,11 +63,25 @@ The conditions can be specified on:
 
      observations     351         367         377         378         330         324
      -------------------------------------------------------------------------------------
-     condition        q{>=330,<370}
+     condition        q_obs{>=330,<370}
      mask             True        True        False       False       True        False
      -------------------------------------------------------------------------------------
-     condition        q{<360}
+     condition        q_obs{<360}
      mask             True        False       False       False       True        True
+
+  .. code-block:: text
+
+     predictions
+
+     1st member       312         335         358         342         328         335
+     2nd member       315         341         364         351         332         333
+     3rd member       306         359         358         327         327         328
+
+     mean             311         345         360         340        [329]        332
+     -------------------------------------------------------------------------------------
+     condition        q_prd_mean{>quantile0.2}
+     mask             False       True        True        True        False       True
+
 
 - time indices with one of the following syntaxes:
 
@@ -57,15 +90,27 @@ The conditions can be specified on:
      t{<idx_#>,<idx_#>,...}
      t{<start_idx>:<stop_idx>}
 
-  where ``<idx_#>`` is the position of the given time step to include in
-  the temporal subset (with first time step at index 0), and where
-  ``<start_idx>`` and ``<stop_idx>`` are the beginning and ending
-  positions of the time steps determining the period to include in the
-  temporal subset, respectively (with [start, stop[, i.e. start
-  included and stop excluded). Combinations of conditions are allowed
-  and must be comma-separated inside the curly brackets. Examples of
-  valid conditions are: `t{0:100}`, `t{2,3,4}`, `t{0:10,15,16}`. Note
-  that `t{0,1,2,3}` and `t{0:4}` are strictly equivalent.
+  where:
+
+  - ``<idx_#>`` is the position of the given time step to include in
+    the temporal subset (with first time step at index `0`) ;
+  - where ``<start_idx>`` and ``<stop_idx>`` are the beginning and ending
+    positions of the time steps determining the period to include in the
+    temporal subset, respectively (with [start, stop[, i.e. start
+    included and stop excluded).
+
+  .. raw:: html
+
+   <br/>
+
+  Combinations of conditions are allowed and must be comma-separated
+  inside the curly brackets.
+
+  Examples of valid conditions are: `t{0:100}`, `t{2,3,4}`, `t{0:10,15,16}`.
+
+  .. note::
+
+     `t{0,1,2,3}` and `t{0:4}` are strictly equivalent.
 
   To illustrate, see the examples below.
 

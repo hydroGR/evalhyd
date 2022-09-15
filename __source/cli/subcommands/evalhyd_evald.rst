@@ -132,11 +132,12 @@ Optionals
 .. option:: --m_cdt <TEXT:FILE>
 
    Path to CSV file containing the masking conditions. Each condition
-   consists in a string and can be specified on observed streamflow or
-   on time indices. If provided in combination with *t_msk*, the latter
-   takes precedence. If not provided and neither is *t_msk*, no subset is
-   performed. If provided, as many conditions as they are observed time
-   series must be provided.
+   consists in a string and can be specified on observed streamflow
+   values/statistics (mean, median, quantile), or on time indices. If
+   provided in combination with *t_msk*, the latter takes precedence. If
+   not provided and neither is *t_msk*, no subset is performed. If
+   provided, as many conditions as they are observed time series must
+   be provided.
 
    .. important::
 

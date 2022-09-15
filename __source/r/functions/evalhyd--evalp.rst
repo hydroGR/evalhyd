@@ -42,7 +42,7 @@ evalhyd::evalp
          is returned corresponding to the whole time series. If
          provided, as many sets of metrics are returned as they are
          masks provided.
-         shape: (sites, subsets, time)
+         shape: (sites, lead times, subsets, time)
 
          .. seealso:: :doc:`../../functionalities/temporal-masking`
 
@@ -87,4 +87,4 @@ evalhyd::evalp
       .. code-block:: rconsole
 
          > evalhyd::evalp(obs, prd, c("CRPS"))[[1]][1,1,]
-         [1] 0.2419355
+         [1] 0.1875
