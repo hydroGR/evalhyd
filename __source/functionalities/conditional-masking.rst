@@ -31,13 +31,15 @@ The conditions can be specified on:
 
   where:
 
-  - ``<var>`` can be `q_obs` (and `q_prd_median` or `q_prd_mean` for
-    probabilist evaluation, corresponding to the median or the mean
-    across the ensemble members of the predictions, respectively) ;
+  - ``<var>`` is the streamflow variable to use to generate the mask and
+    can be the observed streamflow `q_obs` (and, for probabilist evaluation
+    only, the median or the mean across the predicted ensemble members
+    `q_prd_median` or `q_prd_mean`, respectively) ;
   - ``<opr>`` can be one of the following operators: `>`, `<`, `>=`,
     `<=`, `==`, `\!=` ;
-  - ``<val>`` can be the streamflow value as a floating point number or
-    as a statistic (`mean`, `median`, `quantile#`) applied on ``<var>``.
+  - ``<val>`` is the streamflow value to use to condition the mask and
+    can be a given numerical value or a statistic applied on ``<var>``
+    (`mean`, `median`, or `quantile#` supported).
 
   .. raw:: html
 
@@ -94,7 +96,7 @@ The conditions can be specified on:
 
   - ``<idx_#>`` is the position of the given time step to include in
     the temporal subset (with first time step at index `0`) ;
-  - where ``<start_idx>`` and ``<stop_idx>`` are the beginning and ending
+  - ``<start_idx>`` and ``<stop_idx>`` are the beginning and ending
     positions of the time steps determining the period to include in the
     temporal subset, respectively (with [start, stop[, i.e. start
     included and stop excluded).

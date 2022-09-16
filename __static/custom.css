@@ -181,7 +181,7 @@ div.topic {
 
 /* override style for permalink */
 a.headerlink{
-    color:rgba(var(--pst-color-text-base),1);
+    color:var(--pst-color-text-base);
     text-align: center;
     padding-left: 10px;
     font-size: 14px;
@@ -189,13 +189,13 @@ a.headerlink{
 }
 a.headerlink:hover{
     background-color: transparent;
-    color:rgba(var(--pst-color-headerlink-hover),1);
+    color:var(--pst-color-headerlink-hover);
     border-bottom: hidden;
 }
 
 /* override style for hyperlinks in paragraphs */
 a {
-    color: rgba(var(--pst-color-text-base),1);
+    color: var(--pst-color-text-base);
     border-bottom: 1px dotted;
 }
 
@@ -215,13 +215,13 @@ nav a.list-group-item , nav a.list-group-item:hover {
 }
 
 p a, .code-block-caption a code.literal {
-    color: rgba(var(--pst-color-text-base),1);
+    color: var(--pst-color-text-base);
     border-bottom: 1px dotted;
 }
 
 p a:hover, .code-block-caption a:hover code.literal {
     text-decoration: none;
-    color: rgba(var(--pst-color-link-hover),1);
+    color: var(--pst-color-link-hover);
     border-bottom: 1px solid;
 }
 
@@ -229,17 +229,17 @@ p a:hover, .code-block-caption a:hover code.literal {
 code.literal{
     font-size: 95%;
     font-weight: normal;
-    color: rgba(var(--pst-color-inline-code),1);
+    color: var(--pst-color-inline-code);
 }
 a code.literal{
     font-size: 95%;
     font-weight: normal;
-    color: rgba(var(--pst-color-inline-code),1);
+    color: var(--pst-color-inline-code);
 }
 a:hover code.literal{
     font-size: 95%;
     font-weight: normal;
-    color: rgba(var(--pst-color-link-hover),1);
+    color: var(--pst-color-link-hover);
 }
 
 /* override style for tables */
