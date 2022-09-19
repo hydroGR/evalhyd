@@ -125,6 +125,9 @@ The conditions can be specified on:
      -------------------------------------------------------------------------------------
      condition        t{1:4}
      mask             False       True        True        True        False       False
+     -------------------------------------------------------------------------------------
+     condition        t{:}
+     mask             True        True        True        True        True        True
 
 .. _determinist-only
 
