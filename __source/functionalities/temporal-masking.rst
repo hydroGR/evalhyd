@@ -23,8 +23,8 @@ before the temporal summary statistic is performed for each sub-period
 including the relevant time steps.
 
 A temporal mask consists in a vector of boolean values of the same length
-as the study period where ``True`` (or `0`) values indicate time steps to
-include in the temporal subset, and ``False`` (or `1`) values indicate time
+as the study period where ``True`` (or `1`) values indicate time steps to
+include in the temporal subset, and ``False`` (or `0`) values indicate time
 steps to exclude in the temporal subset.
 
 To illustrate, let's look at the simple dataset provided below.
