@@ -7,7 +7,7 @@ A polyglot evaluator for streamflow predictions
 `evalhyd` is a software stack to evaluate deterministic and probabilistic
 streamflow predictions. It features a :doc:`core library in C++ <cpp/index>`
 where all the evaluation :doc:`metrics <metrics/index>` and the required
-:doc:`functionality <functionality/index>` are implemented. It comes with
+:doc:`functionalities <functionalities/index>` are implemented. It comes with
 :doc:`Python bindings <python/index>` and :doc:`R bindings <r/index>`,
 as well as a :doc:`Command Line Interface (CLI) <cli/index>`, all giving
 access through very similar interfaces to the same metrics and functionality
