@@ -68,3 +68,18 @@ over:
 
       $ ./evalhyd evald "obs.csv" "prd.csv" "NSE"
       $ ./evalhyd evald "obs.csv" "prd.csv" "KGE"
+
+In addition, most evaluation metrics first perform intermediate computations
+on each time step individually (e.g. errors between individual observations
+and their corresponding predictions), before performing some reduction
+across all time steps (e.g. arithmetic mean of these individual errors).
+
+If different subset periods of the entire study period are needed (i.e.
+using the :doc:`temporal masking <conditional-masking>` or the
+:doc:`conditional masking <conditional-masking>` functionality), and these
+sub-periods happen to overlap, it is recommended to provide several masks
+at once to `evalhyd` rather than one mask at a time. Indeed, `evalhyd`
+applies the masks only after the intermediate computations on individual
+time steps are computed, optimisation the computation time by avoiding
+performing these intermediate computations on the same time steps several
+times.
