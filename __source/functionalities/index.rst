@@ -7,6 +7,7 @@ Functionalities
 .. toctree::
    :maxdepth: 2
 
+   memoisation
    missing-data
    temporal-masking
    conditional-masking
