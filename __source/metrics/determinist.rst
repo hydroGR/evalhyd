@@ -24,7 +24,7 @@ Required inputs     Optional inputs                       Output shape
       ... obs = numpy.array([4.7, 4.3, 5.5, 2.7])
       ... prd = numpy.array([5.3, 4.2, 5.7, 2.3])
       >>> import evalhyd
-      ... evalhyd.evald((obs, prd, ["NSE"])
+      ... evalhyd.evald(obs, prd, ["NSE"])
       [array([0.86298077])]
 
 .. tabbed:: R
