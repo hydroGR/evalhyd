@@ -5,10 +5,11 @@ Functionalities
 ===============
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    memoisation
    missing-data
    temporal-masking
    conditional-masking
    bootstrapping
+   transformation

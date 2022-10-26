@@ -80,22 +80,8 @@ Optionals
 
    The transformation to apply to both streamflow observations
    and predictions prior to the calculation of the *metrics*.
-   The options are listed in the table below.
 
-   ========================  ==================================
-   transformations           details
-   ========================  ==================================
-   ``"sqrt"``                The square root function
-                             **f(Q) = √Q** is applied.
-   ``"pow"``                 The power function
-                             **f(Q) = Qⁿ** is applied (where
-                             the power **n** can be set through
-                             the *exponent* parameter).
-   ``"inv"``                 The reciprocal function
-                             **f(Q) = 1/Q** is applied.
-   ``"log"``                 The natural logarithm function
-                             **f(Q) = ln(Q)** is applied.
-   ========================  ==================================
+   .. seealso:: :doc:`../../functionalities/transformation`
 
 .. option:: --exponent <FLOAT>
 
