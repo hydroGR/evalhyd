@@ -11,3 +11,4 @@ Functionalities
    missing-data
    temporal-masking
    conditional-masking
+   bootstrapping

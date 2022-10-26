@@ -15,7 +15,8 @@ evalhyd::evald
          values. Those time steps will be ignored both in the
          observations and in the predictions before the *metrics* are
          computed. Observations and predictions must feature the same
-         number of dimensions and they must be broadcastable.
+         number of dimensions.
+         shape: (time,) or (1, time)
 
       q_prd
          A numeric vector (or numeric matrix) of streamflow prediction.
@@ -23,10 +24,12 @@ evalhyd::evald
          values. Those time steps will be ignored both in the
          observations and in the predictions before the *metrics* are
          computed. Observations and predictions must feature the same
-         number of dimensions and they must be broadcastable.
+         number of dimensions.
+         shape: (time,) or (series, time)
 
       metrics
          A character vector of evaluation metrics to be computed.
+         shape: (metrics,)
 
       transform, optional
          The transformation to apply to both streamflow observations
@@ -67,13 +70,41 @@ evalhyd::evald
          <https://doi.org/10.1016/j.jhydrol.2011.11.055>`_.
 
       t_msk, optional
-         A logical vector (or logical array) of mask(s) to use to
-         temporally subset of the whole streamflow time series (where
-         `TRUE`/`FALSE` is used for the time steps to include/discard in
-         the subset). If provided, there must be as many masks as there
-         are time series of observations.
+         A logical array of mask(s) to use to temporally subset of the
+         whole streamflow time series (where `TRUE`/`FALSE` is used for
+         the time steps to include/discard in the subset).
+         shape: (subsets, time)
 
          .. seealso:: :doc:`../../functionalities/temporal-masking`
+
+      bootstrap, optional
+         The values for the parameters of the bootstrapping method used
+         to estimate the sampling uncertainty in the evaluation of the
+         predictions. Three parameters are mandatory: `"n_samples"`
+         the number of random samples, `"len_samples"` the length of
+         one sample in number of years; `"summary"` the statistics to
+         return to characterise the sampling distribution. One
+         parameter is optional: `"seed"` the seed for the random
+         generator. If not provided, no bootstrapping is performed. If
+         provided, *dts* must also be provided.
+
+         *Parameter example:*
+
+         .. code-block:: r
+
+            bootstrap=list(n_samples=100, len_sample=10, summary=0)
+
+         .. seealso:: :doc:`../../functionalities/bootstrapping`
+
+      dts, optional
+         A string vector of corresponding dates and times for the
+         temporal dimension of the streamflow observations and
+         predictions. The date and time must be specified in a string
+         following the ISO 8601-1:2019 standard, i.e.
+         "YYYY-MM-DD hh:mm:ss" (e.g. the 21st of May 2007 at 4 in the
+         afternoon is "2007-05-21 16:00:00"). If provided, it is only
+         used if *bootstrap* is also provided.
+         shape: (time,)
 
 
    :Returns:
@@ -90,7 +121,10 @@ evalhyd::evald
          > library(evalhyd)
          > evalhyd::evald(obs, prd, c("NSE"))
          [[1]]
-         [1] 0.6254771
+         , , 1
+
+                   [,1]
+         [1,] 0.6254771
 
       .. code-block:: rconsole
 
@@ -104,6 +138,41 @@ evalhyd::evald
          + )
          > evalhyd::evald(obs, prd, c("NSE"))
          [[1]]
+         , , 1
+
+                    [,1]
+         [1,] 0.62547710
+         [2,] 0.04341603
+         [3,] 0.66364504
+
+      .. code-block:: rconsole
+
+         > evalhyd::evald(obs, prd, c("NSE"), transform="sqrt")
+         [[1]]
+         , , 1
+
+                      [,1]
+         [1,]  0.603380063
+         [2,] -0.006810629
+         [3,]  0.697280893
+
+      .. code-block:: rconsole
+
+         > evalhyd::evald(obs, prd, c("NSE"), transform="log", epsilon=.5)
+         [[1]]
+         , , 1
+
+                     [,1]
+         [1,]  0.58134179
+         [2,] -0.04589215
+         [3,]  0.71432742
+
+      .. code-block:: rconsole
+
+         > evalhyd::evald(obs, prd, c("NSE"), transform="pow", epsilon=.8)
+         [[1]]
+         , , 1
+
                     [,1]
          [1,] 0.62547710
          [2,] 0.04341603

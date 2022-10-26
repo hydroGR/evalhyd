@@ -60,13 +60,42 @@ evalhyd.evalp
 
            .. seealso:: :doc:`../../functionalities/conditional-masking`
 
+       bootstrap: `dict`, optional
+          The values for the parameters of the bootstrapping method used
+          to estimate the sampling uncertainty in the evaluation of the
+          predictions. Three parameters are mandatory: `"n_samples"`
+          the number of random samples, `"len_samples"` the length of
+          one sample in number of years; `"summary"` the statistics to
+          return to characterise the sampling distribution. One
+          parameter is optional: `"seed"` the seed for the random
+          generator. If not provided, no bootstrapping is performed. If
+          provided, *dts* must also be provided.
+
+          *Parameter example:*
+
+          .. code-block:: python
+
+             bootstrap={"n_samples": 100, "len_sample": 10, "summary": 0}
+
+          .. seealso:: :doc:`../../functionalities/bootstrapping`
+
+       dts: `List[str]`, optional
+          The sequence of corresponding dates and times for the
+          temporal dimension of the streamflow observations and
+          predictions. The date and time must be specified in a string
+          following the ISO 8601-1:2019 standard, i.e.
+          "YYYY-MM-DD hh:mm:ss" (e.g. the 21st of May 2007 at 4 in the
+          afternoon is "2007-05-21 16:00:00"). If provided, it is only
+          used if *bootstrap* is also provided.
+          shape: (time,)
+
    :Returns:
 
        `List[numpy.ndarray]`
            The sequence of evaluation metrics computed
            in the same order as given in *metrics*.
-           shape: [(sites, lead times, subsets, {quantiles,} {thresholds,}
-           {components}), ...]
+           shape: [(sites, lead times, subsets, samples ,{quantiles,}
+           {thresholds,} {components}), ...]
 
    :Examples:
 
@@ -83,11 +112,11 @@ evalhyd.evalp
 
       >>> bs, bs_lbd = evalhyd.evalp(obs, prd, ['BS', 'BS_LBD'], [[4., 5.]])
       >>> print(bs)
-      [[[[0.22222222 0.13333333]]]]
+      [[[[[0.22222222 0.13333333]]]]]
       >>> print(bs_lbd)
-      [[[[[0.07222222 0.02777778 0.17777778]
-          [0.07222222 0.02777778 0.08888889]]]]]
+      [[[[[[0.07222222 0.02777778 0.17777778]
+           [0.07222222 0.02777778 0.08888889]]]]]]
 
       >>> crps, = evalhyd.evalp(obs, prd, ['CRPS'])
       >>> print(crps)
-      [[[0.1875]]]
+      [[[[0.1875]]]]

@@ -26,10 +26,8 @@ Positionals
 
    .. important::
 
-      The CSV file must feature one line or more (if more, the number of
-      lines must be the same as in the predictions file, unless this one
-      features only one line) and as many columns as there are time
-      steps in the study period [shape: (1+, time)].
+      The CSV file must feature one line and as many columns as there
+      are time steps in the study period [shape: (1, time)].
 
 
 .. option:: q_prd <TEXT:FILE>
@@ -41,10 +39,8 @@ Positionals
 
    .. important::
 
-      The CSV file must feature one line or more (if more, the number of
-      lines must be the same as in the observations file, unless this one
-      features only one line) and as many columns as there are time
-      steps in the study period [shape: (1+, time)].
+      The CSV file must feature one line or more and as many columns as
+      there are time steps in the study period [shape: (series, time)].
 
 .. option:: metrics <TEXT ...>
 
@@ -52,9 +48,14 @@ Positionals
 
    .. note::
 
-      For each computed metric, the output shape is (1+, 1), i.e. as
-      many lines as the maximum number of lines between the
-      observations and the predictions, and one column.
+      For each computed metric, the output shape is (series, subsets,
+      samples). Since CSV files are intrinsically two-dimensional (i.e.
+      lines and columns), the series are stacked on one another. For
+      example, the output shape (2 series, 4 subsets, 3 samples) is
+      stored into a CSV file containing eight lines and three columns
+      (where the four first lines correspond to the four subsets and
+      three samples of the first series, and the last four lines
+      correspond to those of the second series).
 
 Optionals
 ---------
@@ -125,7 +126,7 @@ Optionals
 
       The CSV file must feature as many lines as there are temporal
       subsets, and as many columns as there are time steps in the study
-      period [shape: (1+, time)].
+      period [shape: (subsets, time)].
 
    .. seealso:: :doc:`../../functionalities/temporal-masking`
 
@@ -142,9 +143,40 @@ Optionals
    .. important::
 
       The CSV file must feature as many lines as there are masking
-      conditions, and one column [shape: (1+, 1)].
+      conditions [shape: (subsets,)].
 
    .. seealso:: :doc:`../../functionalities/conditional-masking`
+
+.. option:: --bootstrap <TEXT ...>
+
+   The values for the parameters of the bootstrapping method used to
+   estimate the sampling uncertainty in the evaluation of the
+   predictions. Three parameters are mandatory: `"n_samples"` the
+   number of random samples; `"len_samples"` the length of one sample
+   in number of years; `"summary"` the statistics to return to
+   characterise the sampling distribution. One parameter is optional:
+   `"seed"` the seed for the random generator. If not provided, no
+   bootstrapping is performed. If provided, *dts* must also be provided.
+
+   *Parameter example:* ::
+
+    --bootstrap "n_samples" 100 "len_sample" 10 "summary" 0
+
+   .. seealso:: :doc:`../../functionalities/bootstrapping`
+
+.. option:: --dts <TEXT:FILE>
+
+   Path to CSV file containing the corresponding dates and times for the
+   temporal dimension of the streamflow observations and predictions.
+   The date and time must be specified in a string following the
+   ISO 8601-1:2019 standard, i.e. "YYYY-MM-DD hh:mm:ss" (e.g. the
+   21st of May 2007 at 4 in the afternoon is "2007-05-21 16:00:00").
+   If provided, it is only used if *bootstrap* is also provided.
+
+   .. important::
+
+      The CSV file must feature as many columns as there are time steps
+      in the evaluation period [shape: (time,)].
 
 Examples
 --------
@@ -152,16 +184,16 @@ Examples
 .. code-block:: console
 
    $ ./evalhyd evald "q_obs.csv" "q_prd.csv" "NSE"
-   {{ 0.625477},
-    { 0.043416},
-    { 0.663645}}
+   {{{ 0.625477}},
+    {{ 0.043416}},
+    {{ 0.663645}}}
 
 .. code-block:: console
 
    $ ./evalhyd evald "q_obs.csv" "q_prd.csv" "NSE" --transform "sqrt"
-   {{ 0.60338 },
-    {-0.006811},
-    { 0.697281}}
+   {{{ 0.60338 }},
+    {{-0.006811}},
+    {{ 0.697281}}}
 
 .. code-block:: console
 
@@ -173,6 +205,13 @@ Examples
 .. code-block:: console
 
    $ ./evalhyd evald "q_obs.csv" "q_prd.csv" "NSE" --transform "pow" --exponent .8
-   {{ 0.617575},
-    { 0.023426},
-    { 0.67871 }}
+   {{{ 0.617575}},
+    {{ 0.023426}},
+    {{ 0.67871 }}}
+
+.. code-block:: console
+
+   $ ./evalhyd evald "q_obs.csv" "q_prd.csv" "NSE" --bootstrap "n_samples" 5 "len_sample" 10 "summary" 0 --dts "dts.csv"
+   {{{ 0.625477,  0.625477,  0.625477,  0.625477,  0.625477}},
+    {{ 0.043416,  0.043416,  0.043416,  0.043416,  0.043416}},
+    {{ 0.663645,  0.663645,  0.663645,  0.663645,  0.663645}}}

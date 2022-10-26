@@ -1,0 +1,49 @@
+.. currentmodule:: evalhyd
+.. default-role:: obj
+
+Bootstrapping
+=============
+
+.. image:: https://img.shields.io/badge/-determinist-275662?style=flat-square
+   :alt: determinist
+
+.. image:: https://img.shields.io/badge/-probabilist-275662?style=flat-square
+   :alt: probabilist
+
+A bootstrapping method is available in `evalhyd` to assess the sampling
+uncertainty in the evaluation metrics computed. It follows a non-overlapping
+block bootstrapping approach (see e.g. `Clark et al. (2021)
+<https://doi.org/10.1029/2020WR029001>`_) where block are taken to be
+hydrological years of data. For a given period, the bootstrap method
+randomly draws with replacement from the hydrological years it contains.
+
+This allows for the estimation of the sampling uncertainty of the
+evaluation metrics, i.e. the influence of the choice of the study period
+on the metric values.
+
+The bootstrap method is configurable through four parameters:
+
+============  ===========================  ========================  ==========
+parameter     description                  possible values           mandatory?
+============  ===========================  ========================  ==========
+`n_samples`   the number of random         any integer               yes
+              samples to generate
+`len_sample`  the length of one sample     any integer               yes
+              in number of blocks (i.e.
+              hydrological years)
+`summary`     the statistics to summarise  `0` (for no summary)      yes
+              the sampling distribution
+              (i.e. across the samples)
+`seed`        the seed for the random      any integer               no
+              generator
+============  ===========================  ========================  ==========
+
+..
+   `summary`     the statistics to summarise  `0` (for no summary),     yes
+                 the sampling distribution    `1` (for mean & standard
+                 (i.e. across the samples)    deviation), or `2` (for
+                                              percentiles 5, 10, 15,
+                                              25, 50, 75, 85, 90, 95)
+
+Note that since the sampling is performed with replacement, the number of
+samples and the length of a sample have no upper limit.

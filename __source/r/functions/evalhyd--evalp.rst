@@ -46,6 +46,35 @@ evalhyd::evalp
 
          .. seealso:: :doc:`../../functionalities/temporal-masking`
 
+      bootstrap, optional
+         The values for the parameters of the bootstrapping method used
+         to estimate the sampling uncertainty in the evaluation of the
+         predictions. Three parameters are mandatory: `"n_samples"`
+         the number of random samples, `"len_samples"` the length of
+         one sample in number of years; `"summary"` the statistics to
+         return to characterise the sampling distribution. One
+         parameter is optional: `"seed"` the seed for the random
+         generator. If not provided, no bootstrapping is performed. If
+         provided, *dts* must also be provided.
+
+         *Parameter example:*
+
+         .. code-block:: r
+
+            bootstrap=list(n_samples=100, len_sample=10, summary=0)
+
+         .. seealso:: :doc:`../../functionalities/bootstrapping`
+
+      dts, optional
+         A string vector of corresponding dates and times for the
+         temporal dimension of the streamflow observations and
+         predictions. The date and time must be specified in a string
+         following the ISO 8601-1:2019 standard, i.e.
+         "YYYY-MM-DD hh:mm:ss" (e.g. the 21st of May 2007 at 4 in the
+         afternoon is "2007-05-21 16:00:00"). If provided, it is only
+         used if *bootstrap* is also provided.
+         shape: (time,)
+
    :Returns:
 
       A list of numeric arrays containing evaluation metrics
@@ -77,14 +106,14 @@ evalhyd::evalp
 
          > library(evalhyd)
          > results = evalhyd::evalp(obs, prd, c("BS", "BS_LBD"), thr)
-         > results[[1]][1,1,1,]  # BS
+         > results[[1]][1,1,1,1,]  # BS
          [1] 0.2222222 0.1333333
-         > results[[2]][1,1,1,,]  # BS_LBD
+         > results[[2]][1,1,1,1,,]  # BS_LBD
                     [,1]       [,2]       [,3]
          [1,] 0.07222222 0.02777778 0.17777778
          [2,] 0.07222222 0.02777778 0.08888889
 
       .. code-block:: rconsole
 
-         > evalhyd::evalp(obs, prd, c("CRPS"))[[1]][1,1,]
+         > evalhyd::evalp(obs, prd, c("CRPS"))[[1]][1,1,1,]
          [1] 0.1875
