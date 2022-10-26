@@ -10,7 +10,7 @@ where all the evaluation :doc:`metrics <metrics/index>` and the required
 :doc:`functionalities <functionalities/index>` are implemented. It comes with
 :doc:`Python bindings <python/index>` and :doc:`R bindings <r/index>`,
 as well as a :doc:`Command Line Interface (CLI) <cli/index>`, all giving
-access through very similar interfaces to the same metrics and functionality
+access through very similar interfaces to the same metrics and functionalities
 implemented in the C++ core.
 
 .. panels::
