@@ -13,7 +13,7 @@ Bootstrapping
 A bootstrapping method is available in `evalhyd` to assess the sampling
 uncertainty in the evaluation metrics computed. It follows a non-overlapping
 block bootstrapping approach (see e.g. `Clark et al. (2021)
-<https://doi.org/10.1029/2020WR029001>`_) where block are taken to be
+<https://doi.org/10.1029/2020WR029001>`_) where blocks are taken to be
 hydrological years of data. For a given period, the bootstrap method
 randomly draws with replacement from the hydrological years it contains.
 
@@ -45,5 +45,48 @@ parameter     description                  possible values           mandatory?
                                               percentiles 5, 10, 15,
                                               25, 50, 75, 85, 90, 95)
 
-Note that since the sampling is performed with replacement, the number of
-samples and the length of a sample have no upper limit.
+.. note::
+
+   Since the sampling is performed with replacement, the number of
+   samples and the length of a sample have no upper limit.
+
+Examples using the bootstrapping functionality are provided below.
+
+.. tabbed:: Python
+
+   .. code-block:: python
+
+      >>> res = evalhyd.evald(
+      ...     obs, prd, ["NSE"],
+      ...     bootstrap={"n_samples": 100, "len_sample": 10 "summary": 0},
+      ...     dts=dts
+      ... )
+      >>> res = evalhyd.evalp(
+      ...     obs, prd, ["CRPS"],
+      ...     bootstrap={"n_samples": 100, "len_sample": 10 "summary": 0},
+      ...     dts=dts
+      ... )
+
+.. tabbed:: R
+
+   .. code-block:: RConsole
+
+      > res = evalhyd::evald(
+      +     obs, prd, c("NSE"),
+      +     bootstrap=list(n_samples=100, len_sample=10 summary=0),
+      +     dts=dts
+      + )
+      > res = evalhyd::evalp(
+      +     obs, prd, c("CRPS"),
+      +     bootstrap=list(n_samples=100, len_sample=10 summary=0),
+      +     dts=dts
+      + )
+
+.. tabbed:: CLI
+
+   .. code-block:: console
+
+      $ ./evalhyd evald "obs.csv" "prd.csv" "NSE" --to_file \
+      > --bootstrap "n_samples" 100 "len_sample" 10 "summary" 0 --dts "dts.csv"
+      $ ./evalhyd evalp "./obs" "./prd" "CRPS" --to_file \
+      > --bootstrap "n_samples" 100 "len_sample" 10 "summary" 0 --dts "dts.csv"
