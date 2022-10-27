@@ -197,7 +197,8 @@ Examples
 
 .. code-block:: console
 
-   $ ./evalhyd evald "q_obs.csv" "q_prd.csv" "NSE" --bootstrap "n_samples" 5 "len_sample" 10 "summary" 0 --dts "dts.csv"
+   $ ./evalhyd evald "q_obs.csv" "q_prd.csv" "NSE" \
+   > --bootstrap "n_samples" 5 "len_sample" 10 "summary" 0 --dts "dts.csv"
    {{{ 0.625477,  0.625477,  0.625477,  0.625477,  0.625477}},
     {{ 0.043416,  0.043416,  0.043416,  0.043416,  0.043416}},
     {{ 0.663645,  0.663645,  0.663645,  0.663645,  0.663645}}}
