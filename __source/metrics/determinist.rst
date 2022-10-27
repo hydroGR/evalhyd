@@ -25,7 +25,7 @@ Required inputs     Optional inputs                       Output shape
       ... prd = numpy.array([5.3, 4.2, 5.7, 2.3])
       >>> import evalhyd
       ... evalhyd.evald(obs, prd, ["NSE"])
-      [array([0.86298077])]
+      [array([[[0.86298077]]])]
 
 .. tabbed:: R
 
@@ -36,14 +36,17 @@ Required inputs     Optional inputs                       Output shape
       > library(evalhyd)
       > evalhyd::evald(obs, prd, c("NSE"))
       [[1]]
-      [1] 0.8629808
+      , , 1
+
+                [,1]
+      [1,] 0.8629808
 
 .. tabbed:: CLI
 
    .. code-block:: console
 
       $ ./evalhyd evald "obs.csv" "prd.csv" "NSE"
-      { 0.862981}
+      {{{ 0.862981}}}
 
 RMSE
 ----

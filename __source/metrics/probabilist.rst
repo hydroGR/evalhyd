@@ -41,7 +41,7 @@ Required inputs            Optional inputs  Output shape
       ... thr = numpy.array([[4., 5.]])
       >>> import evalhyd
       ... evalhyd.evalp(obs, prd, ["BS"], thr)
-      [array([[[[0.22222222, 0.13333333]]]])]
+      [array([[[[[0.22222222, 0.13333333]]]]])]
 
 
 .. tabbed:: R
@@ -65,12 +65,12 @@ Required inputs            Optional inputs  Output shape
       > library(evalhyd)
       > evalhyd::evalp(obs, prd, c("BS"), thr)
       [[1]]
-      , , 1, 1
+      , , 1, 1, 1
       
                 [,1]
       [1,] 0.2222222
       
-      , , 1, 2
+      , , 1, 1, 2
       
                 [,1]
       [1,] 0.1333333
@@ -80,7 +80,7 @@ Required inputs            Optional inputs  Output shape
    .. code-block:: console
 
       $ ./evalhyd evalp "./obs/" "./prd/" "BS" --q_thr "./thr/"
-      {{{{ 0.222222,  0.133333}}}}
+      {{{{{ 0.222222,  0.133333}}}}}
 
 BSS
 ---
