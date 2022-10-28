@@ -54,24 +54,24 @@ A few examples of flow transformations are provided below.
    .. code-block:: python
 
       >>> res = evalhyd.evald(obs, prd, ["NSE"], transform="sqrt")
-      >>> res = evalhyd.evald(obs, prd, ["KGE"], transform="log")
-      >>> res = evalhyd.evald(obs, prd, ["NSE"], transform="inv", epsilon=.5)
-      >>> res = evalhyd.evald(obs, prd, ["RMSE"], transform="pow", exponent=.8)
+      >>> res = evalhyd.evald(obs, prd, ["RMSE"], transform="log")
+      >>> res = evalhyd.evald(obs, prd, ["KGE"], transform="inv", epsilon=.5)
+      >>> res = evalhyd.evald(obs, prd, ["NSE"], transform="pow", exponent=.8)
 
 .. tabbed:: R
 
    .. code-block:: RConsole
 
       > res = evalhyd::evald(obs, prd, c("NSE"), transform="sqrt")
-      > res = evalhyd::evald(obs, prd, c("KGE"), transform="log")
-      > res = evalhyd::evald(obs, prd, c("NSE"), transform="inv", epsilon=.5)
-      > res = evalhyd::evald(obs, prd, c("RMSE"), transform="pow", exponent=.8)
+      > res = evalhyd::evald(obs, prd, c("RMSE"), transform="log")
+      > res = evalhyd::evald(obs, prd, c("KGE"), transform="inv", epsilon=.5)
+      > res = evalhyd::evald(obs, prd, c("NSE"), transform="pow", exponent=.8)
 
 .. tabbed:: CLI
 
    .. code-block:: console
 
       $ ./evalhyd evald "obs.csv" "prd.csv" "NSE" --to_file --transform "sqrt"
-      $ ./evalhyd evald "obs.csv" "prd.csv" "KGE" --to_file --transform "log"
-      $ ./evalhyd evald "obs.csv" "prd.csv" "NSE" --to_file --transform "inv" --epsilon .5
-      $ ./evalhyd evald "obs.csv" "prd.csv" "RMSE" --to_file --transform "pow" --exponent .8
+      $ ./evalhyd evald "obs.csv" "prd.csv" "RMSE" --to_file --transform "log"
+      $ ./evalhyd evald "obs.csv" "prd.csv" "KGE" --to_file --transform "inv" --epsilon .5
+      $ ./evalhyd evald "obs.csv" "prd.csv" "NSE" --to_file --transform "pow" --exponent .8
