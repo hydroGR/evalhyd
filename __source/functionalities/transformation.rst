@@ -38,7 +38,7 @@ transformations           details
 
 .. note::
 
-   Since none of the reciprocal function, the natural logarithm, or
+   Since none of the reciprocal function, the natural logarithm, nor
    the power function with a negative exponent are defined for zero, a
    small constant ε must be added to both the streamflow observations
    and predictions prior to the calculation of the evaluation metrics.

@@ -38,7 +38,7 @@ To illustrate, let's look at the simple dataset provided below.
 
 In this example, the mask provided will result in only considering the time
 steps at indices `0`, `1`, `3`, and `5` in the observations and in the
-predictions in the computation of the desired metrics.
+predictions for the computation of the desired metrics.
 
 .. tip::
 
