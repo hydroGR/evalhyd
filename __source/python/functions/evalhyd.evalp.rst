@@ -94,7 +94,7 @@ evalhyd.evalp
        `List[numpy.ndarray]`
            The sequence of evaluation metrics computed
            in the same order as given in *metrics*.
-           shape: [(sites, lead times, subsets, samples ,{quantiles,}
+           shape: [(sites, lead times, subsets, samples, {quantiles,}
            {thresholds,} {components}), ...]
 
    :Examples:
