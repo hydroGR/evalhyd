@@ -129,13 +129,5 @@ The conditions can be specified on:
      condition        t{:}
      mask             True        True        True        True        True        True
 
-.. _determinist-only
 
-.. image:: https://img.shields.io/badge/-determinist--only-275662?style=flat-square
-   :alt: determinist-only
 
-Given that the determinist evaluation can be performed on arrays whose
-dimension (i.e. 1D, 2D, etc.) is not known until runtime, an additional
-restriction exists on the number of conditions that can be provided
-for determinist evaluation and as many conditions as there are time
-series of streamflow observations must be provided.
