@@ -138,5 +138,5 @@ Continuous Ranked Probability Score (`"CRPS"`).
 =========================  ======================================================
 Required inputs            Output shape
 =========================  ======================================================
-`q_obs`, `q_prd`           `(sites, lead times, samples, subsets)`
+`q_obs`, `q_prd`           `(sites, lead times, subsets, samples)`
 =========================  ======================================================
