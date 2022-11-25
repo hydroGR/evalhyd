@@ -155,11 +155,11 @@ evalhyd::evald
 
       .. code-block:: rconsole
 
-         > evalhyd::evald(obs, prd, c("NSE"), transform="pow", epsilon=.8)
+         > evalhyd::evald(obs, prd, c("NSE"), transform="pow", exponent=.8)
          [[1]]
          , , 1
 
                     [,1]
-         [1,] 0.62547710
-         [2,] 0.04341603
-         [3,] 0.66364504
+         [1,] 0.61757466
+         [2,] 0.02342582
+         [3,] 0.67871023
