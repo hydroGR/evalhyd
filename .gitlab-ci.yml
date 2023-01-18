@@ -46,7 +46,7 @@ git-clone:
     # add git
     - apk add doxygen git
     # clone evalhyd core C++ library
-    - git clone https://github.com/hydroGR/evalhyd.git html
+    - git clone git@github.com:hydroGR/evalhyd.git
   artifacts:
     paths:
       - html
