@@ -1,10 +1,13 @@
 stages:
-  - build
-  - deploy
+  - build_xml
+  - deploy_gitlab
+  - setup_github
+  - build_html
+  - deploy_github
 
 # generate XML with Doxygen
 generate-xml:
-  stage: build
+  stage: build_xml
   image: alpine
   script:
     # add Doxygen and git
@@ -22,7 +25,7 @@ generate-xml:
 
 # generate HTML with Sphinx and deploy
 pages:
-  stage: deploy
+  stage: deploy_gitlab
   image: python:3.9.13
   script:
     # install required packages to build docs
@@ -34,3 +37,61 @@ pages:
   artifacts:
     paths:
       - public
+
+# set up git repository from GitHub
+git-clone:
+  stage: setup_github
+  image: alpine
+  script:
+    # add git
+    - apk add doxygen git
+    # clone evalhyd core C++ library
+    - git clone https://github.com/hydroGR/evalhyd.git html
+  artifacts:
+    paths:
+      - html
+    expire_in: 1 hour
+
+# generate HTML with Sphinx
+generate-html:
+  stage: build_html
+  image: python:3.9.13
+  script:
+    # install required packages to build docs
+    - python -m pip install -r requirements.txt
+    # generate docs with Sphinx
+    - sphinx-build -b html __source html
+  dependencies:
+    - git-clone
+    - generate-xml
+  artifacts:
+    paths:
+      - html
+
+# generate HTML with Sphinx
+git-commit:
+  stage: deploy_github
+  image: ubuntu
+  script:
+    # based on https://gitlab.com/gitlab-examples/ssh-private-key/-/blob/master/.gitlab-ci.yml
+
+    # install ssh-agent if not already installed
+    - 'which ssh-agent || ( apt-get update -y && apt-get install openssh-client git -y )'
+    # run ssh-agent (inside the build environment)
+    - eval $(ssh-agent -s)
+    # add the SSH private key stored in CI/CD variable to the agent store
+    - echo "$SSH_PRIVATE_KEY_EVALHYD_GITHUB" | tr -d '\r' | ssh-add -
+    # create the SSH directory and give it the right permissions
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    # use ssh-keyscan to scan the keys of GitHub's server
+    - ssh-keyscan github.com >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    # set the username and email
+    - git config --global user.email "thibhlln@gmail.com"
+    - git config --global user.name "Thibault Hallouin"
+
+    # try to connect to GitHub
+    - ssh git@github.com
+  dependencies:
+    - generate-html
