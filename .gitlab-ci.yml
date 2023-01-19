@@ -1,7 +1,6 @@
 stages:
   - build_xml
   - deploy_gitlab
-  - setup_github
   - build_html
   - deploy_github
 
@@ -38,20 +37,6 @@ pages:
     paths:
       - public
 
-# set up git repository from GitHub
-git-clone:
-  stage: setup_github
-  image: alpine
-  script:
-    # add OpenSSH and git
-    - apk add openssh-client git
-    # clone evalhyd git repository on GitHub
-    - git clone git@github.com:hydroGR/evalhyd.git html
-  artifacts:
-    paths:
-      - html
-    expire_in: 1 hour
-
 # generate HTML with Sphinx
 generate-html:
   stage: build_html
@@ -60,13 +45,13 @@ generate-html:
     # install required packages to build docs
     - python -m pip install -r requirements.txt
     # generate docs with Sphinx
-    - sphinx-build -b html __source html
+    - sphinx-build -b html __source tmp_html
   dependencies:
     - git-clone
     - generate-xml
   artifacts:
     paths:
-      - html
+      - tmp_html
 
 # generate HTML with Sphinx
 git-commit:
@@ -87,6 +72,12 @@ git-commit:
     # use ssh-keyscan to scan the keys of GitHub's server
     - ssh-keyscan github.com >> ~/.ssh/known_hosts
     - chmod 644 ~/.ssh/known_hosts
+
+    # clone evalhyd git repository on GitHub
+    - git clone git@github.com:hydroGR/evalhyd.git html
+
+    # copy locally build docs into git repository
+    - \cp -rf /tmp_html/. /html/
 
     # commit changes and push to GitHub remote
     - cd html
