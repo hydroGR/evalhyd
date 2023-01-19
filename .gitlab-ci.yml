@@ -50,7 +50,7 @@ generate-html:
     - generate-xml
   artifacts:
     paths:
-      - tmp_html
+      - tmp_html/
 
 # generate HTML with Sphinx
 git-commit:
