@@ -377,8 +377,8 @@ through the <em>epsilon</em> parameter.</p>
 </div>
 <p>A few examples of flow transformations are provided below.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="89e1cdd1-1a22-44af-a96c-14469fb198b6" name="e046ae6c-438d-4d14-a5f6-207554a23d16" type="radio">
-</input><label class="tabbed-label" for="89e1cdd1-1a22-44af-a96c-14469fb198b6">
+<input checked="checked" id="42e07237-27be-49a3-be9e-a5999c248b3e" name="6f860074-81f9-45fd-aea8-59e595551d0f" type="radio">
+</input><label class="tabbed-label" for="42e07237-27be-49a3-be9e-a5999c248b3e">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;NSE&quot;</span><span class="p">],</span> <span class="n">transform</span><span class="o">=</span><span class="s2">&quot;sqrt&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;RMSE&quot;</span><span class="p">],</span> <span class="n">transform</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
@@ -387,8 +387,8 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="94b19082-91b6-4eeb-a63d-6688348e38aa" name="e046ae6c-438d-4d14-a5f6-207554a23d16" type="radio">
-</input><label class="tabbed-label" for="94b19082-91b6-4eeb-a63d-6688348e38aa">
+<input id="7cc1175c-3f81-443d-be1e-3d3cf1ce5f0a" name="6f860074-81f9-45fd-aea8-59e595551d0f" type="radio">
+</input><label class="tabbed-label" for="7cc1175c-3f81-443d-be1e-3d3cf1ce5f0a">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NSE&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">transform</span><span class="o">=</span><span class="s">&quot;sqrt&quot;</span><span class="p">)</span>
 <span class="gp">&gt; </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;RMSE&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">transform</span><span class="o">=</span><span class="s">&quot;log&quot;</span><span class="p">)</span>
@@ -397,8 +397,8 @@ R</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="e9ddd33d-e5c8-468e-9288-cf2fd8eb8eee" name="e046ae6c-438d-4d14-a5f6-207554a23d16" type="radio">
-</input><label class="tabbed-label" for="e9ddd33d-e5c8-468e-9288-cf2fd8eb8eee">
+<input id="5f00756e-1fc2-4120-9488-fa17230c5855" name="6f860074-81f9-45fd-aea8-59e595551d0f" type="radio">
+</input><label class="tabbed-label" for="5f00756e-1fc2-4120-9488-fa17230c5855">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span><span class="w"> </span>--to_file<span class="w"> </span>--transform<span class="w"> </span><span class="s2">&quot;sqrt&quot;</span>
 <span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;RMSE&quot;</span><span class="w"> </span>--to_file<span class="w"> </span>--transform<span class="w"> </span><span class="s2">&quot;log&quot;</span>
