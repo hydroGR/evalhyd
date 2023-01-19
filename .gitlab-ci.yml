@@ -65,6 +65,9 @@ git-clone-push-github:
     # copy locally build docs into git repository
     - \cp -rf ./tmp_html/. ./html/
 
+    # remove DNS CNAME
+    - rm ./html/CNAME
+
     # commit changes and push to GitHub remote
     - cd html
     - git add --all
