@@ -1,12 +1,10 @@
 stages:
-  - build_xml
-  - deploy_gitlab
-  - build_html
-  - deploy_github
+  - build
+  - deploy
 
 # generate XML with Doxygen
 generate-xml:
-  stage: build_xml
+  stage: build
   image: alpine
   script:
     # add Doxygen and git
@@ -22,24 +20,9 @@ generate-xml:
       - __build/xml/
     expire_in: 1 hour
 
-# generate HTML with Sphinx and deploy
-pages:
-  stage: deploy_gitlab
-  image: python:3.9.13
-  script:
-    # install required packages to build docs
-    - python -m pip install -r requirements.txt
-    # generate docs with Sphinx
-    - sphinx-build -b html __source public
-  dependencies:
-    - generate-xml
-  artifacts:
-    paths:
-      - public
-
 # generate HTML with Sphinx
 generate-html:
-  stage: build_html
+  stage: build
   image: python:3.9.13
   script:
     # install required packages to build docs
@@ -53,7 +36,7 @@ generate-html:
       - tmp_html/
 
 # generate HTML with Sphinx
-git-commit:
+git-clone-push-github:
   stage: deploy_github
   image: ubuntu
   script:
