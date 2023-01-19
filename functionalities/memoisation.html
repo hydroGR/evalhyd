@@ -1,0 +1,476 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Memoisation &#8212; evalhyd latest documentation</title>
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
+
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/my_pygments_light.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/my_pygments_dark.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="canonical" href="https://hycar-hydro.gitlab.irstea.page/evalhyd/evalhyd-docs/functionalities/memoisation.html" />
+    <link rel="shortcut icon" href="../_static/evalhyd_favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Handling of missing data" href="missing-data.html" />
+    <link rel="prev" title="Functionalities" href="index.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="en">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
+
+    
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    <img src="../_static/evalhyd_logo+text.svg" class="logo__image only-light" alt="Logo image">
+    <img src="../_static/evalhyd_logo+text.svg" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+    <div class="dropdown" id="version_switcher">
+    <button type="button" class="btn btn-sm navbar-btn dropdown-toggle" id="version_switcher_button" data-toggle="dropdown">
+        latest  <!-- this text may get changed later by javascript -->
+        <span class="caret"></span>
+    </button>
+    <div id="version_switcher_menu" class="dropdown-menu list-group-flush py-0" aria-labelledby="version_switcher_button">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+</div>
+
+<!-- NOTE: this JS must live here (not in our global JS file) because it relies
+     on being processed by Jinja before it is run (specifically for replacing
+     variables functionalities/memoisation and {'json_url': 'https://hycar-hydro.gitlab.irstea.page/evalhyd/evalhyd-docs/_static/switcher.json', 'version_match': 'latest'}.
+-->
+
+<script type="text/javascript">
+// Check if corresponding page path exists in other version of docs
+// and, if so, go there instead of the homepage of the other docs version
+function checkPageExistsAndRedirect(event) {
+    const currentFilePath = "functionalities/memoisation.html",
+          tryUrl = event.target.getAttribute("href");
+    let otherDocsHomepage = tryUrl.replace(currentFilePath, "");
+    $.ajax({
+        type: 'HEAD',
+        url: tryUrl,
+        // if the page exists, go there
+        success: function() {
+            location.href = tryUrl;
+        }
+    }).fail(function() {
+        location.href = otherDocsHomepage;
+    });
+    // this prevents the browser from following the href of the clicked node
+    // (which is fine because this function takes care of redirecting)
+    return false;
+}
+
+// Populate the version switcher from the JSON config file
+(function () {
+    $.getJSON("https://hycar-hydro.gitlab.irstea.page/evalhyd/evalhyd-docs/_static/switcher.json", function(data, textStatus, jqXHR) {
+        const currentFilePath = "functionalities/memoisation.html";
+        let btn = document.getElementById("version_switcher_button");
+        // Set empty strings by default so that these attributes exist and can be used in CSS selectors
+        btn.dataset["activeVersionName"] = "";
+        btn.dataset["activeVersion"] = "";
+        // create links to the corresponding page in the other docs versions
+        $.each(data, function(index, entry) {
+            // if no custom name specified (e.g., "latest"), use version string
+            if (!("name" in entry)) {
+                entry.name = entry.version;
+            }
+            // create the node
+            const node = document.createElement("a");
+            node.setAttribute("class", "list-group-item list-group-item-action py-1");
+            node.textContent = `${entry.name}`;
+            node.setAttribute("href", `${entry.url}${currentFilePath}`);
+            // on click, AJAX calls will check if the linked page exists before
+            // trying to redirect, and if not, will redirect to the homepage
+            // for that version of the docs.
+            node.onclick = checkPageExistsAndRedirect;
+            // Add dataset values for the version and name in case people want
+            // to apply CSS styling based on this information.
+            node.dataset["versionName"] = entry.name;
+            node.dataset["version"] = entry.version;
+
+            $("#version_switcher_menu").append(node);
+            // replace dropdown button text with the preferred display name of
+            // this version, rather than using sphinx's latest variable.
+            // also highlight the dropdown entry for the currently-viewed
+            // version's entry
+            if (entry.version == "latest") {
+                node.classList.add("active");
+                btn.innerText = btn.dataset["activeVersionName"] = entry.name;
+                btn.dataset["activeVersion"] = entry.version;
+            }
+        });
+    });
+})();
+</script>
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="fas fa-bars"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../metrics/index.html">
+  Metrics
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  Functionalities
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../cpp/index.html">
+  C++
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../python/index.html">
+  Python
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../r/index.html">
+  R
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../cli/index.html">
+  Command Line
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../licence.html">
+  License
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd" rel="noopener" target="_blank" title="GitLab"><span><i class="fab fa-gitlab"></i></span>
+            <label class="sr-only">GitLab</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
+          
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Memoisation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="missing-data.html">
+   Handling of missing data
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="temporal-masking.html">
+   Temporal masking
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="conditional-masking.html">
+   Conditional masking
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="bootstrapping.html">
+   Bootstrapping
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="transformation.html">
+   Transformation
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
+
+          
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+    <div class="toc-item">
+      
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#across-metrics">
+   Across metrics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#across-masks">
+   Across masks
+  </a>
+ </li>
+</ul>
+
+</nav>
+    </div>
+    
+    <div class="toc-item">
+      
+    </div>
+    
+  
+</div>
+
+
+          
+          
+          <div class="bd-content col-12 col-md-9 col-xl-7">
+              
+              <article class="bd-article" role="main">
+                
+  <section id="memoisation">
+<h1>Memoisation<a class="headerlink" href="#memoisation" title="Permalink to this headline"><span class="fa fa-link"></a></h1>
+<section id="across-metrics">
+<h2>Across metrics<a class="headerlink" href="#across-metrics" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<img alt="determinist" src="https://img.shields.io/badge/-determinist-275662?style=flat-square" />
+<img alt="probabilist" src="https://img.shields.io/badge/-probabilist-275662?style=flat-square" />
+<p>Since certain evaluation metrics require the same intermediate computations,
+there is scope for some optimisation by storing these intermediate computations
+so that they can be used by all the evaluation metrics requiring them (i.e.
+the concept of <em>memoisation</em> in computing).</p>
+<p>For example, the determinist metrics <em>NSE</em> and <em>KGE</em> both require to compute
+the quadratic error between the observations and their arithmetic mean, so it
+is more efficient to compute this quadratic error only once, and reuse it in
+the computation of both <em>NSE</em> and <em>KGE</em>.</p>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span></code> implements such approach to compute its evaluation metrics, this is
+why it is recommended to ask for all evaluation metrics of interest at once in
+a single call to <code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span></code> rather than ask for them separately in several
+calls.</p>
+<p>That is to say, prefer:</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="7fa663ef-9eb3-44f5-b8c8-84ccc55a6928" name="65d88967-812a-473f-8f33-1cbbe0beae94" type="radio">
+</input><label class="tabbed-label" for="7fa663ef-9eb3-44f5-b8c8-84ccc55a6928">
+Python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;NSE&quot;</span><span class="p">,</span> <span class="s2">&quot;KGE&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<input id="c2fa7fa8-5653-4af8-9776-4a1b3650fba0" name="65d88967-812a-473f-8f33-1cbbe0beae94" type="radio">
+</input><label class="tabbed-label" for="c2fa7fa8-5653-4af8-9776-4a1b3650fba0">
+R</label><div class="tabbed-content docutils">
+<div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NSE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;KGE&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<input id="3f274ec4-7b80-4285-bdcd-ca01d5314cdf" name="65d88967-812a-473f-8f33-1cbbe0beae94" type="radio">
+</input><label class="tabbed-label" for="3f274ec4-7b80-4285-bdcd-ca01d5314cdf">
+CLI</label><div class="tabbed-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span><span class="w"> </span><span class="s2">&quot;KGE&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>over:</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="d6c62eec-a28f-47d7-87e8-d2d05f421fe8" name="963db323-cb80-404b-809e-d739b3dbe841" type="radio">
+</input><label class="tabbed-label" for="d6c62eec-a28f-47d7-87e8-d2d05f421fe8">
+Python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;NSE&quot;</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;KGE&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<input id="5e7dd464-9047-47e2-857a-f7c1db2781c0" name="963db323-cb80-404b-809e-d739b3dbe841" type="radio">
+</input><label class="tabbed-label" for="5e7dd464-9047-47e2-857a-f7c1db2781c0">
+R</label><div class="tabbed-content docutils">
+<div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NSE&quot;</span><span class="p">))</span>
+<span class="gp">&gt; </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;KGE&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<input id="d5abc2db-461d-44f9-afff-333ff80daf2d" name="963db323-cb80-404b-809e-d739b3dbe841" type="radio">
+</input><label class="tabbed-label" for="d5abc2db-461d-44f9-afff-333ff80daf2d">
+CLI</label><div class="tabbed-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span>
+<span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;KGE&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="across-masks">
+<h2>Across masks<a class="headerlink" href="#across-masks" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<img alt="determinist" src="https://img.shields.io/badge/-determinist-275662?style=flat-square" />
+<img alt="probabilist" src="https://img.shields.io/badge/-probabilist-275662?style=flat-square" />
+<p>In addition, most evaluation metrics first perform intermediate computations
+on each time step individually (e.g. errors between individual observations
+and their corresponding predictions), before performing some reduction
+across all time steps (e.g. arithmetic mean of these individual errors).</p>
+<p>If different subset periods of the entire study period are needed (i.e.
+using the <a class="reference internal" href="conditional-masking.html"><span class="doc">temporal masking</span></a> or the
+<a class="reference internal" href="conditional-masking.html"><span class="doc">conditional masking</span></a> functionalities), and these
+sub-periods happen to overlap, it is recommended to provide several masks
+at once to <code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span></code> rather than one mask at a time. Indeed, <code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span></code>
+applies the masks only after the intermediate computations on individual
+time steps are computed, thus optimising the computation time by avoiding
+performing these intermediate computations on the same time steps several
+times.</p>
+</section>
+</section>
+
+
+              </article>
+              
+
+              
+          </div>
+          
+      </div>
+    </div>
+
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    
+<p class="copyright">
+
+    &copy; Copyright 2022-2023, INRAE.<br>
+
+</p>
+
+
+<p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+
+<p class="last-updated">
+Last updated on Jan 19, 2023.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    <a class="navbar-corporate" href="https://webgr.inrae.fr/" rel="noopener" target="_blank">
+  
+  
+    <img src="../_static/marianne+inrae-logo-light.svg" class="logo__image only-light" alt="Marianne+INRAE logo">
+    <img src="../_static/marianne+inrae-logo-dark.svg" class="logo__image only-dark" alt="Marianne+INRAE logo">
+</a>
+  </div>
+  
+</div>
+</footer>
+  </body>
+</html>
