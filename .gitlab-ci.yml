@@ -47,7 +47,6 @@ generate-html:
     # generate docs with Sphinx
     - sphinx-build -b html __source tmp_html
   dependencies:
-    - git-clone
     - generate-xml
   artifacts:
     paths:
