@@ -37,7 +37,7 @@ generate-html:
 
 # generate HTML with Sphinx
 git-clone-push-github:
-  stage: deploy_github
+  stage: deploy
   image: ubuntu
   script:
     # based on https://gitlab.com/gitlab-examples/ssh-private-key/-/blob/master/.gitlab-ci.yml
