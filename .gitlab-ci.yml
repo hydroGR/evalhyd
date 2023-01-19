@@ -76,7 +76,7 @@ git-commit:
     - git clone git@github.com:hydroGR/evalhyd.git html
 
     # copy locally build docs into git repository
-    - \cp -rf /tmp_html/. /html/
+    - \cp -rf ./tmp_html/. ./html/
 
     # commit changes and push to GitHub remote
     - cd html
