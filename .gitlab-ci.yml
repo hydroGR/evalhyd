@@ -77,7 +77,7 @@ git-commit:
 
     # configure user details
     - git config --global user.email "$GITLAB_USER_EMAIL"
-    - git config --global user.name "$GITLAB_USER_ID"
+    - git config --global user.name "$GITLAB_USER_NAME"
 
     # copy locally build docs into git repository
     - \cp -rf ./tmp_html/. ./html/
