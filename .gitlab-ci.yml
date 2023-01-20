@@ -29,6 +29,7 @@ generate-html:
     - python -m pip install -r requirements.txt
     # generate docs with Sphinx
     - sphinx-build -b html __source tmp_html
+  needs: ["generate-xml"]
   dependencies:
     - generate-xml
   artifacts:
