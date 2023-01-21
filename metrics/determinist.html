@@ -331,10 +331,10 @@ function checkPageExistsAndRedirect(event) {
 <section id="nse">
 <h2>NSE<a class="headerlink" href="#nse" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
 <p>Nash-Sutcliffe Efficiency (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;NSE&quot;</span></code>) as per <a class="reference external" href="https://doi.org/10.1016/0022-1694(70)90255-6">Nash and Sutcliffe (1970)</a>.</p>
-<table class="table">
+<table class="colwidths-given table">
 <colgroup>
-<col style="width: 38%" />
-<col style="width: 62%" />
+<col style="width: 35%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Required inputs</p></th>
@@ -342,14 +342,14 @@ function checkPageExistsAndRedirect(event) {
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,</p></td>
 <td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(series,</span> <span class="pre">subsets,</span> <span class="pre">samples)</span></code></p></td>
 </tr>
 </tbody>
 </table>
 <div class="tabbed-set docutils">
-<input checked="checked" id="78a76d7b-0d84-4962-beaa-143d82a009b3" name="582a59af-1d25-46f6-b740-a8aa02843c62" type="radio">
-</input><label class="tabbed-label" for="78a76d7b-0d84-4962-beaa-143d82a009b3">
+<input checked="checked" id="13f4e542-6b32-4d09-8e8f-6cedff679890" name="36f72933-6767-4809-8302-c4fc8dd504c7" type="radio">
+</input><label class="tabbed-label" for="13f4e542-6b32-4d09-8e8f-6cedff679890">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="gp">... </span><span class="n">obs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">4.7</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">])</span>
@@ -360,8 +360,8 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="cc7ef661-6bed-4620-97f5-2a6aba5913a2" name="582a59af-1d25-46f6-b740-a8aa02843c62" type="radio">
-</input><label class="tabbed-label" for="cc7ef661-6bed-4620-97f5-2a6aba5913a2">
+<input id="9caf8875-1c06-4b56-a259-16c1f817534d" name="36f72933-6767-4809-8302-c4fc8dd504c7" type="radio">
+</input><label class="tabbed-label" for="9caf8875-1c06-4b56-a259-16c1f817534d">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">obs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">4.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.3</span><span class="p">,</span><span class="w"> </span><span class="m">5.5</span><span class="p">,</span><span class="w"> </span><span class="m">2.7</span><span class="p">)</span>
 <span class="gp">&gt; </span><span class="n">prd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">5.3</span><span class="p">,</span><span class="w"> </span><span class="m">4.2</span><span class="p">,</span><span class="w"> </span><span class="m">5.7</span><span class="p">,</span><span class="w"> </span><span class="m">2.3</span><span class="p">)</span>
@@ -375,8 +375,8 @@ R</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="744f2c9e-2be7-4a7d-89a1-c1683818edae" name="582a59af-1d25-46f6-b740-a8aa02843c62" type="radio">
-</input><label class="tabbed-label" for="744f2c9e-2be7-4a7d-89a1-c1683818edae">
+<input id="ed35e884-38a9-4845-ad0b-00c943de3f1d" name="36f72933-6767-4809-8302-c4fc8dd504c7" type="radio">
+</input><label class="tabbed-label" for="ed35e884-38a9-4845-ad0b-00c943de3f1d">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span>
 <span class="go">{{{ 0.862981}}}</span>
@@ -388,10 +388,10 @@ CLI</label><div class="tabbed-content docutils">
 <section id="rmse">
 <h2>RMSE<a class="headerlink" href="#rmse" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
 <p>Root Mean Square Error (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;RMSE&quot;</span></code>).</p>
-<table class="table">
+<table class="colwidths-given table">
 <colgroup>
-<col style="width: 38%" />
-<col style="width: 62%" />
+<col style="width: 35%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Required inputs</p></th>
@@ -399,7 +399,7 @@ CLI</label><div class="tabbed-content docutils">
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,</p></td>
 <td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(series,</span> <span class="pre">subsets,</span> <span class="pre">samples)</span></code></p></td>
 </tr>
 </tbody>
@@ -408,10 +408,10 @@ CLI</label><div class="tabbed-content docutils">
 <section id="kge">
 <h2>KGE<a class="headerlink" href="#kge" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
 <p>Kling-Gupta Efficiency (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;KGE&quot;</span></code>) as per <a class="reference external" href="https://doi.org/10.1016/j.jhydrol.2009.08.003">Gupta et al., 2009</a>.</p>
-<table class="table">
+<table class="colwidths-given table">
 <colgroup>
-<col style="width: 38%" />
-<col style="width: 62%" />
+<col style="width: 35%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Required inputs</p></th>
@@ -419,7 +419,7 @@ CLI</label><div class="tabbed-content docutils">
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,</p></td>
 <td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(series,</span> <span class="pre">subsets,</span> <span class="pre">samples)</span></code></p></td>
 </tr>
 </tbody>
@@ -433,10 +433,10 @@ et al., 2018</a>).</p>
 <section id="kgeprime">
 <h2>KGEPRIME<a class="headerlink" href="#kgeprime" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
 <p>Modified Kling-Gupta Efficiency (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;KGEPRIME&quot;</span></code>) as per <a class="reference external" href="https://doi.org/10.1016/j.jhydrol.2012.01.011">Kling et al., 2012</a>.</p>
-<table class="table">
+<table class="colwidths-given table">
 <colgroup>
-<col style="width: 38%" />
-<col style="width: 62%" />
+<col style="width: 35%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Required inputs</p></th>
@@ -444,7 +444,7 @@ et al., 2018</a>).</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,</p></td>
 <td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(series,</span> <span class="pre">subsets,</span> <span class="pre">samples)</span></code></p></td>
 </tr>
 </tbody>
@@ -488,7 +488,7 @@ Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
 
 <p class="last-updated">
-Last updated on Jan 20, 2023.<br>
+Last updated on Jan 21, 2023.<br>
 </p>
   </div>
   

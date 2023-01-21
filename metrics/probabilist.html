@@ -319,6 +319,46 @@ function checkPageExistsAndRedirect(event) {
    CRPS
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pod">
+   POD
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pofd">
+   POFD
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#far">
+   FAR
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#csi">
+   CSI
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rocss">
+   ROCSS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rel-diag">
+   REL_DIAG
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ds">
+   DS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#as">
+   AS
+  </a>
+ </li>
 </ul>
 
 </nav>
@@ -349,10 +389,10 @@ computed as per <a class="reference external" href="https://doi.org/10.1016/B978
 <p>where, for a dichotomous event, <span class="math notranslate nohighlight">\(y_k\)</span> is the event forecast probability,
 <span class="math notranslate nohighlight">\(o_k\)</span> is the observed event outcome, and <span class="math notranslate nohighlight">\(n\)</span> is the number of time
 steps.</p>
-<table class="table">
+<table class="colwidths-given table">
 <colgroup>
-<col style="width: 32%" />
-<col style="width: 68%" />
+<col style="width: 35%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Required inputs</p></th>
@@ -360,14 +400,16 @@ steps.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code></p></td>
-<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span> <span class="pre">thresholds)</span></code></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id5" id="id1">1</a></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">thresholds)</span></code></p></td>
 </tr>
 </tbody>
 </table>
 <div class="tabbed-set docutils">
-<input checked="checked" id="5cd6c41a-9889-4673-bf83-6693ec0c6556" name="b49d5888-c644-4553-88b4-c175a14e814a" type="radio">
-</input><label class="tabbed-label" for="5cd6c41a-9889-4673-bf83-6693ec0c6556">
+<input checked="checked" id="0d6580ad-eb62-4abb-ae7a-156c0b362f66" name="bc0539f8-f2c2-4211-a8c6-d6f340b4dde2" type="radio">
+</input><label class="tabbed-label" for="0d6580ad-eb62-4abb-ae7a-156c0b362f66">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="gp">... </span><span class="n">obs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
@@ -380,13 +422,13 @@ Python</label><div class="tabbed-content docutils">
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">... </span><span class="n">thr</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">evalhyd</span>
-<span class="gp">... </span><span class="n">evalhyd</span><span class="o">.</span><span class="n">evalp</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;BS&quot;</span><span class="p">],</span> <span class="n">thr</span><span class="p">)</span>
+<span class="gp">... </span><span class="n">evalhyd</span><span class="o">.</span><span class="n">evalp</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;BS&quot;</span><span class="p">],</span> <span class="n">thr</span><span class="p">,</span> <span class="n">events</span><span class="o">=</span><span class="s2">&quot;high&quot;</span><span class="p">)</span>
 <span class="go">[array([[[[[0.22222222, 0.13333333]]]]])]</span>
 </pre></div>
 </div>
 </div>
-<input id="a578a7bd-ad52-4350-93bb-5ca0c2bebb1b" name="b49d5888-c644-4553-88b4-c175a14e814a" type="radio">
-</input><label class="tabbed-label" for="a578a7bd-ad52-4350-93bb-5ca0c2bebb1b">
+<input id="65da8cd6-bafe-4ab5-bfe4-fd84264140da" name="bc0539f8-f2c2-4211-a8c6-d6f340b4dde2" type="radio">
+</input><label class="tabbed-label" for="65da8cd6-bafe-4ab5-bfe4-fd84264140da">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">obs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span>
 <span class="gp">+ </span><span class="w">    </span><span class="nf">c</span><span class="p">(</span><span class="m">4.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.3</span><span class="p">,</span><span class="w"> </span><span class="m">5.5</span><span class="p">,</span><span class="w"> </span><span class="m">2.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.1</span><span class="p">)</span>
@@ -403,7 +445,7 @@ R</label><div class="tabbed-content docutils">
 <span class="gp">+ </span><span class="w">    </span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="n">.</span><span class="p">)</span>
 <span class="gp">+ </span><span class="p">)</span>
 <span class="gp">&gt; </span><span class="nf">library</span><span class="p">(</span><span class="n">evalhyd</span><span class="p">)</span>
-<span class="gp">&gt; </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evalp</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;BS&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">thr</span><span class="p">)</span>
+<span class="gp">&gt; </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evalp</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;BS&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">thr</span><span class="p">,</span><span class="w"> </span><span class="n">events</span><span class="o">=</span><span class="s">&quot;high&quot;</span><span class="p">)</span>
 <span class="go">[[1]]</span>
 <span class="go">, , 1, 1, 1</span>
 
@@ -417,10 +459,10 @@ R</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="a29e2140-e5a9-419f-9ddf-737c318a7366" name="b49d5888-c644-4553-88b4-c175a14e814a" type="radio">
-</input><label class="tabbed-label" for="a29e2140-e5a9-419f-9ddf-737c318a7366">
+<input id="e60a50eb-ac23-4259-a521-82af69c8cd69" name="bc0539f8-f2c2-4211-a8c6-d6f340b4dde2" type="radio">
+</input><label class="tabbed-label" for="e60a50eb-ac23-4259-a521-82af69c8cd69">
 CLI</label><div class="tabbed-content docutils">
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evalp<span class="w"> </span><span class="s2">&quot;./obs/&quot;</span><span class="w"> </span><span class="s2">&quot;./prd/&quot;</span><span class="w"> </span><span class="s2">&quot;BS&quot;</span><span class="w"> </span>--q_thr<span class="w"> </span><span class="s2">&quot;./thr/&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evalp<span class="w"> </span><span class="s2">&quot;./obs/&quot;</span><span class="w"> </span><span class="s2">&quot;./prd/&quot;</span><span class="w"> </span><span class="s2">&quot;BS&quot;</span><span class="w"> </span>--q_thr<span class="w"> </span><span class="s2">&quot;./thr/&quot;</span><span class="w"> </span>--events<span class="w"> </span><span class="s2">&quot;high&quot;</span>
 <span class="go">{{{{{ 0.222222,  0.133333}}}}}</span>
 </pre></div>
 </div>
@@ -430,10 +472,10 @@ CLI</label><div class="tabbed-content docutils">
 <section id="bss">
 <h2>BSS<a class="headerlink" href="#bss" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
 <p>Brier Skill Score (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;BSS&quot;</span></code>).</p>
-<table class="table">
+<table class="colwidths-given table">
 <colgroup>
-<col style="width: 32%" />
-<col style="width: 68%" />
+<col style="width: 35%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Required inputs</p></th>
@@ -441,8 +483,10 @@ CLI</label><div class="tabbed-content docutils">
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code></p></td>
-<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span> <span class="pre">thresholds)</span></code></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id5" id="id2">1</a></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">thresholds)</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -452,10 +496,10 @@ CLI</label><div class="tabbed-content docutils">
 <p>Calibration-Refinement Decomposition of the Brier Score (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;BS_CRD&quot;</span></code>)
 into the three components reliability, resolution, and uncertainty
 [returned in this order].</p>
-<table class="table">
+<table class="colwidths-given table">
 <colgroup>
-<col style="width: 32%" />
-<col style="width: 68%" />
+<col style="width: 35%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Required inputs</p></th>
@@ -463,8 +507,10 @@ into the three components reliability, resolution, and uncertainty
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code></p></td>
-<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span> <span class="pre">thresholds,</span> <span class="pre">3)</span></code></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id5" id="id3">1</a></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">thresholds,</span> <span class="pre">3)</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -474,10 +520,10 @@ into the three components reliability, resolution, and uncertainty
 <p>Likelihood-Base rate Decomposition of the Brier Score (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;BS_LBD&quot;</span></code>)
 into the three components type 2 bias, discrimination, and sharpness
 (a.k.a. refinement) [returned in this order].</p>
-<table class="table">
+<table class="colwidths-given table">
 <colgroup>
-<col style="width: 32%" />
-<col style="width: 68%" />
+<col style="width: 35%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Required inputs</p></th>
@@ -485,8 +531,10 @@ into the three components type 2 bias, discrimination, and sharpness
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code></p></td>
-<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span> <span class="pre">thresholds,</span> <span class="pre">3)</span></code></p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id5" id="id4">1</a></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">thresholds,</span> <span class="pre">3)</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -494,10 +542,10 @@ into the three components type 2 bias, discrimination, and sharpness
 <section id="qs">
 <h2>QS<a class="headerlink" href="#qs" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
 <p>Quantile Scores (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;QS&quot;</span></code>).</p>
-<table class="table">
+<table class="colwidths-given table">
 <colgroup>
-<col style="width: 32%" />
-<col style="width: 68%" />
+<col style="width: 35%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Required inputs</p></th>
@@ -506,7 +554,8 @@ into the three components type 2 bias, discrimination, and sharpness
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code></p></td>
-<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span> <span class="pre">quantiles)</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">quantiles)</span></code></p></td>
 </tr>
 </tbody>
 </table>
@@ -514,10 +563,10 @@ into the three components type 2 bias, discrimination, and sharpness
 <section id="crps">
 <h2>CRPS<a class="headerlink" href="#crps" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
 <p>Continuous Ranked Probability Score (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;CRPS&quot;</span></code>).</p>
-<table class="table">
+<table class="colwidths-given table">
 <colgroup>
-<col style="width: 32%" />
-<col style="width: 68%" />
+<col style="width: 35%" />
+<col style="width: 65%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Required inputs</p></th>
@@ -530,6 +579,188 @@ into the three components type 2 bias, discrimination, and sharpness
 </tr>
 </tbody>
 </table>
+</section>
+<section id="pod">
+<h2>POD<a class="headerlink" href="#pod" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Probability Of Detection (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;POD&quot;</span></code>) also known as “hit rate”, derived
+from the contingency table.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">levels,</span> <span class="pre">thresholds)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pofd">
+<h2>POFD<a class="headerlink" href="#pofd" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Probability Of False Detection (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;POFD&quot;</span></code>) also known as “false alarm rate”,
+derived from the contingency table.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">levels,</span> <span class="pre">thresholds)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="far">
+<h2>FAR<a class="headerlink" href="#far" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>False Alarm Ratio (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;FAR&quot;</span></code>), derived from the contingency table.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">levels,</span> <span class="pre">thresholds)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csi">
+<h2>CSI<a class="headerlink" href="#csi" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Critical Success Index (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;CSI&quot;</span></code>), derived from the contingency table.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">levels,</span> <span class="pre">thresholds)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rocss">
+<h2>ROCSS<a class="headerlink" href="#rocss" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Relative Operating Characteristic Skill Score (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;ROCSS&quot;</span></code>), derived from
+the contingency table, and based on computing the area under the ROC curve.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">thresholds)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rel-diag">
+<h2>REL_DIAG<a class="headerlink" href="#rel-diag" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>X and Y axes of the Reliability Diagram (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;REL_DIAG&quot;</span></code>), i.e. the forecast
+probability (X-axis) and the observed relative frequency (Y-axis).</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">ranks,</span> <span class="pre">2)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ds">
+<h2>DS<a class="headerlink" href="#ds" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Delta score (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;DS&quot;</span></code>) as per <a class="reference external" href="https://doi.org/10.1256/qj.04.71">Candille and Talagrand (2005)</a>.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="as">
+<h2>AS<a class="headerlink" href="#as" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Alpha score (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;AS&quot;</span></code>) as per <a class="reference external" href="https://doi.org/10.1029/2009WR008328">Renard et al. (2010)</a>.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Footnotes</p>
+<dl class="footnote brackets">
+<dt class="label" id="id5"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id3">3</a>,<a href="#id4">4</a>)</span></dt>
+<dd><p>For this metric, the definition of the <em>events</em> has no effect on its
+numerical result because the computation is symmetric.</p>
+</dd>
+</dl>
 </section>
 </section>
 
@@ -564,7 +795,7 @@ Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
 
 <p class="last-updated">
-Last updated on Jan 20, 2023.<br>
+Last updated on Jan 21, 2023.<br>
 </p>
   </div>
   
