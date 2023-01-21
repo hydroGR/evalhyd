@@ -19,11 +19,19 @@ where, for a dichotomous event, :math:`y_k` is the event forecast probability,
 :math:`o_k` is the observed event outcome, and :math:`n` is the number of time
 steps.
 
-=========================  ======================================================
-Required inputs            Output shape
-=========================  ======================================================
-`q_obs`, `q_prd`, `q_thr`  `(sites, lead times, subsets, samples, thresholds)`
-=========================  ======================================================
+.. note::
+
+
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
+   | `q_thr`, `events`\ [1]_ | thresholds)`                                   |
+   +-------------------------+------------------------------------------------+
 
 .. tabbed:: Python
 
@@ -40,7 +48,7 @@ Required inputs            Output shape
       ... )
       ... thr = numpy.array([[4., 5.]])
       >>> import evalhyd
-      ... evalhyd.evalp(obs, prd, ["BS"], thr)
+      ... evalhyd.evalp(obs, prd, ["BS"], thr, events="high")
       [array([[[[[0.22222222, 0.13333333]]]]])]
 
 
@@ -63,7 +71,7 @@ Required inputs            Output shape
       +     c(4., 5.)
       + )
       > library(evalhyd)
-      > evalhyd::evalp(obs, prd, c("BS"), thr)
+      > evalhyd::evalp(obs, prd, c("BS"), thr, events="high")
       [[1]]
       , , 1, 1, 1
       
@@ -79,7 +87,7 @@ Required inputs            Output shape
 
    .. code-block:: console
 
-      $ ./evalhyd evalp "./obs/" "./prd/" "BS" --q_thr "./thr/"
+      $ ./evalhyd evalp "./obs/" "./prd/" "BS" --q_thr "./thr/" --events "high"
       {{{{{ 0.222222,  0.133333}}}}}
 
 BSS
@@ -87,11 +95,15 @@ BSS
 
 Brier Skill Score (`"BSS"`).
 
-=========================  ======================================================
-Required inputs            Output shape
-=========================  ======================================================
-`q_obs`, `q_prd`, `q_thr`  `(sites, lead times, subsets, samples, thresholds)`
-=========================  ======================================================
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
+   | `q_thr`, `events`\ [1]_ | thresholds)`                                   |
+   +-------------------------+------------------------------------------------+
 
 BS_CRD
 ------
@@ -100,11 +112,15 @@ Calibration-Refinement Decomposition of the Brier Score (`"BS_CRD"`)
 into the three components reliability, resolution, and uncertainty
 [returned in this order].
 
-=========================  ======================================================
-Required inputs            Output shape
-=========================  ======================================================
-`q_obs`, `q_prd`, `q_thr`  `(sites, lead times, subsets, samples, thresholds, 3)`
-=========================  ======================================================
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
+   | `q_thr`, `events`\ [1]_ | thresholds, 3)`                                |
+   +-------------------------+------------------------------------------------+
 
 BS_LBD
 ------
@@ -113,30 +129,169 @@ Likelihood-Base rate Decomposition of the Brier Score (`"BS_LBD"`)
 into the three components type 2 bias, discrimination, and sharpness
 (a.k.a. refinement) [returned in this order].
 
-=========================  ======================================================
-Required inputs            Output shape
-=========================  ======================================================
-`q_obs`, `q_prd`, `q_thr`  `(sites, lead times, subsets, samples, thresholds, 3)`
-=========================  ======================================================
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
+   | `q_thr`, `events`\ [1]_ | thresholds, 3)`                                |
+   +-------------------------+------------------------------------------------+
 
 QS
 --
 
 Quantile Scores (`"QS"`).
 
-=========================  ======================================================
-Required inputs            Output shape
-=========================  ======================================================
-`q_obs`, `q_prd`           `(sites, lead times, subsets, samples, quantiles)`
-=========================  ======================================================
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`        | `(sites, lead times, subsets, samples,         |
+   |                         | quantiles)`                                    |
+   +-------------------------+------------------------------------------------+
 
 CRPS
 ----
 
 Continuous Ranked Probability Score (`"CRPS"`).
 
-=========================  ======================================================
-Required inputs            Output shape
-=========================  ======================================================
-`q_obs`, `q_prd`           `(sites, lead times, subsets, samples)`
-=========================  ======================================================
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`        | `(sites, lead times, subsets, samples)`        |
+   +-------------------------+------------------------------------------------+
+
+POD
+---
+
+Probability Of Detection (`"POD"`) also known as "hit rate", derived
+from the contingency table.
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
+   | `q_thr`, `events`       | levels, thresholds)`                           |
+   +-------------------------+------------------------------------------------+
+
+POFD
+----
+
+Probability Of False Detection (`"POFD"`) also known as "false alarm rate",
+derived from the contingency table.
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
+   | `q_thr`, `events`       | levels, thresholds)`                           |
+   +-------------------------+------------------------------------------------+
+
+FAR
+---
+
+False Alarm Ratio (`"FAR"`), derived from the contingency table.
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
+   | `q_thr`, `events`       | levels, thresholds)`                           |
+   +-------------------------+------------------------------------------------+
+
+CSI
+---
+
+Critical Success Index (`"CSI"`), derived from the contingency table.
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
+   | `q_thr`, `events`       | levels, thresholds)`                           |
+   +-------------------------+------------------------------------------------+
+
+
+ROCSS
+-----
+
+Relative Operating Characteristic Skill Score (`"ROCSS"`), derived from
+the contingency table, and based on computing the area under the ROC curve.
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
+   | `q_thr`, `events`       | thresholds)`                                   |
+   +-------------------------+------------------------------------------------+
+
+REL_DIAG
+--------
+
+X and Y axes of the Reliability Diagram (`"REL_DIAG"`), i.e. the forecast
+probability (X-axis) and the observed relative frequency (Y-axis).
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`        | `(sites, lead times, subsets, samples,         |
+   |                         | ranks, 2)`                                     |
+   +-------------------------+------------------------------------------------+
+
+DS
+--
+
+Delta score (`"DS"`) as per `Candille and Talagrand (2005) <https://doi.org/10.1256/qj.04.71>`_.
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`        | `(sites, lead times, subsets, samples)`        |
+   +-------------------------+------------------------------------------------+
+
+AS
+--
+
+Alpha score (`"AS"`) as per `Renard et al. (2010) <https://doi.org/10.1029/2009WR008328>`_.
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`        | `(sites, lead times, subsets, samples)`        |
+   +-------------------------+------------------------------------------------+
+
+.. rubric:: Footnotes
+
+.. [1] For this metric, the definition of the *events* has no effect on its
+       numerical result because the computation is symmetric.
