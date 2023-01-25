@@ -247,11 +247,11 @@ the contingency table, and based on computing the area under the ROC curve.
    | `q_thr`, `events`       | thresholds)`                                   |
    +-------------------------+------------------------------------------------+
 
-REL_DIAG
---------
+RANK_DIAG
+---------
 
-X and Y axes of the Reliability Diagram (`"REL_DIAG"`), i.e. the forecast
-probability (X-axis) and the observed relative frequency (Y-axis).
+Frequencies of the Rank Diagram (`"RANK_DIAG"`), also known as the
+Talagrand diagram.
 
 .. table::
    :widths: 35 65
@@ -260,7 +260,7 @@ probability (X-axis) and the observed relative frequency (Y-axis).
    | Required inputs         | Output shape                                   |
    +=========================+================================================+
    | `q_obs`, `q_prd`        | `(sites, lead times, subsets, samples,         |
-   |                         | ranks, 2)`                                     |
+   |                         | ranks)`                                        |
    +-------------------------+------------------------------------------------+
 
 DS
