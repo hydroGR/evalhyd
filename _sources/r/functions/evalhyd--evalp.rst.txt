@@ -57,6 +57,17 @@ evalhyd::evalp
          masks provided.
          shape: (sites, lead times, subsets, time)
 
+         .. warning::
+
+            The use of this parameter will raise a warning regarding
+            a coerced object from 'logical' to 'double'. This is a
+            known issue (see `#2 <https://gitlab.irstea.fr/HYCAR-Hydro/
+            evalhyd/evalhyd-r/-/issues/2>`_) that does not impact on
+            the numerical validity of the results obtained. However,
+            until this issue is resolved, the user is warned that an
+            unnecessary copy of the provided mask is made to comply
+            with the expected data type.
+
          .. seealso:: :doc:`../../functionalities/temporal-masking`
 
       bootstrap, optional
