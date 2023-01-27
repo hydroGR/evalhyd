@@ -32,6 +32,12 @@ For probabilistic predictions
 :ref:`RANK_HIST`     Rank Histogram
 :ref:`DS`            Delta Score
 :ref:`AS`            Alpha Score
+:ref:`CR`            Coverage Ratio
+:ref:`AW`            Average Width
+:ref:`AWN`           Average Width Normalised
+:ref:`AWI`           Average Width Index
+:ref:`WS`            Winkler Score
+:ref:`WSS`           Winkler Skill Score
 ===================  ===========================================================
 
 .. toctree::

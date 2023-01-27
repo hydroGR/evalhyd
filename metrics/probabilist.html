@@ -359,6 +359,36 @@ function checkPageExistsAndRedirect(event) {
    AS
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cr">
+   CR
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aw">
+   AW
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#awn">
+   AWN
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#awi">
+   AWI
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#ws">
+   WS
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#wss">
+   WSS
+  </a>
+ </li>
 </ul>
 
 </nav>
@@ -408,8 +438,8 @@ steps.</p>
 </tbody>
 </table>
 <div class="tabbed-set docutils">
-<input checked="checked" id="1f967d0f-92de-4e23-8fe5-a1715cb4b876" name="a664f09b-6faa-4a2f-8475-4057d0878fa5" type="radio">
-</input><label class="tabbed-label" for="1f967d0f-92de-4e23-8fe5-a1715cb4b876">
+<input checked="checked" id="5d962b0b-5c36-4fa3-b6cf-c20355880408" name="b5cc9047-f31c-4caa-bc57-03f6d1e3c6ed" type="radio">
+</input><label class="tabbed-label" for="5d962b0b-5c36-4fa3-b6cf-c20355880408">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="gp">... </span><span class="n">obs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
@@ -427,8 +457,8 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="ff40c923-854b-4e28-9efd-6f5809d502f1" name="a664f09b-6faa-4a2f-8475-4057d0878fa5" type="radio">
-</input><label class="tabbed-label" for="ff40c923-854b-4e28-9efd-6f5809d502f1">
+<input id="0ce7b3a5-fbda-445b-8d5e-8aff637d08d9" name="b5cc9047-f31c-4caa-bc57-03f6d1e3c6ed" type="radio">
+</input><label class="tabbed-label" for="0ce7b3a5-fbda-445b-8d5e-8aff637d08d9">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">obs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span>
 <span class="gp">+ </span><span class="w">    </span><span class="nf">c</span><span class="p">(</span><span class="m">4.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.3</span><span class="p">,</span><span class="w"> </span><span class="m">5.5</span><span class="p">,</span><span class="w"> </span><span class="m">2.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.1</span><span class="p">)</span>
@@ -459,8 +489,8 @@ R</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="4587ffe4-499c-40a2-9bf5-6a5190777075" name="a664f09b-6faa-4a2f-8475-4057d0878fa5" type="radio">
-</input><label class="tabbed-label" for="4587ffe4-499c-40a2-9bf5-6a5190777075">
+<input id="d4958f10-6073-447e-b02f-221f6d6d5b7d" name="b5cc9047-f31c-4caa-bc57-03f6d1e3c6ed" type="radio">
+</input><label class="tabbed-label" for="d4958f10-6073-447e-b02f-221f6d6d5b7d">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evalp<span class="w"> </span><span class="s2">&quot;./obs/&quot;</span><span class="w"> </span><span class="s2">&quot;./prd/&quot;</span><span class="w"> </span><span class="s2">&quot;BS&quot;</span><span class="w"> </span>--q_thr<span class="w"> </span><span class="s2">&quot;./thr/&quot;</span><span class="w"> </span>--events<span class="w"> </span><span class="s2">&quot;high&quot;</span>
 <span class="go">{{{{{ 0.222222,  0.133333}}}}}</span>
@@ -751,6 +781,161 @@ Talagrand diagram.</p>
 <tbody>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code></p></td>
 <td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cr">
+<h2>CR<a class="headerlink" href="#cr" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Coverage ratio (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;CR&quot;</span></code>), i.e. the portion of observations falling within the
+predictive intervals. It is a measure of the reliability of the predictions.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">c_lvl</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples</span>
+<span class="pre">intervals)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aw">
+<h2>AW<a class="headerlink" href="#aw" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Average width (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;AW&quot;</span></code>) of the predictive interval(s). It is a measure of the
+sharpness of the predictions.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">c_lvl</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples</span>
+<span class="pre">intervals)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="awn">
+<h2>AWN<a class="headerlink" href="#awn" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Average width of the predictive interval(s) normalised by the mean
+observation (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;AWN&quot;</span></code>).</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">c_lvl</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples</span>
+<span class="pre">intervals)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="awi">
+<h2>AWI<a class="headerlink" href="#awi" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Average width index (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;AWI&quot;</span></code>), computed as per
+<a class="reference external" href="https://doi.org/10.5194/hess-19-2535-2015">Bourgin et al. (2015)</a>..</p>
+<div class="math notranslate nohighlight">
+\[AWI = 1 - \frac{AW}{AW_{climatology}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(AW_{climatology}\)</span> is the average width computed using the
+observed quantiles (drawn from the observed flow duration curve)
+corresponding to the confidence levels as a constant predictive interval
+for the study period.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">c_lvl</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples</span>
+<span class="pre">intervals)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ws">
+<h2>WS<a class="headerlink" href="#ws" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Winkler score (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;WS&quot;</span></code>), also known as interval score, computed as per
+<a class="reference external" href="https://doi.org/10.1198/016214506000001437">Gneiting and Raftery (2007)</a>.</p>
+<div class="math notranslate nohighlight">
+\[WS = \frac{1}{n} \sum_{k=1}^{n} (u_k - l_k) + \frac{2}{\alpha} (l_k - x_k)𝟙\{x_k &lt; l_k\} + \frac{2}{\alpha} (x_K - u_k)𝟙\{x_k &gt; u_k\}\]</div>
+<p>where, for a given confidence level, <span class="math notranslate nohighlight">\(\alpha\)</span> is the portion not included
+in the central predictive interval, <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(l\)</span> are the upper and
+lower bounds of the predictive interval, respectively, <span class="math notranslate nohighlight">\(x\)</span> are the
+observations, and <span class="math notranslate nohighlight">\(n\)</span> is the number of time steps.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">c_lvl</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples</span>
+<span class="pre">intervals)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="wss">
+<h2>WSS<a class="headerlink" href="#wss" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Winkler skill score (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;WSS&quot;</span></code>), also known as interval skill score.</p>
+<div class="math notranslate nohighlight">
+\[WSS = 1 - \frac{WS}{WS_{climatology}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(WS_{climatology}\)</span> is the Winkler score computed using the
+observed quantiles (drawn from the observed flow duration curve)
+corresponding to the confidence levels as a constant predictive interval
+for the study period.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">c_lvl</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples</span>
+<span class="pre">intervals)</span></code></p></td>
 </tr>
 </tbody>
 </table>
