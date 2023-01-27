@@ -3,7 +3,7 @@
 evalhyd::evald
 ==============
 
-.. function:: evald(q_obs, q_prd, metrics, transform="none", exponent=1, epsilon=-9, t_msk=NULL, bootstrap=NULL, dts=NULL)
+.. function:: evald(q_obs, q_prd, metrics, transform=NULL, exponent=NULL, epsilon=NULL, t_msk=NULL, bootstrap=NULL, dts=NULL, seed=NULL)
 
    Function to evaluate deterministic streamflow predictions.
 
@@ -59,7 +59,18 @@ evalhyd::evald
          A logical array of mask(s) to use to temporally subset of the
          whole streamflow time series (where `TRUE`/`FALSE` is used for
          the time steps to include/discard in the subset).
-         shape: (subsets, time)
+         shape: (series, subsets, time)
+
+         .. warning::
+
+            The use of this parameter will raise a warning regarding
+            a coerced object from 'logical' to 'double'. This is a
+            known issue (see `#2 <https://gitlab.irstea.fr/HYCAR-Hydro/
+            evalhyd/evalhyd-r/-/issues/2>`_) that does not impact on
+            the numerical validity of the results obtained. However,
+            until this issue is resolved, the user is warned that an
+            unnecessary copy of the provided mask is made to comply
+            with the expected data type.
 
          .. seealso:: :doc:`../../functionalities/temporal-masking`
 
@@ -91,6 +102,11 @@ evalhyd::evald
          afternoon is "2007-05-21 16:00:00"). If provided, it is only
          used if *bootstrap* is also provided.
          shape: (time,)
+
+      seed, optional
+         An integer value for the seed used by random generators. This
+         parameter guarantees the reproducibility of the metric values
+         between calls.
 
 
    :Returns:
