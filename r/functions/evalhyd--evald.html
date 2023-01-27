@@ -322,7 +322,7 @@ function checkPageExistsAndRedirect(event) {
 <h1>evalhyd::evald<a class="headerlink" href="#evalhyd-evald" title="Permalink to this headline"><span class="fa fa-link"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="evald">
-<span class="sig-name descname"><span class="pre">evald</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q_obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_prd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_msk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bootstrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evald" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<span class="sig-name descname"><span class="pre">evald</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q_obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_prd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_msk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bootstrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evald" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
 <dd><p>Function to evaluate deterministic streamflow predictions.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -371,7 +371,17 @@ is used as value for epsilon, as recommended by
 <dt>t_msk, optional</dt><dd><p>A logical array of mask(s) to use to temporally subset of the
 whole streamflow time series (where <code class="xref py py-obj docutils literal notranslate"><span class="pre">TRUE</span></code>/<code class="xref py py-obj docutils literal notranslate"><span class="pre">FALSE</span></code> is used for
 the time steps to include/discard in the subset).
-shape: (subsets, time)</p>
+shape: (series, subsets, time)</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The use of this parameter will raise a warning regarding
+a coerced object from ‘logical’ to ‘double’. This is a
+known issue (see <a class="reference external" href="https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-r/-/issues/2">#2</a>) that does not impact on
+the numerical validity of the results obtained. However,
+until this issue is resolved, the user is warned that an
+unnecessary copy of the provided mask is made to comply
+with the expected data type.</p>
+</div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../../functionalities/temporal-masking.html"><span class="doc">Temporal masking</span></a></p>
@@ -403,6 +413,10 @@ following the ISO 8601-1:2019 standard, i.e.
 afternoon is “2007-05-21 16:00:00”). If provided, it is only
 used if <em>bootstrap</em> is also provided.
 shape: (time,)</p>
+</dd>
+<dt>seed, optional</dt><dd><p>An integer value for the seed used by random generators. This
+parameter guarantees the reproducibility of the metric values
+between calls.</p>
 </dd>
 </dl>
 </dd>

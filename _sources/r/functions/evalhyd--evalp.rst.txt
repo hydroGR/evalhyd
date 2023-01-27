@@ -3,7 +3,7 @@
 evalhyd::evalp
 ==============
 
-.. function:: evalp(q_obs, q_prd, metrics, q_thr=NULL, t_msk=NULL, bootstrap=NULL, dts=NULL)
+.. function:: evalp(q_obs, q_prd, metrics, q_thr=NULL, events=NULL, c_lvl=NULL, t_msk=NULL, bootstrap=NULL, dts=NULL, seed=NULL)
 
    Function to evaluate probabilistic streamflow predictions.
 
@@ -33,6 +33,19 @@ evalhyd::evalp
          If the number of thresholds differs across sites, `NA` can be
          set as threshold for those sites with fewer thresholds.
          shape: (sites, thresholds)
+
+      events, optional
+         A string specifying the type of streamflow events to consider
+         for threshold exceedance-based metrics. It can either be set as
+         `"high"` when flooding conditions/high flow events are
+         evaluated (i.e. event occurring when streamflow goes above
+         threshold) or as `"low"` when drought conditions/low flow
+         events are evaluated (i.e. event occurring when streamflow goes
+         below threshold). It must be provided if *q_thr* is provided.
+
+      c_lvl, optional
+         A numeric vector containing the confidence interval(s) in % to
+         consider for intervals-based metrics.
 
       t_msk, optional
          A logical array of masks to generate temporal subsets of the
@@ -75,12 +88,17 @@ evalhyd::evalp
          used if *bootstrap* is also provided.
          shape: (time,)
 
+      seed, optional
+         An integer value for the seed used by random generators. This
+         parameter guarantees the reproducibility of the metric values
+         between calls.
+
    :Returns:
 
       A list of numeric arrays containing evaluation metrics
       computed in the same order as given in *metrics*.
       shape: [(sites, lead times, subsets, {quantiles,} {thresholds,}
-      {components}), ...]
+      {components,} {ranks,} {intervals}), ...]
 
 
    :Examples:

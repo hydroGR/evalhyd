@@ -322,7 +322,7 @@ function checkPageExistsAndRedirect(event) {
 <h1>evalhyd::evalp<a class="headerlink" href="#evalhyd-evalp" title="Permalink to this headline"><span class="fa fa-link"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="evalp">
-<span class="sig-name descname"><span class="pre">evalp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q_obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_prd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_thr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_msk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bootstrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evalp" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<span class="sig-name descname"><span class="pre">evalp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q_obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_prd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_thr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c_lvl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_msk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bootstrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evalp" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
 <dd><p>Function to evaluate probabilistic streamflow predictions.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -347,6 +347,17 @@ the metrics assessing the prediction of exceedance events.
 If the number of thresholds differs across sites, <code class="xref py py-obj docutils literal notranslate"><span class="pre">NA</span></code> can be
 set as threshold for those sites with fewer thresholds.
 shape: (sites, thresholds)</p>
+</dd>
+<dt>events, optional</dt><dd><p>A string specifying the type of streamflow events to consider
+for threshold exceedance-based metrics. It can either be set as
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;high&quot;</span></code> when flooding conditions/high flow events are
+evaluated (i.e. event occurring when streamflow goes above
+threshold) or as <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;low&quot;</span></code> when drought conditions/low flow
+events are evaluated (i.e. event occurring when streamflow goes
+below threshold). It must be provided if <em>q_thr</em> is provided.</p>
+</dd>
+<dt>c_lvl, optional</dt><dd><p>A numeric vector containing the confidence interval(s) in % to
+consider for intervals-based metrics.</p>
 </dd>
 <dt>t_msk, optional</dt><dd><p>A logical array of masks to generate temporal subsets of the
 whole streamflow time series (where <code class="xref py py-obj docutils literal notranslate"><span class="pre">TRUE</span></code>/<code class="xref py py-obj docutils literal notranslate"><span class="pre">FALSE</span></code> is used for
@@ -388,13 +399,17 @@ afternoon is “2007-05-21 16:00:00”). If provided, it is only
 used if <em>bootstrap</em> is also provided.
 shape: (time,)</p>
 </dd>
+<dt>seed, optional</dt><dd><p>An integer value for the seed used by random generators. This
+parameter guarantees the reproducibility of the metric values
+between calls.</p>
+</dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A list of numeric arrays containing evaluation metrics
 computed in the same order as given in <em>metrics</em>.
 shape: [(sites, lead times, subsets, {quantiles,} {thresholds,}
-{components}), …]</p>
+{components,} {ranks,} {intervals}), …]</p>
 </dd>
 <dt class="field-odd">Examples</dt>
 <dd class="field-odd"><div class="highlight-rconsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">obs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span>
