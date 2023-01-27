@@ -247,10 +247,10 @@ the contingency table, and based on computing the area under the ROC curve.
    | `q_thr`, `events`       | thresholds)`                                   |
    +-------------------------+------------------------------------------------+
 
-RANK_DIAG
+RANK_HIST
 ---------
 
-Frequencies of the Rank Diagram (`"RANK_DIAG"`), also known as the
+Frequencies of the Rank Histogram (`"RANK_HIST"`), also known as the
 Talagrand diagram.
 
 .. table::

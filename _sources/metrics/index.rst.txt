@@ -29,7 +29,7 @@ For probabilistic predictions
 :ref:`FAR`           False Alarm Rate
 :ref:`CSI`           Critical Success Index
 :ref:`ROCSS`         Relative Operating Characteristic Skill Score
-:ref:`REL_DIAG`      Reliability Diagram
+:ref:`RANK_HIST`     Rank Histogram
 :ref:`DS`            Delta Score
 :ref:`AS`            Alpha Score
 ===================  ===========================================================
