@@ -384,13 +384,12 @@ with the expected data type.</p>
 </dd>
 <dt>bootstrap, optional</dt><dd><p>The values for the parameters of the bootstrapping method used
 to estimate the sampling uncertainty in the evaluation of the
-predictions. Three parameters are mandatory: <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;n_samples&quot;</span></code>
-the number of random samples, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;len_samples&quot;</span></code> the length of
-one sample in number of years; <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;summary&quot;</span></code> the statistics to
-return to characterise the sampling distribution. One
-parameter is optional: <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;seed&quot;</span></code> the seed for the random
-generator. If not provided, no bootstrapping is performed. If
-provided, <em>dts</em> must also be provided.</p>
+predictions. It takes three parameters: <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;n_samples&quot;</span></code> the
+number of random samples, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;len_samples&quot;</span></code> the length of one
+sample in number of years, and <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;summary&quot;</span></code> the statistics to
+return to characterise the sampling distribution. If not
+provided, no bootstrapping is performed. If provided, <em>dts</em>
+must also be provided.</p>
 <p><em>Parameter example:</em></p>
 <div class="highlight-r notranslate"><div class="highlight"><pre><span></span><span class="n">bootstrap</span><span class="o">=</span><span class="nf">list</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="m">100</span><span class="p">,</span><span class="w"> </span><span class="n">len_sample</span><span class="o">=</span><span class="m">10</span><span class="p">,</span><span class="w"> </span><span class="n">summary</span><span class="o">=</span><span class="m">0</span><span class="p">)</span>
 </pre></div>
