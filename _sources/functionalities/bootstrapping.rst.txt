@@ -21,7 +21,7 @@ This allows for the estimation of the sampling uncertainty of the
 evaluation metrics, i.e. the influence of the choice of the study period
 on the metric values.
 
-The bootstrap method is configurable through four parameters:
+The bootstrap method is configurable through three parameters:
 
 ============  ===========================  ========================  ==========
 parameter     description                  possible values           mandatory?
@@ -34,8 +34,6 @@ parameter     description                  possible values           mandatory?
 `summary`     the statistics to summarise  `0` (for no summary)      yes
               the sampling distribution
               (i.e. across the samples)
-`seed`        the seed for the random      any integer               no
-              generator
 ============  ===========================  ========================  ==========
 
 ..
@@ -44,6 +42,11 @@ parameter     description                  possible values           mandatory?
                  (i.e. across the samples)    deviation), or `2` (for
                                               percentiles 5, 10, 15,
                                               25, 50, 75, 85, 90, 95)
+
+.. hint::
+
+   The seed of the random generator is configurable through the *seed*
+   parameter.
 
 .. note::
 

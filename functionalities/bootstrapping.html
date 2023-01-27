@@ -333,7 +333,7 @@ randomly draws with replacement from the hydrological years it contains.</p>
 <p>This allows for the estimation of the sampling uncertainty of the
 evaluation metrics, i.e. the influence of the choice of the study period
 on the metric values.</p>
-<p>The bootstrap method is configurable through four parameters:</p>
+<p>The bootstrap method is configurable through three parameters:</p>
 <table class="table">
 <colgroup>
 <col style="width: 16%" />
@@ -369,14 +369,13 @@ the sampling distribution
 <td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">0</span></code> (for no summary)</p></td>
 <td><p>yes</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">seed</span></code></p></td>
-<td><p>the seed for the random
-generator</p></td>
-<td><p>any integer</p></td>
-<td><p>no</p></td>
-</tr>
 </tbody>
 </table>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The seed of the random generator is configurable through the <em>seed</em>
+parameter.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Since the sampling is performed with replacement, the number of
@@ -384,8 +383,8 @@ samples and the length of a sample have no upper limit.</p>
 </div>
 <p>Examples using the bootstrapping functionality are provided below.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="b9bd50d4-2a2e-462f-9772-ae7adf766e9f" name="73be2de4-afc3-4ed8-83bf-36b5a4bd2e6b" type="radio">
-</input><label class="tabbed-label" for="b9bd50d4-2a2e-462f-9772-ae7adf766e9f">
+<input checked="checked" id="00582a99-6c85-4cbf-b7ec-7e3b0af85b44" name="64f05a8e-07bb-4664-9fe7-67127c2056d5" type="radio">
+</input><label class="tabbed-label" for="00582a99-6c85-4cbf-b7ec-7e3b0af85b44">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;NSE&quot;</span><span class="p">],</span>
@@ -400,8 +399,8 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="72b038d0-a263-496e-a4ea-914d13c27bf0" name="73be2de4-afc3-4ed8-83bf-36b5a4bd2e6b" type="radio">
-</input><label class="tabbed-label" for="72b038d0-a263-496e-a4ea-914d13c27bf0">
+<input id="40095c46-1b8e-45d5-a483-1261658bcaf5" name="64f05a8e-07bb-4664-9fe7-67127c2056d5" type="radio">
+</input><label class="tabbed-label" for="40095c46-1b8e-45d5-a483-1261658bcaf5">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span>
 <span class="gp">+ </span><span class="w">    </span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NSE&quot;</span><span class="p">),</span>
@@ -416,8 +415,8 @@ R</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="fb80049a-95c3-4311-9ff1-21c2711d30bf" name="73be2de4-afc3-4ed8-83bf-36b5a4bd2e6b" type="radio">
-</input><label class="tabbed-label" for="fb80049a-95c3-4311-9ff1-21c2711d30bf">
+<input id="7b5a590b-7bcb-4845-a317-07f96e760ad2" name="64f05a8e-07bb-4664-9fe7-67127c2056d5" type="radio">
+</input><label class="tabbed-label" for="7b5a590b-7bcb-4845-a317-07f96e760ad2">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span><span class="w"> </span>--to_file<span class="w"> </span><span class="se">\</span>
 <span class="gp">&gt; </span>--bootstrap<span class="w"> </span><span class="s2">&quot;n_samples&quot;</span><span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="s2">&quot;len_sample&quot;</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="s2">&quot;summary&quot;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>--dts<span class="w"> </span><span class="s2">&quot;dts.csv&quot;</span>
