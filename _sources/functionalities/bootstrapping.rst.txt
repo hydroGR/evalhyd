@@ -37,20 +37,14 @@ The bootstrap method is configurable through three parameters:
    |               | hydrological years).        |                            |
    +---------------+-----------------------------+-----+----------------------+
    | `summary`     | The statistics to summarise | `0` | for no summary       |
-   |               | the sampling distribution   |     |                      |
-   |               | (i.e. across the samples).  |     |                      |
+   |               | the sampling distribution   +-----+----------------------+
+   |               | (i.e. across the samples).  | `1` | for mean & standard  |
+   |               |                             |     | deviation            |
+   |               |                             +-----+----------------------+
+   |               |                             | `2` | for percentiles 5,   |
+   |               |                             |     | 10, 15, 25, 50, 75,  |
+   |               |                             |     | 85, 90, 95           |
    +---------------+-----------------------------+-----+----------------------+
-
-..
-      | `summary`     | The statistics to summarise | `0` | for no summary       |
-      |               | the sampling distribution   +-----+----------------------+
-      |               | (i.e. across the samples).  | `1` | for mean & standard  |
-      |               |                             |     | deviation            |
-      |               |                             +-----+----------------------+
-      |               |                             | `2` | for percentiles 5,   |
-      |               |                             |     | 10, 15, 25, 50, 75,  |
-      |               |                             |     | 85, 90, 95           |
-      +---------------+-----------------------------+-----+----------------------+
 
 .. hint::
 

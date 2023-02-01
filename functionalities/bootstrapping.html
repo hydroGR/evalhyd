@@ -359,12 +359,21 @@ in number of blocks (i.e.
 hydrological years).</p></td>
 <td colspan="2"><p>any integer</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">summary</span></code></p></td>
-<td><p>The statistics to summarise
+<tr class="row-even"><td rowspan="3"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">summary</span></code></p></td>
+<td rowspan="3"><p>The statistics to summarise
 the sampling distribution
 (i.e. across the samples).</p></td>
 <td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">0</span></code></p></td>
 <td><p>for no summary</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">1</span></code></p></td>
+<td><p>for mean &amp; standard
+deviation</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">2</span></code></p></td>
+<td><p>for percentiles 5,
+10, 15, 25, 50, 75,
+85, 90, 95</p></td>
 </tr>
 </tbody>
 </table>
@@ -380,8 +389,8 @@ samples and the length of a sample have no upper limit.</p>
 </div>
 <p>Examples using the bootstrapping functionality are provided below.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="d548c7fa-e42f-4c03-9384-ddf3e05fa4ea" name="8aeaa07b-ed2d-40cb-a2fd-1ab174ea4728" type="radio">
-</input><label class="tabbed-label" for="d548c7fa-e42f-4c03-9384-ddf3e05fa4ea">
+<input checked="checked" id="bfe34c1e-2142-4c59-9df0-50d9d940ee8d" name="c519c8c0-28b9-4091-87f0-4c352a038d45" type="radio">
+</input><label class="tabbed-label" for="bfe34c1e-2142-4c59-9df0-50d9d940ee8d">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;NSE&quot;</span><span class="p">],</span>
@@ -396,8 +405,8 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="76e3174a-f12c-47a8-8478-44d86b3e5991" name="8aeaa07b-ed2d-40cb-a2fd-1ab174ea4728" type="radio">
-</input><label class="tabbed-label" for="76e3174a-f12c-47a8-8478-44d86b3e5991">
+<input id="74cde143-9e4b-4351-a4b5-0c2ae535b947" name="c519c8c0-28b9-4091-87f0-4c352a038d45" type="radio">
+</input><label class="tabbed-label" for="74cde143-9e4b-4351-a4b5-0c2ae535b947">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span>
 <span class="gp">+ </span><span class="w">    </span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NSE&quot;</span><span class="p">),</span>
@@ -412,8 +421,8 @@ R</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="42c8b45c-9fea-472e-897f-60fc4782bec6" name="8aeaa07b-ed2d-40cb-a2fd-1ab174ea4728" type="radio">
-</input><label class="tabbed-label" for="42c8b45c-9fea-472e-897f-60fc4782bec6">
+<input id="fc740861-441f-47f0-a2d8-ec7ca000cd65" name="c519c8c0-28b9-4091-87f0-4c352a038d45" type="radio">
+</input><label class="tabbed-label" for="fc740861-441f-47f0-a2d8-ec7ca000cd65">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span><span class="w"> </span>--to_file<span class="w"> </span><span class="se">\</span>
 <span class="gp">&gt; </span>--bootstrap<span class="w"> </span><span class="s2">&quot;n_samples&quot;</span><span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="s2">&quot;len_sample&quot;</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="s2">&quot;summary&quot;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>--dts<span class="w"> </span><span class="s2">&quot;dts.csv&quot;</span>
