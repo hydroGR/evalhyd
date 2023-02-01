@@ -363,7 +363,8 @@ hydrological years).</p></td>
 <td><p>The statistics to summarise
 the sampling distribution
 (i.e. across the samples).</p></td>
-<td colspan="2"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">0</span></code> (for no summary)</p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">0</span></code></p></td>
+<td><p>for no summary</p></td>
 </tr>
 </tbody>
 </table>
@@ -379,8 +380,8 @@ samples and the length of a sample have no upper limit.</p>
 </div>
 <p>Examples using the bootstrapping functionality are provided below.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="661cc5e1-2d64-4b9f-9c4b-53b94e75dc12" name="27169e2d-e14c-4ccc-80c2-28350263130a" type="radio">
-</input><label class="tabbed-label" for="661cc5e1-2d64-4b9f-9c4b-53b94e75dc12">
+<input checked="checked" id="d548c7fa-e42f-4c03-9384-ddf3e05fa4ea" name="8aeaa07b-ed2d-40cb-a2fd-1ab174ea4728" type="radio">
+</input><label class="tabbed-label" for="d548c7fa-e42f-4c03-9384-ddf3e05fa4ea">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;NSE&quot;</span><span class="p">],</span>
@@ -395,8 +396,8 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="d50afa7d-7a6a-42e8-969d-0e0decb42896" name="27169e2d-e14c-4ccc-80c2-28350263130a" type="radio">
-</input><label class="tabbed-label" for="d50afa7d-7a6a-42e8-969d-0e0decb42896">
+<input id="76e3174a-f12c-47a8-8478-44d86b3e5991" name="8aeaa07b-ed2d-40cb-a2fd-1ab174ea4728" type="radio">
+</input><label class="tabbed-label" for="76e3174a-f12c-47a8-8478-44d86b3e5991">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span>
 <span class="gp">+ </span><span class="w">    </span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NSE&quot;</span><span class="p">),</span>
@@ -411,8 +412,8 @@ R</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="fd109820-1a3b-4b06-89b8-11c1c5c128b7" name="27169e2d-e14c-4ccc-80c2-28350263130a" type="radio">
-</input><label class="tabbed-label" for="fd109820-1a3b-4b06-89b8-11c1c5c128b7">
+<input id="42c8b45c-9fea-472e-897f-60fc4782bec6" name="8aeaa07b-ed2d-40cb-a2fd-1ab174ea4728" type="radio">
+</input><label class="tabbed-label" for="42c8b45c-9fea-472e-897f-60fc4782bec6">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span><span class="w"> </span>--to_file<span class="w"> </span><span class="se">\</span>
 <span class="gp">&gt; </span>--bootstrap<span class="w"> </span><span class="s2">&quot;n_samples&quot;</span><span class="w"> </span><span class="m">100</span><span class="w"> </span><span class="s2">&quot;len_sample&quot;</span><span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="s2">&quot;summary&quot;</span><span class="w"> </span><span class="m">0</span><span class="w"> </span>--dts<span class="w"> </span><span class="s2">&quot;dts.csv&quot;</span>
