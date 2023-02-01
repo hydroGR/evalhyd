@@ -23,25 +23,34 @@ on the metric values.
 
 The bootstrap method is configurable through three parameters:
 
-============  ===========================  ====================================
-parameter     description                  possible values
-============  ===========================  ====================================
-`n_samples`   the number of random         any integer
-              samples to generate
-`len_sample`  the length of one sample     any integer
-              in number of blocks (i.e.
-              hydrological years)
-`summary`     the statistics to summarise  `0` (for no summary)
-              the sampling distribution
-              (i.e. across the samples)
-============  ===========================  ====================================
+.. table::
+   :widths: 15 55 3 27
+
+   +---------------+-----------------------------+----------------------------+
+   | Parameter     | Description                 | Possible values            |
+   +===============+=============================+============================+
+   | `n_samples`   | The number of random        | any integer                |
+   |               | samples to generate.        |                            |
+   +---------------+-----------------------------+----------------------------+
+   | `len_sample`  | The length of one sample    | any integer                |
+   |               | in number of blocks (i.e.   |                            |
+   |               | hydrological years).        |                            |
+   +---------------+-----------------------------+----------------------------+
+   | `summary`     | The statistics to summarise | `0` (for no summary)       |
+   |               | the sampling distribution   |                            |
+   |               | (i.e. across the samples).  |                            |
+   +---------------+-----------------------------+-----+----------------------+
 
 ..
-   `summary`     the statistics to summarise  `0` (for no summary),
-                 the sampling distribution    `1` (for mean & standard
-                 (i.e. across the samples)    deviation), or `2` (for
-                                              percentiles 5, 10, 15,
-                                              25, 50, 75, 85, 90, 95)
+      | `summary`     | The statistics to summarise | `0` | for no summary       |
+      |               | the sampling distribution   +-----+----------------------+
+      |               | (i.e. across the samples).  | `1` | for mean & standard  |
+      |               |                             |     | deviation            |
+      |               |                             +-----+----------------------+
+      |               |                             | `2` | for percentiles 5,   |
+      |               |                             |     | 10, 15, 25, 50, 75,  |
+      |               |                             |     | 85, 90, 95           |
+      +---------------+-----------------------------+-----+----------------------+
 
 .. hint::
 
