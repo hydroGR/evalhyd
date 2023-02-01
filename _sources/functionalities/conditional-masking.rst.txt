@@ -4,13 +4,6 @@
 Conditional masking
 ===================
 
-.. image:: https://img.shields.io/badge/-not%20available%20for%20evalhyd--r-ed6e6c?style=flat-square
-   :alt: not available for evalhyd-r
-
-.. raw:: html
-
-   <br/>
-
 .. image:: https://img.shields.io/badge/-determinist-275662?style=flat-square
    :alt: determinist
 
