@@ -23,21 +23,21 @@ on the metric values.
 
 The bootstrap method is configurable through three parameters:
 
-============  ===========================  ========================  ==========
-parameter     description                  possible values           mandatory?
-============  ===========================  ========================  ==========
-`n_samples`   the number of random         any integer               yes
+============  ===========================  ====================================
+parameter     description                  possible values
+============  ===========================  ====================================
+`n_samples`   the number of random         any integer
               samples to generate
-`len_sample`  the length of one sample     any integer               yes
+`len_sample`  the length of one sample     any integer
               in number of blocks (i.e.
               hydrological years)
-`summary`     the statistics to summarise  `0` (for no summary)      yes
+`summary`     the statistics to summarise  `0` (for no summary)
               the sampling distribution
               (i.e. across the samples)
-============  ===========================  ========================  ==========
+============  ===========================  ====================================
 
 ..
-   `summary`     the statistics to summarise  `0` (for no summary),     yes
+   `summary`     the statistics to summarise  `0` (for no summary),
                  the sampling distribution    `1` (for mean & standard
                  (i.e. across the samples)    deviation), or `2` (for
                                               percentiles 5, 10, 15,

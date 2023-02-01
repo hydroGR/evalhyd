@@ -322,12 +322,12 @@ function checkPageExistsAndRedirect(event) {
 <h1>evalhyd.evald<a class="headerlink" href="#evalhyd-evald" title="Permalink to this headline"><span class="fa fa-link"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="evalhyd.evald">
-<span class="sig-prename descclassname"><span class="pre">evalhyd.</span></span><span class="sig-name descname"><span class="pre">evald</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q_obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_prd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_msk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[[]]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m_cdt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bootstrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'n_samples':</span> <span class="pre">-</span> <span class="pre">9,</span> <span class="pre">'len_sample':</span> <span class="pre">-</span> <span class="pre">9,</span> <span class="pre">'summary':</span> <span class="pre">0}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evalhyd.evald" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">evalhyd.</span></span><span class="sig-name descname"><span class="pre">evald</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q_obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_prd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_msk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">m_cdt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bootstrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evalhyd.evald" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
 <dd><p>Function to evaluate deterministic streamflow predictions.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt>q_obs: <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></dt><dd><p>1D or 2D array of streamflow observations. Time steps with
+<dt>q_obs: <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <code class="docutils literal notranslate"><span class="pre">[dtype('float64')]</span></code></dt><dd><p>1D or 2D array of streamflow observations. Time steps with
 missing observations must be assigned <a class="reference external" href="https://numpy.org/doc/stable/reference/constants.html#numpy.nan" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.nan</span></code></a> values.
 Those time steps will be ignored both in the observations
 and in the predictions before the <em>metrics</em> are computed.
@@ -335,7 +335,7 @@ Observations and predictions must feature the same number of
 dimensions.
 shape: (time,) or (1, time)</p>
 </dd>
-<dt>q_prd: <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></dt><dd><p>1D or 2D array of streamflow predictions. Time steps with
+<dt>q_prd: <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <code class="docutils literal notranslate"><span class="pre">[dtype('float64')]</span></code></dt><dd><p>1D or 2D array of streamflow predictions. Time steps with
 missing predictions must be assigned <a class="reference external" href="https://numpy.org/doc/stable/reference/constants.html#numpy.nan" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.nan</span></code></a> values.
 Those time steps will be ignored both in the observations
 and the predictions before the <em>metrics</em> are computed.
@@ -367,28 +367,27 @@ one hundredth of the mean of the streamflow observations
 is used as value for epsilon, as recommended by
 <a class="reference external" href="https://doi.org/10.1016/j.jhydrol.2011.11.055">Pushpalatha et al. (2012)</a>.</p>
 </dd>
-<dt>t_msk: <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, optional</dt><dd><p>2D array of mask(s) used to generate temporal subsets of
+<dt>t_msk: <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <code class="docutils literal notranslate"><span class="pre">[dtype('bool')]</span></code>, optional</dt><dd><p>3D array of mask(s) used to generate temporal subsets of
 the whole streamflow time series (where <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">True</span></code></a>/<a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">False</span></code></a> is used
 for the time steps to include/discard in a given subset). If
 not provided and neither is <em>m_cdt</em>, no subset is performed.
-If provided, masks must feature the same number of dimensions
-as observations and predictions, and it must broadcastable
-with both of them.
-shape: (subsets, time)</p>
+If provided, as many sets of metrics are returned as they are
+masks provided.
+shape: (series, subsets, time)</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../../functionalities/temporal-masking.html"><span class="doc">Temporal masking</span></a></p>
 </div>
 </dd>
-<dt>m_cdt: <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, optional</dt><dd><p>1D array of masking condition(s) to use to generate temporal
+<dt>m_cdt: <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <code class="docutils literal notranslate"><span class="pre">[dtype('|S32')]</span></code>, optional</dt><dd><p>2D array of masking condition(s) to use to generate temporal
 subsets. Each condition consists in a string and can be
 specified on observed streamflow values/statistics (mean,
 median, quantile), or on time indices. If provided in
 combination with <em>t_msk</em>, the latter takes precedence. If not
 provided and neither is <em>t_msk</em>, no subset is performed. If
-provided, only one condition per time series of observations
-can be provided.
-shape: (subsets,)</p>
+provided, as many sets of metrics are returned as they are
+conditions provided.
+shape: (series, subsets)</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="../../functionalities/conditional-masking.html"><span class="doc">Conditional masking</span></a></p>
@@ -396,13 +395,12 @@ shape: (subsets,)</p>
 </dd>
 <dt>bootstrap: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a>, optional</dt><dd><p>The values for the parameters of the bootstrapping method used
 to estimate the sampling uncertainty in the evaluation of the
-predictions. Three parameters are mandatory: <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;n_samples&quot;</span></code>
-the number of random samples, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;len_samples&quot;</span></code> the length of
-one sample in number of years; <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;summary&quot;</span></code> the statistics to
-return to characterise the sampling distribution. One
-parameter is optional: <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;seed&quot;</span></code> the seed for the random
-generator. If not provided, no bootstrapping is performed. If
-provided, <em>dts</em> must also be provided.</p>
+predictions. It takes three parameters are mandatory:
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;n_samples&quot;</span></code> the number of random samples, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;len_samples&quot;</span></code>
+the length of one sample in number of years; <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;summary&quot;</span></code> the
+statistics to return to characterise the sampling distribution.
+If not provided, no bootstrapping is performed. If provided,
+<em>dts</em> must also be provided.</p>
 <p><em>Parameter example:</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bootstrap</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;n_samples&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;len_sample&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;summary&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
 </pre></div>
@@ -412,14 +410,17 @@ provided, <em>dts</em> must also be provided.</p>
 <p><a class="reference internal" href="../../functionalities/bootstrapping.html"><span class="doc">Bootstrapping</span></a></p>
 </div>
 </dd>
-<dt>dts: <code class="xref py py-obj docutils literal notranslate"><span class="pre">List[str]</span></code>, optional</dt><dd><p>The sequence of corresponding dates and times for the
-temporal dimension of the streamflow observations and
-predictions. The date and time must be specified in a string
-following the ISO 8601-1:2019 standard, i.e.
-“YYYY-MM-DD hh:mm:ss” (e.g. the 21st of May 2007 at 4 in the
-afternoon is “2007-05-21 16:00:00”). If provided, it is only
-used if <em>bootstrap</em> is also provided.
+<dt>dts: <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> <code class="docutils literal notranslate"><span class="pre">[dtype('|S32')]</span></code>, optional</dt><dd><p>1D array of dates and times corresponding to the temporal
+dimension of the streamflow observations and predictions.
+The date and time must be specified in a string following the
+ISO 8601-1:2019 standard, i.e. “YYYY-MM-DD hh:mm:ss” (e.g. the
+21st of May 2007 at 4 in the afternoon is “2007-05-21 16:00:00”).
+If provided, it is only used if <em>bootstrap</em> is also provided.
 shape: (time,)</p>
+</dd>
+<dt>seed: <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">int</span></code></a>, optional</dt><dd><p>An integer value for the seed used by random generators. This
+parameter guarantees the reproducibility of the metric values
+between calls.</p>
 </dd>
 </dl>
 </dd>
@@ -518,7 +519,7 @@ Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
 
 <p class="last-updated">
-Last updated on Jan 31, 2023.<br>
+Last updated on Feb 01, 2023.<br>
 </p>
   </div>
   

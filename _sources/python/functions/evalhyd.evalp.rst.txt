@@ -3,99 +3,116 @@
 evalhyd.evalp
 =============
 
-.. function:: evalhyd.evalp(q_obs, q_prd, metrics, q_thr=None, t_msk=[[]], m_cdt=[], bootstrap={"n_samples": -9, "len_sample": -9, "summary": 0}, dts=[])
+.. function:: evalhyd.evalp(q_obs, q_prd, metrics, q_thr=None, events=None, c_lvl=None, t_msk=None, m_cdt=None, bootstrap=None, dts=None, seed=None)
 
    Function to evaluate probabilistic streamflow predictions.
 
    :Parameters:
 
-       q_obs: `numpy.ndarray`
-           2D array of streamflow observations. Time steps with missing
-           observations must be assigned `numpy.nan` values. Those time
-           steps will be ignored both in the observations and in the
-           predictions before the *metrics* are computed.
-           shape: (sites, time)
+      q_obs: `numpy.ndarray` ``[dtype('float64')]``
+         2D array of streamflow observations. Time steps with missing
+         observations must be assigned `numpy.nan` values. Those time
+         steps will be ignored both in the observations and in the
+         predictions before the *metrics* are computed.
+         shape: (sites, time)
 
-       q_prd: `numpy.ndarray`
-           4D array of streamflow predictions. Time steps with missing
-           predictions must be assigned `numpy.nan` values. Those time
-           steps will be ignored both in the observations and in the
-           predictions before the *metrics* are computed.
-           shape: (sites, lead times, members, time)
+      q_prd: `numpy.ndarray` ``[dtype('float64')]``
+         4D array of streamflow predictions. Time steps with missing
+         predictions must be assigned `numpy.nan` values. Those time
+         steps will be ignored both in the observations and in the
+         predictions before the *metrics* are computed.
+         shape: (sites, lead times, members, time)
 
-       metrics: `List[str]`
-           The sequence of evaluation metrics to be computed.
-           shape: (metrics,)
+      metrics: `List[str]`
+         The sequence of evaluation metrics to be computed.
+         shape: (metrics,)
 
-       q_thr: `numpy.ndarray`, optional
-           2D array of streamflow threshold(s) to consider for the
-           *metrics* assessing the prediction of exceedance events. If
-           the number of thresholds differs across sites, `numpy.nan`
-           can be set as threshold for those sites with fewer thresholds.
-           shape: (sites, thresholds)
+      q_thr: `numpy.ndarray` ``[dtype('float64')]``, optional
+         2D array of streamflow threshold(s) to consider for the
+         *metrics* assessing the prediction of exceedance events. If
+         the number of thresholds differs across sites, `numpy.nan`
+         can be set as threshold for those sites with fewer thresholds.
+         shape: (sites, thresholds)
 
-       t_msk: `numpy.ndarray`, optional
-           4D array of masks to generate temporal subsets of the whole
-           streamflow time series (where `True`/`False` is used for the
-           time steps to include/discard in a given subset). If not
-           provided and neither is *m_cdt*, no subset is performed and
-           only one set of metrics is returned corresponding to the whole
-           time series. If provided, as many sets of metrics are returned
-           as they are masks provided.
-           shape: (sites, lead times, subsets, time)
+      events: `str`, optional
+         A string specifying the type of streamflow events to consider
+         for threshold exceedance-based metrics. It can either be set
+         as `"high"` when flooding conditions/high flow events are
+         evaluated (i.e. event occurring when streamflow goes above
+         threshold) or as `"low"` when drought conditions/low flow
+         events are evaluated (i.e. event occurring when streamflow goes
+         below threshold). It must be provided if *q_thr* is provided.
 
-           .. seealso:: :doc:`../../functionalities/temporal-masking`
+      c_lvl: `numpy.ndarray` ``[dtype('float64')]``, optional
+         1D array of confidence interval(s) in % to consider for
+         intervals-based metrics.
 
-       m_cdt: `numpy.ndarray`, optional
-           2D array of conditions to generate temporal subsets. Each
-           condition consists in a string and can be specified on
-           observed/predicted streamflow values (mean, median, quantile),
-           or on time indices. If provided in combination with *t_msk*,
-           the latter takes precedence. If not provided and neither is
-           *t_msk*, no subset is performed and only one set of metrics
-           is returned corresponding to the whole time series. If
-           provided, as many sets of metrics are returned as they are
-           conditions provided.
-           shape: (sites, subsets)
+      t_msk: `numpy.ndarray` ``[dtype('bool')]``, optional
+         4D array of masks to generate temporal subsets of the whole
+         streamflow time series (where `True`/`False` is used for the
+         time steps to include/discard in a given subset). If not
+         provided and neither is *m_cdt*, no subset is performed and
+         only one set of metrics is returned corresponding to the whole
+         time series. If provided, as many sets of metrics are returned
+         as they are masks provided.
+         shape: (sites, lead times, subsets, time)
 
-           .. seealso:: :doc:`../../functionalities/conditional-masking`
+         .. seealso:: :doc:`../../functionalities/temporal-masking`
 
-       bootstrap: `dict`, optional
-          The values for the parameters of the bootstrapping method used
-          to estimate the sampling uncertainty in the evaluation of the
-          predictions. Three parameters are mandatory: `"n_samples"`
-          the number of random samples, `"len_samples"` the length of
-          one sample in number of years; `"summary"` the statistics to
-          return to characterise the sampling distribution. One
-          parameter is optional: `"seed"` the seed for the random
-          generator. If not provided, no bootstrapping is performed. If
-          provided, *dts* must also be provided.
+      m_cdt: `numpy.ndarray` ``[dtype('|S32')]``, optional
+         2D array of conditions to generate temporal subsets. Each
+         condition consists in a string and can be specified on
+         observed/predicted streamflow values (mean, median, quantile),
+         or on time indices. If provided in combination with *t_msk*,
+         the latter takes precedence. If not provided and neither is
+         *t_msk*, no subset is performed and only one set of metrics
+         is returned corresponding to the whole time series. If
+         provided, as many sets of metrics are returned as they are
+         conditions provided.
+         shape: (sites, subsets)
 
-          *Parameter example:*
+         .. seealso:: :doc:`../../functionalities/conditional-masking`
 
-          .. code-block:: python
+      bootstrap: `dict`, optional
+         The values for the parameters of the bootstrapping method used
+         to estimate the sampling uncertainty in the evaluation of the
+         predictions. It takes three parameters are mandatory:
+         `"n_samples"` the number of random samples, `"len_samples"`
+         the length of one sample in number of years; `"summary"` the
+         statistics to return to characterise the sampling distribution.
+         If not provided, no bootstrapping is performed. If provided,
+         *dts* must also be provided.
 
-             bootstrap={"n_samples": 100, "len_sample": 10, "summary": 0}
+         *Parameter example:*
 
-          .. seealso:: :doc:`../../functionalities/bootstrapping`
+         .. code-block:: python
 
-       dts: `List[str]`, optional
-          The sequence of corresponding dates and times for the
-          temporal dimension of the streamflow observations and
-          predictions. The date and time must be specified in a string
-          following the ISO 8601-1:2019 standard, i.e.
-          "YYYY-MM-DD hh:mm:ss" (e.g. the 21st of May 2007 at 4 in the
-          afternoon is "2007-05-21 16:00:00"). If provided, it is only
-          used if *bootstrap* is also provided.
-          shape: (time,)
+            bootstrap={"n_samples": 100, "len_sample": 10, "summary": 0}
+
+         .. seealso:: :doc:`../../functionalities/bootstrapping`
+
+      dts: `numpy.ndarray` ``[dtype('|S32')]``, optional
+         1D array of dates and times corresponding to the temporal
+         dimension of the streamflow observations and predictions.
+         The date and time must be specified in a string following the
+         ISO 8601-1:2019 standard, i.e. "YYYY-MM-DD hh:mm:ss" (e.g. the
+         21st of May 2007 at 4 in the afternoon is "2007-05-21 16:00:00").
+         If provided, it is only used if *bootstrap* is also provided.
+         shape: (time,)
+
+      seed: `int`, optional
+         An integer value for the seed used by random generators. This
+         parameter guarantees the reproducibility of the metric values
+         between calls.
+
 
    :Returns:
 
-       `List[numpy.ndarray]`
-           The sequence of evaluation metrics computed
-           in the same order as given in *metrics*.
-           shape: [(sites, lead times, subsets, samples, {quantiles,}
-           {thresholds,} {components}), ...]
+      `List[numpy.ndarray]`
+         The sequence of evaluation metrics computed
+         in the same order as given in *metrics*.
+         shape: [(sites, lead times, subsets, samples, {quantiles,}
+         {thresholds,} {components,} {ranks,} {intervals}), ...]
 
    :Examples:
 
