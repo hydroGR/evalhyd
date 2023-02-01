@@ -35,10 +35,10 @@ The bootstrap method is configurable through three parameters:
    | `len_sample`  | The length of one sample    | any integer                |
    |               | in number of blocks (i.e.   |                            |
    |               | hydrological years).        |                            |
-   +---------------+-----------------------------+----------------------------+
-   | `summary`     | The statistics to summarise | `0` (for no summary)       |
-   |               | the sampling distribution   |                            |
-   |               | (i.e. across the samples).  |                            |
+   +---------------+-----------------------------+-----+----------------------+
+   | `summary`     | The statistics to summarise | `0` | for no summary       |
+   |               | the sampling distribution   |     |                      |
+   |               | (i.e. across the samples).  |     |                      |
    +---------------+-----------------------------+-----+----------------------+
 
 ..
