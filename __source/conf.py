@@ -103,7 +103,7 @@ html_css_files = [
 
 html_sidebars = {}
 
-html_baseurl = 'https://hycar-hydro.gitlab.irstea.page/evalhyd/evalhyd-docs'
+html_baseurl = 'https://hydrogr.github.io/evalhyd'
 html_logo = '../__images/evalhyd_logo+text.svg'
 html_favicon = '../__images/evalhyd_favicon.ico'
 
