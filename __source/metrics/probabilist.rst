@@ -96,9 +96,10 @@ Brier Skill Score (`"BSS"`), computed as per `Wilks (2011)
 
    BSS = 1 - \frac{BS}{BS_{reference}}
 
-where :math:`BS_{reference} = \frac{1}{n} \sum_{k=1}^{n} (o_k - \bar{o})^2`,
+where :math:`BS_{reference} = \frac{1}{n} \sum_{k=1}^{n} (o_k - \bar{o})^2`\ [2]_,
 :math:`o_k` is the observed event outcome, :math:`n` is the number of time
-steps, and :math:`\bar{o}` the mean observed event occurrence.
+steps, and :math:`\bar{o}` is the mean observed event occurrence for the
+study period.
 
 .. table::
    :widths: 35 65
@@ -332,7 +333,7 @@ AWN
 ---
 
 Average width of the predictive interval(s) normalised by the mean
-observation (`"AWN"`).
+observation [2]_ (`"AWN"`).
 
 .. table::
    :widths: 35 65
@@ -354,7 +355,7 @@ Average width index (`"AWI"`), computed as per
 
    AWI = 1 - \frac{AW}{AW_{climatology}}
 
-where :math:`AW_{climatology}` is the average width computed using the
+where :math:`AW_{climatology}`\ [2]_ is the average width computed using the
 observed quantiles (drawn from the observed flow duration curve)
 corresponding to the confidence levels as a constant predictive interval
 for the study period.
@@ -403,7 +404,7 @@ Winkler skill score (`"WSS"`), also known as interval skill score.
 
    WSS = 1 - \frac{WS}{WS_{climatology}}
 
-where :math:`WS_{climatology}` is the Winkler score computed using the
+where :math:`WS_{climatology}`\ [2]_ is the Winkler score computed using the
 observed quantiles (drawn from the observed flow duration curve)
 corresponding to the confidence levels as a constant predictive interval
 for the study period.
@@ -424,3 +425,6 @@ for the study period.
        both for low flow and high flow events, i.e. where a streamflow
        observation/prediction value is equal to the threshold value, the
        event is considered to have occurred.
+
+.. [2] The metric value returned is :math:`-\infty` when the
+       reference/climatology/normalisation value is zero.
