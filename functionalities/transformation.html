@@ -39,7 +39,7 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <link rel="canonical" href="https://hycar-hydro.gitlab.irstea.page/evalhyd/evalhyd-docs/functionalities/transformation.html" />
+    <link rel="canonical" href="https://hydrogr.github.io/evalhyd/functionalities/transformation.html" />
     <link rel="shortcut icon" href="../_static/evalhyd_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -88,7 +88,7 @@
 
 <!-- NOTE: this JS must live here (not in our global JS file) because it relies
      on being processed by Jinja before it is run (specifically for replacing
-     variables functionalities/transformation and {'json_url': 'https://hycar-hydro.gitlab.irstea.page/evalhyd/evalhyd-docs/_static/switcher.json', 'version_match': 'latest'}.
+     variables functionalities/transformation and {'json_url': 'https://hydrogr.github.io/evalhyd/_static/switcher.json', 'version_match': 'latest'}.
 -->
 
 <script type="text/javascript">
@@ -115,7 +115,7 @@ function checkPageExistsAndRedirect(event) {
 
 // Populate the version switcher from the JSON config file
 (function () {
-    $.getJSON("https://hycar-hydro.gitlab.irstea.page/evalhyd/evalhyd-docs/_static/switcher.json", function(data, textStatus, jqXHR) {
+    $.getJSON("https://hydrogr.github.io/evalhyd/_static/switcher.json", function(data, textStatus, jqXHR) {
         const currentFilePath = "functionalities/transformation.html";
         let btn = document.getElementById("version_switcher_button");
         // Set empty strings by default so that these attributes exist and can be used in CSS selectors
@@ -377,8 +377,8 @@ through the <em>epsilon</em> parameter.</p>
 </div>
 <p>A few examples of flow transformations are provided below.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="ce6fb6d7-3634-405e-8854-241c278c2c84" name="099d9aa2-97c2-47b8-8118-900ef5cc79fc" type="radio">
-</input><label class="tabbed-label" for="ce6fb6d7-3634-405e-8854-241c278c2c84">
+<input checked="checked" id="822246ea-cead-4521-980a-df54458501c9" name="66a1d7dc-53db-40b2-a718-51a72175a463" type="radio">
+</input><label class="tabbed-label" for="822246ea-cead-4521-980a-df54458501c9">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;NSE&quot;</span><span class="p">],</span> <span class="n">transform</span><span class="o">=</span><span class="s2">&quot;sqrt&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;RMSE&quot;</span><span class="p">],</span> <span class="n">transform</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
@@ -387,8 +387,8 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="c640ace3-df99-45e5-aafb-dec987b39523" name="099d9aa2-97c2-47b8-8118-900ef5cc79fc" type="radio">
-</input><label class="tabbed-label" for="c640ace3-df99-45e5-aafb-dec987b39523">
+<input id="1be10d76-be18-4e40-8331-4f08bd9ffcd3" name="66a1d7dc-53db-40b2-a718-51a72175a463" type="radio">
+</input><label class="tabbed-label" for="1be10d76-be18-4e40-8331-4f08bd9ffcd3">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NSE&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">transform</span><span class="o">=</span><span class="s">&quot;sqrt&quot;</span><span class="p">)</span>
 <span class="gp">&gt; </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;RMSE&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">transform</span><span class="o">=</span><span class="s">&quot;log&quot;</span><span class="p">)</span>
@@ -397,8 +397,8 @@ R</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="5ad4f155-1646-4348-84a5-4c3a14edff45" name="099d9aa2-97c2-47b8-8118-900ef5cc79fc" type="radio">
-</input><label class="tabbed-label" for="5ad4f155-1646-4348-84a5-4c3a14edff45">
+<input id="b0549f2e-4ca9-4905-a55a-b994c7d31ce5" name="66a1d7dc-53db-40b2-a718-51a72175a463" type="radio">
+</input><label class="tabbed-label" for="b0549f2e-4ca9-4905-a55a-b994c7d31ce5">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span><span class="w"> </span>--to_file<span class="w"> </span>--transform<span class="w"> </span><span class="s2">&quot;sqrt&quot;</span>
 <span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;RMSE&quot;</span><span class="w"> </span>--to_file<span class="w"> </span>--transform<span class="w"> </span><span class="s2">&quot;log&quot;</span>
@@ -441,7 +441,7 @@ Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
 
 <p class="last-updated">
-Last updated on Feb 01, 2023.<br>
+Last updated on Feb 07, 2023.<br>
 </p>
   </div>
   

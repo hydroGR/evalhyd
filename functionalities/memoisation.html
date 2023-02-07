@@ -39,7 +39,7 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <link rel="canonical" href="https://hycar-hydro.gitlab.irstea.page/evalhyd/evalhyd-docs/functionalities/memoisation.html" />
+    <link rel="canonical" href="https://hydrogr.github.io/evalhyd/functionalities/memoisation.html" />
     <link rel="shortcut icon" href="../_static/evalhyd_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -88,7 +88,7 @@
 
 <!-- NOTE: this JS must live here (not in our global JS file) because it relies
      on being processed by Jinja before it is run (specifically for replacing
-     variables functionalities/memoisation and {'json_url': 'https://hycar-hydro.gitlab.irstea.page/evalhyd/evalhyd-docs/_static/switcher.json', 'version_match': 'latest'}.
+     variables functionalities/memoisation and {'json_url': 'https://hydrogr.github.io/evalhyd/_static/switcher.json', 'version_match': 'latest'}.
 -->
 
 <script type="text/javascript">
@@ -115,7 +115,7 @@ function checkPageExistsAndRedirect(event) {
 
 // Populate the version switcher from the JSON config file
 (function () {
-    $.getJSON("https://hycar-hydro.gitlab.irstea.page/evalhyd/evalhyd-docs/_static/switcher.json", function(data, textStatus, jqXHR) {
+    $.getJSON("https://hydrogr.github.io/evalhyd/_static/switcher.json", function(data, textStatus, jqXHR) {
         const currentFilePath = "functionalities/memoisation.html";
         let btn = document.getElementById("version_switcher_button");
         // Set empty strings by default so that these attributes exist and can be used in CSS selectors
@@ -356,22 +356,22 @@ a single call to <code class="xref py py-obj docutils literal notranslate"><span
 calls.</p>
 <p>That is to say, prefer:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="26e114ca-1f35-403b-aaa2-3516ccd3a87a" name="714cd600-55c0-4a96-9f0d-0e79a9540705" type="radio">
-</input><label class="tabbed-label" for="26e114ca-1f35-403b-aaa2-3516ccd3a87a">
+<input checked="checked" id="47655097-6852-4e68-a45f-06fddab1dc4a" name="dc294770-069e-444c-ad23-67030cc0c20a" type="radio">
+</input><label class="tabbed-label" for="47655097-6852-4e68-a45f-06fddab1dc4a">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;NSE&quot;</span><span class="p">,</span> <span class="s2">&quot;KGE&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<input id="3d6d808f-abfd-43e6-899e-04476c1e95a4" name="714cd600-55c0-4a96-9f0d-0e79a9540705" type="radio">
-</input><label class="tabbed-label" for="3d6d808f-abfd-43e6-899e-04476c1e95a4">
+<input id="6c88b5b3-7be8-46fb-9f1f-aaa6bddda088" name="dc294770-069e-444c-ad23-67030cc0c20a" type="radio">
+</input><label class="tabbed-label" for="6c88b5b3-7be8-46fb-9f1f-aaa6bddda088">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NSE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;KGE&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<input id="571d0148-8bb3-432c-a1a6-6dd70b673a90" name="714cd600-55c0-4a96-9f0d-0e79a9540705" type="radio">
-</input><label class="tabbed-label" for="571d0148-8bb3-432c-a1a6-6dd70b673a90">
+<input id="8c964928-3487-4040-8035-f060ad89e265" name="dc294770-069e-444c-ad23-67030cc0c20a" type="radio">
+</input><label class="tabbed-label" for="8c964928-3487-4040-8035-f060ad89e265">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span><span class="w"> </span><span class="s2">&quot;KGE&quot;</span>
 </pre></div>
@@ -380,24 +380,24 @@ CLI</label><div class="tabbed-content docutils">
 </div>
 <p>over:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="580f39b1-81a1-4371-97f8-6eae90bae92d" name="dbb8d904-8984-4394-919b-d8cb15cbd304" type="radio">
-</input><label class="tabbed-label" for="580f39b1-81a1-4371-97f8-6eae90bae92d">
+<input checked="checked" id="99626718-029f-458e-a011-bc88d8d5975f" name="25e5d23c-1c77-4859-b202-9232bb720c13" type="radio">
+</input><label class="tabbed-label" for="99626718-029f-458e-a011-bc88d8d5975f">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;NSE&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;KGE&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<input id="fb0e335f-8e28-48d6-9e2a-4b7c5c16d2e0" name="dbb8d904-8984-4394-919b-d8cb15cbd304" type="radio">
-</input><label class="tabbed-label" for="fb0e335f-8e28-48d6-9e2a-4b7c5c16d2e0">
+<input id="5ddf7a23-d59d-4dd3-99a9-c001a948f519" name="25e5d23c-1c77-4859-b202-9232bb720c13" type="radio">
+</input><label class="tabbed-label" for="5ddf7a23-d59d-4dd3-99a9-c001a948f519">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NSE&quot;</span><span class="p">))</span>
 <span class="gp">&gt; </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;KGE&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<input id="dfce7ced-971b-4920-be29-5c3738bd36f5" name="dbb8d904-8984-4394-919b-d8cb15cbd304" type="radio">
-</input><label class="tabbed-label" for="dfce7ced-971b-4920-be29-5c3738bd36f5">
+<input id="ff8c2dbc-4751-4324-a206-e676e3292d4f" name="25e5d23c-1c77-4859-b202-9232bb720c13" type="radio">
+</input><label class="tabbed-label" for="ff8c2dbc-4751-4324-a206-e676e3292d4f">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span>
 <span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;KGE&quot;</span>
@@ -457,7 +457,7 @@ Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
 
 <p class="last-updated">
-Last updated on Feb 01, 2023.<br>
+Last updated on Feb 07, 2023.<br>
 </p>
   </div>
   

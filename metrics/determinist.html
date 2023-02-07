@@ -39,7 +39,7 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <link rel="canonical" href="https://hycar-hydro.gitlab.irstea.page/evalhyd/evalhyd-docs/metrics/determinist.html" />
+    <link rel="canonical" href="https://hydrogr.github.io/evalhyd/metrics/determinist.html" />
     <link rel="shortcut icon" href="../_static/evalhyd_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -88,7 +88,7 @@
 
 <!-- NOTE: this JS must live here (not in our global JS file) because it relies
      on being processed by Jinja before it is run (specifically for replacing
-     variables metrics/determinist and {'json_url': 'https://hycar-hydro.gitlab.irstea.page/evalhyd/evalhyd-docs/_static/switcher.json', 'version_match': 'latest'}.
+     variables metrics/determinist and {'json_url': 'https://hydrogr.github.io/evalhyd/_static/switcher.json', 'version_match': 'latest'}.
 -->
 
 <script type="text/javascript">
@@ -115,7 +115,7 @@ function checkPageExistsAndRedirect(event) {
 
 // Populate the version switcher from the JSON config file
 (function () {
-    $.getJSON("https://hycar-hydro.gitlab.irstea.page/evalhyd/evalhyd-docs/_static/switcher.json", function(data, textStatus, jqXHR) {
+    $.getJSON("https://hydrogr.github.io/evalhyd/_static/switcher.json", function(data, textStatus, jqXHR) {
         const currentFilePath = "metrics/determinist.html";
         let btn = document.getElementById("version_switcher_button");
         // Set empty strings by default so that these attributes exist and can be used in CSS selectors
@@ -348,8 +348,8 @@ function checkPageExistsAndRedirect(event) {
 </tbody>
 </table>
 <div class="tabbed-set docutils">
-<input checked="checked" id="5376b4e4-43aa-499b-8210-5b062e2f910b" name="078637e1-30d3-43f8-af3b-ba64ea6c3bc4" type="radio">
-</input><label class="tabbed-label" for="5376b4e4-43aa-499b-8210-5b062e2f910b">
+<input checked="checked" id="d9fa6783-4429-46ea-9f5a-06b14d414482" name="d0258bd8-cdfb-411e-8d32-ecb0371f9eb6" type="radio">
+</input><label class="tabbed-label" for="d9fa6783-4429-46ea-9f5a-06b14d414482">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="gp">... </span><span class="n">obs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">4.7</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">])</span>
@@ -360,8 +360,8 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="3df11395-54b0-4a98-abce-e2fadc49b2c9" name="078637e1-30d3-43f8-af3b-ba64ea6c3bc4" type="radio">
-</input><label class="tabbed-label" for="3df11395-54b0-4a98-abce-e2fadc49b2c9">
+<input id="28ac31c9-bbca-419d-88d8-f06743b0703d" name="d0258bd8-cdfb-411e-8d32-ecb0371f9eb6" type="radio">
+</input><label class="tabbed-label" for="28ac31c9-bbca-419d-88d8-f06743b0703d">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">obs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">4.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.3</span><span class="p">,</span><span class="w"> </span><span class="m">5.5</span><span class="p">,</span><span class="w"> </span><span class="m">2.7</span><span class="p">)</span>
 <span class="gp">&gt; </span><span class="n">prd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">5.3</span><span class="p">,</span><span class="w"> </span><span class="m">4.2</span><span class="p">,</span><span class="w"> </span><span class="m">5.7</span><span class="p">,</span><span class="w"> </span><span class="m">2.3</span><span class="p">)</span>
@@ -375,8 +375,8 @@ R</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="c9300cb8-a7cb-48f9-a448-6bfe550a3365" name="078637e1-30d3-43f8-af3b-ba64ea6c3bc4" type="radio">
-</input><label class="tabbed-label" for="c9300cb8-a7cb-48f9-a448-6bfe550a3365">
+<input id="7736066d-8b02-48af-87f3-969f3159422a" name="d0258bd8-cdfb-411e-8d32-ecb0371f9eb6" type="radio">
+</input><label class="tabbed-label" for="7736066d-8b02-48af-87f3-969f3159422a">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span>
 <span class="go">{{{ 0.862981}}}</span>
@@ -488,7 +488,7 @@ Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
 
 <p class="last-updated">
-Last updated on Feb 01, 2023.<br>
+Last updated on Feb 07, 2023.<br>
 </p>
   </div>
   

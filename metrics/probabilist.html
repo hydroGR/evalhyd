@@ -41,7 +41,7 @@
     <script src="../_static/doctools.js"></script>
     <script>window.MathJax = {"chtml": {"displayAlign": "left"}, "options": {"ignoreHtmlClass": "tex2jax_ignore", "processHtmlClass": "tex2jax_process"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="canonical" href="https://hycar-hydro.gitlab.irstea.page/evalhyd/evalhyd-docs/metrics/probabilist.html" />
+    <link rel="canonical" href="https://hydrogr.github.io/evalhyd/metrics/probabilist.html" />
     <link rel="shortcut icon" href="../_static/evalhyd_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -90,7 +90,7 @@
 
 <!-- NOTE: this JS must live here (not in our global JS file) because it relies
      on being processed by Jinja before it is run (specifically for replacing
-     variables metrics/probabilist and {'json_url': 'https://hycar-hydro.gitlab.irstea.page/evalhyd/evalhyd-docs/_static/switcher.json', 'version_match': 'latest'}.
+     variables metrics/probabilist and {'json_url': 'https://hydrogr.github.io/evalhyd/_static/switcher.json', 'version_match': 'latest'}.
 -->
 
 <script type="text/javascript">
@@ -117,7 +117,7 @@ function checkPageExistsAndRedirect(event) {
 
 // Populate the version switcher from the JSON config file
 (function () {
-    $.getJSON("https://hycar-hydro.gitlab.irstea.page/evalhyd/evalhyd-docs/_static/switcher.json", function(data, textStatus, jqXHR) {
+    $.getJSON("https://hydrogr.github.io/evalhyd/_static/switcher.json", function(data, textStatus, jqXHR) {
         const currentFilePath = "metrics/probabilist.html";
         let btn = document.getElementById("version_switcher_button");
         // Set empty strings by default so that these attributes exist and can be used in CSS selectors
@@ -431,15 +431,15 @@ steps.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id5" id="id1">1</a></p></td>
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id10" id="id1">1</a></p></td>
 <td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
 <span class="pre">thresholds)</span></code></p></td>
 </tr>
 </tbody>
 </table>
 <div class="tabbed-set docutils">
-<input checked="checked" id="8e25222a-c2df-4201-a5a7-45709d53e720" name="5805db22-21ef-4367-b973-1c3dc419e014" type="radio">
-</input><label class="tabbed-label" for="8e25222a-c2df-4201-a5a7-45709d53e720">
+<input checked="checked" id="4a464ef4-0c1f-4312-908e-d09fe8f3ace8" name="526bf690-1f13-4db9-8c28-7f05154d3a54" type="radio">
+</input><label class="tabbed-label" for="4a464ef4-0c1f-4312-908e-d09fe8f3ace8">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="gp">... </span><span class="n">obs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
@@ -457,8 +457,8 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="e37656b2-83c0-4eef-98a1-c253523b64a3" name="5805db22-21ef-4367-b973-1c3dc419e014" type="radio">
-</input><label class="tabbed-label" for="e37656b2-83c0-4eef-98a1-c253523b64a3">
+<input id="5c14c5b5-b33e-499b-8d0d-2094677833c4" name="526bf690-1f13-4db9-8c28-7f05154d3a54" type="radio">
+</input><label class="tabbed-label" for="5c14c5b5-b33e-499b-8d0d-2094677833c4">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">obs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span>
 <span class="gp">+ </span><span class="w">    </span><span class="nf">c</span><span class="p">(</span><span class="m">4.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.3</span><span class="p">,</span><span class="w"> </span><span class="m">5.5</span><span class="p">,</span><span class="w"> </span><span class="m">2.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.1</span><span class="p">)</span>
@@ -489,8 +489,8 @@ R</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="6c22f389-a2fa-4699-98ae-36e564839481" name="5805db22-21ef-4367-b973-1c3dc419e014" type="radio">
-</input><label class="tabbed-label" for="6c22f389-a2fa-4699-98ae-36e564839481">
+<input id="489a0095-e976-4618-bd4e-3c7e30feb87c" name="526bf690-1f13-4db9-8c28-7f05154d3a54" type="radio">
+</input><label class="tabbed-label" for="489a0095-e976-4618-bd4e-3c7e30feb87c">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evalp<span class="w"> </span><span class="s2">&quot;./obs/&quot;</span><span class="w"> </span><span class="s2">&quot;./prd/&quot;</span><span class="w"> </span><span class="s2">&quot;BS&quot;</span><span class="w"> </span>--q_thr<span class="w"> </span><span class="s2">&quot;./thr/&quot;</span><span class="w"> </span>--events<span class="w"> </span><span class="s2">&quot;high&quot;</span>
 <span class="go">{{{{{ 0.222222,  0.133333}}}}}</span>
@@ -514,7 +514,7 @@ CLI</label><div class="tabbed-content docutils">
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id5" id="id2">1</a></p></td>
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id10" id="id2">1</a></p></td>
 <td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
 <span class="pre">thresholds)</span></code></p></td>
 </tr>
@@ -538,7 +538,7 @@ into the three components reliability, resolution, and uncertainty
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id5" id="id3">1</a></p></td>
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id10" id="id3">1</a></p></td>
 <td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
 <span class="pre">thresholds,</span> <span class="pre">3)</span></code></p></td>
 </tr>
@@ -562,7 +562,7 @@ into the three components type 2 bias, discrimination, and sharpness
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id5" id="id4">1</a></p></td>
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id10" id="id4">1</a></p></td>
 <td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
 <span class="pre">thresholds,</span> <span class="pre">3)</span></code></p></td>
 </tr>
@@ -626,7 +626,7 @@ from the contingency table.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code></p></td>
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id10" id="id5">1</a></p></td>
 <td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
 <span class="pre">levels,</span> <span class="pre">thresholds)</span></code></p></td>
 </tr>
@@ -649,7 +649,7 @@ derived from the contingency table.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code></p></td>
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id10" id="id6">1</a></p></td>
 <td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
 <span class="pre">levels,</span> <span class="pre">thresholds)</span></code></p></td>
 </tr>
@@ -671,7 +671,7 @@ derived from the contingency table.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code></p></td>
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id10" id="id7">1</a></p></td>
 <td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
 <span class="pre">levels,</span> <span class="pre">thresholds)</span></code></p></td>
 </tr>
@@ -693,7 +693,7 @@ derived from the contingency table.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code></p></td>
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id10" id="id8">1</a></p></td>
 <td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
 <span class="pre">levels,</span> <span class="pre">thresholds)</span></code></p></td>
 </tr>
@@ -716,7 +716,7 @@ the contingency table, and based on computing the area under the ROC curve.</p>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code></p></td>
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id10" id="id9">1</a></p></td>
 <td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
 <span class="pre">thresholds)</span></code></p></td>
 </tr>
@@ -941,9 +941,11 @@ for the study period.</p>
 </table>
 <p class="rubric">Footnotes</p>
 <dl class="footnote brackets">
-<dt class="label" id="id5"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id3">3</a>,<a href="#id4">4</a>)</span></dt>
-<dd><p>For this metric, the definition of the <em>events</em> has no effect on its
-numerical result because the computation is symmetric.</p>
+<dt class="label" id="id10"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id2">2</a>,<a href="#id3">3</a>,<a href="#id4">4</a>,<a href="#id5">5</a>,<a href="#id6">6</a>,<a href="#id7">7</a>,<a href="#id8">8</a>,<a href="#id9">9</a>)</span></dt>
+<dd><p>The threshold value is included in the definition of the <em>events</em>
+both for low flow and high flow events, i.e. where a streamflow
+observation/prediction value is equal to the threshold value, the
+event is considered to have occurred.</p>
 </dd>
 </dl>
 </section>
@@ -980,7 +982,7 @@ Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
 
 <p class="last-updated">
-Last updated on Feb 01, 2023.<br>
+Last updated on Feb 07, 2023.<br>
 </p>
   </div>
   
