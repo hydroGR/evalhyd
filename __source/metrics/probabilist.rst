@@ -177,7 +177,7 @@ from the contingency table.
    | Required inputs         | Output shape                                   |
    +=========================+================================================+
    | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
-   | `q_thr`, `events`       | levels, thresholds)`                           |
+   | `q_thr`, `events`\ [1]_ | levels, thresholds)`                           |
    +-------------------------+------------------------------------------------+
 
 POFD
@@ -193,7 +193,7 @@ derived from the contingency table.
    | Required inputs         | Output shape                                   |
    +=========================+================================================+
    | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
-   | `q_thr`, `events`       | levels, thresholds)`                           |
+   | `q_thr`, `events`\ [1]_ | levels, thresholds)`                           |
    +-------------------------+------------------------------------------------+
 
 FAR
@@ -208,7 +208,7 @@ False Alarm Ratio (`"FAR"`), derived from the contingency table.
    | Required inputs         | Output shape                                   |
    +=========================+================================================+
    | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
-   | `q_thr`, `events`       | levels, thresholds)`                           |
+   | `q_thr`, `events`\ [1]_ | levels, thresholds)`                           |
    +-------------------------+------------------------------------------------+
 
 CSI
@@ -223,7 +223,7 @@ Critical Success Index (`"CSI"`), derived from the contingency table.
    | Required inputs         | Output shape                                   |
    +=========================+================================================+
    | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
-   | `q_thr`, `events`       | levels, thresholds)`                           |
+   | `q_thr`, `events`\ [1]_ | levels, thresholds)`                           |
    +-------------------------+------------------------------------------------+
 
 
@@ -240,7 +240,7 @@ the contingency table, and based on computing the area under the ROC curve.
    | Required inputs         | Output shape                                   |
    +=========================+================================================+
    | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
-   | `q_thr`, `events`       | thresholds)`                                   |
+   | `q_thr`, `events`\ [1]_ | thresholds)`                                   |
    +-------------------------+------------------------------------------------+
 
 RANK_HIST
@@ -411,5 +411,7 @@ for the study period.
 
 .. rubric:: Footnotes
 
-.. [1] For this metric, the definition of the *events* has no effect on its
-       numerical result because the computation is symmetric.
+.. [1] The threshold value is included in the definition of the *events*
+       both for low flow and high flow events, i.e. where a streamflow
+       observation/prediction value is equal to the threshold value, the
+       event is considered to have occurred.
