@@ -333,7 +333,7 @@ AWN
 ---
 
 Average width of the predictive interval(s) normalised by the mean
-observation [2]_ (`"AWN"`).
+observation\ [2]_ (`"AWN"`).
 
 .. table::
    :widths: 35 65

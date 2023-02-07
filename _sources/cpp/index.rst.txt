@@ -10,4 +10,5 @@ C++
 .. toctree::
    :maxdepth: 2
 
+   installation
    api
