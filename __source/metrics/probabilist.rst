@@ -89,7 +89,16 @@ steps.
 BSS
 ---
 
-Brier Skill Score (`"BSS"`).
+Brier Skill Score (`"BSS"`), computed as per `Wilks (2011)
+<https://doi.org/10.1016/B978-0-12-385022-5.00008-7>`_:
+
+.. math::
+
+   BSS = 1 - \frac{BS}{BS_{reference}}
+
+where :math:`BS_{reference} = \frac{1}{n} \sum_{k=1}^{n} (o_k - \bar{o})^2`,
+:math:`o_k` is the observed event outcome, :math:`n` is the number of time
+steps, and :math:`\bar{o}` the mean observed event occurrence.
 
 .. table::
    :widths: 35 65
