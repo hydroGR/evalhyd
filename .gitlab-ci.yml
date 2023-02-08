@@ -2,39 +2,20 @@ stages:
   - build
   - deploy
 
-# generate XML with Doxygen
-generate-xml:
+# generate docs with doxygen (XML) and sphinx (HTML)
+generate-docs:
   stage: build
-  image: alpine
-  script:
-    # add Doxygen and git
-    - apk update
-    - apk add doxygen git
-    # clone evalhyd core C++ library
-    - git clone https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd.git
-    # generate XML for C++ API with Doxygen
-    - mkdir -p __build/xml/cpp
-    - (cd __source/cpp && doxygen Doxyfile-gitlab)
-  artifacts:
-    paths:
-      - __build/xml/
-    expire_in: 1 hour
-
-# generate HTML with Sphinx
-generate-html:
-  stage: build
-  image: python:3.9.13
+  image: mambaorg/micromamba
   script:
     # install required packages to build docs
-    - python -m pip install -r requirements.txt
+    - micromamba install --yes --file environment.yml
     # generate docs with Sphinx
-    - sphinx-build -b html __source tmp_html
-  needs: ["generate-xml"]
+    - make build_docs
   dependencies:
     - generate-xml
   artifacts:
     paths:
-      - tmp_html/
+      - __build/html/
 
 # generate HTML with Sphinx
 git-clone-push-github:
@@ -64,7 +45,7 @@ git-clone-push-github:
     - git config --global user.name "$GITLAB_USER_NAME"
 
     # copy locally build docs into git repository
-    - \cp -rf ./tmp_html/. ./html/
+    - \cp -rf ./__build/html/. ./html/
 
     # remove DNS CNAME (ignore if does not exist)
     - rm -f ./html/CNAME
