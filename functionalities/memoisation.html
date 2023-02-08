@@ -204,12 +204,6 @@ function checkPageExistsAndRedirect(event) {
  </a>
 </li>
 
-<li class="toctree-l1 nav-item">
- <a class="reference internal nav-link" href="../licence.html">
-  License
- </a>
-</li>
-
     
 </ul>
       </div>
@@ -356,22 +350,22 @@ a single call to <code class="xref py py-obj docutils literal notranslate"><span
 calls.</p>
 <p>That is to say, prefer:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="ba5c8685-8cbc-4f76-97e1-b0a809fc7c17" name="14b98270-654e-4fc4-9f24-066da8b43091" type="radio">
-</input><label class="tabbed-label" for="ba5c8685-8cbc-4f76-97e1-b0a809fc7c17">
+<input checked="checked" id="5572c03d-8f43-4118-8319-640681108706" name="d61e88f0-c70b-4127-aef2-de1173db75b4" type="radio">
+</input><label class="tabbed-label" for="5572c03d-8f43-4118-8319-640681108706">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;NSE&quot;</span><span class="p">,</span> <span class="s2">&quot;KGE&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<input id="c47c3899-cead-431c-b6f1-bbb24b1a9519" name="14b98270-654e-4fc4-9f24-066da8b43091" type="radio">
-</input><label class="tabbed-label" for="c47c3899-cead-431c-b6f1-bbb24b1a9519">
+<input id="047764c9-3565-4e2e-ba63-958aee123e53" name="d61e88f0-c70b-4127-aef2-de1173db75b4" type="radio">
+</input><label class="tabbed-label" for="047764c9-3565-4e2e-ba63-958aee123e53">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NSE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;KGE&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<input id="356c44db-bfc2-47a1-a45c-63322d075ed4" name="14b98270-654e-4fc4-9f24-066da8b43091" type="radio">
-</input><label class="tabbed-label" for="356c44db-bfc2-47a1-a45c-63322d075ed4">
+<input id="2de00aeb-f2ab-41ca-a2f4-ebdf9be0b068" name="d61e88f0-c70b-4127-aef2-de1173db75b4" type="radio">
+</input><label class="tabbed-label" for="2de00aeb-f2ab-41ca-a2f4-ebdf9be0b068">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span><span class="w"> </span><span class="s2">&quot;KGE&quot;</span>
 </pre></div>
@@ -380,24 +374,24 @@ CLI</label><div class="tabbed-content docutils">
 </div>
 <p>over:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="889af5aa-76ab-474d-a249-8190118b87e9" name="3e4e1665-4ef8-4c9f-b41f-dfb57c7bf32e" type="radio">
-</input><label class="tabbed-label" for="889af5aa-76ab-474d-a249-8190118b87e9">
+<input checked="checked" id="6b050e3d-0130-437c-a8cf-b8d0695ec141" name="fbde99ad-c645-4df9-a7af-b583489ad226" type="radio">
+</input><label class="tabbed-label" for="6b050e3d-0130-437c-a8cf-b8d0695ec141">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;NSE&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;KGE&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<input id="ee2f4fcf-c7d2-4097-b1cf-a60b198e292d" name="3e4e1665-4ef8-4c9f-b41f-dfb57c7bf32e" type="radio">
-</input><label class="tabbed-label" for="ee2f4fcf-c7d2-4097-b1cf-a60b198e292d">
+<input id="1e94db8b-57f1-4070-a69e-949ea027b8ce" name="fbde99ad-c645-4df9-a7af-b583489ad226" type="radio">
+</input><label class="tabbed-label" for="1e94db8b-57f1-4070-a69e-949ea027b8ce">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NSE&quot;</span><span class="p">))</span>
 <span class="gp">&gt; </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;KGE&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<input id="174ef578-d328-497e-8b3d-027abadeda98" name="3e4e1665-4ef8-4c9f-b41f-dfb57c7bf32e" type="radio">
-</input><label class="tabbed-label" for="174ef578-d328-497e-8b3d-027abadeda98">
+<input id="855db339-f2de-4c0d-8f5c-399025f17213" name="fbde99ad-c645-4df9-a7af-b583489ad226" type="radio">
+</input><label class="tabbed-label" for="855db339-f2de-4c0d-8f5c-399025f17213">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span>
 <span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;KGE&quot;</span>

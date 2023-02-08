@@ -80,4 +80,3 @@ implemented in the C++ core.
    python/index
    r/index
    cli/index
-   licence
