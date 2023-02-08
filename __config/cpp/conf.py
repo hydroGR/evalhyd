@@ -6,13 +6,13 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath('../..'))
+sys.path.insert(0, os.path.abspath('../../..'))
 
 # -- Project information -----------------------------------------------------
 
 from datetime import datetime
 
-project = 'evalhyd'
+project = 'evalhyd-cpp'
 author = 'INRAE'
 copyright = (
     f'2022-{datetime.now().year}, {author}'
@@ -53,7 +53,7 @@ autosummary_member_order = 'bysource'
 autodoc_typehints = 'none'
 autodoc_default_flags = ['members', 'inherited-members', 'show-inheritance']
 
-templates_path = ['../__templates']
+templates_path = ['../../../__templates']
 source_suffix = '.rst'
 
 master_doc = 'index'
@@ -88,13 +88,13 @@ rst_prolog = """
 
 # -- Options for HTML output -------------------------------------------------
 
-html_short_title = 'evalhyd'
+html_short_title = project
 
 html_theme = 'pydata_sphinx_theme'
 
-html_static_path = ['../__static']
+html_static_path = ['../../../__static']
 
-htmlhelp_basename = 'evalhyd-docs'
+htmlhelp_basename = f'{project}-docs'
 
 html_css_files = [
     'custom.css', 'my_pygments_light.css', 'my_pygments_dark.css',
@@ -103,9 +103,9 @@ html_css_files = [
 
 html_sidebars = {}
 
-html_baseurl = 'https://hydrogr.github.io/evalhyd'
-html_logo = '../__images/evalhyd_logo+text.svg'
-html_favicon = '../__images/evalhyd_favicon.ico'
+html_baseurl = f'https://hydrogr.github.io/{project.replace("-", "/")}'
+html_logo = f'../../../__images/{project}_logo+text.svg'
+html_favicon = '../../../__images/evalhyd_favicon.ico'
 
 html_permalinks_icon = '<span class="fa fa-link">'
 
@@ -116,7 +116,7 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "GitLab",
-            "url": "https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd",
+            "url": f"https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd",
             "icon": "fab fa-gitlab",
         }
     ],
