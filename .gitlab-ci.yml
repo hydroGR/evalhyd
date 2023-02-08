@@ -11,8 +11,6 @@ generate-docs:
     - micromamba install --yes --file environment.yml
     # generate docs with Sphinx
     - make build_docs
-  dependencies:
-    - generate-xml
   artifacts:
     paths:
       - __build/html/
@@ -56,4 +54,4 @@ git-clone-push-github:
     - git commit -m "update html"
     - git push origin main
   dependencies:
-    - generate-html
+    - generate-docs
