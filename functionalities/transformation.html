@@ -229,7 +229,7 @@ function checkPageExistsAndRedirect(event) {
       <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
-          <a class="nav-link" href="https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd" rel="noopener" target="_blank" title="GitLab"><span><i class="fab fa-gitlab"></i></span>
+          <a class="nav-link" href="https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd" rel="noopener" target="_blank" title="GitLab"><span><i class="fab fa-gitlab"></i></span>
             <label class="sr-only">GitLab</label></a>
         </li>
       </ul>
@@ -377,8 +377,8 @@ through the <em>epsilon</em> parameter.</p>
 </div>
 <p>A few examples of flow transformations are provided below.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="e2b22e02-0abc-4410-82c5-58e86cb7dbf2" name="4c5ea2d3-7d0c-42ea-a2d3-4c554e836169" type="radio">
-</input><label class="tabbed-label" for="e2b22e02-0abc-4410-82c5-58e86cb7dbf2">
+<input checked="checked" id="1ccd5141-a4e9-4277-8bc5-79c935049b12" name="be576128-086d-450f-81c7-d114f13dbcd3" type="radio">
+</input><label class="tabbed-label" for="1ccd5141-a4e9-4277-8bc5-79c935049b12">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;NSE&quot;</span><span class="p">],</span> <span class="n">transform</span><span class="o">=</span><span class="s2">&quot;sqrt&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">res</span> <span class="o">=</span> <span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;RMSE&quot;</span><span class="p">],</span> <span class="n">transform</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span>
@@ -387,8 +387,8 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="4ac80677-2217-46db-ae8c-ed3c5ccb1be0" name="4c5ea2d3-7d0c-42ea-a2d3-4c554e836169" type="radio">
-</input><label class="tabbed-label" for="4ac80677-2217-46db-ae8c-ed3c5ccb1be0">
+<input id="9a33bdef-a20c-40af-801d-4e7a9955482d" name="be576128-086d-450f-81c7-d114f13dbcd3" type="radio">
+</input><label class="tabbed-label" for="9a33bdef-a20c-40af-801d-4e7a9955482d">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NSE&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">transform</span><span class="o">=</span><span class="s">&quot;sqrt&quot;</span><span class="p">)</span>
 <span class="gp">&gt; </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;RMSE&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">transform</span><span class="o">=</span><span class="s">&quot;log&quot;</span><span class="p">)</span>
@@ -397,8 +397,8 @@ R</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="c2bd594b-e013-446b-abd5-6016cf335481" name="4c5ea2d3-7d0c-42ea-a2d3-4c554e836169" type="radio">
-</input><label class="tabbed-label" for="c2bd594b-e013-446b-abd5-6016cf335481">
+<input id="2d8380e8-0ebb-45a1-a959-066c9e089773" name="be576128-086d-450f-81c7-d114f13dbcd3" type="radio">
+</input><label class="tabbed-label" for="2d8380e8-0ebb-45a1-a959-066c9e089773">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span><span class="w"> </span>--to_file<span class="w"> </span>--transform<span class="w"> </span><span class="s2">&quot;sqrt&quot;</span>
 <span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;RMSE&quot;</span><span class="w"> </span>--to_file<span class="w"> </span>--transform<span class="w"> </span><span class="s2">&quot;log&quot;</span>
@@ -441,7 +441,7 @@ Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
 
 <p class="last-updated">
-Last updated on Feb 07, 2023.<br>
+Last updated on Feb 08, 2023.<br>
 </p>
   </div>
   
