@@ -9,3 +9,5 @@ Python
 
    installation
    api
+   changelog
+   licence

@@ -20,7 +20,7 @@ implemented in the C++ core.
 
    ---
 
-   .. image:: ../../../__images/evalhyd-cpp_logo.svg
+   .. image:: ../__images/evalhyd-cpp_logo.svg
       :height: 100px
       :align: center
 
@@ -33,7 +33,7 @@ implemented in the C++ core.
 
    ---
 
-   .. image:: ../../../__images/evalhyd-python_logo.svg
+   .. image:: ../__images/evalhyd-python_logo.svg
       :height: 100px
       :align: center
 
@@ -46,7 +46,7 @@ implemented in the C++ core.
 
    ---
 
-   .. image:: ../../../__images/evalhyd-r_logo.svg
+   .. image:: ../__images/evalhyd-r_logo.svg
       :height: 100px
       :align: center
 
@@ -59,7 +59,7 @@ implemented in the C++ core.
 
    ---
 
-   .. image:: ../../../__images/evalhyd-cli_logo.svg
+   .. image:: ../__images/evalhyd-cli_logo.svg
       :height: 100px
       :align: center
 

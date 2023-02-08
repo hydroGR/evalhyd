@@ -6,13 +6,13 @@
 import os
 import sys
 
-sys.path.insert(0, os.path.abspath('../../..'))
+sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
 from datetime import datetime
 
-project = 'evalhyd-cpp'
+project = os.getenv('EVALHYD_PROJECT')
 author = 'INRAE'
 copyright = (
     f'2022-{datetime.now().year}, {author}'
@@ -20,9 +20,10 @@ copyright = (
     else f'2022, {author}'
 )
 
-if os.getenv('VERSION_RELEASE'):
-    version = f"v{os.getenv('VERSION_RELEASE')}"
-    release = f"v{os.getenv('VERSION_RELEASE')}"
+var_release = f'VERSION_RELEASE_{project.upper().replace("-", "_")}'
+if os.getenv(var_release):
+    version = f"v{os.getenv(var_release)}"
+    release = f"v{os.getenv(var_release)}"
 else:
     version = 'latest'
     release = 'latest'
@@ -53,7 +54,7 @@ autosummary_member_order = 'bysource'
 autodoc_typehints = 'none'
 autodoc_default_flags = ['members', 'inherited-members', 'show-inheritance']
 
-templates_path = ['../../../__templates']
+templates_path = ['../__templates']
 source_suffix = '.rst'
 
 master_doc = 'index'
@@ -92,7 +93,7 @@ html_short_title = project
 
 html_theme = 'pydata_sphinx_theme'
 
-html_static_path = ['../../../__static']
+html_static_path = ['../__static']
 
 htmlhelp_basename = f'{project}-docs'
 
@@ -104,8 +105,8 @@ html_css_files = [
 html_sidebars = {}
 
 html_baseurl = f'https://hydrogr.github.io/{project.replace("-", "/")}'
-html_logo = f'../../../__images/{project}_logo+text.svg'
-html_favicon = '../../../__images/evalhyd_favicon.ico'
+html_logo = f'../__images/{project}_logo+text.svg'
+html_favicon = '../__images/evalhyd_favicon.ico'
 
 html_permalinks_icon = '<span class="fa fa-link">'
 
@@ -116,7 +117,7 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "GitLab",
-            "url": f"https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd",
+            "url": f"https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/{project}",
             "icon": "fab fa-gitlab",
         }
     ],

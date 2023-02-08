@@ -1,112 +1,130 @@
 .ONESHELL:
 
 BLD_DIR = ./__build
+SRC_DIR = ./__source
+CFG_DIR = ./__config
+
+clean_repos:
+	rm -rf ./__code/evalhyd
+	rm -rf ./__code/evalhyd-cli
+	rm -rf ./__code/evalhyd-python
+	rm -rf ./__code/evalhyd-r
 
 clone_repos:
+	$(MAKE) clean_repos
 	(cd ./__code && git clone https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd.git --branch dev)
 	(cd ./__code && git clone https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-cli.git --branch dev)
 	(cd ./__code && git clone https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-python.git --branch dev)
 	(cd ./__code && git clone https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-r.git --branch dev)
 
-local_clean:
-	rm -rf ./__code/*
+clean_xml:
+	rm -rf ${BLD_DIR}/xml
+
+build_xml:
+	$(MAKE) clean_xml
+	# generate doxygen XML for C++ API docs
+	mkdir -p ${BLD_DIR}/xml/cpp
+	(cd ${SRC_DIR}/cpp && doxygen Doxyfile)
+
+clean_html:
 	rm -rf ${BLD_DIR}/html/*
 
-local_html:
-	$(MAKE) local_clean
-	$(MAKE) clone_repos
+build_html:
+	$(MAKE) clean_html
 	mkdir -p ${BLD_DIR}/html
 # -----------------------------------------------------------------------------
 # make docs and copy SHARED part over
 # -----------------------------------------------------------------------------
-	mkdir -p ${BLD_DIR}/shared/__source
-	cp -R ./__source/* ${BLD_DIR}/shared/__source
-# copy configuration files
-	-cp ./__config/* ${BLD_DIR}/shared/__source
-	cp -R ./__config/shared/* ${BLD_DIR}/shared/__source
+	$(eval SPHINX_DIR = shared)
+# create subdirectory for project build
+	mkdir -p ${BLD_DIR}/${SPHINX_DIR}
 # build sphinx docs
-	(cd ${BLD_DIR}/shared/__source && $(MAKE) local_html)
+	(export EVALHYD_PROJECT=evalhyd && sphinx-build -b html ${SRC_DIR} ${BLD_DIR}/${SPHINX_DIR}/html)
 # copy build html over
-	cp -R ${BLD_DIR}/shared/__build/html/* ${BLD_DIR}/html
+	cp -R ${BLD_DIR}/${SPHINX_DIR}/html/* ${BLD_DIR}/html
 # remove html related to "sub-projects"
 	rm -rf ${BLD_DIR}/html/cli
 	rm -rf ${BLD_DIR}/html/cpp
 	rm -rf ${BLD_DIR}/html/python
 	rm -rf ${BLD_DIR}/html/r
 # copy files required for header (navbar-start)
-	cp -R ./__config/shared/switcher.json ${BLD_DIR}/html/_static/
+	cp -R ${CFG_DIR}/${SPHINX_DIR}/switcher.json ${BLD_DIR}/html/_static/
 # clean up
-	rm -rf ${BLD_DIR}/shared
+	rm -rf ${BLD_DIR}/${SPHINX_DIR}
 # -----------------------------------------------------------------------------
 # make docs and copy CLI part over
 # -----------------------------------------------------------------------------
-	mkdir -p ${BLD_DIR}/cli/__source
-	cp -R ./__source/* ${BLD_DIR}/cli/__source
-# copy configuration files
-	-cp ./__config/* ${BLD_DIR}/cli/__source
-	cp -R ./__config/cli/* ${BLD_DIR}/cli/__source
+	$(eval SPHINX_DIR = cli)
+	$(eval EVALHYD_PROJECT = evalhyd-cli)
+# create subdirectory for project build
+	mkdir -p ${BLD_DIR}/${SPHINX_DIR}
 # build sphinx docs
-	(cd ${BLD_DIR}/cli/__source && $(MAKE) local_html)
+	(export EVALHYD_PROJECT=${EVALHYD_PROJECT} && sphinx-build -b html ${SRC_DIR} ${BLD_DIR}/${SPHINX_DIR}/html)
 # copy build html over
-	mkdir -p ${BLD_DIR}/html/cli/_static
-	cp -R ${BLD_DIR}/cli/__build/html/cli/* ${BLD_DIR}/html/cli
+	mkdir -p ${BLD_DIR}/html/${SPHINX_DIR}
+	cp -R ${BLD_DIR}/${SPHINX_DIR}/html/${SPHINX_DIR}/* ${BLD_DIR}/html/${SPHINX_DIR}
 # copy files required for header (navbar-start)
-	cp -R ${BLD_DIR}/cli/__build/html/_static/evalhyd-cli_logo+text.svg ${BLD_DIR}/html/_static/
-	cp -R ./__config/cli/switcher.json ${BLD_DIR}/html/cli/_static/
+	cp -R ${BLD_DIR}/${SPHINX_DIR}/html/_static/${EVALHYD_PROJECT}_logo+text.svg ${BLD_DIR}/html/_static/
+	mkdir -p ${BLD_DIR}/html/${SPHINX_DIR}/_static
+	cp -R ${CFG_DIR}/${SPHINX_DIR}/switcher.json ${BLD_DIR}/html/${SPHINX_DIR}/_static/
 # clean up
-	rm -rf ${BLD_DIR}/cli
+	rm -rf ${BLD_DIR}/${SPHINX_DIR}
 # -----------------------------------------------------------------------------
 # make docs and copy CPP part over
 # -----------------------------------------------------------------------------
-	mkdir -p ${BLD_DIR}/cpp/__source
-	cp -R ./__source/* ${BLD_DIR}/cpp/__source
-# copy configuration files
-	-cp ./__config/* ${BLD_DIR}/cpp/__source
-	cp -R ./__config/cpp/* ${BLD_DIR}/cpp/__source
+	$(eval SPHINX_DIR = cpp)
+	$(eval EVALHYD_PROJECT = evalhyd-cpp)
+# create subdirectory for project build
+	mkdir -p ${BLD_DIR}/${SPHINX_DIR}
 # build sphinx docs
-	(cd ${BLD_DIR}/cpp/__source && $(MAKE) local_html)
+	(export EVALHYD_PROJECT=${EVALHYD_PROJECT} && sphinx-build -b html ${SRC_DIR} ${BLD_DIR}/${SPHINX_DIR}/html)
 # copy build html over
-	mkdir -p ${BLD_DIR}/html/cpp/_static
-	cp -R ${BLD_DIR}/cpp/__build/html/cpp/* ${BLD_DIR}/html/cpp
+	mkdir -p ${BLD_DIR}/html/${SPHINX_DIR}
+	cp -R ${BLD_DIR}/${SPHINX_DIR}/html/${SPHINX_DIR}/* ${BLD_DIR}/html/${SPHINX_DIR}
 # copy files required for header (navbar-start)
-	cp -R ${BLD_DIR}/cpp/__build/html/_static/evalhyd-cpp_logo+text.svg ${BLD_DIR}/html/_static/
-	cp -R ./__config/cpp/switcher.json ${BLD_DIR}/html/cpp/_static/
+	cp -R ${BLD_DIR}/${SPHINX_DIR}/html/_static/${EVALHYD_PROJECT}_logo+text.svg ${BLD_DIR}/html/_static/
+	mkdir -p ${BLD_DIR}/html/${SPHINX_DIR}/_static
+	cp -R ${CFG_DIR}/${SPHINX_DIR}/switcher.json ${BLD_DIR}/html/${SPHINX_DIR}/_static/
 # clean up
-	rm -rf ${BLD_DIR}/cpp
+	rm -rf ${BLD_DIR}/${SPHINX_DIR}
 # -----------------------------------------------------------------------------
 # make docs and copy PYTHON part over
 # -----------------------------------------------------------------------------
-	mkdir -p ${BLD_DIR}/python/__source
-	cp -R ./__source/* ${BLD_DIR}/python/__source
-# copy configuration files
-	-cp ./__config/* ${BLD_DIR}/python/__source
-	cp -R ./__config/python/* ${BLD_DIR}/python/__source
+	$(eval SPHINX_DIR = python)
+	$(eval EVALHYD_PROJECT = evalhyd-python)
+# create subdirectory for project build
+	mkdir -p ${BLD_DIR}/${SPHINX_DIR}
 # build sphinx docs
-	(cd ${BLD_DIR}/python/__source && $(MAKE) local_html)
+	(export EVALHYD_PROJECT=${EVALHYD_PROJECT} && sphinx-build -b html ${SRC_DIR} ${BLD_DIR}/${SPHINX_DIR}/html)
 # copy build html over
-	mkdir -p ${BLD_DIR}/html/python/_static
-	cp -R ${BLD_DIR}/python/__build/html/python/* ${BLD_DIR}/html/python
+	mkdir -p ${BLD_DIR}/html/${SPHINX_DIR}
+	cp -R ${BLD_DIR}/${SPHINX_DIR}/html/${SPHINX_DIR}/* ${BLD_DIR}/html/${SPHINX_DIR}
 # copy files required for header (navbar-start)
-	cp -R ${BLD_DIR}/python/__build/html/_static/evalhyd-python_logo+text.svg ${BLD_DIR}/html/_static/
-	cp -R ./__config/python/switcher.json ${BLD_DIR}/html/python/_static/
+	cp -R ${BLD_DIR}/${SPHINX_DIR}/html/_static/${EVALHYD_PROJECT}_logo+text.svg ${BLD_DIR}/html/_static/
+	mkdir -p ${BLD_DIR}/html/${SPHINX_DIR}/_static
+	cp -R ${CFG_DIR}/${SPHINX_DIR}/switcher.json ${BLD_DIR}/html/${SPHINX_DIR}/_static/
 # clean up
-	rm -rf ${BLD_DIR}/python
+	rm -rf ${BLD_DIR}/${SPHINX_DIR}
 # -----------------------------------------------------------------------------
 # make docs and copy R part over
 # -----------------------------------------------------------------------------
-	mkdir -p ${BLD_DIR}/r/__source
-	cp -R ./__source/* ${BLD_DIR}/r/__source
-# copy configuration files
-	-cp ./__config/* ${BLD_DIR}/r/__source
-	cp -R ./__config/r/* ${BLD_DIR}/r/__source
+	$(eval SPHINX_DIR = r)
+	$(eval EVALHYD_PROJECT = evalhyd-r)
+# create subdirectory for project build
+	mkdir -p ${BLD_DIR}/${SPHINX_DIR}
 # build sphinx docs
-	(cd ${BLD_DIR}/r/__source && $(MAKE) local_html)
+	(export EVALHYD_PROJECT=${EVALHYD_PROJECT} && sphinx-build -b html ${SRC_DIR} ${BLD_DIR}/${SPHINX_DIR}/html)
 # copy build html over
-	mkdir -p ${BLD_DIR}/html/r/_static
-	cp -R ${BLD_DIR}/r/__build/html/r/* ${BLD_DIR}/html/r
+	mkdir -p ${BLD_DIR}/html/${SPHINX_DIR}
+	cp -R ${BLD_DIR}/${SPHINX_DIR}/html/${SPHINX_DIR}/* ${BLD_DIR}/html/${SPHINX_DIR}
 # copy files required for header (navbar-start)
-	cp -R ${BLD_DIR}/r/__build/html/_static/evalhyd-r_logo+text.svg ${BLD_DIR}/html/_static/
-	cp -R ./__config/r/switcher.json ${BLD_DIR}/html/r/_static/
+	cp -R ${BLD_DIR}/${SPHINX_DIR}/html/_static/${EVALHYD_PROJECT}_logo+text.svg ${BLD_DIR}/html/_static/
+	mkdir -p ${BLD_DIR}/html/${SPHINX_DIR}/_static
+	cp -R ${CFG_DIR}/${SPHINX_DIR}/switcher.json ${BLD_DIR}/html/${SPHINX_DIR}/_static/
 # clean up
-	rm -rf ${BLD_DIR}/r
-	
+	rm -rf ${BLD_DIR}/${SPHINX_DIR}
+
+build_docs:
+	$(MAKE) clone_repos
+	$(MAKE) build_xml
+	$(MAKE) build_html

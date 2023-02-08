@@ -1,4 +1,4 @@
 Licence
 =======
 
-.. include:: ../../../../__code/evalhyd/LICENCE.rst
+.. include:: ../../__code/evalhyd/LICENCE.rst

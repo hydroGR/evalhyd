@@ -9,3 +9,5 @@ Command Line
 
    installation
    cli
+   changelog
+   licence
