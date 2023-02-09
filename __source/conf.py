@@ -117,7 +117,7 @@ html_theme_options = {
     "icon_links": [
         {
             "name": "GitLab",
-            "url": f"https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/{project}",
+            "url": f"https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd",
             "icon": "fab fa-gitlab",
         }
     ],
