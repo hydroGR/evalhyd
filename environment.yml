@@ -1,3 +1,4 @@
+name: evalhyd-docs-env
 channels:
   - conda-forge
 dependencies:
