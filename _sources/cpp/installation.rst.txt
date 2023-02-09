@@ -17,31 +17,31 @@ To install `evalhyd` core library from source, `cmake` can be used.
    .. code-block:: console
       :caption: Install the dependencies in a new environment
 
-      mamba create -n evalhyd-env -f environment-dev.yml
+      $ mamba create -n evalhyd-env -f environment-dev.yml
 
    .. code-block:: console
       :caption: Activate the environment
 
-      mamba activate evalhyd-env
+      $ mamba activate evalhyd-env
 
 Then, the steps below can be followed:
 
 .. code-block:: console
    :caption: Configure the CMake project
 
-   cmake -B build/ -D CMAKE_BUILD_TYPE=Debug -D CMAKE_PREFIX_PATH="$CONDA_PREFIX"
+   $ cmake -B build/ -D CMAKE_BUILD_TYPE=Debug -D CMAKE_PREFIX_PATH="${CONDA_PREFIX}"
 
 .. code-block:: console
    :caption: Build the CMake project
 
-   cmake --build build/ --parallel
+   $ cmake --build build/ --parallel
 
 .. code-block:: console
    :caption: Test the library
 
-   ./build/tests/evalhyd_tests
+   $ ./build/tests/evalhyd_tests
 
 .. code-block:: console
    :caption: Install the library
 
-   cmake --install build/ --prefix <path>
+   $ cmake --install build/ --prefix <path>

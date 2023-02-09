@@ -349,7 +349,7 @@ AWI
 ---
 
 Average width index (`"AWI"`), computed as per
-`Bourgin et al. (2015) <https://doi.org/10.5194/hess-19-2535-2015>`_..
+`Bourgin et al. (2015) <https://doi.org/10.5194/hess-19-2535-2015>`_.
 
 .. math::
 
