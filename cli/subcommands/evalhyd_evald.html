@@ -405,28 +405,6 @@ correspond to those of the second series).</p>
 <section id="optionals">
 <h2>Optionals<a class="headerlink" href="#optionals" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
 <dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-evalhyd-evald-h">
-<span id="cmdoption-evalhyd-evald-help"></span><span class="sig-name descname"><span class="pre">-h</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-evalhyd-evald-h" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
-<dd><p>Print this help message and exit.</p>
-</dd></dl>
-
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-evalhyd-evald-to_file">
-<span id="cmdoption-evalhyd-evald-to-file"></span><span class="sig-name descname"><span class="pre">--to_file</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-evalhyd-evald-to_file" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
-<dd><p>Divert output to CSV file, otherwise output to console.</p>
-</dd></dl>
-
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-evalhyd-evald-out_dir">
-<span id="cmdoption-evalhyd-evald-out-dir"></span><span class="sig-name descname"><span class="pre">--out_dir</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT:DIR&gt;</span></span><a class="headerlink" href="#cmdoption-evalhyd-evald-out_dir" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
-<dd><p>Path to output directory.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Each metric is returned in a separate CSV file.</p>
-</div>
-</dd></dl>
-
-<dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-evalhyd-evald-transform">
 <span class="sig-name descname"><span class="pre">--transform</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT&gt;</span></span><a class="headerlink" href="#cmdoption-evalhyd-evald-transform" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
 <dd><p>The transformation to apply to both streamflow observations
@@ -546,6 +524,39 @@ in the evaluation period [shape: (time,)].</p>
 <dd><p>An integer value for the seed used by random generators. This
 parameter guarantees the reproducibility of the metric values
 between calls.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-evalhyd-evald-to_file">
+<span id="cmdoption-evalhyd-evald-to-file"></span><span class="sig-name descname"><span class="pre">--to_file</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-evalhyd-evald-to_file" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>Divert output to CSV file, otherwise output to console.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-evalhyd-evald-out_dir">
+<span id="cmdoption-evalhyd-evald-out-dir"></span><span class="sig-name descname"><span class="pre">--out_dir</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT:DIR&gt;</span></span><a class="headerlink" href="#cmdoption-evalhyd-evald-out_dir" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>Path to output directory.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Each metric is returned in a separate CSV file. The shape in each
+CSV output file is (series, subsets, samples).</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Since CSV files are intrinsically two-dimensional (i.e. lines
+and columns), the first two dimensions are stacked on top of
+one another. For example, the output shape (4 series,
+2 subsets, 3 samples) is stored into a CSV file containing
+eight lines and three columns (where the first two lines correspond
+to the two subsets for the first series, the two following lines
+to the two subsets for the second series, and so on).</p>
+</div>
+</div>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-evalhyd-evald-h">
+<span id="cmdoption-evalhyd-evald-help"></span><span class="sig-name descname"><span class="pre">-h</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-evalhyd-evald-h" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>Print this help message and exit.</p>
 </dd></dl>
 
 </section>

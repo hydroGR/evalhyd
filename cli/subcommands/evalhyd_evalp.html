@@ -443,18 +443,6 @@ etc.).</p>
 <section id="optionals">
 <h2>Optionals<a class="headerlink" href="#optionals" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
 <dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-h">
-<span id="cmdoption-help"></span><span class="sig-name descname"><span class="pre">-h</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-h" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
-<dd><p>Print this help message and exit.</p>
-</dd></dl>
-
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-to_file">
-<span id="cmdoption-to-file"></span><span class="sig-name descname"><span class="pre">--to_file</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-to_file" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
-<dd><p>Divert output to CSV file, otherwise output to console.</p>
-</dd></dl>
-
-<dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-q_thr">
 <span id="cmdoption-q-thr"></span><span class="sig-name descname"><span class="pre">--q_thr</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT:DIR&gt;</span></span><a class="headerlink" href="#cmdoption-q_thr" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
 <dd><p>Path to directory where CSV files containing streamflow thresholds
@@ -482,6 +470,25 @@ thresholds than others, it is possible to use <code class="xref py py-obj docuti
 the number of thresholds of the other sites.</p>
 </div>
 </div>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-events">
+<span class="sig-name descname"><span class="pre">--events</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TXT&gt;</span></span><a class="headerlink" href="#cmdoption-events" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>A string specifying the type of streamflow events to consider for
+threshold exceedance-based metrics. It can either be set as <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;high&quot;</span></code>
+when flooding conditions/high flow events are evaluated (i.e. event
+occurring when streamflow goes above threshold) or as <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;low&quot;</span></code> when
+drought conditions/low flow events are evaluated (i.e. event
+occurring when streamflow goes below threshold). It must be provided
+if <em>q_thr</em> is provided.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-c_lvl">
+<span id="cmdoption-c-lvl"></span><span class="sig-name descname"><span class="pre">--c_lvl</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;FLOAT</span> <span class="pre">...&gt;</span></span><a class="headerlink" href="#cmdoption-c_lvl" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>List of confidence interval(s) in % to consider for intervals-based
+metrics.</p>
 </dd></dl>
 
 <dl class="std option">
@@ -566,6 +573,56 @@ subsets [shape: (conditions,)].</p>
 </dd></dl>
 
 <dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-bootstrap">
+<span class="sig-name descname"><span class="pre">--bootstrap</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT</span> <span class="pre">...&gt;</span></span><a class="headerlink" href="#cmdoption-bootstrap" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>The values for the parameters of the bootstrapping method used to
+estimate the sampling uncertainty in the evaluation of the
+predictions. It takes three parameters: <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;n_samples&quot;</span></code> the number of
+random samples; <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;len_samples&quot;</span></code> the length of one sample in number of
+years; <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;summary&quot;</span></code> the statistics to return to characterise the
+sampling distribution. If not provided, no bootstrapping is
+performed. If provided, <em>dts</em> must also be provided.</p>
+<p><em>Parameter example:</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">bootstrap</span> <span class="s2">&quot;n_samples&quot;</span> <span class="mi">100</span> <span class="s2">&quot;len_sample&quot;</span> <span class="mi">10</span> <span class="s2">&quot;summary&quot;</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../../functionalities/bootstrapping.html"><span class="doc">Bootstrapping</span></a></p>
+</div>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-dts">
+<span class="sig-name descname"><span class="pre">--dts</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT:FILE&gt;</span></span><a class="headerlink" href="#cmdoption-dts" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>Path to CSV file containing the corresponding dates and times for the
+temporal dimension of the streamflow observations and predictions.
+The date and time must be specified in a string following the
+ISO 8601-1:2019 standard, i.e. “YYYY-MM-DD hh:mm:ss” (e.g. the
+21st of May 2007 at 4 in the afternoon is “2007-05-21 16:00:00”).
+If provided, it is only used if <em>bootstrap</em> is also provided.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The CSV file must feature as many columns as there are time steps
+in the evaluation period [shape: (time,)].</p>
+</div>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-seed">
+<span class="sig-name descname"><span class="pre">--seed</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;INT&gt;</span></span><a class="headerlink" href="#cmdoption-seed" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>An integer value for the seed used by random generators. This
+parameter guarantees the reproducibility of the metric values
+between calls.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-to_file">
+<span id="cmdoption-to-file"></span><span class="sig-name descname"><span class="pre">--to_file</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-to_file" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>Divert output to CSV file, otherwise output to console.</p>
+</dd></dl>
+
+<dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-out_dir">
 <span id="cmdoption-out-dir"></span><span class="sig-name descname"><span class="pre">--out_dir</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT:DIR&gt;</span></span><a class="headerlink" href="#cmdoption-out_dir" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
 <dd><p>Path to output directory.</p>
@@ -594,46 +651,15 @@ sample, and so on).</p>
 </dd></dl>
 
 <dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-bootstrap">
-<span class="sig-name descname"><span class="pre">--bootstrap</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT</span> <span class="pre">...&gt;</span></span><a class="headerlink" href="#cmdoption-bootstrap" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
-<dd><p>The values for the parameters of the bootstrapping method used to
-estimate the sampling uncertainty in the evaluation of the
-predictions. Three parameters are mandatory: <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;n_samples&quot;</span></code> the
-number of random samples; <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;len_samples&quot;</span></code> the length of one sample
-in number of years; <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;summary&quot;</span></code> the statistics to return to
-characterise the sampling distribution. One parameter is optional:
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;seed&quot;</span></code> the seed for the random generator. If not provided, no
-bootstrapping is performed. If provided, <em>dts</em> must also be provided.</p>
-<p><em>Parameter example:</em></p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">bootstrap</span> <span class="s2">&quot;n_samples&quot;</span> <span class="mi">100</span> <span class="s2">&quot;len_sample&quot;</span> <span class="mi">10</span> <span class="s2">&quot;summary&quot;</span> <span class="mi">0</span>
-</pre></div>
-</div>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="../../functionalities/bootstrapping.html"><span class="doc">Bootstrapping</span></a></p>
-</div>
-</dd></dl>
-
-<dl class="std option">
-<dt class="sig sig-object std" id="cmdoption-dts">
-<span class="sig-name descname"><span class="pre">--dts</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT:FILE&gt;</span></span><a class="headerlink" href="#cmdoption-dts" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
-<dd><p>Path to CSV file containing the corresponding dates and times for the
-temporal dimension of the streamflow observations and predictions.
-The date and time must be specified in a string following the
-ISO 8601-1:2019 standard, i.e. “YYYY-MM-DD hh:mm:ss” (e.g. the
-21st of May 2007 at 4 in the afternoon is “2007-05-21 16:00:00”).
-If provided, it is only used if <em>bootstrap</em> is also provided.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>The CSV file must feature as many columns as there are time steps
-in the evaluation period [shape: (time,)].</p>
-</div>
+<dt class="sig sig-object std" id="cmdoption-h">
+<span id="cmdoption-help"></span><span class="sig-name descname"><span class="pre">-h</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-h" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>Print this help message and exit.</p>
 </dd></dl>
 
 </section>
 <section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evalp<span class="w"> </span><span class="s2">&quot;./q_obs&quot;</span><span class="w"> </span><span class="s2">&quot;./q_prd&quot;</span><span class="w"> </span><span class="s2">&quot;BS&quot;</span><span class="w"> </span><span class="s2">&quot;BS_LBD&quot;</span><span class="w"> </span>--q_thr<span class="w"> </span><span class="s2">&quot;./q_thr&quot;</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evalp<span class="w"> </span><span class="s2">&quot;./q_obs&quot;</span><span class="w"> </span><span class="s2">&quot;./q_prd&quot;</span><span class="w"> </span><span class="s2">&quot;BS&quot;</span><span class="w"> </span><span class="s2">&quot;BS_LBD&quot;</span><span class="w"> </span>--q_thr<span class="w"> </span><span class="s2">&quot;./q_thr&quot;</span><span class="w"> </span>--events<span class="w"> </span><span class="s2">&quot;high&quot;</span>
 <span class="go">{{{{{ 0.222222,  0.133333}}}}}</span>
 <span class="go">{{{{{{ 0.072222,  0.027778,  0.177778},</span>
 <span class="go">     { 0.072222,  0.027778,  0.088889}}}}}}</span>
