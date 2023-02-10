@@ -60,22 +60,6 @@ Positionals
 Optionals
 ---------
 
-.. option:: -h, --help
-
-   Print this help message and exit.
-
-.. option:: --to_file
-
-   Divert output to CSV file, otherwise output to console.
-
-.. option:: --out_dir <TEXT:DIR>
-
-   Path to output directory.
-
-   .. note::
-
-      Each metric is returned in a separate CSV file.
-
 .. option:: --transform <TEXT>
 
    The transformation to apply to both streamflow observations
@@ -173,6 +157,23 @@ Optionals
    An integer value for the seed used by random generators. This
    parameter guarantees the reproducibility of the metric values
    between calls.
+
+.. option:: --to_file
+
+   Divert output to CSV file, otherwise output to console.
+
+.. option:: --out_dir <TEXT:DIR>
+
+   Path to output directory.
+
+   .. note::
+
+      Each metric is returned in a separate CSV file.
+
+.. option:: -h, --help
+
+   Print this help message and exit.
+
 
 Examples
 --------

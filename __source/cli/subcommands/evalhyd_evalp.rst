@@ -94,14 +94,6 @@ Positionals
 Optionals
 ---------
 
-.. option:: -h, --help
-
-   Print this help message and exit.
-
-.. option:: --to_file
-
-   Divert output to CSV file, otherwise output to console.
-
 .. option:: --q_thr <TEXT:DIR>
 
    Path to directory where CSV files containing streamflow thresholds
@@ -201,32 +193,6 @@ Optionals
 
    .. seealso:: :doc:`../../functionalities/conditional-masking`
 
-.. option:: --out_dir <TEXT:DIR>
-
-   Path to output directory.
-
-   .. note::
-
-      The generated content in the output directory will follow the same
-      structure and the same namings as *q_prd*, i.e. each leadtime in a
-      separate folder, and each site (and each metric) in a separate
-      file within it. The shape in each CSV output file is (subsets,
-      samples, {quantiles,} {thresholds,} {components}).
-
-      .. important::
-
-         Since CSV files are intrinsically two-dimensional (i.e. lines
-         and columns), for three-dimensional outputs (e.g. *BS* or *QS*)
-         or four-dimensional outputs (e.g. *BS_CRD* or *BS_LBD*), the
-         first few dimensions are stacked on top of one another. For
-         example, the output shape (4 subsets, 2 samples, 5 thresholds,
-         3 components) is stored into a CSV file containing 40 lines and
-         three columns (where the first five lines correspond to the
-         five thresholds of the first subset and the first sample, the
-         five following lines to the first subset and the second sample,
-         the five following lines to the second subset and the first
-         sample, and so on).
-
 .. option:: --bootstrap <TEXT ...>
 
    The values for the parameters of the bootstrapping method used to
@@ -257,6 +223,40 @@ Optionals
 
       The CSV file must feature as many columns as there are time steps
       in the evaluation period [shape: (time,)].
+
+.. option:: --to_file
+
+   Divert output to CSV file, otherwise output to console.
+
+.. option:: --out_dir <TEXT:DIR>
+
+   Path to output directory.
+
+   .. note::
+
+      The generated content in the output directory will follow the same
+      structure and the same namings as *q_prd*, i.e. each leadtime in a
+      separate folder, and each site (and each metric) in a separate
+      file within it. The shape in each CSV output file is (subsets,
+      samples, {quantiles,} {thresholds,} {components}).
+
+      .. important::
+
+         Since CSV files are intrinsically two-dimensional (i.e. lines
+         and columns), for three-dimensional outputs (e.g. *BS* or *QS*)
+         or four-dimensional outputs (e.g. *BS_CRD* or *BS_LBD*), the
+         first few dimensions are stacked on top of one another. For
+         example, the output shape (4 subsets, 2 samples, 5 thresholds,
+         3 components) is stored into a CSV file containing 40 lines and
+         three columns (where the first five lines correspond to the
+         five thresholds of the first subset and the first sample, the
+         five following lines to the first subset and the second sample,
+         the five following lines to the second subset and the first
+         sample, and so on).
+
+.. option:: -h, --help
+
+   Print this help message and exit.
 
 Examples
 --------
