@@ -121,6 +121,21 @@ Optionals
          thresholds than others, it is possible to use `NAN` to match
          the number of thresholds of the other sites.
 
+.. option:: --events <TXT>
+
+   A string specifying the type of streamflow events to consider for
+   threshold exceedance-based metrics. It can either be set as `"high"`
+   when flooding conditions/high flow events are evaluated (i.e. event
+   occurring when streamflow goes above threshold) or as `"low"` when
+   drought conditions/low flow events are evaluated (i.e. event
+   occurring when streamflow goes below threshold). It must be provided
+   if *q_thr* is provided.
+
+.. option:: --c_lvl <FLOAT ...>
+
+   List of confidence interval(s) in % to consider for intervals-based
+   metrics.
+
 .. option:: --t_msk <TEXT:DIR>
 
    Path to directory where CSV files containing temporal subsets are,
@@ -197,12 +212,11 @@ Optionals
 
    The values for the parameters of the bootstrapping method used to
    estimate the sampling uncertainty in the evaluation of the
-   predictions. Three parameters are mandatory: `"n_samples"` the
-   number of random samples; `"len_samples"` the length of one sample
-   in number of years; `"summary"` the statistics to return to
-   characterise the sampling distribution. One parameter is optional:
-   `"seed"` the seed for the random generator. If not provided, no
-   bootstrapping is performed. If provided, *dts* must also be provided.
+   predictions. It takes three parameters: `"n_samples"` the number of
+   random samples; `"len_samples"` the length of one sample in number of
+   years; `"summary"` the statistics to return to characterise the
+   sampling distribution. If not provided, no bootstrapping is
+   performed. If provided, *dts* must also be provided.
 
    *Parameter example:* ::
 
@@ -223,6 +237,12 @@ Optionals
 
       The CSV file must feature as many columns as there are time steps
       in the evaluation period [shape: (time,)].
+
+.. option:: --seed <INT>
+
+   An integer value for the seed used by random generators. This
+   parameter guarantees the reproducibility of the metric values
+   between calls.
 
 .. option:: --to_file
 
@@ -263,7 +283,7 @@ Examples
 
 .. code-block:: console
 
-   $ ./evalhyd evalp "./q_obs" "./q_prd" "BS" "BS_LBD" --q_thr "./q_thr"
+   $ ./evalhyd evalp "./q_obs" "./q_prd" "BS" "BS_LBD" --q_thr "./q_thr" --events "high"
    {{{{{ 0.222222,  0.133333}}}}}
    {{{{{{ 0.072222,  0.027778,  0.177778},
         { 0.072222,  0.027778,  0.088889}}}}}}
