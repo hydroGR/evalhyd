@@ -168,7 +168,18 @@ Optionals
 
    .. note::
 
-      Each metric is returned in a separate CSV file.
+      Each metric is returned in a separate CSV file. The shape in each
+      CSV output file is (series, subsets, samples).
+
+      .. important::
+
+         Since CSV files are intrinsically two-dimensional (i.e. lines
+         and columns), the first two dimensions are stacked on top of
+         one another. For example, the output shape (4 series,
+         2 subsets, 3 samples) is stored into a CSV file containing
+         eight lines and three columns (where the first two lines correspond
+         to the two subsets for the first series, the two following lines
+         to the two subsets for the second series, and so on).
 
 .. option:: -h, --help
 
