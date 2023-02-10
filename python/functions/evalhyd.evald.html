@@ -399,12 +399,12 @@ shape: (series, subsets)</p>
 </dd>
 <dt>bootstrap: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dict</span></code></a>, optional</dt><dd><p>The values for the parameters of the bootstrapping method used
 to estimate the sampling uncertainty in the evaluation of the
-predictions. It takes three parameters are mandatory:
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;n_samples&quot;</span></code> the number of random samples, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;len_samples&quot;</span></code>
-the length of one sample in number of years; <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;summary&quot;</span></code> the
-statistics to return to characterise the sampling distribution.
-If not provided, no bootstrapping is performed. If provided,
-<em>dts</em> must also be provided.</p>
+predictions. It takes three parameters: <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;n_samples&quot;</span></code> the
+number of random samples, <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;len_samples&quot;</span></code> the length of one
+sample in number of years; <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;summary&quot;</span></code> the statistics to return
+to characterise the sampling distribution. If not provided, no
+bootstrapping is performed. If provided, <em>dts</em> must also be
+provided.</p>
 <p><em>Parameter example:</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bootstrap</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;n_samples&quot;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="s2">&quot;len_sample&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;summary&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
 </pre></div>
@@ -523,7 +523,7 @@ Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
 
 <p class="last-updated">
-Last updated on Feb 09, 2023.<br>
+Last updated on Feb 10, 2023.<br>
 </p>
   </div>
   

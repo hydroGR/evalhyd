@@ -468,9 +468,13 @@ provided, as many subsets as they are observed time series must be
 provided.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>The CSV file must feature as many lines as there are temporal
-subsets, and as many columns as there are time steps in the study
-period [shape: (subsets, time)].</p>
+<p>The CSV file must feature as many lines as there are prediction
+series times temporal subsets, and as many columns as there are
+time steps in the study period [shape: (series, subsets, time)].
+For example, for five predictions series and two temporal subsets,
+the first five lines must correspond to the five series for the
+first subset, and the last five lines to the five series for the
+second subset.</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -490,8 +494,9 @@ provided, as many conditions as they are observed time series must
 be provided.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>The CSV file must feature as many lines as there are masking
-conditions [shape: (subsets,)].</p>
+<p>The CSV file must feature as many lines as there are prediction
+series, and as many columns as there are masking conditions
+[shape: (series, subsets)].</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -504,12 +509,11 @@ conditions [shape: (subsets,)].</p>
 <span class="sig-name descname"><span class="pre">--bootstrap</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT</span> <span class="pre">...&gt;</span></span><a class="headerlink" href="#cmdoption-evalhyd-evald-bootstrap" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
 <dd><p>The values for the parameters of the bootstrapping method used to
 estimate the sampling uncertainty in the evaluation of the
-predictions. Three parameters are mandatory: <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;n_samples&quot;</span></code> the
-number of random samples; <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;len_samples&quot;</span></code> the length of one sample
-in number of years; <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;summary&quot;</span></code> the statistics to return to
-characterise the sampling distribution. One parameter is optional:
-<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;seed&quot;</span></code> the seed for the random generator. If not provided, no
-bootstrapping is performed. If provided, <em>dts</em> must also be provided.</p>
+predictions. It takes three parameters: <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;n_samples&quot;</span></code> the number of
+random samples; <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;len_samples&quot;</span></code> the length of one sample in number of
+years; <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;summary&quot;</span></code> the statistics to return to characterise the
+sampling distribution. If not provided, no bootstrapping is
+performed. If provided, <em>dts</em> must also be provided.</p>
 <p><em>Parameter example:</em></p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">bootstrap</span> <span class="s2">&quot;n_samples&quot;</span> <span class="mi">100</span> <span class="s2">&quot;len_sample&quot;</span> <span class="mi">10</span> <span class="s2">&quot;summary&quot;</span> <span class="mi">0</span>
 </pre></div>
@@ -534,6 +538,14 @@ If provided, it is only used if <em>bootstrap</em> is also provided.</p>
 <p>The CSV file must feature as many columns as there are time steps
 in the evaluation period [shape: (time,)].</p>
 </div>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-evalhyd-evald-seed">
+<span class="sig-name descname"><span class="pre">--seed</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;INT&gt;</span></span><a class="headerlink" href="#cmdoption-evalhyd-evald-seed" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>An integer value for the seed used by random generators. This
+parameter guarantees the reproducibility of the metric values
+between calls.</p>
 </dd></dl>
 
 </section>
@@ -604,7 +616,7 @@ Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
 
 <p class="last-updated">
-Last updated on Feb 09, 2023.<br>
+Last updated on Feb 10, 2023.<br>
 </p>
   </div>
   

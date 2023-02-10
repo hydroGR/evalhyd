@@ -81,12 +81,12 @@ evalhyd.evald
       bootstrap: `dict`, optional
          The values for the parameters of the bootstrapping method used
          to estimate the sampling uncertainty in the evaluation of the
-         predictions. It takes three parameters are mandatory:
-         `"n_samples"` the number of random samples, `"len_samples"`
-         the length of one sample in number of years; `"summary"` the
-         statistics to return to characterise the sampling distribution.
-         If not provided, no bootstrapping is performed. If provided,
-         *dts* must also be provided.
+         predictions. It takes three parameters: `"n_samples"` the
+         number of random samples, `"len_samples"` the length of one
+         sample in number of years; `"summary"` the statistics to return
+         to characterise the sampling distribution. If not provided, no
+         bootstrapping is performed. If provided, *dts* must also be
+         provided.
 
          *Parameter example:*
 
