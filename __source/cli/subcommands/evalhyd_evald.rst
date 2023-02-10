@@ -110,9 +110,13 @@ Optionals
 
    .. important::
 
-      The CSV file must feature as many lines as there are temporal
-      subsets, and as many columns as there are time steps in the study
-      period [shape: (subsets, time)].
+      The CSV file must feature as many lines as there are prediction
+      series times temporal subsets, and as many columns as there are
+      time steps in the study period [shape: (series, subsets, time)].
+      For example, for five predictions series and two temporal subsets,
+      the first five lines must correspond to the five series for the
+      first subset, and the last five lines to the five series for the
+      second subset.
 
    .. seealso:: :doc:`../../functionalities/temporal-masking`
 
@@ -128,8 +132,9 @@ Optionals
 
    .. important::
 
-      The CSV file must feature as many lines as there are masking
-      conditions [shape: (subsets,)].
+      The CSV file must feature as many lines as there are prediction
+      series, and as many columns as there are masking conditions
+      [shape: (series, subsets)].
 
    .. seealso:: :doc:`../../functionalities/conditional-masking`
 
@@ -137,16 +142,15 @@ Optionals
 
    The values for the parameters of the bootstrapping method used to
    estimate the sampling uncertainty in the evaluation of the
-   predictions. Three parameters are mandatory: `"n_samples"` the
-   number of random samples; `"len_samples"` the length of one sample
-   in number of years; `"summary"` the statistics to return to
-   characterise the sampling distribution. One parameter is optional:
-   `"seed"` the seed for the random generator. If not provided, no
-   bootstrapping is performed. If provided, *dts* must also be provided.
+   predictions. It takes three parameters: `"n_samples"` the number of
+   random samples; `"len_samples"` the length of one sample in number of
+   years; `"summary"` the statistics to return to characterise the
+   sampling distribution. If not provided, no bootstrapping is
+   performed. If provided, *dts* must also be provided.
 
    *Parameter example:* ::
 
-    --bootstrap "n_samples" 100 "len_sample" 10 "summary" 0
+      --bootstrap "n_samples" 100 "len_sample" 10 "summary" 0
 
    .. seealso:: :doc:`../../functionalities/bootstrapping`
 
@@ -163,6 +167,12 @@ Optionals
 
       The CSV file must feature as many columns as there are time steps
       in the evaluation period [shape: (time,)].
+
+.. option:: --seed <INT>
+
+   An integer value for the seed used by random generators. This
+   parameter guarantees the reproducibility of the metric values
+   between calls.
 
 Examples
 --------
