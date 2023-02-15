@@ -410,26 +410,26 @@ function checkPageExistsAndRedirect(event) {
 entry point of <code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span></code>.</p>
 <p>For example, the Brier score can be computed as follows:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="48a26a32-4489-46ea-8bf5-c4298541bf0a" name="df4de1f4-d1aa-414d-bc07-e7b7e631713c" type="radio">
-</input><label class="tabbed-label" for="48a26a32-4489-46ea-8bf5-c4298541bf0a">
+<input checked="checked" id="9fb21f1e-aede-40e7-92bb-417e90d1071a" name="15ed45c2-57d9-40dd-880d-deb99ff5d499" type="radio">
+</input><label class="tabbed-label" for="9fb21f1e-aede-40e7-92bb-417e90d1071a">
 C++</label><div class="tabbed-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xtensor/xtensor.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xtensor/xio.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;evalhyd/evalp.hpp&gt;</span>
 
-<span class="n">xt</span><span class="o">::</span><span class="n">xtensor</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;</span><span class="w"> </span><span class="n">obs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="mf">4.7</span><span class="p">,</span><span class="w"> </span><span class="mf">4.3</span><span class="p">,</span><span class="w"> </span><span class="mf">5.5</span><span class="p">,</span><span class="w"> </span><span class="mf">2.7</span><span class="p">}};</span>
+<span class="n">xt</span><span class="o">::</span><span class="n">xtensor</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;</span><span class="w"> </span><span class="n">obs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="mf">4.7</span><span class="p">,</span><span class="w"> </span><span class="mf">4.3</span><span class="p">,</span><span class="w"> </span><span class="mf">5.5</span><span class="p">,</span><span class="w"> </span><span class="mf">2.7</span><span class="p">,</span><span class="w"> </span><span class="mf">4.1</span><span class="p">}};</span>
 <span class="n">xt</span><span class="o">::</span><span class="n">xtensor</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">&gt;</span><span class="w"> </span><span class="n">prd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{{{</span><span class="mf">5.3</span><span class="p">,</span><span class="w"> </span><span class="mf">4.2</span><span class="p">,</span><span class="w"> </span><span class="mf">5.7</span><span class="p">,</span><span class="w"> </span><span class="mf">2.3</span><span class="p">,</span><span class="w"> </span><span class="mf">3.1</span><span class="p">},</span>
 <span class="w">                                </span><span class="p">{</span><span class="mf">4.3</span><span class="p">,</span><span class="w"> </span><span class="mf">4.2</span><span class="p">,</span><span class="w"> </span><span class="mf">4.7</span><span class="p">,</span><span class="w"> </span><span class="mf">4.3</span><span class="p">,</span><span class="w"> </span><span class="mf">3.3</span><span class="p">},</span>
 <span class="w">                                </span><span class="p">{</span><span class="mf">5.3</span><span class="p">,</span><span class="w"> </span><span class="mf">5.2</span><span class="p">,</span><span class="w"> </span><span class="mf">5.7</span><span class="p">,</span><span class="w"> </span><span class="mf">2.3</span><span class="p">,</span><span class="w"> </span><span class="mf">3.9</span><span class="p">}}}};</span>
 <span class="n">xt</span><span class="o">::</span><span class="n">xtensor</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;</span><span class="w"> </span><span class="n">thr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="mf">4.</span><span class="p">,</span><span class="w"> </span><span class="mf">5.</span><span class="p">}};</span>
 
-<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">evalhyd</span><span class="o">::</span><span class="n">evalp</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;BS&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">thr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;high&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">evalhyd</span><span class="o">::</span><span class="n">evalp</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;BS&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">thr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;high&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="c1">// {{{{{ 0.222222,  0.133333}}}}}</span>
 </pre></div>
 </div>
 </div>
-<input id="b763f387-aeb0-4a4a-8a27-5be3274400f0" name="df4de1f4-d1aa-414d-bc07-e7b7e631713c" type="radio">
-</input><label class="tabbed-label" for="b763f387-aeb0-4a4a-8a27-5be3274400f0">
+<input id="090f367c-25f5-4fec-81da-9a87f8a703d6" name="15ed45c2-57d9-40dd-880d-deb99ff5d499" type="radio">
+</input><label class="tabbed-label" for="090f367c-25f5-4fec-81da-9a87f8a703d6">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="gp">... </span><span class="n">obs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
@@ -447,8 +447,8 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="f441e812-e706-4a1b-8ad9-f57eb940000b" name="df4de1f4-d1aa-414d-bc07-e7b7e631713c" type="radio">
-</input><label class="tabbed-label" for="f441e812-e706-4a1b-8ad9-f57eb940000b">
+<input id="2723ea93-4d9f-4d6b-918a-1bc05c868bb4" name="15ed45c2-57d9-40dd-880d-deb99ff5d499" type="radio">
+</input><label class="tabbed-label" for="2723ea93-4d9f-4d6b-918a-1bc05c868bb4">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">obs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span>
 <span class="gp">+ </span><span class="w">    </span><span class="nf">c</span><span class="p">(</span><span class="m">4.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.3</span><span class="p">,</span><span class="w"> </span><span class="m">5.5</span><span class="p">,</span><span class="w"> </span><span class="m">2.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.1</span><span class="p">)</span>
@@ -479,8 +479,8 @@ R</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="ac3abdcc-b615-4fd7-a3fe-b96b994c3f5b" name="df4de1f4-d1aa-414d-bc07-e7b7e631713c" type="radio">
-</input><label class="tabbed-label" for="ac3abdcc-b615-4fd7-a3fe-b96b994c3f5b">
+<input id="faaa8f91-2a52-4aaa-b228-f5f8f91eb9a0" name="15ed45c2-57d9-40dd-880d-deb99ff5d499" type="radio">
+</input><label class="tabbed-label" for="faaa8f91-2a52-4aaa-b228-f5f8f91eb9a0">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evalp<span class="w"> </span><span class="s2">&quot;./obs/&quot;</span><span class="w"> </span><span class="s2">&quot;./prd/&quot;</span><span class="w"> </span><span class="s2">&quot;BS&quot;</span><span class="w"> </span>--q_thr<span class="w"> </span><span class="s2">&quot;./thr/&quot;</span><span class="w"> </span>--events<span class="w"> </span><span class="s2">&quot;high&quot;</span>
 <span class="go">{{{{{ 0.222222,  0.133333}}}}}</span>

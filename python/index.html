@@ -302,9 +302,24 @@ function checkPageExistsAndRedirect(event) {
     
     <div class="toc-item">
       
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
-    
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#getting-started">
+   Getting started
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#brief-usage-overview">
+   Brief usage overview
+  </a>
+ </li>
+</ul>
+
 </nav>
     </div>
     
@@ -324,14 +339,101 @@ function checkPageExistsAndRedirect(event) {
                 
   <section id="python">
 <h1>Python<a class="headerlink" href="#python" title="Permalink to this headline"><span class="fa fa-link"></a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="changelog.html">Change log</a></li>
-<li class="toctree-l1"><a class="reference internal" href="licence.html">Licence</a></li>
-</ul>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd-python</span></code> is a Python package to evaluate deterministic and probabilistic
+streamflow predictions.</p>
+<section id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<div class="sphinx-bs container pb-4 docutils">
+<div class="row docutils">
+<div class="d-flex col-lg-3 col-md-3 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow intro-card text-center docutils">
+<div class="card-body docutils">
+<p class="card-text"><span class="fa fa-rocket text-info fa-4x"></span></p>
 </div>
+<div class="card-footer bg-white border-0 docutils">
+<p class="card-text"><a class="sphinx-bs btn text-wrap btn-outline-primary btn-block stretched-link reference internal" href="installation.html"><span class="doc">Installation</span></a></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-3 col-md-3 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow intro-card text-center docutils">
+<div class="card-body docutils">
+<p class="card-text"><span class="fa fa-gear text-info fa-4x"></span></p>
+</div>
+<div class="card-footer bg-white border-0 docutils">
+<p class="card-text"><a class="sphinx-bs btn text-wrap btn-outline-primary btn-block stretched-link reference internal" href="api.html"><span class="doc">API reference</span></a></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-3 col-md-3 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow intro-card text-center docutils">
+<div class="card-body docutils">
+<p class="card-text"><span class="fa fa-code text-info fa-4x"></span></p>
+</div>
+<div class="card-footer bg-white border-0 docutils">
+<p class="card-text"><a class="sphinx-bs btn text-wrap btn-outline-primary btn-block stretched-link reference external" href="https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-python"><span>Source code</span></a></p>
+</div>
+</div>
+</div>
+<div class="d-flex col-lg-3 col-md-3 col-sm-6 col-xs-12 p-2 docutils">
+<div class="card w-100 shadow intro-card text-center docutils">
+<div class="card-body docutils">
+<p class="card-text"><span class="fa fa-bug text-info fa-4x"></span></p>
+</div>
+<div class="card-footer bg-white border-0 docutils">
+<p class="card-text"><a class="sphinx-bs btn text-wrap btn-outline-primary btn-block stretched-link reference external" href="https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-python/-/issues"><span>Bug report</span></a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="brief-usage-overview">
+<h2>Brief usage overview<a class="headerlink" href="#brief-usage-overview" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Deterministic evaluation</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="gp">... </span><span class="n">obs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="p">[[</span><span class="mf">4.7</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">]]</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">... </span><span class="n">prd</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="p">[[</span><span class="mf">5.3</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">,</span> <span class="mf">5.7</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">]]</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">evalhyd</span>
+<span class="gp">... </span><span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;NSE&quot;</span><span class="p">])</span>
+<span class="go">[array([[[0.86298077]]])]</span>
+</pre></div>
+</div>
+</td>
+<td><p>Probabilistic evaluation</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="gp">... </span><span class="n">obs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="p">[[</span><span class="mf">4.7</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">,</span> <span class="mf">4.1</span><span class="p">]]</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">... </span><span class="n">prd</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="p">[[[[</span><span class="mf">5.3</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">,</span> <span class="mf">5.7</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">],</span>
+<span class="gp">... </span>       <span class="p">[</span><span class="mf">4.3</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">,</span> <span class="mf">4.7</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">],</span>
+<span class="gp">... </span>       <span class="p">[</span><span class="mf">5.3</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">,</span> <span class="mf">5.7</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">]]]]</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">... </span><span class="n">thr</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">evalhyd</span>
+<span class="gp">... </span><span class="n">evalhyd</span><span class="o">.</span><span class="n">evalp</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;BS&quot;</span><span class="p">],</span>
+<span class="gp">... </span>              <span class="n">thr</span><span class="p">,</span> <span class="n">events</span><span class="o">=</span><span class="s2">&quot;high&quot;</span><span class="p">)</span>
+<span class="go">[array([[[[[0.22222222, 0.13333333]]]]])]</span>
+</pre></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+</div>
+</section>
 </section>
 
 

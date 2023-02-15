@@ -19,13 +19,13 @@ Probabilist
          #include <xtensor/xio.hpp>
          #include <evalhyd/evalp.hpp>
 
-         xt::xtensor<double, 2> obs = {{4.7, 4.3, 5.5, 2.7}};
+         xt::xtensor<double, 2> obs = {{4.7, 4.3, 5.5, 2.7, 4.1}};
          xt::xtensor<double, 4> prd = {{{{5.3, 4.2, 5.7, 2.3, 3.1},
                                          {4.3, 4.2, 4.7, 4.3, 3.3},
                                          {5.3, 5.2, 5.7, 2.3, 3.9}}}};
          xt::xtensor<double, 2> thr = {{4., 5.}};
 
-         std::cout << evalhyd::evalp(obs, prd, {"BS"}, thr, "high") << std::endl;
+         std::cout << evalhyd::evalp(obs, prd, {"BS"}, thr, "high")[0] << std::endl;
          // {{{{{ 0.222222,  0.133333}}}}}
 
    .. tabbed:: Python
