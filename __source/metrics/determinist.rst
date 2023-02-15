@@ -6,7 +6,7 @@ Determinist
 
 .. tip::
 
-   All the metrics listed below are accessible via `evald`, the deterministic
+   All the metrics listed below are accessible via ``evald``, the deterministic
    entry point of `evalhyd`.
 
    For example, the Nash-Sutcliffe efficiency can be computed as follows:

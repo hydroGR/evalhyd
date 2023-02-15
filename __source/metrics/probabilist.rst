@@ -6,7 +6,7 @@ Probabilist
 
 .. tip::
 
-   All the metrics listed below are accessible via `evalp`, the probabilistic
+   All the metrics listed below are accessible via ``evalp``, the probabilistic
    entry point of `evalhyd`.
 
    For example, the Brier score can be computed as follows:
