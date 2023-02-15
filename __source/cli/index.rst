@@ -4,7 +4,7 @@
 Command Line
 ============
 
-`evalhyd-cli` is an command line executable to evaluate deterministic and probabilistic
+`evalhyd-cli` is a command line executable to evaluate deterministic and probabilistic
 streamflow predictions.
 
 Getting started
