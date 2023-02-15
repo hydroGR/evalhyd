@@ -8,10 +8,17 @@ For deterministic predictions
 -----------------------------
 
 ===================  ===========================================================
-:ref:`NSE`           Nash-Sutcliffe Efficiency
+:ref:`MAE`           Mean Absolute Error
+:ref:`MARE`          Mean Absolute Relative Error
+:ref:`MSE`           Mean Square Error
 :ref:`RMSE`          Root Mean Square Error
+:ref:`NSE`           Nash-Sutcliffe Efficiency
 :ref:`KGE`           Kling-Gupta Efficiency
+:ref:`KGE_D`         Kling-Gupta Efficiency Decomposed
 :ref:`KGEPRIME`      Modified Kling-Gupta Efficiency
+:ref:`KGEPRIME_D`    Modified Kling-Gupta Efficiency Decomposed
+:ref:`KGENP`         Non-Parametric Kling-Gupta Efficiency
+:ref:`KGENP_D`       Non-Parametric Kling-Gupta Efficiency Decomposed
 ===================  ===========================================================
 
 For probabilistic predictions
