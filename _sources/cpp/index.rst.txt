@@ -77,7 +77,7 @@ Brief usage overview
    |                                                  |                                                |
    |    xt::xtensor<double, 2> obs =                  |    xt::xtensor<double, 2> obs =                |
    |        {{4.7, 4.3, 5.5, 2.7}};                   |        {{4.7, 4.3, 5.5, 2.7, 4.1}};            |
-   |    xt::xtensor<double, 2> prd =                  |    xt::xtensor<double, 2> prd =                |
+   |    xt::xtensor<double, 2> prd =                  |    xt::xtensor<double, 4> prd =                |
    |        {{5.3, 4.2, 5.7, 2.3}};                   |        {{{{5.3, 4.2, 5.7, 2.3, 3.1},           |
    |                                                  |           {4.3, 4.2, 4.7, 4.3, 3.3},           |
    |    auto res =                                    |           {5.3, 5.2, 5.7, 2.3, 3.9}}}};        |
