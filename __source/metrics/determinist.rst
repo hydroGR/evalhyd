@@ -22,7 +22,7 @@ Determinist
          xt::xtensor<double, 2> obs = {{4.7, 4.3, 5.5, 2.7}};
          xt::xtensor<double, 2> prd = {{5.3, 4.2, 5.7, 2.3}};
 
-         std::cout << evalhyd::evald(obs, prd, {"NSE"}) << std::endl;
+         std::cout << evalhyd::evald(obs, prd, {"NSE"})[0] << std::endl;
          // {{{ 0.862981}}}
 
    .. tabbed:: Python
