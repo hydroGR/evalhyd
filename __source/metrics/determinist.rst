@@ -57,6 +57,63 @@ Determinist
          $ ./evalhyd evald "obs.csv" "prd.csv" "NSE"
          {{{ 0.862981}}}
 
+MAE
+---
+
+Mean Absolute Error (`"MAE"`).
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`        | `(series, subsets, samples)`                   |
+   +-------------------------+------------------------------------------------+
+
+
+MARE
+----
+
+Mean Absolute Relative Error (`"MARE"`).
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`        | `(series, subsets, samples)`                   |
+   +-------------------------+------------------------------------------------+
+
+MSE
+---
+
+Mean Square Error (`"MSE"`).
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`        | `(series, subsets, samples)`                   |
+   +-------------------------+------------------------------------------------+
+
+RMSE
+----
+
+Root Mean Square Error (`"RMSE"`).
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`        | `(series, subsets, samples)`                   |
+   +-------------------------+------------------------------------------------+
+
 NSE
 ---
 
@@ -92,6 +149,26 @@ Kling-Gupta Efficiency (`"KGE"`) as per `Gupta et al., 2009
    Using a log-transform for this metric is not recommended (see `Santos
    et al., 2018 <https://doi.org/10.5194/hess-22-4583-2018>`_).
 
+KGE_D
+-----
+
+Kling-Gupta Efficiency Decomposition (`"KGE_D"`) into its
+three components :math:`r_{pearson}`, :math:`\alpha`, :math:`\beta`,
+in this order.
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`        | `(series, subsets, samples, 3)`                |
+   +-------------------------+------------------------------------------------+
+
+.. warning::
+
+   Using a log-transform for this metric is not recommended (see `Santos
+   et al., 2018 <https://doi.org/10.5194/hess-22-4583-2018>`_).
 
 KGEPRIME
 --------
@@ -106,6 +183,70 @@ Modified Kling-Gupta Efficiency (`"KGEPRIME"`) as per `Kling et al., 2012
    | Required inputs         | Output shape                                   |
    +=========================+================================================+
    | `q_obs`, `q_prd`        | `(series, subsets, samples)`                   |
+   +-------------------------+------------------------------------------------+
+
+.. warning::
+
+   Using a log-transform for this metric is not recommended (see `Santos
+   et al., 2018 <https://doi.org/10.5194/hess-22-4583-2018>`_).
+
+
+KGEPRIME_D
+----------
+
+Modified Kling-Gupta Efficiency Decomposition (`"KGEPRIME_D"`) into its
+three components :math:`r_{pearson}`, :math:`\gamma`, :math:`\beta`,
+in this order.
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`        | `(series, subsets, samples, 3)`                |
+   +-------------------------+------------------------------------------------+
+
+.. warning::
+
+   Using a log-transform for this metric is not recommended (see `Santos
+   et al., 2018 <https://doi.org/10.5194/hess-22-4583-2018>`_).
+
+KGENP
+-----
+
+Non-Parametric Kling-Gupta Efficiency (`"KGENP"`) as per `Pool et al., 2018
+<https://doi.org/10.1080/02626667.2018.1552002>`_.
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`        | `(series, subsets, samples)`                   |
+   +-------------------------+------------------------------------------------+
+
+.. warning::
+
+   Using a log-transform for this metric is not recommended (see `Santos
+   et al., 2018 <https://doi.org/10.5194/hess-22-4583-2018>`_).
+
+
+KGENP_D
+-------
+
+Non-Parametric Kling-Gupta Efficiency Decomposition (`"KGENP_D"`) into its
+three components :math:`r_{spearman}`, :math:`\alpha_{NP}`, :math:`\beta`,
+in this order.
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`        | `(series, subsets, samples, 3)`                |
    +-------------------------+------------------------------------------------+
 
 .. warning::
