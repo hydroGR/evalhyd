@@ -4,6 +4,87 @@
 Probabilist
 ===========
 
+.. tip::
+
+   All the metrics listed below are accessible via `evalp`, the probabilistic
+   entry point of `evalhyd`.
+
+   For example, the Brier score can be computed as follows:
+
+   .. tabbed:: C++
+
+      .. code-block:: cpp
+
+         #include <xtensor/xtensor.hpp>
+         #include <xtensor/xio.hpp>
+         #include <evalhyd/evalp.hpp>
+
+         xt::xtensor<double, 2> obs = {{4.7, 4.3, 5.5, 2.7}};
+         xt::xtensor<double, 4> prd = {{{{5.3, 4.2, 5.7, 2.3, 3.1},
+                                         {4.3, 4.2, 4.7, 4.3, 3.3},
+                                         {5.3, 5.2, 5.7, 2.3, 3.9}}}};
+         xt::xtensor<double, 2> thr = {{4., 5.}};
+
+         std::cout << evalhyd::evalp(obs, prd, {"BS"}, thr, "high") << std::endl;
+         // {{{{{ 0.222222,  0.133333}}}}}
+
+   .. tabbed:: Python
+
+      .. code-block:: python
+
+         >>> import numpy
+         ... obs = numpy.array(
+         ...     [[4.7, 4.3, 5.5, 2.7, 4.1]]
+         ... )
+         ... prd = numpy.array(
+         ...     [[[[5.3, 4.2, 5.7, 2.3, 3.1],
+         ...        [4.3, 4.2, 4.7, 4.3, 3.3],
+         ...        [5.3, 5.2, 5.7, 2.3, 3.9]]]]
+         ... )
+         ... thr = numpy.array([[4., 5.]])
+         >>> import evalhyd
+         ... evalhyd.evalp(obs, prd, ["BS"], thr, events="high")
+         [array([[[[[0.22222222, 0.13333333]]]]])]
+
+
+   .. tabbed:: R
+
+      .. code-block:: RConsole
+
+         > obs = rbind(
+         +     c(4.7, 4.3, 5.5, 2.7, 4.1)
+         + )
+         > prd = array(
+         +     rbind(
+         +         c(5.3, 4.2, 5.7, 2.3, 3.1),
+         +         c(4.3, 4.2, 4.7, 4.3, 3.3),
+         +         c(5.3, 5.2, 5.7, 2.3, 3.9)
+         +     ),
+         +     dim = c(1, 1, 3, 5)
+         + )
+         > thr = rbind(
+         +     c(4., 5.)
+         + )
+         > library(evalhyd)
+         > evalhyd::evalp(obs, prd, c("BS"), thr, events="high")
+         [[1]]
+         , , 1, 1, 1
+
+                   [,1]
+         [1,] 0.2222222
+
+         , , 1, 1, 2
+
+                   [,1]
+         [1,] 0.1333333
+
+   .. tabbed:: CLI
+
+      .. code-block:: console
+
+         $ ./evalhyd evalp "./obs/" "./prd/" "BS" --q_thr "./thr/" --events "high"
+         {{{{{ 0.222222,  0.133333}}}}}
+
 BS
 --
 
@@ -28,63 +109,6 @@ steps.
    | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
    | `q_thr`, `events`\ [1]_ | thresholds)`                                   |
    +-------------------------+------------------------------------------------+
-
-.. tabbed:: Python
-
-   .. code-block:: python
-
-      >>> import numpy
-      ... obs = numpy.array(
-      ...     [[4.7, 4.3, 5.5, 2.7, 4.1]]
-      ... )
-      ... prd = numpy.array(
-      ...     [[[[5.3, 4.2, 5.7, 2.3, 3.1],
-      ...        [4.3, 4.2, 4.7, 4.3, 3.3],
-      ...        [5.3, 5.2, 5.7, 2.3, 3.9]]]]
-      ... )
-      ... thr = numpy.array([[4., 5.]])
-      >>> import evalhyd
-      ... evalhyd.evalp(obs, prd, ["BS"], thr, events="high")
-      [array([[[[[0.22222222, 0.13333333]]]]])]
-
-
-.. tabbed:: R
-
-   .. code-block:: RConsole
-
-      > obs = rbind(
-      +     c(4.7, 4.3, 5.5, 2.7, 4.1)
-      + )
-      > prd = array(
-      +     rbind(
-      +         c(5.3, 4.2, 5.7, 2.3, 3.1),
-      +         c(4.3, 4.2, 4.7, 4.3, 3.3),
-      +         c(5.3, 5.2, 5.7, 2.3, 3.9)
-      +     ),
-      +     dim = c(1, 1, 3, 5)
-      + )
-      > thr = rbind(
-      +     c(4., 5.)
-      + )
-      > library(evalhyd)
-      > evalhyd::evalp(obs, prd, c("BS"), thr, events="high")
-      [[1]]
-      , , 1, 1, 1
-      
-                [,1]
-      [1,] 0.2222222
-      
-      , , 1, 1, 2
-      
-                [,1]
-      [1,] 0.1333333
-
-.. tabbed:: CLI
-
-   .. code-block:: console
-
-      $ ./evalhyd evalp "./obs/" "./prd/" "BS" --q_thr "./thr/" --events "high"
-      {{{{{ 0.222222,  0.133333}}}}}
 
 BSS
 ---
