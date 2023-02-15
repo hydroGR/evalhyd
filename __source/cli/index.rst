@@ -71,7 +71,7 @@ Brief usage overview
    |                                                  |                                                |
    | .. code-block:: console                          | .. code-block:: console                        |
    |                                                  |                                                |
-   |    $ ./evalhyd evald "obs.csv" "prd.csv" "NSE"   |    $ ./evalhyd evalp "./obs/" "./prd/" "BS"    |
+   |    $ ./evalhyd evald "obs.csv" "prd.csv" "NSE"   |    $ ./evalhyd evalp "./obs/" "./prd/" "BS" \  |
    |    {{{ 0.862981}}}                               |    > --q_thr "./thr/" --events "high"          |
    |                                                  |    {{{{{ 0.222222,  0.133333}}}}}              |
    |                                                  |                                                |
