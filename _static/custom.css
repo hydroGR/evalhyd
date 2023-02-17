@@ -28,6 +28,7 @@
 html[data-theme="light"] {
     --pst-color-text-base: rgb(77, 77, 77);
     --pst-color-primary: var(--my-color-1);
+    --pst-color-secondary: var(--my-color-2);
     --pst-color-border: rgb(201, 201, 201);
 
     --pst-color-info: var(--my-color-1);
@@ -65,6 +66,7 @@ html[data-theme="light"] {
 html[data-theme="dark"] {
     --pst-color-text-base: rgb(209, 209, 209);
     --pst-color-primary: var(--my-color-1);
+    --pst-color-secondary: var(--my-color-2);
     --pst-color-border: rgb(72, 72, 72);
 
     --pst-color-info: var(--my-color-1);
@@ -99,6 +101,26 @@ html[data-theme="dark"] {
     --my-shadow: var(--pst-color-shadow);
 }
 
+/* propagate colors to whole theme */
+.text-primary {
+  color: var(--pst-color-primary) !important;
+}
+.text-secondary {
+  color: var(--pst-color-secondary) !important;
+}
+.text-info {
+  color: var(--pst-color-info) !important;
+}
+.text-success {
+  color: var(--pst-color-success) !important;
+}
+.text-warning {
+  color: var(--pst-color-warning) !important;
+}
+.text-danger {
+  color: var(--pst-color-danger) !important;
+}
+
 /* turn off filter on image for dark mode */
 html[data-theme="dark"] img {
     filter: none;
@@ -111,11 +133,11 @@ html[data-theme="dark"] img {
 
 /* override style for nav-links */
 #navbar-icon-links i.fab::before {
-    color: rgba(var(--pst-color-text-base),1);
+    color: var(--pst-color-text-base);
 }
 
 #navbar-icon-links i:hover.fab::before {
-    color: rgba(var(--pst-color-headerlink-hover),1);
+    color: var(--pst-color-headerlink-hover);
 }
 
 /* override style for code blocks */
