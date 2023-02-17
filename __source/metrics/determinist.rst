@@ -132,7 +132,7 @@ Nash-Sutcliffe Efficiency (`"NSE"`) as per `Nash and Sutcliffe (1970)
 KGE
 ---
 
-Kling-Gupta Efficiency (`"KGE"`) as per `Gupta et al., 2009
+Kling-Gupta Efficiency\ [1]_ (`"KGE"`) as per `Gupta et al., 2009
 <https://doi.org/10.1016/j.jhydrol.2009.08.003>`_.
 
 .. table::
@@ -144,15 +144,10 @@ Kling-Gupta Efficiency (`"KGE"`) as per `Gupta et al., 2009
    | `q_obs`, `q_prd`        | `(series, subsets, samples)`                   |
    +-------------------------+------------------------------------------------+
 
-.. warning::
-
-   Using a log-transform for this metric is not recommended (see `Santos
-   et al., 2018 <https://doi.org/10.5194/hess-22-4583-2018>`_).
-
 KGE_D
 -----
 
-Kling-Gupta Efficiency Decomposition (`"KGE_D"`) into its
+Kling-Gupta Efficiency Decomposition\ [1]_ (`"KGE_D"`) into its
 three components :math:`r_{pearson}`, :math:`\alpha`, :math:`\beta`,
 in this order.
 
@@ -165,15 +160,10 @@ in this order.
    | `q_obs`, `q_prd`        | `(series, subsets, samples, 3)`                |
    +-------------------------+------------------------------------------------+
 
-.. warning::
-
-   Using a log-transform for this metric is not recommended (see `Santos
-   et al., 2018 <https://doi.org/10.5194/hess-22-4583-2018>`_).
-
 KGEPRIME
 --------
 
-Modified Kling-Gupta Efficiency (`"KGEPRIME"`) as per `Kling et al., 2012
+Modified Kling-Gupta Efficiency\ [1]_ (`"KGEPRIME"`) as per `Kling et al., 2012
 <https://doi.org/10.1016/j.jhydrol.2012.01.011>`_.
 
 .. table::
@@ -185,16 +175,10 @@ Modified Kling-Gupta Efficiency (`"KGEPRIME"`) as per `Kling et al., 2012
    | `q_obs`, `q_prd`        | `(series, subsets, samples)`                   |
    +-------------------------+------------------------------------------------+
 
-.. warning::
-
-   Using a log-transform for this metric is not recommended (see `Santos
-   et al., 2018 <https://doi.org/10.5194/hess-22-4583-2018>`_).
-
-
 KGEPRIME_D
 ----------
 
-Modified Kling-Gupta Efficiency Decomposition (`"KGEPRIME_D"`) into its
+Modified Kling-Gupta Efficiency Decomposition\ [1]_ (`"KGEPRIME_D"`) into its
 three components :math:`r_{pearson}`, :math:`\gamma`, :math:`\beta`,
 in this order.
 
@@ -207,15 +191,10 @@ in this order.
    | `q_obs`, `q_prd`        | `(series, subsets, samples, 3)`                |
    +-------------------------+------------------------------------------------+
 
-.. warning::
-
-   Using a log-transform for this metric is not recommended (see `Santos
-   et al., 2018 <https://doi.org/10.5194/hess-22-4583-2018>`_).
-
 KGENP
 -----
 
-Non-Parametric Kling-Gupta Efficiency (`"KGENP"`) as per `Pool et al., 2018
+Non-Parametric Kling-Gupta Efficiency\ [1]_ (`"KGENP"`) as per `Pool et al., 2018
 <https://doi.org/10.1080/02626667.2018.1552002>`_.
 
 .. table::
@@ -227,16 +206,11 @@ Non-Parametric Kling-Gupta Efficiency (`"KGENP"`) as per `Pool et al., 2018
    | `q_obs`, `q_prd`        | `(series, subsets, samples)`                   |
    +-------------------------+------------------------------------------------+
 
-.. warning::
-
-   Using a log-transform for this metric is not recommended (see `Santos
-   et al., 2018 <https://doi.org/10.5194/hess-22-4583-2018>`_).
-
 
 KGENP_D
 -------
 
-Non-Parametric Kling-Gupta Efficiency Decomposition (`"KGENP_D"`) into its
+Non-Parametric Kling-Gupta Efficiency Decomposition\ [1]_ (`"KGENP_D"`) into its
 three components :math:`r_{spearman}`, :math:`\alpha_{NP}`, :math:`\beta`,
 in this order.
 
@@ -249,7 +223,8 @@ in this order.
    | `q_obs`, `q_prd`        | `(series, subsets, samples, 3)`                |
    +-------------------------+------------------------------------------------+
 
-.. warning::
 
-   Using a log-transform for this metric is not recommended (see `Santos
-   et al., 2018 <https://doi.org/10.5194/hess-22-4583-2018>`_).
+.. rubric:: Footnotes
+
+.. [1] Using a log-transform for this metric is not recommended (see `Santos
+       et al., 2018 <https://doi.org/10.5194/hess-22-4583-2018>`_).
