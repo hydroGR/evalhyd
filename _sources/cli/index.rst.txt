@@ -32,9 +32,9 @@ Getting started
 
    +++
 
-   .. link-button:: api
+   .. link-button:: cli
       :type: ref
-      :text: API reference
+      :text: CLI reference
       :classes: btn-outline-primary btn-block stretched-link
 
    ---
