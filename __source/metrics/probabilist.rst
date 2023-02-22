@@ -51,10 +51,10 @@ Probabilist
 
       .. code-block:: RConsole
 
-         > obs = rbind(
+         > obs <- rbind(
          +     c(4.7, 4.3, 5.5, 2.7, 4.1)
          + )
-         > prd = array(
+         > prd <- array(
          +     rbind(
          +         c(5.3, 4.2, 5.7, 2.3, 3.1),
          +         c(4.3, 4.2, 4.7, 4.3, 3.3),
@@ -62,7 +62,7 @@ Probabilist
          +     ),
          +     dim = c(1, 1, 3, 5)
          + )
-         > thr = rbind(
+         > thr <- rbind(
          +     c(4., 5.)
          + )
          > library(evalhyd)

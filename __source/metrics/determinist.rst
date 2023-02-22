@@ -40,8 +40,8 @@ Determinist
 
       .. code-block:: RConsole
 
-         > obs = rbind(c(4.7, 4.3, 5.5, 2.7))
-         > prd = rbind(c(5.3, 4.2, 5.7, 2.3))
+         > obs <- rbind(c(4.7, 4.3, 5.5, 2.7))
+         > prd <- rbind(c(5.3, 4.2, 5.7, 2.3))
          > library(evalhyd)
          > evalhyd::evald(obs, prd, c("NSE"))
          [[1]]

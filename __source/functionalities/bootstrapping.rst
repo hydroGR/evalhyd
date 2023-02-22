@@ -77,12 +77,12 @@ Examples using the bootstrapping functionality are provided below.
 
    .. code-block:: RConsole
 
-      > res = evalhyd::evald(
+      > res <- evalhyd::evald(
       +     obs, prd, c("NSE"),
       +     bootstrap=list(n_samples=100, len_sample=10, summary=0),
       +     dts=dts
       + )
-      > res = evalhyd::evalp(
+      > res <- evalhyd::evalp(
       +     obs, prd, c("CRPS"),
       +     bootstrap=list(n_samples=100, len_sample=10, summary=0),
       +     dts=dts

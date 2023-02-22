@@ -71,15 +71,15 @@ Brief usage overview
    |                                                  |                                                |
    | .. code-block:: RConsole                         | .. code-block:: RConsole                       |
    |                                                  |                                                |
-   |    > obs = rbind(c(4.7, 4.3, 5.5, 2.7))          |    > obs = rbind(c(4.7, 4.3, 5.5, 2.7, 4.1))   |
-   |    > prd = rbind(c(5.3, 4.2, 5.7, 2.3))          |    > prd = array(                              |
+   |    > obs <- rbind(c(4.7, 4.3, 5.5, 2.7))         |    > obs <- rbind(c(4.7, 4.3, 5.5, 2.7, 4.1))  |
+   |    > prd <- rbind(c(5.3, 4.2, 5.7, 2.3))         |    > prd <- array(                             |
    |    > library(evalhyd)                            |    +     rbind(c(5.3, 4.2, 5.7, 2.3, 3.1),     |
    |    > evalhyd::evald(obs, prd, c("NSE"))          |    +           c(4.3, 4.2, 4.7, 4.3, 3.3),     |
    |    [[1]]                                         |    +           c(5.3, 5.2, 5.7, 2.3, 3.9)),    |
    |    , , 1                                         |    +     dim = c(1, 1, 3, 5)                   |
-   |                                                  |    + )                                         |
-   |    [,1]                                          |    > thr = rbind(c(4., 5.))                    |
-   |    [1,] 0.8629808                                |    > library(evalhyd)                          |
+   |    [,1]                                          |    + )                                         |
+   |    [1,] 0.8629808                                |    > thr <- rbind(c(4., 5.))                   |
+   |                                                  |    > library(evalhyd)                          |
    |                                                  |    > evalhyd::evalp(obs, prd, c("BS"),         |
    |                                                  |    +                thr, events="high")        |
    |                                                  |    [[1]]                                       |
