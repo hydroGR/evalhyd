@@ -169,6 +169,24 @@ into the three components type 2 bias, discrimination, and sharpness
    | `q_thr`, `events`\ [1]_ | thresholds, 3)`                                |
    +-------------------------+------------------------------------------------+
 
+REL_DIAG
+--------
+
+X and Y axes of the reliability diagram (`"REL_DIAG"`) and ordinates
+of its associated sampling histogram: forecast probabilities (X),
+observed frequencies (Y), and number of forecasts for each forecast
+probability [returned in this order].
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
+   | `q_thr`, `events`\ [1]_ | thresholds, bins, 3)`                          |
+   +-------------------------+------------------------------------------------+
+
 QS
 --
 

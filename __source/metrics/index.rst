@@ -29,6 +29,7 @@ For probabilistic predictions
 :ref:`BSS`           Brier Skill Score
 :ref:`BS_CRD`        Calibration-Refinement Decomposition of the Brier Score
 :ref:`BS_LBD`        Likelihood-Base rate Decomposition of the Brier Score
+:ref:`REL_DIAG`      Reliability Diagram
 :ref:`QS`            Quantile Scores
 :ref:`CRPS`          Continuous Ranked Probability Score
 :ref:`POD`           Probability Of Detection
