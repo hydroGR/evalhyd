@@ -365,8 +365,8 @@ function checkPageExistsAndRedirect(event) {
 entry point of <code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span></code>.</p>
 <p>For example, the Nash-Sutcliffe efficiency can be computed as follows:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="21f05821-ee37-4909-87f3-d6c75a2b2c4d" name="3639277e-1339-4db4-9465-bb65ba002427" type="radio">
-</input><label class="tabbed-label" for="21f05821-ee37-4909-87f3-d6c75a2b2c4d">
+<input checked="checked" id="5382a94d-4959-4dd9-baa7-a5d2d8a40526" name="9c94b32a-7816-41c3-9fae-c76389b4836f" type="radio">
+</input><label class="tabbed-label" for="5382a94d-4959-4dd9-baa7-a5d2d8a40526">
 C++</label><div class="tabbed-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xtensor/xtensor.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xtensor/xio.hpp&gt;</span>
@@ -380,8 +380,8 @@ C++</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="e88aec02-debc-4c34-b5d2-8fa9b46b39da" name="3639277e-1339-4db4-9465-bb65ba002427" type="radio">
-</input><label class="tabbed-label" for="e88aec02-debc-4c34-b5d2-8fa9b46b39da">
+<input id="6cdb4419-2f22-4cec-b4db-69bda54cba4d" name="9c94b32a-7816-41c3-9fae-c76389b4836f" type="radio">
+</input><label class="tabbed-label" for="6cdb4419-2f22-4cec-b4db-69bda54cba4d">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="gp">... </span><span class="n">obs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">4.7</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">]])</span>
@@ -392,11 +392,11 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="c24e1707-6496-4b48-8667-33d946ef2486" name="3639277e-1339-4db4-9465-bb65ba002427" type="radio">
-</input><label class="tabbed-label" for="c24e1707-6496-4b48-8667-33d946ef2486">
+<input id="1b83163f-3bce-4fc3-81e3-2075ea1830f8" name="9c94b32a-7816-41c3-9fae-c76389b4836f" type="radio">
+</input><label class="tabbed-label" for="1b83163f-3bce-4fc3-81e3-2075ea1830f8">
 R</label><div class="tabbed-content docutils">
-<div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">obs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">4.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.3</span><span class="p">,</span><span class="w"> </span><span class="m">5.5</span><span class="p">,</span><span class="w"> </span><span class="m">2.7</span><span class="p">))</span>
-<span class="gp">&gt; </span><span class="n">prd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">5.3</span><span class="p">,</span><span class="w"> </span><span class="m">4.2</span><span class="p">,</span><span class="w"> </span><span class="m">5.7</span><span class="p">,</span><span class="w"> </span><span class="m">2.3</span><span class="p">))</span>
+<div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">obs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">4.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.3</span><span class="p">,</span><span class="w"> </span><span class="m">5.5</span><span class="p">,</span><span class="w"> </span><span class="m">2.7</span><span class="p">))</span>
+<span class="gp">&gt; </span><span class="n">prd</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">5.3</span><span class="p">,</span><span class="w"> </span><span class="m">4.2</span><span class="p">,</span><span class="w"> </span><span class="m">5.7</span><span class="p">,</span><span class="w"> </span><span class="m">2.3</span><span class="p">))</span>
 <span class="gp">&gt; </span><span class="nf">library</span><span class="p">(</span><span class="n">evalhyd</span><span class="p">)</span>
 <span class="gp">&gt; </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NSE&quot;</span><span class="p">))</span>
 <span class="go">[[1]]</span>
@@ -407,8 +407,8 @@ R</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="a611a7e6-fc5b-49ef-bd4b-277451e9b365" name="3639277e-1339-4db4-9465-bb65ba002427" type="radio">
-</input><label class="tabbed-label" for="a611a7e6-fc5b-49ef-bd4b-277451e9b365">
+<input id="d4b7dd32-5bf6-4d5d-82c8-025e3e9a025d" name="9c94b32a-7816-41c3-9fae-c76389b4836f" type="radio">
+</input><label class="tabbed-label" for="d4b7dd32-5bf6-4d5d-82c8-025e3e9a025d">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span>
 <span class="go">{{{ 0.862981}}}</span>
