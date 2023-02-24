@@ -31,6 +31,8 @@ evalhyd::evald
          A string vector of evaluation metrics to be computed.
          shape: (metrics,)
 
+         .. seealso:: :doc:`../../metrics/deterministic`
+
       q_thr, optional
          A numeric vector (or numeric matrix) of streamflow thresholds
          to consider for the metrics assessing the prediction of exceedance

@@ -27,6 +27,8 @@ evalhyd.evalp
          The sequence of evaluation metrics to be computed.
          shape: (metrics,)
 
+         .. seealso:: :doc:`../../metrics/probabilistic`
+
       q_thr: `numpy.ndarray` ``[dtype('float64')]``, optional
          2D array of streamflow threshold(s) to consider for the
          *metrics* assessing the prediction of exceedance events. If
