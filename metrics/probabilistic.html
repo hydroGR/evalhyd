@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Probabilistic &#8212; evalhyd latest documentation</title>
+    <title>Probabilistic metrics &#8212; evalhyd latest documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -46,7 +46,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Functionalities" href="../functionalities/index.html" />
-    <link rel="prev" title="Deterministic" href="deterministic.html" />
+    <link rel="prev" title="Deterministic metrics" href="deterministic.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="docsearch:language" content="en">
   </head>
@@ -251,12 +251,12 @@ function checkPageExistsAndRedirect(event) {
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="deterministic.html">
-   Deterministic
+   Deterministic metrics
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Probabilistic
+   Probabilistic metrics
   </a>
  </li>
 </ul>
@@ -407,16 +407,16 @@ function checkPageExistsAndRedirect(event) {
               
               <article class="bd-article" role="main">
                 
-  <section id="probabilistic">
-<h1>Probabilistic<a class="headerlink" href="#probabilistic" title="Permalink to this headline"><span class="fa fa-link"></a></h1>
+  <section id="probabilistic-metrics">
+<h1>Probabilistic metrics<a class="headerlink" href="#probabilistic-metrics" title="Permalink to this headline"><span class="fa fa-link"></a></h1>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>All the metrics listed below are accessible via <code class="docutils literal notranslate"><span class="pre">evalp</span></code>, the probabilistic
 entry point of <code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span></code>.</p>
 <p>For example, the Brier score can be computed as follows:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="ca72c3e3-aedb-4384-b0ed-db2a972eaf77" name="eadda121-564e-4877-a894-02b0f6aee8b2" type="radio">
-</input><label class="tabbed-label" for="ca72c3e3-aedb-4384-b0ed-db2a972eaf77">
+<input checked="checked" id="de6d77fa-950b-4c7d-8ac2-a406f90bedc7" name="9818a81b-92f0-48d7-8910-1c03d93fe511" type="radio">
+</input><label class="tabbed-label" for="de6d77fa-950b-4c7d-8ac2-a406f90bedc7">
 C++</label><div class="tabbed-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xtensor/xtensor.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xtensor/xio.hpp&gt;</span>
@@ -433,8 +433,8 @@ C++</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="804fe3a0-d53c-456a-9880-94d14669250c" name="eadda121-564e-4877-a894-02b0f6aee8b2" type="radio">
-</input><label class="tabbed-label" for="804fe3a0-d53c-456a-9880-94d14669250c">
+<input id="12062dfb-1be9-46d5-9d93-ceca951dbd5c" name="9818a81b-92f0-48d7-8910-1c03d93fe511" type="radio">
+</input><label class="tabbed-label" for="12062dfb-1be9-46d5-9d93-ceca951dbd5c">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="gp">... </span><span class="n">obs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
@@ -452,8 +452,8 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="3df07663-1158-4868-95bd-0f6c5febfdfa" name="eadda121-564e-4877-a894-02b0f6aee8b2" type="radio">
-</input><label class="tabbed-label" for="3df07663-1158-4868-95bd-0f6c5febfdfa">
+<input id="cf394420-ceff-4463-8b33-af6ce0da65bb" name="9818a81b-92f0-48d7-8910-1c03d93fe511" type="radio">
+</input><label class="tabbed-label" for="cf394420-ceff-4463-8b33-af6ce0da65bb">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">obs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span>
 <span class="gp">+ </span><span class="w">    </span><span class="nf">c</span><span class="p">(</span><span class="m">4.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.3</span><span class="p">,</span><span class="w"> </span><span class="m">5.5</span><span class="p">,</span><span class="w"> </span><span class="m">2.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.1</span><span class="p">)</span>
@@ -484,8 +484,8 @@ R</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="af36aac3-ff0e-4e82-a758-0e3e52ac68ba" name="eadda121-564e-4877-a894-02b0f6aee8b2" type="radio">
-</input><label class="tabbed-label" for="af36aac3-ff0e-4e82-a758-0e3e52ac68ba">
+<input id="3dd0cd0c-c1c5-4c29-8444-30f6d6dbb85e" name="9818a81b-92f0-48d7-8910-1c03d93fe511" type="radio">
+</input><label class="tabbed-label" for="3dd0cd0c-c1c5-4c29-8444-30f6d6dbb85e">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evalp<span class="w"> </span><span class="s2">&quot;./obs/&quot;</span><span class="w"> </span><span class="s2">&quot;./prd/&quot;</span><span class="w"> </span><span class="s2">&quot;BS&quot;</span><span class="w"> </span>--q_thr<span class="w"> </span><span class="s2">&quot;./thr/&quot;</span><span class="w"> </span>--events<span class="w"> </span><span class="s2">&quot;high&quot;</span>
 <span class="go">{{{{{ 0.222222,  0.133333}}}}}</span>

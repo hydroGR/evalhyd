@@ -57,6 +57,8 @@ Positionals
       three samples of the first series, and the last four lines
       correspond to those of the second series).
 
+   .. seealso:: :doc:`../../metrics/deterministic`
+
 Optionals
 ---------
 

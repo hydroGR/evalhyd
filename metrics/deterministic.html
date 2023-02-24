@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Deterministic &#8212; evalhyd latest documentation</title>
+    <title>Deterministic metrics &#8212; evalhyd latest documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -45,7 +45,7 @@
     <link rel="shortcut icon" href="../_static/evalhyd_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Probabilistic" href="probabilistic.html" />
+    <link rel="next" title="Probabilistic metrics" href="probabilistic.html" />
     <link rel="prev" title="Metrics" href="index.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="docsearch:language" content="en">
@@ -251,12 +251,12 @@ function checkPageExistsAndRedirect(event) {
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Deterministic
+   Deterministic metrics
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="probabilistic.html">
-   Probabilistic
+   Probabilistic metrics
   </a>
  </li>
 </ul>
@@ -362,16 +362,16 @@ function checkPageExistsAndRedirect(event) {
               
               <article class="bd-article" role="main">
                 
-  <section id="deterministic">
-<h1>Deterministic<a class="headerlink" href="#deterministic" title="Permalink to this headline"><span class="fa fa-link"></a></h1>
+  <section id="deterministic-metrics">
+<h1>Deterministic metrics<a class="headerlink" href="#deterministic-metrics" title="Permalink to this headline"><span class="fa fa-link"></a></h1>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>All the metrics listed below are accessible via <code class="docutils literal notranslate"><span class="pre">evald</span></code>, the deterministic
 entry point of <code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span></code>.</p>
 <p>For example, the Nash-Sutcliffe efficiency can be computed as follows:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="ce6cac36-3864-4dc5-9bb2-753da5f30578" name="b1276834-9c6d-4ee2-b3b1-fbed9855b4f1" type="radio">
-</input><label class="tabbed-label" for="ce6cac36-3864-4dc5-9bb2-753da5f30578">
+<input checked="checked" id="848500f9-3233-41bb-afd2-c10cd3941456" name="aa6cd34f-272e-4ebd-ab85-6b367d74dc74" type="radio">
+</input><label class="tabbed-label" for="848500f9-3233-41bb-afd2-c10cd3941456">
 C++</label><div class="tabbed-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xtensor/xtensor.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xtensor/xio.hpp&gt;</span>
@@ -385,8 +385,8 @@ C++</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="d6de0aa6-7e6e-4a5c-8193-9759e88a0ace" name="b1276834-9c6d-4ee2-b3b1-fbed9855b4f1" type="radio">
-</input><label class="tabbed-label" for="d6de0aa6-7e6e-4a5c-8193-9759e88a0ace">
+<input id="a745f8ff-9ec9-4455-b5bc-80ff61c16e8a" name="aa6cd34f-272e-4ebd-ab85-6b367d74dc74" type="radio">
+</input><label class="tabbed-label" for="a745f8ff-9ec9-4455-b5bc-80ff61c16e8a">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="gp">... </span><span class="n">obs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">4.7</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">]])</span>
@@ -397,8 +397,8 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="17ec0c3c-c64d-46cb-a1ee-24b3e1c0cd30" name="b1276834-9c6d-4ee2-b3b1-fbed9855b4f1" type="radio">
-</input><label class="tabbed-label" for="17ec0c3c-c64d-46cb-a1ee-24b3e1c0cd30">
+<input id="9c760f8e-b992-4a32-9c46-e8fcc2a7e50c" name="aa6cd34f-272e-4ebd-ab85-6b367d74dc74" type="radio">
+</input><label class="tabbed-label" for="9c760f8e-b992-4a32-9c46-e8fcc2a7e50c">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">obs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">4.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.3</span><span class="p">,</span><span class="w"> </span><span class="m">5.5</span><span class="p">,</span><span class="w"> </span><span class="m">2.7</span><span class="p">))</span>
 <span class="gp">&gt; </span><span class="n">prd</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">5.3</span><span class="p">,</span><span class="w"> </span><span class="m">4.2</span><span class="p">,</span><span class="w"> </span><span class="m">5.7</span><span class="p">,</span><span class="w"> </span><span class="m">2.3</span><span class="p">))</span>
@@ -412,8 +412,8 @@ R</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="3927130f-c0fa-4b08-b0e8-806e3084eaf6" name="b1276834-9c6d-4ee2-b3b1-fbed9855b4f1" type="radio">
-</input><label class="tabbed-label" for="3927130f-c0fa-4b08-b0e8-806e3084eaf6">
+<input id="871a4b31-f327-4171-9d94-deb8003d4b54" name="aa6cd34f-272e-4ebd-ab85-6b367d74dc74" type="radio">
+</input><label class="tabbed-label" for="871a4b31-f327-4171-9d94-deb8003d4b54">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span>
 <span class="go">{{{ 0.862981}}}</span>

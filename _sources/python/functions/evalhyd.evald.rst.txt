@@ -30,6 +30,8 @@ evalhyd.evald
       metrics: `List[str]`
          The sequence of evaluation metrics to be computed.
 
+         .. seealso:: :doc:`../../metrics/deterministic`
+
       q_thr: `numpy.ndarray` ``[dtype('float64')]``, optional
          1D or 2D array of streamflow threshold(s) to consider for the
          *metrics* assessing the prediction of exceedance events. If

@@ -91,6 +91,8 @@ Positionals
       metric chosen (e.g. threshold-based, quantile-based, multi-component,
       etc.).
 
+   .. seealso:: :doc:`../../metrics/probabilistic`
+
 Optionals
 ---------
 

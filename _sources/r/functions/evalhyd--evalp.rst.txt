@@ -27,6 +27,8 @@ evalhyd::evalp
          A string vector of evaluation metrics to be computed.
          shape: (metrics,)
 
+         .. seealso:: :doc:`../../metrics/probabilistic`
+
       q_thr, optional
          A numeric matrix of streamflow thresholds to consider for
          the metrics assessing the prediction of exceedance events.
