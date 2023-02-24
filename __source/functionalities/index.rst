@@ -13,3 +13,4 @@ Functionalities
    conditional-masking
    bootstrapping
    transformation
+   diagnostics

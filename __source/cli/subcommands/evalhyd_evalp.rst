@@ -86,9 +86,9 @@ Positionals
    .. note::
 
       For each computed metric, the output shape is (sites, lead times,
-      subsets, {quantiles,} {thresholds,} {components}). Each of the
-      last three axes may or may not be present depending on the metric
-      chosen (e.g. threshold-based, quantile-based, multi-component,
+      subsets, samples, {quantiles,} {thresholds,} {components}). Each
+      of the last three axes may or may not be present depending on the
+      metric chosen (e.g. threshold-based, quantile-based, multi-component,
       etc.).
 
 Optionals
@@ -243,6 +243,17 @@ Optionals
    An integer value for the seed used by random generators. This
    parameter guarantees the reproducibility of the metric values
    between calls.
+
+.. option:: diagnostics <TEXT ...>
+
+   List of evaluation diagnostics to compute.
+
+   .. note::
+
+      For each computed diagnostic, the output shape is (sites,
+      lead times, subsets, samples).
+
+   .. seealso:: :doc:`../../functionalities/diagnostics`
 
 .. option:: --to_file
 

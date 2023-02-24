@@ -105,12 +105,19 @@ evalhyd.evalp
          parameter guarantees the reproducibility of the metric values
          between calls.
 
+      diagnostics: `List[str]`, optional
+         The sequence of evaluation diagnostics to be computed.
+         shape: (diagnostics,)
+
+         .. seealso:: :doc:`../../functionalities/diagnostics`
+
 
    :Returns:
 
       `List[numpy.ndarray]`
-         The sequence of evaluation metrics computed
-         in the same order as given in *metrics*.
+         The sequence of evaluation metrics computed in the same order
+         as given in *metrics*, followed by the sequence of evaluation
+         diagnostics in the same order as given in *diagnostics*.
          shape: [(sites, lead times, subsets, samples, {quantiles,}
          {thresholds,} {components,} {ranks,} {intervals}), ...]
 

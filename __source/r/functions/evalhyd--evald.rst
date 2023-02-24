@@ -28,7 +28,7 @@ evalhyd::evald
          shape: (time,) or (series, time)
 
       metrics
-         A character vector of evaluation metrics to be computed.
+         A string vector of evaluation metrics to be computed.
          shape: (metrics,)
 
       transform, optional
@@ -107,11 +107,18 @@ evalhyd::evald
          parameter guarantees the reproducibility of the metric values
          between calls.
 
+      diagnostics, optional
+         A string vector of evaluation diagnostics to be computed.
+         shape: (diagnostics,)
+
+         .. seealso:: :doc:`../../functionalities/diagnostics`
 
    :Returns:
 
-      A list of numeric arrays containing evaluation metrics
-      computed in the same order as given in *metrics*.
+      A list of numeric arrays containing evaluation metrics computed
+      in the same order as given in *metrics*, followed by evaluation
+      diagnostics in the same order as given in *diagnostics*.
+      shape: [(series, subsets, samples, {components}), ...]
 
    :Examples:
 
