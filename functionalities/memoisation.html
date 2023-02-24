@@ -277,6 +277,11 @@ function checkPageExistsAndRedirect(event) {
    Transformation
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="diagnostics.html">
+   Diagnostics
+  </a>
+ </li>
 </ul>
 
   </div>
@@ -334,8 +339,8 @@ function checkPageExistsAndRedirect(event) {
 <h1>Memoisation<a class="headerlink" href="#memoisation" title="Permalink to this headline"><span class="fa fa-link"></a></h1>
 <section id="across-metrics">
 <h2>Across metrics<a class="headerlink" href="#across-metrics" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
-<img alt="determinist" src="https://img.shields.io/badge/-determinist-275662?style=flat-square" />
-<img alt="probabilist" src="https://img.shields.io/badge/-probabilist-275662?style=flat-square" />
+<img alt="deterministic" src="https://img.shields.io/badge/-deterministic-275662?style=flat-square" />
+<img alt="probabilistic" src="https://img.shields.io/badge/-probabilistic-275662?style=flat-square" />
 <p>Since certain evaluation metrics require the same intermediate computations,
 there is scope for some optimisation by storing these intermediate computations
 so that they can be used by all the evaluation metrics requiring them (i.e.
@@ -350,22 +355,22 @@ a single call to <code class="xref py py-obj docutils literal notranslate"><span
 calls.</p>
 <p>That is to say, prefer:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="da2419fa-db49-4e2d-ab67-c9e576adbee0" name="8a1e8244-0186-4f10-aaeb-24755f98244b" type="radio">
-</input><label class="tabbed-label" for="da2419fa-db49-4e2d-ab67-c9e576adbee0">
+<input checked="checked" id="949a9def-3bd9-44d6-bb1b-f52875bc6de4" name="b3f9a716-5b3a-4478-8cb8-83e1f9c47fe3" type="radio">
+</input><label class="tabbed-label" for="949a9def-3bd9-44d6-bb1b-f52875bc6de4">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;NSE&quot;</span><span class="p">,</span> <span class="s2">&quot;KGE&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<input id="355c0e41-6b93-41ce-bcce-39a28d1e33e4" name="8a1e8244-0186-4f10-aaeb-24755f98244b" type="radio">
-</input><label class="tabbed-label" for="355c0e41-6b93-41ce-bcce-39a28d1e33e4">
+<input id="c71646c5-00d3-4f91-9df6-4b116c6ad66e" name="b3f9a716-5b3a-4478-8cb8-83e1f9c47fe3" type="radio">
+</input><label class="tabbed-label" for="c71646c5-00d3-4f91-9df6-4b116c6ad66e">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NSE&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;KGE&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<input id="b5321b41-3e58-4046-9e63-32403b935765" name="8a1e8244-0186-4f10-aaeb-24755f98244b" type="radio">
-</input><label class="tabbed-label" for="b5321b41-3e58-4046-9e63-32403b935765">
+<input id="7ece12c5-f691-46d7-963f-60f64223e172" name="b3f9a716-5b3a-4478-8cb8-83e1f9c47fe3" type="radio">
+</input><label class="tabbed-label" for="7ece12c5-f691-46d7-963f-60f64223e172">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span><span class="w"> </span><span class="s2">&quot;KGE&quot;</span>
 </pre></div>
@@ -374,24 +379,24 @@ CLI</label><div class="tabbed-content docutils">
 </div>
 <p>over:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="8896f3ae-c12b-47ab-a14d-4ea778389356" name="8a1fd493-d59c-46ab-bf28-29d811b02351" type="radio">
-</input><label class="tabbed-label" for="8896f3ae-c12b-47ab-a14d-4ea778389356">
+<input checked="checked" id="f41e871b-5d46-4b6d-9261-2fe19b3e97d8" name="0d0c6b00-2b98-4f7e-a23b-468c9703d35c" type="radio">
+</input><label class="tabbed-label" for="f41e871b-5d46-4b6d-9261-2fe19b3e97d8">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;NSE&quot;</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;KGE&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-<input id="8ac36324-f5a6-4d35-a50f-da1814208e30" name="8a1fd493-d59c-46ab-bf28-29d811b02351" type="radio">
-</input><label class="tabbed-label" for="8ac36324-f5a6-4d35-a50f-da1814208e30">
+<input id="8b6deed7-18d1-4bfe-bdc3-bb0457e9305a" name="0d0c6b00-2b98-4f7e-a23b-468c9703d35c" type="radio">
+</input><label class="tabbed-label" for="8b6deed7-18d1-4bfe-bdc3-bb0457e9305a">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;NSE&quot;</span><span class="p">))</span>
 <span class="gp">&gt; </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evald</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;KGE&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<input id="f9328ed1-13d8-4ec0-bb89-bf9b4614fdea" name="8a1fd493-d59c-46ab-bf28-29d811b02351" type="radio">
-</input><label class="tabbed-label" for="f9328ed1-13d8-4ec0-bb89-bf9b4614fdea">
+<input id="dc501622-1e67-40bf-8181-57d210249458" name="0d0c6b00-2b98-4f7e-a23b-468c9703d35c" type="radio">
+</input><label class="tabbed-label" for="dc501622-1e67-40bf-8181-57d210249458">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span>
 <span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;KGE&quot;</span>
@@ -402,8 +407,8 @@ CLI</label><div class="tabbed-content docutils">
 </section>
 <section id="across-masks">
 <h2>Across masks<a class="headerlink" href="#across-masks" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
-<img alt="determinist" src="https://img.shields.io/badge/-determinist-275662?style=flat-square" />
-<img alt="probabilist" src="https://img.shields.io/badge/-probabilist-275662?style=flat-square" />
+<img alt="deterministic" src="https://img.shields.io/badge/-deterministic-275662?style=flat-square" />
+<img alt="probabilistic" src="https://img.shields.io/badge/-probabilistic-275662?style=flat-square" />
 <p>In addition, most evaluation metrics first perform intermediate computations
 on each time step individually (e.g. errors between individual observations
 and their corresponding predictions), before performing some reduction
@@ -451,7 +456,7 @@ Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
 
 <p class="last-updated">
-Last updated on Feb 22, 2023.<br>
+Last updated on Feb 24, 2023.<br>
 </p>
   </div>
   

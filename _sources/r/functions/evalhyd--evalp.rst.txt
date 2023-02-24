@@ -103,12 +103,19 @@ evalhyd::evalp
          parameter guarantees the reproducibility of the metric values
          between calls.
 
+      diagnostics, optional
+         A string vector of evaluation diagnostics to be computed.
+         shape: (diagnostics,)
+
+         .. seealso:: :doc:`../../functionalities/diagnostics`
+
    :Returns:
 
-      A list of numeric arrays containing evaluation metrics
-      computed in the same order as given in *metrics*.
-      shape: [(sites, lead times, subsets, {quantiles,} {thresholds,}
-      {components,} {ranks,} {intervals}), ...]
+      A list of numeric arrays containing evaluation metrics computed
+      in the same order as given in *metrics*, followed by evaluation
+      diagnostics in the same order as given in *diagnostics*.
+      shape: [(sites, lead times, subsets, samples, {quantiles,}
+      {thresholds,} {components,} {ranks,} {intervals}), ...]
 
 
    :Examples:

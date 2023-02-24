@@ -277,6 +277,11 @@ function checkPageExistsAndRedirect(event) {
    Transformation
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="diagnostics.html">
+   Diagnostics
+  </a>
+ </li>
 </ul>
 
   </div>
@@ -317,15 +322,15 @@ function checkPageExistsAndRedirect(event) {
                 
   <section id="handling-of-missing-data">
 <h1>Handling of missing data<a class="headerlink" href="#handling-of-missing-data" title="Permalink to this headline"><span class="fa fa-link"></a></h1>
-<img alt="determinist" src="https://img.shields.io/badge/-determinist-275662?style=flat-square" />
-<img alt="probabilist" src="https://img.shields.io/badge/-probabilist-275662?style=flat-square" />
+<img alt="deterministic" src="https://img.shields.io/badge/-deterministic-275662?style=flat-square" />
+<img alt="probabilistic" src="https://img.shields.io/badge/-probabilistic-275662?style=flat-square" />
 <p>Missing data must be flagged as “not a number” regardless of the utility
 used in the <code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span></code> stack. Missing data can be present both in the
 streamflow observations and/or the streamflow predictions. All time steps
 where either observations or predictions are missing are not taken into
 account in the computation of the metrics (a method sometimes referred
 to as <em>pairwise deletion</em>).</p>
-<img alt="probabilist-only" src="https://img.shields.io/badge/-probabilist--only-275662?style=flat-square" />
+<img alt="probabilistic-only" src="https://img.shields.io/badge/-probabilistic--only-275662?style=flat-square" />
 <p>For a given site, <code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span></code> expects that the time indices in the
 streamflow predictions and in the streamflow observations correspond to
 the same datetime. This means that, when evaluating several lead times at
@@ -398,7 +403,7 @@ Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
 
 <p class="last-updated">
-Last updated on Feb 22, 2023.<br>
+Last updated on Feb 24, 2023.<br>
 </p>
   </div>
   

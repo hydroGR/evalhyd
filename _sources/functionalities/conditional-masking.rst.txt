@@ -4,11 +4,11 @@
 Conditional masking
 ===================
 
-.. image:: https://img.shields.io/badge/-determinist-275662?style=flat-square
-   :alt: determinist
+.. image:: https://img.shields.io/badge/-deterministic-275662?style=flat-square
+   :alt: deterministic
 
-.. image:: https://img.shields.io/badge/-probabilist-275662?style=flat-square
-   :alt: probabilist
+.. image:: https://img.shields.io/badge/-probabilistic-275662?style=flat-square
+   :alt: probabilistic
 
 An alternative to :doc:`temporal masking <temporal-masking>` is conditional
 masking. It generates temporal subsets from user-provided conditions. The

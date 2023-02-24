@@ -158,6 +158,17 @@ Optionals
    parameter guarantees the reproducibility of the metric values
    between calls.
 
+.. option:: diagnostics <TEXT ...>
+
+   List of evaluation diagnostics to compute.
+
+   .. note::
+
+      For each computed diagnostic, the output shape is (series, subsets,
+      samples).
+
+   .. seealso:: :doc:`../../functionalities/diagnostics`
+
 .. option:: --to_file
 
    Divert output to CSV file, otherwise output to console.

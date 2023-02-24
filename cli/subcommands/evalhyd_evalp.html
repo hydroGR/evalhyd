@@ -432,9 +432,9 @@ the <em>metrics</em> are computed.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For each computed metric, the output shape is (sites, lead times,
-subsets, {quantiles,} {thresholds,} {components}). Each of the
-last three axes may or may not be present depending on the metric
-chosen (e.g. threshold-based, quantile-based, multi-component,
+subsets, samples, {quantiles,} {thresholds,} {components}). Each
+of the last three axes may or may not be present depending on the
+metric chosen (e.g. threshold-based, quantile-based, multi-component,
 etc.).</p>
 </div>
 </dd></dl>
@@ -617,6 +617,21 @@ between calls.</p>
 </dd></dl>
 
 <dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-diagnostics">
+<span class="sig-name descname"><span class="pre">diagnostics</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT</span> <span class="pre">...&gt;</span></span><a class="headerlink" href="#cmdoption-arg-diagnostics" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>List of evaluation diagnostics to compute.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For each computed diagnostic, the output shape is (sites,
+lead times, subsets, samples).</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../../functionalities/diagnostics.html"><span class="doc">Diagnostics</span></a></p>
+</div>
+</dd></dl>
+
+<dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-to_file">
 <span id="cmdoption-to-file"></span><span class="sig-name descname"><span class="pre">--to_file</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-to_file" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
 <dd><p>Divert output to CSV file, otherwise output to console.</p>
@@ -707,7 +722,7 @@ Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
 
 <p class="last-updated">
-Last updated on Feb 22, 2023.<br>
+Last updated on Feb 24, 2023.<br>
 </p>
   </div>
   

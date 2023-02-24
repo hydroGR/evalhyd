@@ -426,13 +426,21 @@ shape: (time,)</p>
 parameter guarantees the reproducibility of the metric values
 between calls.</p>
 </dd>
+<dt>diagnostics: <code class="xref py py-obj docutils literal notranslate"><span class="pre">List[str]</span></code>, optional</dt><dd><p>The sequence of evaluation diagnostics to be computed.
+shape: (diagnostics,)</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../../functionalities/diagnostics.html"><span class="doc">Diagnostics</span></a></p>
+</div>
+</dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">List[numpy.ndarray]</span></code></dt><dd><p>The sequence of evaluation metrics computed
-in the same order as given in <em>metrics</em>.
-shape: [(series, subsets, samples), …]</p>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">List[numpy.ndarray]</span></code></dt><dd><p>The sequence of evaluation metrics computed in the same order
+as given in <em>metrics</em>, followed by the sequence of evaluation
+diagnostics in the same order as given in <em>diagnostics</em>.
+shape: [(series, subsets, samples, {components}), …]</p>
 </dd>
 </dl>
 </dd>
@@ -523,7 +531,7 @@ Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
 
 <p class="last-updated">
-Last updated on Feb 22, 2023.<br>
+Last updated on Feb 24, 2023.<br>
 </p>
   </div>
   

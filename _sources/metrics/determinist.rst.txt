@@ -1,8 +1,8 @@
 .. currentmodule:: evalhyd
 .. default-role:: obj
 
-Determinist
-===========
+Deterministic
+=============
 
 .. tip::
 

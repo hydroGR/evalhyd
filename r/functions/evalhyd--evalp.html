@@ -416,13 +416,21 @@ shape: (time,)</p>
 parameter guarantees the reproducibility of the metric values
 between calls.</p>
 </dd>
+<dt>diagnostics, optional</dt><dd><p>A string vector of evaluation diagnostics to be computed.
+shape: (diagnostics,)</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../../functionalities/diagnostics.html"><span class="doc">Diagnostics</span></a></p>
+</div>
+</dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A list of numeric arrays containing evaluation metrics
-computed in the same order as given in <em>metrics</em>.
-shape: [(sites, lead times, subsets, {quantiles,} {thresholds,}
-{components,} {ranks,} {intervals}), …]</p>
+<dd class="field-even"><p>A list of numeric arrays containing evaluation metrics computed
+in the same order as given in <em>metrics</em>, followed by evaluation
+diagnostics in the same order as given in <em>diagnostics</em>.
+shape: [(sites, lead times, subsets, samples, {quantiles,}
+{thresholds,} {components,} {ranks,} {intervals}), …]</p>
 </dd>
 <dt class="field-odd">Examples</dt>
 <dd class="field-odd"><div class="highlight-rconsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">obs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span>
@@ -492,7 +500,7 @@ Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
 
 <p class="last-updated">
-Last updated on Feb 22, 2023.<br>
+Last updated on Feb 24, 2023.<br>
 </p>
   </div>
   

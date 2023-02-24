@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Probabilist &#8212; evalhyd latest documentation</title>
+    <title>Probabilistic &#8212; evalhyd latest documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -45,8 +45,6 @@
     <link rel="shortcut icon" href="../_static/evalhyd_favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Functionalities" href="../functionalities/index.html" />
-    <link rel="prev" title="Determinist" href="determinist.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="docsearch:language" content="en">
   </head>
@@ -170,7 +168,7 @@ function checkPageExistsAndRedirect(event) {
       
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
-    <li class="toctree-l1 current active nav-item">
+    <li class="toctree-l1 nav-item">
  <a class="reference internal nav-link" href="index.html">
   Metrics
  </a>
@@ -248,19 +246,7 @@ function checkPageExistsAndRedirect(event) {
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="determinist.html">
-   Determinist
-  </a>
- </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Probabilist
-  </a>
- </li>
-</ul>
-
+    
   </div>
 </nav>
   </div>
@@ -407,16 +393,16 @@ function checkPageExistsAndRedirect(event) {
               
               <article class="bd-article" role="main">
                 
-  <section id="probabilist">
-<h1>Probabilist<a class="headerlink" href="#probabilist" title="Permalink to this headline"><span class="fa fa-link"></a></h1>
+  <section id="probabilistic">
+<h1>Probabilistic<a class="headerlink" href="#probabilistic" title="Permalink to this headline"><span class="fa fa-link"></a></h1>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>All the metrics listed below are accessible via <code class="docutils literal notranslate"><span class="pre">evalp</span></code>, the probabilistic
 entry point of <code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span></code>.</p>
 <p>For example, the Brier score can be computed as follows:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="4d2b50c5-010b-4002-9401-c1657aa14864" name="3c2d84fe-4311-427b-b601-5426ceac986d" type="radio">
-</input><label class="tabbed-label" for="4d2b50c5-010b-4002-9401-c1657aa14864">
+<input checked="checked" id="4937d22e-3412-4ec0-a7a7-3c7c4e1b4df6" name="eb5a9efe-7a8b-48a8-9fac-98d29f2da916" type="radio">
+</input><label class="tabbed-label" for="4937d22e-3412-4ec0-a7a7-3c7c4e1b4df6">
 C++</label><div class="tabbed-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xtensor/xtensor.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xtensor/xio.hpp&gt;</span>
@@ -433,8 +419,8 @@ C++</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="525103ee-fd4f-4eb4-9897-73e0b6d57763" name="3c2d84fe-4311-427b-b601-5426ceac986d" type="radio">
-</input><label class="tabbed-label" for="525103ee-fd4f-4eb4-9897-73e0b6d57763">
+<input id="669bb565-8829-4fae-9202-2f4eda25364c" name="eb5a9efe-7a8b-48a8-9fac-98d29f2da916" type="radio">
+</input><label class="tabbed-label" for="669bb565-8829-4fae-9202-2f4eda25364c">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="gp">... </span><span class="n">obs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
@@ -452,8 +438,8 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="e5fea180-084c-4903-b1eb-97a9cab8dd64" name="3c2d84fe-4311-427b-b601-5426ceac986d" type="radio">
-</input><label class="tabbed-label" for="e5fea180-084c-4903-b1eb-97a9cab8dd64">
+<input id="99af6a17-cc3c-453d-ae00-6f9890a76c80" name="eb5a9efe-7a8b-48a8-9fac-98d29f2da916" type="radio">
+</input><label class="tabbed-label" for="99af6a17-cc3c-453d-ae00-6f9890a76c80">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">obs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span>
 <span class="gp">+ </span><span class="w">    </span><span class="nf">c</span><span class="p">(</span><span class="m">4.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.3</span><span class="p">,</span><span class="w"> </span><span class="m">5.5</span><span class="p">,</span><span class="w"> </span><span class="m">2.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.1</span><span class="p">)</span>
@@ -484,8 +470,8 @@ R</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="b917e191-a147-4be8-a4ce-dcf69808d9e6" name="3c2d84fe-4311-427b-b601-5426ceac986d" type="radio">
-</input><label class="tabbed-label" for="b917e191-a147-4be8-a4ce-dcf69808d9e6">
+<input id="b8c18e30-2524-45bf-a3b0-06a92125f41a" name="eb5a9efe-7a8b-48a8-9fac-98d29f2da916" type="radio">
+</input><label class="tabbed-label" for="b8c18e30-2524-45bf-a3b0-06a92125f41a">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evalp<span class="w"> </span><span class="s2">&quot;./obs/&quot;</span><span class="w"> </span><span class="s2">&quot;./prd/&quot;</span><span class="w"> </span><span class="s2">&quot;BS&quot;</span><span class="w"> </span>--q_thr<span class="w"> </span><span class="s2">&quot;./thr/&quot;</span><span class="w"> </span>--events<span class="w"> </span><span class="s2">&quot;high&quot;</span>
 <span class="go">{{{{{ 0.222222,  0.133333}}}}}</span>
@@ -1040,7 +1026,7 @@ Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
 
 <p class="last-updated">
-Last updated on Feb 22, 2023.<br>
+Last updated on Feb 24, 2023.<br>
 </p>
   </div>
   
