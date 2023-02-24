@@ -52,5 +52,5 @@ For probabilistic predictions
    :hidden:
    :maxdepth: 2
 
-   determinist
-   probabilist
+   deterministic
+   probabilistic

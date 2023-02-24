@@ -4,11 +4,11 @@
 Bootstrapping
 =============
 
-.. image:: https://img.shields.io/badge/-determinist-275662?style=flat-square
-   :alt: determinist
+.. image:: https://img.shields.io/badge/-deterministic-275662?style=flat-square
+   :alt: deterministic
 
-.. image:: https://img.shields.io/badge/-probabilist-275662?style=flat-square
-   :alt: probabilist
+.. image:: https://img.shields.io/badge/-probabilistic-275662?style=flat-square
+   :alt: probabilistic
 
 A bootstrapping method is available in `evalhyd` to assess the sampling
 uncertainty in the evaluation metrics computed. It follows a non-overlapping
