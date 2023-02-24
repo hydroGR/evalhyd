@@ -206,7 +206,6 @@ Non-Parametric Kling-Gupta Efficiency\ [1]_ (`"KGENP"`) as per `Pool et al., 201
    | `q_obs`, `q_prd`        | `(series, subsets, samples)`                   |
    +-------------------------+------------------------------------------------+
 
-
 KGENP_D
 -------
 
@@ -221,6 +220,23 @@ in this order.
    | Required inputs         | Output shape                                   |
    +=========================+================================================+
    | `q_obs`, `q_prd`        | `(series, subsets, samples, 3)`                |
+   +-------------------------+------------------------------------------------+
+
+CONT_TBL
+--------
+
+Cells of the Contingency Table (`"CONT_TBL"`), i.e. the hits :math:`a`,
+the false alarms :math:`b`, the misses :math:`c`, and the correct
+rejections :math:`d`, in this order.
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`,       | `(series, subsets, samples, 4)`                |
+   | `q_thr`, `events`       |                                                |
    +-------------------------+------------------------------------------------+
 
 
