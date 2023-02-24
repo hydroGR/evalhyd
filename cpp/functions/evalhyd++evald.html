@@ -361,6 +361,18 @@ shape: (series, time)</p>
 </dd>
 <dt>metrics: <code class="docutils literal notranslate"><span class="pre">std::vector&lt;std::string&gt;</span></code></dt><dd><p>The sequence of evaluation metrics to be computed.</p>
 </dd>
+<dt>q_thr: <code class="docutils literal notranslate"><span class="pre">XD2</span></code>, optional</dt><dd><p>Streamflow exceedance threshold(s). If provided, <em>events</em> must
+also be provided.
+shape: (sites, thresholds)</p>
+</dd>
+<dt>events: <code class="docutils literal notranslate"><span class="pre">std::string</span></code>, optional</dt><dd><p>The type of streamflow events to consider for threshold
+exceedance-based metrics. It can either be set as “high” when
+flooding conditions/high flow events are evaluated (i.e. event
+occurring when streamflow goes above threshold) or as “low” when
+drought conditions/low flow events are evaluated (i.e. event
+occurring when streamflow goes below threshold). It must be
+provided if <em>q_thr</em> is provided.</p>
+</dd>
 <dt>transform: <code class="docutils literal notranslate"><span class="pre">std::string</span></code>, optional</dt><dd><p>The transformation to apply to both streamflow observations and
 predictions prior to the calculation of the <em>metrics</em>.</p>
 <div class="admonition seealso">

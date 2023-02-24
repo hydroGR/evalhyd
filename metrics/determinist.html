@@ -324,6 +324,11 @@ function checkPageExistsAndRedirect(event) {
    KGENP_D
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#cont-tbl">
+   CONT_TBL
+  </a>
+ </li>
 </ul>
 
 </nav>
@@ -351,8 +356,8 @@ function checkPageExistsAndRedirect(event) {
 entry point of <code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span></code>.</p>
 <p>For example, the Nash-Sutcliffe efficiency can be computed as follows:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="cb2f3b0e-acef-4899-997a-1e610a7032b9" name="b79eb9fd-92a7-4309-ae4f-afaecffaa397" type="radio">
-</input><label class="tabbed-label" for="cb2f3b0e-acef-4899-997a-1e610a7032b9">
+<input checked="checked" id="83aaf7a0-1ef8-492d-9a9c-f5ae2f328ae7" name="516ec65a-c0a1-4fd5-8cef-290281848de5" type="radio">
+</input><label class="tabbed-label" for="83aaf7a0-1ef8-492d-9a9c-f5ae2f328ae7">
 C++</label><div class="tabbed-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xtensor/xtensor.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xtensor/xio.hpp&gt;</span>
@@ -366,8 +371,8 @@ C++</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="cfd3eb94-3387-4d5a-ab80-accc839f1636" name="b79eb9fd-92a7-4309-ae4f-afaecffaa397" type="radio">
-</input><label class="tabbed-label" for="cfd3eb94-3387-4d5a-ab80-accc839f1636">
+<input id="93b1e61e-2f58-42b4-a97b-63328d92c4cf" name="516ec65a-c0a1-4fd5-8cef-290281848de5" type="radio">
+</input><label class="tabbed-label" for="93b1e61e-2f58-42b4-a97b-63328d92c4cf">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="gp">... </span><span class="n">obs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">4.7</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">]])</span>
@@ -378,8 +383,8 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="92f82a08-879c-42cd-b2d9-a2d03ffb2aa3" name="b79eb9fd-92a7-4309-ae4f-afaecffaa397" type="radio">
-</input><label class="tabbed-label" for="92f82a08-879c-42cd-b2d9-a2d03ffb2aa3">
+<input id="7b95a92e-0794-4426-ad2b-07c70baec148" name="516ec65a-c0a1-4fd5-8cef-290281848de5" type="radio">
+</input><label class="tabbed-label" for="7b95a92e-0794-4426-ad2b-07c70baec148">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">obs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">4.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.3</span><span class="p">,</span><span class="w"> </span><span class="m">5.5</span><span class="p">,</span><span class="w"> </span><span class="m">2.7</span><span class="p">))</span>
 <span class="gp">&gt; </span><span class="n">prd</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">5.3</span><span class="p">,</span><span class="w"> </span><span class="m">4.2</span><span class="p">,</span><span class="w"> </span><span class="m">5.7</span><span class="p">,</span><span class="w"> </span><span class="m">2.3</span><span class="p">))</span>
@@ -393,8 +398,8 @@ R</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="d68f9185-5e6b-4df2-bf47-1a14bc8f9f41" name="b79eb9fd-92a7-4309-ae4f-afaecffaa397" type="radio">
-</input><label class="tabbed-label" for="d68f9185-5e6b-4df2-bf47-1a14bc8f9f41">
+<input id="0e4e1bf2-25b7-40b5-b32e-5ab9d4e0d6d5" name="516ec65a-c0a1-4fd5-8cef-290281848de5" type="radio">
+</input><label class="tabbed-label" for="0e4e1bf2-25b7-40b5-b32e-5ab9d4e0d6d5">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span>
 <span class="go">{{{ 0.862981}}}</span>
@@ -625,6 +630,29 @@ in this order.</p>
 <tbody>
 <tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code></p></td>
 <td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(series,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span> <span class="pre">3)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cont-tbl">
+<h2>CONT_TBL<a class="headerlink" href="#cont-tbl" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Cells of the Contingency Table (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;CONT_TBL&quot;</span></code>), i.e. the hits <span class="math notranslate nohighlight">\(a\)</span>,
+the false alarms <span class="math notranslate nohighlight">\(b\)</span>, the misses <span class="math notranslate nohighlight">\(c\)</span>, and the correct
+rejections <span class="math notranslate nohighlight">\(d\)</span>, in this order.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(series,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span> <span class="pre">4)</span></code></p></td>
 </tr>
 </tbody>
 </table>

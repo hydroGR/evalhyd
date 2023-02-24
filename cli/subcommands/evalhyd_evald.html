@@ -405,6 +405,33 @@ correspond to those of the second series).</p>
 <section id="optionals">
 <h2>Optionals<a class="headerlink" href="#optionals" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
 <dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-evalhyd-evald-q_thr">
+<span id="cmdoption-evalhyd-evald-q-thr"></span><span class="sig-name descname"><span class="pre">--q_thr</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT:DIR&gt;</span></span><a class="headerlink" href="#cmdoption-evalhyd-evald-q_thr" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>Path to streamflow thresholds CSV file. If the number of thresholds
+differs across series, <code class="xref py py-obj docutils literal notranslate"><span class="pre">NAN</span></code> can be set as threshold for those series
+with fewer thresholds. Predictions and thresholds must feature the
+same number of series.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The CSV file must feature as many lines as in <em>q_prd</em> and as many
+columns as there are thresholds to consider [shape: (series,
+thresholds)].</p>
+</div>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-evalhyd-evald-events">
+<span class="sig-name descname"><span class="pre">--events</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TXT&gt;</span></span><a class="headerlink" href="#cmdoption-evalhyd-evald-events" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>A string specifying the type of streamflow events to consider for
+threshold exceedance-based metrics. It can either be set as <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;high&quot;</span></code>
+when flooding conditions/high flow events are evaluated (i.e. event
+occurring when streamflow goes above threshold) or as <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;low&quot;</span></code> when
+drought conditions/low flow events are evaluated (i.e. event
+occurring when streamflow goes below threshold). It must be provided
+if <em>q_thr</em> is provided.</p>
+</dd></dl>
+
+<dl class="std option">
 <dt class="sig sig-object std" id="cmdoption-evalhyd-evald-transform">
 <span class="sig-name descname"><span class="pre">--transform</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT&gt;</span></span><a class="headerlink" href="#cmdoption-evalhyd-evald-transform" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
 <dd><p>The transformation to apply to both streamflow observations

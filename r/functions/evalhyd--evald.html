@@ -326,7 +326,7 @@ function checkPageExistsAndRedirect(event) {
 <h1>evalhyd::evald<a class="headerlink" href="#evalhyd-evald" title="Permalink to this headline"><span class="fa fa-link"></a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="evald">
-<span class="sig-name descname"><span class="pre">evald</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q_obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_prd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_msk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bootstrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evald" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<span class="sig-name descname"><span class="pre">evald</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q_obs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_prd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metrics</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q_thr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transform</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsilon</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">t_msk</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bootstrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">NULL</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#evald" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
 <dd><p>Function to evaluate deterministic streamflow predictions.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -349,6 +349,22 @@ shape: (time,) or (series, time)</p>
 </dd>
 <dt>metrics</dt><dd><p>A string vector of evaluation metrics to be computed.
 shape: (metrics,)</p>
+</dd>
+<dt>q_thr, optional</dt><dd><p>A numeric vector (or numeric matrix) of streamflow thresholds
+to consider for the metrics assessing the prediction of exceedance
+events. If the number of thresholds differs across series, <code class="xref py py-obj docutils literal notranslate"><span class="pre">NA</span></code>
+can be set as threshold for those sites with fewer thresholds.
+Predictions and thresholds must feature the same number of
+dimensions, and the same number of series.
+shape: (thresholds,) or (series, thresholds)</p>
+</dd>
+<dt>events, optional</dt><dd><p>A string specifying the type of streamflow events to consider
+for threshold exceedance-based metrics. It can either be set as
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;high&quot;</span></code> when flooding conditions/high flow events are
+evaluated (i.e. event occurring when streamflow goes above
+threshold) or as <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;low&quot;</span></code> when drought conditions/low flow
+events are evaluated (i.e. event occurring when streamflow goes
+below threshold). It must be provided if <em>q_thr</em> is provided.</p>
 </dd>
 <dt>transform, optional</dt><dd><p>The transformation to apply to both streamflow observations
 and predictions prior to the calculation of the <em>metrics</em>.</p>

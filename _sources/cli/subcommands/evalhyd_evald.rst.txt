@@ -60,6 +60,29 @@ Positionals
 Optionals
 ---------
 
+.. option:: --q_thr <TEXT:DIR>
+
+   Path to streamflow thresholds CSV file. If the number of thresholds
+   differs across series, `NAN` can be set as threshold for those series
+   with fewer thresholds. Predictions and thresholds must feature the
+   same number of series.
+
+   .. important::
+
+      The CSV file must feature as many lines as in *q_prd* and as many
+      columns as there are thresholds to consider [shape: (series,
+      thresholds)].
+
+.. option:: --events <TXT>
+
+   A string specifying the type of streamflow events to consider for
+   threshold exceedance-based metrics. It can either be set as `"high"`
+   when flooding conditions/high flow events are evaluated (i.e. event
+   occurring when streamflow goes above threshold) or as `"low"` when
+   drought conditions/low flow events are evaluated (i.e. event
+   occurring when streamflow goes below threshold). It must be provided
+   if *q_thr* is provided.
+
 .. option:: --transform <TEXT>
 
    The transformation to apply to both streamflow observations

@@ -28,7 +28,7 @@ evalhyd::evalp
          shape: (metrics,)
 
       q_thr, optional
-         A numeric array of streamflow thresholds to consider for
+         A numeric matrix of streamflow thresholds to consider for
          the metrics assessing the prediction of exceedance events.
          If the number of thresholds differs across sites, `NA` can be
          set as threshold for those sites with fewer thresholds.

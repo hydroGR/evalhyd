@@ -19,6 +19,7 @@ For deterministic predictions
 :ref:`KGEPRIME_D`    Modified Kling-Gupta Efficiency Decomposed
 :ref:`KGENP`         Non-Parametric Kling-Gupta Efficiency
 :ref:`KGENP_D`       Non-Parametric Kling-Gupta Efficiency Decomposed
+:ref:`CONT_TBL`      Contingency Table
 ===================  ===========================================================
 
 For probabilistic predictions

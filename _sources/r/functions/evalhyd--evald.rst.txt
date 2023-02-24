@@ -3,7 +3,7 @@
 evalhyd::evald
 ==============
 
-.. function:: evald(q_obs, q_prd, metrics, transform=NULL, exponent=NULL, epsilon=NULL, t_msk=NULL, bootstrap=NULL, dts=NULL, seed=NULL)
+.. function:: evald(q_obs, q_prd, metrics, q_thr=NULL, events=NULL, transform=NULL, exponent=NULL, epsilon=NULL, t_msk=NULL, bootstrap=NULL, dts=NULL, seed=NULL)
 
    Function to evaluate deterministic streamflow predictions.
 
@@ -30,6 +30,24 @@ evalhyd::evald
       metrics
          A string vector of evaluation metrics to be computed.
          shape: (metrics,)
+
+      q_thr, optional
+         A numeric vector (or numeric matrix) of streamflow thresholds
+         to consider for the metrics assessing the prediction of exceedance
+         events. If the number of thresholds differs across series, `NA`
+         can be set as threshold for those sites with fewer thresholds.
+         Predictions and thresholds must feature the same number of
+         dimensions, and the same number of series.
+         shape: (thresholds,) or (series, thresholds)
+
+      events, optional
+         A string specifying the type of streamflow events to consider
+         for threshold exceedance-based metrics. It can either be set as
+         `"high"` when flooding conditions/high flow events are
+         evaluated (i.e. event occurring when streamflow goes above
+         threshold) or as `"low"` when drought conditions/low flow
+         events are evaluated (i.e. event occurring when streamflow goes
+         below threshold). It must be provided if *q_thr* is provided.
 
       transform, optional
          The transformation to apply to both streamflow observations

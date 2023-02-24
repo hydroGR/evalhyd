@@ -3,7 +3,7 @@
 evalhyd.evald
 =============
 
-.. function:: evalhyd.evald(q_obs, q_prd, metrics, transform=None, exponent=None, epsilon=None, t_msk=None, m_cdt=None, bootstrap=None, dts=None, seed=None)
+.. function:: evalhyd.evald(q_obs, q_prd, metrics, q_thr=None, events=None, transform=None, exponent=None, epsilon=None, t_msk=None, m_cdt=None, bootstrap=None, dts=None, seed=None)
 
    Function to evaluate deterministic streamflow predictions.
 
@@ -29,6 +29,24 @@ evalhyd.evald
 
       metrics: `List[str]`
          The sequence of evaluation metrics to be computed.
+
+      q_thr: `numpy.ndarray` ``[dtype('float64')]``, optional
+         1D or 2D array of streamflow threshold(s) to consider for the
+         *metrics* assessing the prediction of exceedance events. If
+         the number of thresholds differs across series, `numpy.nan`
+         can be set as threshold for those series with fewer thresholds.
+         Predictions and thresholds must feature the same number of
+         dimensions, and the same number of series.
+         shape: (thresholds,) or (series, thresholds)
+
+      events: `str`, optional
+         A string specifying the type of streamflow events to consider
+         for threshold exceedance-based metrics. It can either be set
+         as `"high"` when flooding conditions/high flow events are
+         evaluated (i.e. event occurring when streamflow goes above
+         threshold) or as `"low"` when drought conditions/low flow
+         events are evaluated (i.e. event occurring when streamflow goes
+         below threshold). It must be provided if *q_thr* is provided.
 
       transform: `str`, optional
          The transformation to apply to both streamflow observations
