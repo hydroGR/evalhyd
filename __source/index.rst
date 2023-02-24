@@ -70,6 +70,11 @@ implemented in the C++ core.
       :text: Command line interface
       :classes: btn-outline-primary btn-block stretched-link
 
+.. warning::
+
+   This software stack is still in an experimental state, a first version
+   is due to be released soon. Please use with caution until then.
+
 .. toctree::
    :hidden:
    :maxdepth: 1
