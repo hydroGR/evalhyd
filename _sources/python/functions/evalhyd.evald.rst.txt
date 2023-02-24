@@ -3,7 +3,7 @@
 evalhyd.evald
 =============
 
-.. function:: evalhyd.evald(q_obs, q_prd, metrics, q_thr=None, events=None, transform=None, exponent=None, epsilon=None, t_msk=None, m_cdt=None, bootstrap=None, dts=None, seed=None)
+.. function:: evalhyd.evald(q_obs, q_prd, metrics, q_thr=None, events=None, transform=None, exponent=None, epsilon=None, t_msk=None, m_cdt=None, bootstrap=None, dts=None, seed=None, diagnostics=None)
 
    Function to evaluate deterministic streamflow predictions.
 
