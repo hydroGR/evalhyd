@@ -351,7 +351,7 @@ predictive intervals. It is a measure of the reliability of the predictions.
    +-------------------------+------------------------------------------------+
    | Required inputs         | Output shape                                   |
    +=========================+================================================+
-   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples          |
+   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
    | `c_lvl`                 | intervals)`                                    |
    +-------------------------+------------------------------------------------+
 
@@ -367,7 +367,7 @@ sharpness of the predictions.
    +-------------------------+------------------------------------------------+
    | Required inputs         | Output shape                                   |
    +=========================+================================================+
-   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples          |
+   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
    | `c_lvl`                 | intervals)`                                    |
    +-------------------------+------------------------------------------------+
 
@@ -383,7 +383,7 @@ observation\ [2]_ (`"AWN"`).
    +-------------------------+------------------------------------------------+
    | Required inputs         | Output shape                                   |
    +=========================+================================================+
-   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples          |
+   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
    | `c_lvl`                 | intervals)`                                    |
    +-------------------------+------------------------------------------------+
 
@@ -408,7 +408,7 @@ for the study period.
    +-------------------------+------------------------------------------------+
    | Required inputs         | Output shape                                   |
    +=========================+================================================+
-   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples          |
+   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
    | `c_lvl`                 | intervals)`                                    |
    +-------------------------+------------------------------------------------+
 
@@ -433,7 +433,7 @@ observations, and :math:`n` is the number of time steps.
    +-------------------------+------------------------------------------------+
    | Required inputs         | Output shape                                   |
    +=========================+================================================+
-   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples          |
+   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
    | `c_lvl`                 | intervals)`                                    |
    +-------------------------+------------------------------------------------+
 
@@ -457,7 +457,7 @@ for the study period.
    +-------------------------+------------------------------------------------+
    | Required inputs         | Output shape                                   |
    +=========================+================================================+
-   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples          |
+   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
    | `c_lvl`                 | intervals)`                                    |
    +-------------------------+------------------------------------------------+
 
