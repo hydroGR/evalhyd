@@ -191,36 +191,37 @@ in this order.
    | `q_obs`, `q_prd`        | `(series, subsets, samples, 3)`                |
    +-------------------------+------------------------------------------------+
 
-KGENP
------
+..
+   KGENP
+   -----
 
-Non-Parametric Kling-Gupta Efficiency\ [1]_ (`"KGENP"`) as per `Pool et al., 2018
-<https://doi.org/10.1080/02626667.2018.1552002>`_.
+   Non-Parametric Kling-Gupta Efficiency\ [1]_ (`"KGENP"`) as per `Pool et al., 2018
+   <https://doi.org/10.1080/02626667.2018.1552002>`_.
 
-.. table::
-   :widths: 35 65
+   .. table::
+      :widths: 35 65
 
-   +-------------------------+------------------------------------------------+
-   | Required inputs         | Output shape                                   |
-   +=========================+================================================+
-   | `q_obs`, `q_prd`        | `(series, subsets, samples)`                   |
-   +-------------------------+------------------------------------------------+
+      +-------------------------+------------------------------------------------+
+      | Required inputs         | Output shape                                   |
+      +=========================+================================================+
+      | `q_obs`, `q_prd`        | `(series, subsets, samples)`                   |
+      +-------------------------+------------------------------------------------+
 
-KGENP_D
--------
+   KGENP_D
+   -------
 
-Non-Parametric Kling-Gupta Efficiency Decomposition\ [1]_ (`"KGENP_D"`) into its
-three components :math:`r_{spearman}`, :math:`\alpha_{NP}`, :math:`\beta`,
-in this order.
+   Non-Parametric Kling-Gupta Efficiency Decomposition\ [1]_ (`"KGENP_D"`) into its
+   three components :math:`r_{spearman}`, :math:`\alpha_{NP}`, :math:`\beta`,
+   in this order.
 
-.. table::
-   :widths: 35 65
+   .. table::
+      :widths: 35 65
 
-   +-------------------------+------------------------------------------------+
-   | Required inputs         | Output shape                                   |
-   +=========================+================================================+
-   | `q_obs`, `q_prd`        | `(series, subsets, samples, 3)`                |
-   +-------------------------+------------------------------------------------+
+      +-------------------------+------------------------------------------------+
+      | Required inputs         | Output shape                                   |
+      +=========================+================================================+
+      | `q_obs`, `q_prd`        | `(series, subsets, samples, 3)`                |
+      +-------------------------+------------------------------------------------+
 
 CONT_TBL
 --------
