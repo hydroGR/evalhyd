@@ -1,15 +1,15 @@
 html[data-theme=light] .highlight pre { line-height: 115%; }
 
-html[data-theme=light] .highlight .hll { background-color: rgba(var(--pst-color-preformatted-background),1) }
+html[data-theme=light] .highlight .hll { background-color: var(--pst-color-preformatted-background) }
 html[data-theme=light] .highlight .err { border: 1px solid #FF0000 } /* Error */
 
-html[data-theme=light] .highlight .l { color: rgba(var(--pst-color-block-code),1) } /* Literal */
+html[data-theme=light] .highlight .l { color: var(--pst-color-block-code) } /* Literal */
 
-html[data-theme=light] .highlight .p { color: rgba(var(--pst-color-block-code),1) } /* Punctuation */
+html[data-theme=light] .highlight .p { color: var(--pst-color-block-code) } /* Punctuation */
 /*html[data-theme=light] .highlight .w { color: # } /* Text.Whitespace */
 
-html[data-theme=light] .highlight .o { color: rgba(var(--pst-color-block-code),1) } /* Operator */
-html[data-theme=light] .highlight .ow { color: rgba(var(--pst-color-block-code),1) } /* Operator.Word */
+html[data-theme=light] .highlight .o { color: var(--pst-color-block-code) } /* Operator */
+html[data-theme=light] .highlight .ow { color: var(--pst-color-block-code) } /* Operator.Word */
 
 html[data-theme=light] .highlight .c { color: #969896 } /* Comment */
 html[data-theme=light] .highlight .cm { color: #969896 } /* Comment.Multiline */
@@ -47,9 +47,9 @@ html[data-theme=light] .highlight .nd { color: #9dc544 } /* Name.Decorator */
 html[data-theme=light] .highlight .ne { color: #74c3d8 } /* Name.Exception */
 html[data-theme=light] .highlight .nf { color: #9dc544 } /* Name.Function */
 /*html[data-theme=light] .highlight .nl { color: # } /* Name.Label */
-html[data-theme=light] .highlight .nn { color: rgba(var(--pst-color-block-code),1); text-decoration: none; } /* Name.Namespace */
+html[data-theme=light] .highlight .nn { color: var(--pst-color-block-code); text-decoration: none; } /* Name.Namespace */
 html[data-theme=light] .highlight .nt { color: #ea5957 } /* Name.Tag */
-html[data-theme=light] .highlight .nv { color: rgba(var(--pst-color-block-code),1) } /* Name.Variable */
+html[data-theme=light] .highlight .nv { color: var(--pst-color-block-code) } /* Name.Variable */
 
 html[data-theme=light] .highlight .m { color: #74c3d8 } /* Literal.Number */
 html[data-theme=light] .highlight .mf { color: #74c3d8 } /* Literal.Number.Float */
