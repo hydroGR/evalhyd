@@ -360,8 +360,8 @@ function checkPageExistsAndRedirect(event) {
 entry point of <code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span></code>.</p>
 <p>For example, the Nash-Sutcliffe efficiency can be computed as follows:</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="8d4c8b49-f3eb-4b30-a1c3-180dd0db391c" name="2f67db29-e91a-4636-84ba-1310a8b1a511" type="radio">
-</input><label class="tabbed-label" for="8d4c8b49-f3eb-4b30-a1c3-180dd0db391c">
+<input checked="checked" id="7c85b740-7304-4d70-b5b5-c7c71035cd75" name="a8ab6b96-53e4-4319-b65a-f534d1b7a24e" type="radio">
+</input><label class="tabbed-label" for="7c85b740-7304-4d70-b5b5-c7c71035cd75">
 C++</label><div class="tabbed-content docutils">
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xtensor/xtensor.hpp&gt;</span>
 <span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xtensor/xio.hpp&gt;</span>
@@ -375,8 +375,8 @@ C++</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="7d3ac955-8a5f-4799-9a6c-0d7871cbe074" name="2f67db29-e91a-4636-84ba-1310a8b1a511" type="radio">
-</input><label class="tabbed-label" for="7d3ac955-8a5f-4799-9a6c-0d7871cbe074">
+<input id="5a6e8565-87b9-4b4e-8272-4b4e04ea0ac5" name="a8ab6b96-53e4-4319-b65a-f534d1b7a24e" type="radio">
+</input><label class="tabbed-label" for="5a6e8565-87b9-4b4e-8272-4b4e04ea0ac5">
 Python</label><div class="tabbed-content docutils">
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="gp">... </span><span class="n">obs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">4.7</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">]])</span>
@@ -387,8 +387,8 @@ Python</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="9292aa7d-b945-4cfc-960c-442be2900da2" name="2f67db29-e91a-4636-84ba-1310a8b1a511" type="radio">
-</input><label class="tabbed-label" for="9292aa7d-b945-4cfc-960c-442be2900da2">
+<input id="33fc5ed3-ac6d-4dbd-a923-74b9081a195b" name="a8ab6b96-53e4-4319-b65a-f534d1b7a24e" type="radio">
+</input><label class="tabbed-label" for="33fc5ed3-ac6d-4dbd-a923-74b9081a195b">
 R</label><div class="tabbed-content docutils">
 <div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">obs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">4.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.3</span><span class="p">,</span><span class="w"> </span><span class="m">5.5</span><span class="p">,</span><span class="w"> </span><span class="m">2.7</span><span class="p">))</span>
 <span class="gp">&gt; </span><span class="n">prd</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span><span class="nf">c</span><span class="p">(</span><span class="m">5.3</span><span class="p">,</span><span class="w"> </span><span class="m">4.2</span><span class="p">,</span><span class="w"> </span><span class="m">5.7</span><span class="p">,</span><span class="w"> </span><span class="m">2.3</span><span class="p">))</span>
@@ -402,8 +402,8 @@ R</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="a4672aa5-2e69-4d9d-a45b-e27c95a39332" name="2f67db29-e91a-4636-84ba-1310a8b1a511" type="radio">
-</input><label class="tabbed-label" for="a4672aa5-2e69-4d9d-a45b-e27c95a39332">
+<input id="d5d531bf-4685-4032-b07d-802dfa5a18ab" name="a8ab6b96-53e4-4319-b65a-f534d1b7a24e" type="radio">
+</input><label class="tabbed-label" for="d5d531bf-4685-4032-b07d-802dfa5a18ab">
 CLI</label><div class="tabbed-content docutils">
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evald<span class="w"> </span><span class="s2">&quot;obs.csv&quot;</span><span class="w"> </span><span class="s2">&quot;prd.csv&quot;</span><span class="w"> </span><span class="s2">&quot;NSE&quot;</span>
 <span class="go">{{{ 0.862981}}}</span>
@@ -659,7 +659,7 @@ Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
 </p>
 
 <p class="last-updated">
-Last updated on Mar 10, 2023.<br>
+Last updated on Mar 13, 2023.<br>
 </p>
   </div>
   
