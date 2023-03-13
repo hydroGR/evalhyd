@@ -54,6 +54,8 @@ html[data-theme="light"] {
     --pst-color-headerlink: var(--pst-color-link);
     --pst-color-headerlink-hover: var(--pst-color-link-hover);
 
+    --pst-color-target: rgba(0, 163, 166, 0.1);
+
     /* override style for tabbed sphinx panels */
     --tabs-color-label-active: var(--my-color-1);
     --tabs-color-label-inactive: rgba(0, 0, 0, .1);
@@ -91,6 +93,8 @@ html[data-theme="dark"] {
 
     --pst-color-headerlink: var(--pst-color-link);
     --pst-color-headerlink-hover: var(--pst-color-link-hover);
+
+    --pst-color-target: rgba(0, 163, 166, .1);
 
     /* override style for tabbed sphinx panels */
     --tabs-color-label-active: var(--my-color-1);
@@ -279,13 +283,13 @@ table {
     border-top: 1px solid var(--pst-color-border);
 }
 
-/* */
+/* customise hightlight for target reference */
 dt:target, span.highlighted {
-    background-color: rgba(var(--pst-color-link-hover), 0.3);
+    background-color: var(--pst-color-target);
 }
 
 rect.highlighted {
-    fill: rgba(var(--pst-color-link-hover), 0.3);
+    fill: var(--pst-color-target);
 }
 
 /* override style for sphinx-panels */
