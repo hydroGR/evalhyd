@@ -7,6 +7,14 @@ evalhyd.evald
 
    Function to evaluate deterministic streamflow predictions.
 
+   .. warning::
+
+      Parameters that are `numpy.ndarray` must not be array `views
+      <https://numpy.org/doc/stable/user/basics.copies.html>`_. This may
+      be the case if array `indexing <https://numpy.org/doc/stable/user/
+      basics.indexing.html>`_ is performed. If indexing cannot be avoided,
+      array copies must be made (i.e. using `numpy.ndarray.copy`).
+
    :Parameters:
 
       q_obs: `numpy.ndarray` ``[dtype('float64')]``
