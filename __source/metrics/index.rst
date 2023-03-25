@@ -29,8 +29,10 @@ For probabilistic predictions
 :ref:`BS_CRD`        Calibration-Refinement Decomposition of the Brier Score
 :ref:`BS_LBD`        Likelihood-Base rate Decomposition of the Brier Score
 :ref:`REL_DIAG`      Reliability Diagram
+:ref:`CRPS_BS`       Continuous Ranked Probability Score from Brier Scores
+:ref:`CRPS_ECDF`     Continuous Ranked Probability Score from Empirical CDF
 :ref:`QS`            Quantile Scores
-:ref:`CRPS`          Continuous Ranked Probability Score
+:ref:`CRPS_QS`       Continuous Ranked Probability Score from Quantile Scores
 :ref:`POD`           Probability Of Detection
 :ref:`POFD`          Probability of False Detection
 :ref:`FAR`           False Alarm Rate

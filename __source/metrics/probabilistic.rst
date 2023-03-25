@@ -187,10 +187,44 @@ probability [returned in this order].
    | `q_thr`, `events`\ [1]_ | thresholds, bins, 3)`                          |
    +-------------------------+------------------------------------------------+
 
+CRPS_FROM_BS
+------------
+
+Continuous Ranked Probability Score computed from 101 Brier Scores
+(`"CRPS_FROM_BS"`), i.e. using the observed minimum, the 99 observed
+percentiles, and the observed maximum as streamflow thresholds.
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples)`        |
+   | `events`\ [1]_          |                                                |
+   +-------------------------+------------------------------------------------+
+
+CRPS_FROM_ECDF
+--------------
+
+Continuous Ranked Probability Score computed from the Empirical Cumulative
+Density Function (`"CRPS_FROM_ECDF"`), i.e. constructed from the ensemble
+member predictions.
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`        | `(sites, lead times, subsets, samples)`        |
+   +-------------------------+------------------------------------------------+
+
 QS
 --
 
-Quantile Scores (`"QS"`).
+Quantile Scores (`"QS"`) where the ensemble member predictions are treated
+as quantiles.
 
 .. table::
    :widths: 35 65
@@ -202,10 +236,11 @@ Quantile Scores (`"QS"`).
    |                         | quantiles)`                                    |
    +-------------------------+------------------------------------------------+
 
-CRPS
-----
+CRPS_FROM_QS
+------------
 
-Continuous Ranked Probability Score (`"CRPS"`).
+Continuous Ranked Probability Score computed from the Quantile Scores
+(`"CRPS_FROM_QS"`).
 
 .. table::
    :widths: 35 65
