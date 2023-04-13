@@ -496,6 +496,21 @@ for the study period.
    | `c_lvl`                 | intervals)`                                    |
    +-------------------------+------------------------------------------------+
 
+ES
+--
+
+Energy score (`"ES"`) is a multivariate (i.e. multisite) generalisation
+of the continuous rank probability score.
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`        | `(1, lead times, subsets, samples)`            |
+   +-------------------------+------------------------------------------------+
+
 .. rubric:: Footnotes
 
 .. [1] The threshold value is included in the definition of the *events*

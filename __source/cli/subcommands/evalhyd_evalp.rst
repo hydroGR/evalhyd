@@ -287,6 +287,11 @@ Optionals
          the five following lines to the second subset and the first
          sample, and so on).
 
+      .. note::
+
+         For multisite metrics, a single file with prefix *multisite*
+         is generated.
+
 .. option:: -h, --help
 
    Print this help message and exit.

@@ -47,6 +47,7 @@ For probabilistic predictions
 :ref:`AWI`             Average Width Index
 :ref:`WS`              Winkler Score
 :ref:`WSS`             Winkler Skill Score
+:ref:`ES`              Energy Score
 =====================  ========================================================
 
 .. toctree::
