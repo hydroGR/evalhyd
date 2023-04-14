@@ -5,16 +5,44 @@
 Installation
 ============
 
+From source
+-----------
+
+To install `evalhyd` core library from source, `cmake` can be used.
+
+.. tip::
+
+   It is recommended that the dependencies are installed using `mamba`:
+
+   .. code-block:: console
+      :caption: Install the dependencies in a new environment
+
+      $ mamba create -n evalhyd-env -f environment.yml
+
+   .. code-block:: console
+      :caption: Activate the environment
+
+      $ mamba activate evalhyd-env
+
+Then, the steps below can be followed:
+
 .. code-block:: console
+   :caption: Configure the CMake project
 
-   $ git clone --recursive "https://gitlab.irstea.fr/hycar-hydro/evalhyd/evalhyd-cli.git"
-   $ cmake -Sevalhyd-cli -Bbuild
-   $ cmake --build build
+   $ cmake -B build/ -D CMAKE_BUILD_TYPE=Release -D CMAKE_PREFIX_PATH="${CONDA_PREFIX}"
 
-.. admonition:: Requirements
+.. code-block:: console
+   :caption: Build the CMake project
 
-   A C++ compiler and the following libraries are required to install `evalhyd-cli`:
+   $ cmake --build build/ --parallel
 
-   .. code-block:: text
+.. code-block:: console
+   :caption: Test the library
 
-      cmake
+   $ export PATH="${PWD}/build/apps/:${PATH}"
+   $ (cd ./tests && python run_all_tests.py)
+
+.. code-block:: console
+   :caption: Install the library
+
+   $ cmake --install build/ --prefix <path>
