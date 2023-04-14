@@ -29,7 +29,7 @@ Then, the steps below can be followed:
 .. code-block:: console
    :caption: Configure the CMake project
 
-   $ cmake -B build/ -D CMAKE_BUILD_TYPE=Debug -D CMAKE_PREFIX_PATH="${CONDA_PREFIX}"
+   $ cmake -B build/ -D CMAKE_BUILD_TYPE=Release -D CMAKE_PREFIX_PATH="${CONDA_PREFIX}"
 
 .. code-block:: console
    :caption: Build the CMake project
