@@ -35,7 +35,7 @@ where:
   `<=`, `==`, `\!=` ;
 - ``<val>`` is the streamflow value to use to condition the mask and
   can be a given numerical value or a statistic applied on ``<var>``
-  (`mean`, `median`, or `quantile#` supported).
+  (`mean`, `median`, or `qtl#` [i.e. quantile #] supported).
 
 .. raw:: html
 
@@ -45,7 +45,7 @@ Combinations of two conditions are allowed and must be comma-separated
 inside the curly brackets.
 
 Examples of valid conditions are: `q_obs{>30}`, `q_prd_median{<=10}`,
-`q_prd_mean{<=5,>35}`, `q_obs{>mean}`, `q_prd_median{<=quantile0.7}`.
+`q_prd_mean{<=5,>35}`, `q_obs{>mean}`, `q_prd_median{<=qtl0.7}`.
 
 Time steps where the streamflow variable complies with the condition(s)
 are included in the temporal subset.
@@ -77,7 +77,7 @@ To illustrate, see the examples below.
 
    mean             311         345         360         340        [329]        332
    -------------------------------------------------------------------------------------
-   condition        q_prd_mean{>quantile0.2}
+   condition        q_prd_mean{>qtl0.2}
    mask             False       True        True        True        False       True
 
 
