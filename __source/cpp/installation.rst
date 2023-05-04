@@ -8,7 +8,7 @@ Installation
 From source
 -----------
 
-To install `evalhyd` core library from source, `cmake` can be used.
+To install `evalhyd-cpp` core library from source, `cmake` can be used.
 
 .. tip::
 
