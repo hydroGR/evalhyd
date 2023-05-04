@@ -106,22 +106,22 @@ html[data-theme="dark"] {
 }
 
 /* propagate colors to whole theme */
-.text-primary {
+.text-primary, .sd-text-primary {
   color: var(--pst-color-primary) !important;
 }
-.text-secondary {
+.text-secondary, .sd-text-secondary {
   color: var(--pst-color-secondary) !important;
 }
-.text-info {
+.text-info, .sd-text-info {
   color: var(--pst-color-info) !important;
 }
-.text-success {
+.text-success, .sd-text-success {
   color: var(--pst-color-success) !important;
 }
-.text-warning {
+.text-warning, .sd-text-warning {
   color: var(--pst-color-warning) !important;
 }
-.text-danger {
+.text-danger, .sd-text-danger {
   color: var(--pst-color-danger) !important;
 }
 

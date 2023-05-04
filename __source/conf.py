@@ -43,6 +43,7 @@ extensions = [
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.mathjax',
     'sphinx_panels',
+    'sphinx_design',
     'breathe'
 ]
 

@@ -17,7 +17,7 @@ Getting started
 
    ---
 
-   :fa:`rocket,text-info fa-4x,style=fa`
+   :fas:`rocket;sd-text-info fa-4x`
 
    +++
 
@@ -28,7 +28,7 @@ Getting started
 
    ---
 
-   :fa:`gear,text-info fa-4x,style=fa`
+   :fas:`gear;sd-text-info fa-4x`
 
    +++
 
@@ -39,7 +39,7 @@ Getting started
 
    ---
 
-   :fa:`code,text-info fa-4x,style=fa`
+   :fas:`code;sd-text-info fa-4x`
 
    +++
 
@@ -50,7 +50,7 @@ Getting started
 
    ---
 
-   :fa:`bug,text-info fa-4x,style=fa`
+   :fas:`bug;sd-text-info fa-4x`
 
    +++
 
@@ -63,33 +63,60 @@ Getting started
 Brief usage overview
 --------------------
 
-.. table::
-   :widths: 50 50
+.. grid::
+   :gutter: 0
+   :margin: 0
+   :padding: 0
 
-   +--------------------------------------------------+------------------------------------------------+
-   | Deterministic evaluation                         | Probabilistic evaluation                       |
-   |                                                  |                                                |
-   | .. code-block:: cpp                              | .. code-block:: cpp                            |
-   |                                                  |                                                |
-   |    #include <xtensor/xtensor.hpp>                |    #include <xtensor/xtensor.hpp>              |
-   |    #include <xtensor/xio.hpp>                    |    #include <xtensor/xio.hpp>                  |
-   |    #include <evalhyd/evald.hpp>                  |    #include <evalhyd/evalp.hpp>                |
-   |                                                  |                                                |
-   |    xt::xtensor<double, 2> obs =                  |    xt::xtensor<double, 2> obs =                |
-   |        {{4.7, 4.3, 5.5, 2.7}};                   |        {{4.7, 4.3, 5.5, 2.7, 4.1}};            |
-   |    xt::xtensor<double, 2> prd =                  |    xt::xtensor<double, 4> prd =                |
-   |        {{5.3, 4.2, 5.7, 2.3}};                   |        {{{{5.3, 4.2, 5.7, 2.3, 3.1},           |
-   |                                                  |           {4.3, 4.2, 4.7, 4.3, 3.3},           |
-   |    auto res =                                    |           {5.3, 5.2, 5.7, 2.3, 3.9}}}};        |
-   |        evalhyd::evald(obs, prd, {"NSE"});        |    xt::xtensor<double, 2> thr = {{4., 5.}};    |
-   |                                                  |                                                |
-   |    std::cout << res << std::endl;                |    auto res = evalhyd::evalp(obs, prd, {"BS"}  |
-   |    // {{{ 0.862981}}}                            |                              thr, "high");     |
-   |                                                  |                                                |
-   |                                                  |    std::cout << res << std::endl;              |
-   |                                                  |    // {{{{{ 0.222222,  0.133333}}}}}           |
-   |                                                  |                                                |
-   +--------------------------------------------------+------------------------------------------------+
+   .. grid-item::
+      :margin: 0
+      :padding: 0 0 0 2
+      :columns: 6
+
+      .. code-block:: cpp
+         :caption: Deterministic evaluation
+
+         #include <xtensor/xtensor.hpp>
+         #include <xtensor/xio.hpp>
+         #include <evalhyd/evald.hpp>
+
+         xt::xtensor<double, 2> obs =
+             {{4.7, 4.3, 5.5, 2.7}};
+         xt::xtensor<double, 2> prd =
+             {{5.3, 4.2, 5.7, 2.3}};
+
+         auto res =
+             evalhyd::evald(obs, prd, {"NSE"});
+
+         std::cout << res << std::endl;
+         // {{{ 0.862981}}}
+
+   .. grid-item::
+      :margin: 0
+      :padding: 0 0 2 0
+      :columns: 6
+
+      .. code-block:: cpp
+         :caption: Probabilistic evaluation
+
+         #include <xtensor/xtensor.hpp>
+         #include <xtensor/xio.hpp>
+         #include <evalhyd/evalp.hpp>
+
+         xt::xtensor<double, 2> obs =
+             {{4.7, 4.3, 5.5, 2.7, 4.1}};
+         xt::xtensor<double, 4> prd =
+             {{{{5.3, 4.2, 5.7, 2.3, 3.1},
+                {4.3, 4.2, 4.7, 4.3, 3.3},
+                {5.3, 5.2, 5.7, 2.3, 3.9}}}};
+         xt::xtensor<double, 2> thr = {{4., 5.}};
+
+         auto res = evalhyd::evalp(obs, prd, {"BS"}
+                                   thr, "high");
+
+         std::cout << res << std::endl;
+         // {{{{{ 0.222222,  0.133333}}}}}
+
 
 .. toctree::
    :hidden:

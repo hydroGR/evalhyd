@@ -17,7 +17,7 @@ Getting started
 
    ---
 
-   :fa:`rocket,text-info fa-4x,style=fa`
+   :fas:`rocket;sd-text-info fa-4x`
 
    +++
 
@@ -28,7 +28,7 @@ Getting started
 
    ---
 
-   :fa:`gear,text-info fa-4x,style=fa`
+   :fas:`gear;sd-text-info fa-4x`
 
    +++
 
@@ -39,7 +39,7 @@ Getting started
 
    ---
 
-   :fa:`code,text-info fa-4x,style=fa`
+   :fas:`code;sd-text-info fa-4x`
 
    +++
 
@@ -50,7 +50,7 @@ Getting started
 
    ---
 
-   :fa:`bug,text-info fa-4x,style=fa`
+   :fas:`bug;sd-text-info fa-4x`
 
    +++
 
@@ -63,19 +63,34 @@ Getting started
 Brief usage overview
 --------------------
 
-.. table::
-   :widths: 50 50
+.. grid::
+   :gutter: 0
+   :margin: 0
+   :padding: 0
 
-   +--------------------------------------------------+------------------------------------------------+
-   | Deterministic evaluation                         | Probabilistic evaluation                       |
-   |                                                  |                                                |
-   | .. code-block:: console                          | .. code-block:: console                        |
-   |                                                  |                                                |
-   |    $ evalhyd evald "obs.csv" "prd.csv" "NSE"     |    $ evalhyd evalp "./obs/" "./prd/" "BS" \    |
-   |    {{{ 0.862981}}}                               |    > --q_thr "./thr/" --events "high"          |
-   |                                                  |    {{{{{ 0.222222,  0.133333}}}}}              |
-   |                                                  |                                                |
-   +--------------------------------------------------+------------------------------------------------+
+   .. grid-item::
+      :margin: 0
+      :padding: 0 0 0 2
+      :columns: 6
+
+      .. code-block:: console
+         :caption: Deterministic evaluation
+
+         $ evalhyd evald "obs.csv" "prd.csv" "NSE"
+         {{{ 0.862981}}}
+
+   .. grid-item::
+      :margin: 0
+      :padding: 0 0 2 0
+      :columns: 6
+
+      .. code-block:: console
+         :caption: Probabilistic evaluation
+
+         $ evalhyd evalp "./obs/" "./prd/" "BS" \
+         > --q_thr "./thr/" --events "high"
+         {{{{{ 0.222222,  0.133333}}}}}
+
 
 .. toctree::
    :hidden:

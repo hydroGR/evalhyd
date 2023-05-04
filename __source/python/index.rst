@@ -17,7 +17,7 @@ Getting started
 
    ---
 
-   :fa:`rocket,text-info fa-4x,style=fa`
+   :fas:`rocket;sd-text-info fa-4x`
 
    +++
 
@@ -28,7 +28,7 @@ Getting started
 
    ---
 
-   :fa:`gear,text-info fa-4x,style=fa`
+   :fas:`gear;sd-text-info fa-4x`
 
    +++
 
@@ -39,7 +39,7 @@ Getting started
 
    ---
 
-   :fa:`code,text-info fa-4x,style=fa`
+   :fas:`code;sd-text-info fa-4x`
 
    +++
 
@@ -50,7 +50,7 @@ Getting started
 
    ---
 
-   :fa:`bug,text-info fa-4x,style=fa`
+   :fas:`bug;sd-text-info fa-4x`
 
    +++
 
@@ -63,30 +63,53 @@ Getting started
 Brief usage overview
 --------------------
 
-.. table::
-   :widths: 50 50
+.. grid::
+   :gutter: 0
+   :margin: 0
+   :padding: 0
 
-   +--------------------------------------------------+------------------------------------------------+
-   | Deterministic evaluation                         | Probabilistic evaluation                       |
-   |                                                  |                                                |
-   | .. code-block:: python                           | .. code-block:: python                         |
-   |                                                  |                                                |
-   |    >>> import numpy                              |    >>> import numpy                            |
-   |    ... obs = numpy.array(                        |    ... obs = numpy.array(                      |
-   |    ...     [[4.7, 4.3, 5.5, 2.7]]                |    ...     [[4.7, 4.3, 5.5, 2.7, 4.1]]         |
-   |    ... )                                         |    ... )                                       |
-   |    ... prd = numpy.array(                        |    ... prd = numpy.array(                      |
-   |    ...     [[5.3, 4.2, 5.7, 2.3]]                |    ...     [[[[5.3, 4.2, 5.7, 2.3, 3.1],       |
-   |    ... )                                         |    ...        [4.3, 4.2, 4.7, 4.3, 3.3],       |
-   |    >>> import evalhyd                            |    ...        [5.3, 5.2, 5.7, 2.3, 3.9]]]]     |
-   |    ... evalhyd.evald(obs, prd, ["NSE"])          |    ... )                                       |
-   |    [array([[[0.86298077]]])]                     |    ... thr = numpy.array([[4., 5.]])           |
-   |                                                  |    >>> import evalhyd                          |
-   |                                                  |    ... evalhyd.evalp(obs, prd, ["BS"],         |
-   |                                                  |    ...               thr, events="high")       |
-   |                                                  |    [array([[[[[0.22222222, 0.13333333]]]]])]   |
-   |                                                  |                                                |
-   +--------------------------------------------------+------------------------------------------------+
+   .. grid-item::
+      :margin: 0
+      :padding: 0 0 0 2
+      :columns: 6
+
+      .. code-block:: python
+         :caption: Deterministic evaluation
+
+         >>> import numpy
+         ... obs = numpy.array(
+         ...     [[4.7, 4.3, 5.5, 2.7]]
+         ... )
+         ... prd = numpy.array(
+         ...     [[5.3, 4.2, 5.7, 2.3]]
+         ... )
+         >>> import evalhyd
+         ... evalhyd.evald(obs, prd, ["NSE"])
+         [array([[[0.86298077]]])]
+
+   .. grid-item::
+      :margin: 0
+      :padding: 0 0 2 0
+      :columns: 6
+
+      .. code-block:: python
+         :caption: Probabilistic evaluation
+
+         >>> import numpy
+         ... obs = numpy.array(
+         ...     [[4.7, 4.3, 5.5, 2.7, 4.1]]
+         ... )
+         ... prd = numpy.array(
+         ...     [[[[5.3, 4.2, 5.7, 2.3, 3.1],
+         ...        [4.3, 4.2, 4.7, 4.3, 3.3],
+         ...        [5.3, 5.2, 5.7, 2.3, 3.9]]]]
+         ... )
+         ... thr = numpy.array([[4., 5.]])
+         >>> import evalhyd
+         ... evalhyd.evalp(obs, prd, ["BS"],
+         ...               thr, events="high")
+         [array([[[[[0.22222222, 0.13333333]]]]])]
+
 
 .. toctree::
    :hidden:

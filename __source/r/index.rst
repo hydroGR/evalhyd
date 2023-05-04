@@ -17,7 +17,7 @@ Getting started
 
    ---
 
-   :fa:`rocket,text-info fa-4x,style=fa`
+   :fas:`rocket;sd-text-info fa-4x`
 
    +++
 
@@ -28,7 +28,7 @@ Getting started
 
    ---
 
-   :fa:`gear,text-info fa-4x,style=fa`
+   :fas:`gear;sd-text-info fa-4x`
 
    +++
 
@@ -39,7 +39,7 @@ Getting started
 
    ---
 
-   :fa:`code,text-info fa-4x,style=fa`
+   :fas:`code;sd-text-info fa-4x`
 
    +++
 
@@ -50,7 +50,7 @@ Getting started
 
    ---
 
-   :fa:`bug,text-info fa-4x,style=fa`
+   :fas:`bug;sd-text-info fa-4x`
 
    +++
 
@@ -63,37 +63,58 @@ Getting started
 Brief usage overview
 --------------------
 
-.. table::
-   :widths: 50 50
+.. grid::
+   :gutter: 0
+   :margin: 0
+   :padding: 0
 
-   +--------------------------------------------------+------------------------------------------------+
-   | Deterministic evaluation                         | Probabilistic evaluation                       |
-   |                                                  |                                                |
-   | .. code-block:: RConsole                         | .. code-block:: RConsole                       |
-   |                                                  |                                                |
-   |    > obs <- rbind(c(4.7, 4.3, 5.5, 2.7))         |    > obs <- rbind(c(4.7, 4.3, 5.5, 2.7, 4.1))  |
-   |    > prd <- rbind(c(5.3, 4.2, 5.7, 2.3))         |    > prd <- array(                             |
-   |    > library(evalhyd)                            |    +     rbind(c(5.3, 4.2, 5.7, 2.3, 3.1),     |
-   |    > evalhyd::evald(obs, prd, c("NSE"))          |    +           c(4.3, 4.2, 4.7, 4.3, 3.3),     |
-   |    [[1]]                                         |    +           c(5.3, 5.2, 5.7, 2.3, 3.9)),    |
-   |    , , 1                                         |    +     dim = c(1, 1, 3, 5)                   |
-   |    [,1]                                          |    + )                                         |
-   |    [1,] 0.8629808                                |    > thr <- rbind(c(4., 5.))                   |
-   |                                                  |    > library(evalhyd)                          |
-   |                                                  |    > evalhyd::evalp(obs, prd, c("BS"),         |
-   |                                                  |    +                thr, events="high")        |
-   |                                                  |    [[1]]                                       |
-   |                                                  |    , , 1, 1, 1                                 |
-   |                                                  |                                                |
-   |                                                  |              [,1]                              |
-   |                                                  |    [1,] 0.2222222                              |
-   |                                                  |                                                |
-   |                                                  |    , , 1, 1, 2                                 |
-   |                                                  |                                                |
-   |                                                  |              [,1]                              |
-   |                                                  |    [1,] 0.1333333                              |
-   |                                                  |                                                |
-   +--------------------------------------------------+------------------------------------------------+
+   .. grid-item::
+      :margin: 0
+      :padding: 0 0 0 2
+      :columns: 6
+
+      .. code-block:: RConsole
+         :caption: Deterministic evaluation
+
+         > obs <- rbind(c(4.7, 4.3, 5.5, 2.7))
+         > prd <- rbind(c(5.3, 4.2, 5.7, 2.3))
+         > library(evalhyd)
+         > evalhyd::evald(obs, prd, c("NSE"))
+         [[1]]
+         , , 1
+         [,1]
+         [1,] 0.8629808
+
+   .. grid-item::
+      :margin: 0
+      :padding: 0 0 2 0
+      :columns: 6
+
+      .. code-block:: RConsole
+         :caption: Probabilistic evaluation
+
+         > obs <- rbind(c(4.7, 4.3, 5.5, 2.7, 4.1))
+         > prd <- array(
+         +     rbind(c(5.3, 4.2, 5.7, 2.3, 3.1),
+         +           c(4.3, 4.2, 4.7, 4.3, 3.3),
+         +           c(5.3, 5.2, 5.7, 2.3, 3.9)),
+         +     dim = c(1, 1, 3, 5)
+         + )
+         > thr <- rbind(c(4., 5.))
+         > library(evalhyd)
+         > evalhyd::evalp(obs, prd, c("BS"),
+         +                thr, events="high")
+         [[1]]
+         , , 1, 1, 1
+
+                   [,1]
+         [1,] 0.2222222
+
+         , , 1, 1, 2
+
+                   [,1]
+         [1,] 0.1333333
+
 
 .. toctree::
    :hidden:
