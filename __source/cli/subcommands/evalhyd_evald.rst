@@ -227,35 +227,35 @@ Examples
 
 .. code-block:: console
 
-   $ ./evalhyd evald "q_obs.csv" "q_prd.csv" "NSE"
+   $ evalhyd evald "q_obs.csv" "q_prd.csv" "NSE"
    {{{ 0.625477}},
     {{ 0.043416}},
     {{ 0.663645}}}
 
 .. code-block:: console
 
-   $ ./evalhyd evald "q_obs.csv" "q_prd.csv" "NSE" --transform "sqrt"
+   $ evalhyd evald "q_obs.csv" "q_prd.csv" "NSE" --transform "sqrt"
    {{{ 0.60338 }},
     {{-0.006811}},
     {{ 0.697281}}}
 
 .. code-block:: console
 
-   $ ./evalhyd evald "q_obs.csv" "q_prd.csv" "NSE" --transform "log" --epsilon .5
+   $ evalhyd evald "q_obs.csv" "q_prd.csv" "NSE" --transform "log" --epsilon .5
    {{ 0.581342},
     {-0.045892},
     { 0.714327}}
 
 .. code-block:: console
 
-   $ ./evalhyd evald "q_obs.csv" "q_prd.csv" "NSE" --transform "pow" --exponent .8
+   $ evalhyd evald "q_obs.csv" "q_prd.csv" "NSE" --transform "pow" --exponent .8
    {{{ 0.617575}},
     {{ 0.023426}},
     {{ 0.67871 }}}
 
 .. code-block:: console
 
-   $ ./evalhyd evald "q_obs.csv" "q_prd.csv" "NSE" \
+   $ evalhyd evald "q_obs.csv" "q_prd.csv" "NSE" \
    > --bootstrap "n_samples" 5 "len_sample" 10 "summary" 0 --dts "dts.csv"
    {{{ 0.625477,  0.625477,  0.625477,  0.625477,  0.625477}},
     {{ 0.043416,  0.043416,  0.043416,  0.043416,  0.043416}},

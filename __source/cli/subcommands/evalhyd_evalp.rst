@@ -301,7 +301,7 @@ Examples
 
 .. code-block:: console
 
-   $ ./evalhyd evalp "./q_obs" "./q_prd" "BS" "BS_LBD" --q_thr "./q_thr" --events "high"
+   $ evalhyd evalp "./q_obs" "./q_prd" "BS" "BS_LBD" --q_thr "./q_thr" --events "high"
    {{{{{ 0.222222,  0.133333}}}}}
    {{{{{{ 0.072222,  0.027778,  0.177778},
         { 0.072222,  0.027778,  0.088889}}}}}}
