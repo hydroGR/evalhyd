@@ -308,10 +308,10 @@ Examples
 
 .. code-block:: console
 
-   $ ./evalhyd evalp "./q_obs" "./q_prd" "CRPS"
+   $ evalhyd evalp "./q_obs" "./q_prd" "CRPS_FROM_QS"
    {{{{ 0.241935}}}}
 
 .. code-block:: console
 
-   $ ./evalhyd evalp "./q_obs" "./q_prd" "CRPS" --t_msk "./t_msk"
+   $ evalhyd evalp "./q_obs" "./q_prd" "CRPS_FROM_QS" --t_msk "./t_msk"
    {{{{ 0.1875}}}}

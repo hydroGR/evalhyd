@@ -152,5 +152,5 @@ evalhyd::evalp
 
       .. code-block:: rconsole
 
-         > evalhyd::evalp(obs, prd, c("CRPS"))[[1]][1,1,1,]
+         > evalhyd::evalp(obs, prd, c("CRPS_FROM_QS"))[[1]][1,1,1,]
          [1] 0.1875

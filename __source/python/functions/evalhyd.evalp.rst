@@ -151,6 +151,6 @@ evalhyd.evalp
       [[[[[[0.07222222 0.02777778 0.17777778]
            [0.07222222 0.02777778 0.08888889]]]]]]
 
-      >>> crps, = evalhyd.evalp(obs, prd, ['CRPS'])
+      >>> crps, = evalhyd.evalp(obs, prd, ['CRPS_FROM_QS'])
       >>> print(crps)
       [[[[0.1875]]]]
