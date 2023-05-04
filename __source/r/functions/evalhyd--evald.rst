@@ -144,8 +144,8 @@ evalhyd::evald
 
       .. code-block:: rconsole
 
-         > obs = c(4.7, 4.3, 5.5, 2.7, 4.1)
-         > prd = c(5.3, 4.2, 5.7, 2.3, 3.1)
+         > obs <- c(4.7, 4.3, 5.5, 2.7, 4.1)
+         > prd <- c(5.3, 4.2, 5.7, 2.3, 3.1)
          > library(evalhyd)
          > evalhyd::evald(obs, prd, c("NSE"))
          [[1]]
@@ -156,10 +156,10 @@ evalhyd::evald
 
       .. code-block:: rconsole
 
-         > obs = rbind(
+         > obs <- rbind(
          +     c(4.7, 4.3, 5.5, 2.7, 4.1)
          + )
-         > prd = rbind(
+         > prd <- rbind(
          +     c(5.3, 4.2, 5.7, 2.3, 3.1),
          +     c(4.3, 4.2, 4.7, 4.3, 3.3),
          +     c(5.3, 5.2, 5.7, 2.3, 3.9)

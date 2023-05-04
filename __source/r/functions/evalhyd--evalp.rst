@@ -124,10 +124,10 @@ evalhyd::evalp
 
       .. code-block:: rconsole
 
-         > obs = rbind(
+         > obs <- rbind(
          +     c(4.7, 4.3, 5.5, 2.7, 4.1)
          + )
-         > prd = array(
+         > prd <- array(
          +     rbind(
          +         c(5.3, 4.2, 5.7, 2.3, 3.1),
          +         c(4.3, 4.2, 4.7, 4.3, 3.3),
@@ -135,14 +135,14 @@ evalhyd::evalp
          +     ),
          +     dim=c(1, 1, 3, 5)
          + )
-         > thr = rbind(
+         > thr <- rbind(
          +     c(4., 5.)
          + )
 
       .. code-block:: rconsole
 
          > library(evalhyd)
-         > results = evalhyd::evalp(obs, prd, c("BS", "BS_LBD"), thr)
+         > results <- evalhyd::evalp(obs, prd, c("BS", "BS_LBD"), thr)
          > results[[1]][1,1,1,1,]  # BS
          [1] 0.2222222 0.1333333
          > results[[2]][1,1,1,1,,]  # BS_LBD
