@@ -35,6 +35,7 @@ html[data-theme="light"] {
     --pst-color-success: var(--my-color-3);
     --pst-color-warning: var(--my-color-2);
     --pst-color-danger: var(--my-color-2);
+    --pst-color-attention: var(--my-color-2);
 
     --pst-color-active-navigation: var(--my-color-1);
 
@@ -42,10 +43,10 @@ html[data-theme="light"] {
     --pst-color-link-hover: var(--my-color-1);
     --pst-color-link-active: var(--my-color-2);
 
-    --pst-color-preformatted-background: rgb(250, 250, 250);
+    --pst-color-preformatted-background: rgb(247, 247, 247);
     --pst-color-surface: var(--pst-color-preformatted-background);
     --pst-color-on-background: rgb(255, 255, 255);
-    --pst-color-panel-background: rgb(252, 252, 252);
+    --pst-color-panel-background: rgb(247, 247, 247);
     --pst-color-block-code: rgb(51, 51, 51);
     --pst-color-inline-code: rgb(0, 0, 0);
 
@@ -75,6 +76,7 @@ html[data-theme="dark"] {
     --pst-color-success: var(--my-color-3);
     --pst-color-warning: var(--my-color-2);
     --pst-color-danger: var(--my-color-2);
+    --pst-color-attention: var(--my-color-2);
 
     --pst-color-active-navigation: var(--my-color-1);
 
@@ -82,7 +84,7 @@ html[data-theme="dark"] {
     --pst-color-link-hover: var(--my-color-1);
     --pst-color-link-active: var(--my-color-2);
 
-    --pst-color-preformatted-background: rgb(40, 40, 40);
+    --pst-color-preformatted-background: rgb(25, 25, 25);
     --pst-color-surface: var(--pst-color-preformatted-background);
     --pst-color-on-background: rgb(18, 18, 18);
     --pst-color-panel-background: rgb(25, 25, 25);
@@ -103,6 +105,30 @@ html[data-theme="dark"] {
     --tabs-color-overline: rgba(255, 255, 255, .2);
     --tabs-color-underline: var(--tabs-color-overline);
     --my-shadow: var(--pst-color-shadow);
+}
+
+.card {
+    --bs-card-bg: var(--pst-color-panel-background);
+    --bs-card-border-color: var(--pst-color-border);
+}
+
+.dropdown-menu {
+    --bs-dropdown-bg: var(--pst-color-panel-background);
+}
+
+/* reduce font size in code blocks */
+pre {
+    font-size: .815em;
+}
+
+/* keep border color the same for all cells */
+tbody, td, tfoot, th, thead, tr {
+  border-color: var(--pst-color-border);
+}
+
+/* fix problem with extra padding in some sub sections */
+.bd-main .bd-content .bd-article-container {
+    max-width: none;
 }
 
 /* propagate colors to whole theme */
@@ -126,7 +152,11 @@ html[data-theme="dark"] {
 }
 
 /* turn off filter on image for dark mode */
-html[data-theme="dark"] img {
+html[data-theme="dark"]  .bd-content img:not(.only-dark):not(.dark-light) {
+    background: none;
+}
+
+html[data-theme="dark"] img:not(.only-dark):not(.dark-light) {
     filter: none;
 }
 
@@ -328,20 +358,24 @@ rect.highlighted {
 }
 
 /* customise footer */
-.footer-item {
-    box-sizing: border-box;
-    display: inline-block;
-    text-align: center;
-    vertical-align: middle;
-    width: 49.7%;
-}
+/*.footer-item {*/
+/*    box-sizing: border-box;*/
+/*    display: inline-block;*/
+/*    text-align: center;*/
+/*    vertical-align: middle;*/
+/*    width: 49.7%;*/
+/*}*/
 
-.footer-item:first-child {
-    text-align: left;
-}
+/*.footer-item:first-child {*/
+/*    text-align: left;*/
+/*}*/
 
-.footer-item:last-child {
-    text-align: right;
+/*.footer-item:last-child {*/
+/*    text-align: right;*/
+/*}*/
+
+.bd-footer .footer-items__end, .bd-footer .footer-items__start {
+    gap: 0
 }
 
 .navbar-corporate img {

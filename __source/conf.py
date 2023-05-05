@@ -119,18 +119,21 @@ html_theme_options = {
         {
             "name": "GitLab",
             "url": f"https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd",
-            "icon": "fab fa-gitlab",
+            "icon": "fa-brands fa-gitlab",
+            "type": "fontawesome",
         }
     ],
     "show_prev_next": False,
     "show_toc_level": 1,
     # "show_nav_level": 2,
-    # "navbar_align": "content",
+    "navbar_align": "content",
     "navbar_start": ["navbar-logo", "version-switcher"],
     # "navbar_center": ["navbar-nav", "navbar-version"],  # Just for testing
     "navbar_end": ["theme-switcher", "navbar-icon-links"],
     # "left_sidebar_end": ["custom-template.html", "sidebar-ethical-ads.html"],
-    "footer_items": ["copyright+sphinx-version+last-updated", "corporate-logo"],
+    "footer_start": ["copyright", "sphinx-version", "last-updated"],
+    "footer_end": ["corporate-logo"],
+    "header_links_before_dropdown": 6,
     "switcher": {
         "json_url": f"{html_baseurl}/_static/switcher.json",
         "version_match": version
