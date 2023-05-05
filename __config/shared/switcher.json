@@ -3,5 +3,10 @@
     "name": "latest",
     "version": "latest",
     "url": "https://hydrogr.github.io/evalhyd"
+  },
+  {
+    "name": "v0.1.0",
+    "version": "0.1.0",
+    "url": "https://hydrogr.github.io/evalhyd/0.1.0"
   }
 ]
