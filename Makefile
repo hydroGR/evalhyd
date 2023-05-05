@@ -12,10 +12,17 @@ clean_repos:
 
 clone_repos:
 	$(MAKE) clean_repos
-	(cd ./__code && git clone https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd.git --branch dev)
+ifdef VERSION_RELEASE_EVALHYD
+	(cd ./__code && git clone https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-cpp.git --branch v${VERSION_RELEASE_EVALHYD})
+	(cd ./__code && git clone https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-cli.git --branch v${VERSION_RELEASE_EVALHYD}.0)
+	(cd ./__code && git clone https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-python.git --branch v${VERSION_RELEASE_EVALHYD}.0)
+	(cd ./__code && git clone https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-r.git --branch v${VERSION_RELEASE_EVALHYD}.0)
+else
+	(cd ./__code && git clone https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-cpp.git --branch dev)
 	(cd ./__code && git clone https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-cli.git --branch dev)
 	(cd ./__code && git clone https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-python.git --branch dev)
 	(cd ./__code && git clone https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-r.git --branch dev)
+endif
 
 clean_xml:
 	rm -rf ${BLD_DIR}/xml
@@ -123,6 +130,14 @@ build_html:
 	cp -R ${CFG_DIR}/${SPHINX_DIR}/switcher.json ${BLD_DIR}/html/${SPHINX_DIR}/_static/
 # clean up
 	rm -rf ${BLD_DIR}/${SPHINX_DIR}
+# -----------------------------------------------------------------------------
+# archive if release
+# -----------------------------------------------------------------------------
+ifdef VERSION_RELEASE_EVALHYD
+	mkdir -p ${BLD_DIR}/html/${VERSION_RELEASE_EVALHYD}
+	cp -R ${BLD_DIR}/html/* ${BLD_DIR}/html/${VERSION_RELEASE_EVALHYD}
+	rm -rf ${BLD_DIR}/html/${VERSION_RELEASE_EVALHYD}/${VERSION_RELEASE_EVALHYD}
+endif
 
 build_docs:
 	$(MAKE) clone_repos
