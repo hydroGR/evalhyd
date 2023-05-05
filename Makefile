@@ -5,7 +5,7 @@ SRC_DIR = ./__source
 CFG_DIR = ./__config
 
 clean_repos:
-	rm -rf ./__code/evalhyd
+	rm -rf ./__code/evalhyd-cpp
 	rm -rf ./__code/evalhyd-cli
 	rm -rf ./__code/evalhyd-python
 	rm -rf ./__code/evalhyd-r

@@ -1,6 +1,6 @@
 PROJECT_NAME = "evalhyd"
 XML_OUTPUT = xml
-INPUT = ../../__code/evalhyd/include
+INPUT = ../../__code/evalhyd-cpp/include
 GENERATE_LATEX = NO
 GENERATE_MAN = NO
 GENERATE_RTF = NO
