@@ -6,7 +6,23 @@
 Installation
 ============
 
-To install `evalhyd` Python bindings, simply use `pip`:
+From conda-forge
+----------------
+
+The recommended way to install `evalhyd-python` is to use a `conda`-like
+package manager and the conda-forge channel:
+
+.. code-block:: console
+   :caption: Install using `mamba` and the conda-forge channel
+
+   $ mamba install -c conda-forge evalhyd-python
+
+
+From source
+-----------
+
+To install `evalhyd` Python bindings from source, simply use `pip` and
+point to our GitLab repository:
 
 .. code-block:: console
 

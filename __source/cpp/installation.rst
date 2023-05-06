@@ -5,10 +5,22 @@
 Installation
 ============
 
+From conda-forge
+----------------
+
+The recommended way to install `evalhyd-cpp` is to use a `conda`-like
+package manager and the conda-forge channel:
+
+.. code-block:: console
+   :caption: Install using `mamba` and the conda-forge channel
+
+   $ mamba install -c conda-forge libevalhyd
+
+
 From source
 -----------
 
-To install `evalhyd-cpp` core library from source, `cmake` can be used.
+To build `evalhyd` core C++ library from source, `cmake` can be used.
 
 .. tip::
 
