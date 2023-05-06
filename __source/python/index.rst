@@ -64,14 +64,12 @@ Brief usage overview
 --------------------
 
 .. grid::
-   :gutter: 0
+   :gutter: 3
    :margin: 0
    :padding: 0
 
    .. grid-item::
-      :margin: 0
-      :padding: 0 0 0 2
-      :columns: 6
+      :columns: 12 12 6 6
 
       .. code-block:: python
          :caption: Deterministic evaluation
@@ -88,9 +86,7 @@ Brief usage overview
          [array([[[0.86298077]]])]
 
    .. grid-item::
-      :margin: 0
-      :padding: 0 0 2 0
-      :columns: 6
+      :columns: 12 12 6 6
 
       .. code-block:: python
          :caption: Probabilistic evaluation

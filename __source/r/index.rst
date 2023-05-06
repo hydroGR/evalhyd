@@ -64,14 +64,12 @@ Brief usage overview
 --------------------
 
 .. grid::
-   :gutter: 0
+   :gutter: 3
    :margin: 0
    :padding: 0
 
    .. grid-item::
-      :margin: 0
-      :padding: 0 0 0 2
-      :columns: 6
+      :columns: 12 12 6 6
 
       .. code-block:: RConsole
          :caption: Deterministic evaluation
@@ -86,9 +84,7 @@ Brief usage overview
          [1,] 0.8629808
 
    .. grid-item::
-      :margin: 0
-      :padding: 0 0 2 0
-      :columns: 6
+      :columns: 12 12 6 6
 
       .. code-block:: RConsole
          :caption: Probabilistic evaluation
