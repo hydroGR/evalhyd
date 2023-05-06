@@ -20,7 +20,7 @@ package manager and the conda-forge channel:
 From source
 -----------
 
-To build `evalhyd` core C++ library from source, `cmake` can be used.
+To build `evalhyd-cpp` from source, `cmake` can be used.
 
 .. tip::
 

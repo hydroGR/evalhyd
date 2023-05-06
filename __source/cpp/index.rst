@@ -4,7 +4,7 @@
 C++
 ===
 
-`evalhyd` is a C++ library to evaluate deterministic and probabilistic
+`evalhyd-cpp` is a C++ library to evaluate deterministic and probabilistic
 streamflow predictions.
 
 Getting started

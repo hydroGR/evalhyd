@@ -21,8 +21,8 @@ package manager and the conda-forge channel:
 From source
 -----------
 
-To install `evalhyd` Python bindings from source, simply use `pip` and
-point to our GitLab repository:
+To build `evalhyd-python` from source, simply use `pip` and point to
+our GitLab repository:
 
 .. code-block:: console
 

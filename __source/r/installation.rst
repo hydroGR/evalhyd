@@ -40,8 +40,8 @@ package manager and the conda-forge channel:
 From source
 -----------
 
-To install `evalhyd` R bindings from source, simply use `remotes` and
-point to our GitLab repository:
+To build `evalhyd-r` from source, simply use `remotes` and point to
+our GitLab repository:
 
 .. code-block:: RConsole
 
