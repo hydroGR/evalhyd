@@ -17,6 +17,24 @@ package manager and the conda-forge channel:
 
    $ mamba install -c conda-forge evalhyd-python
 
+From PyPI
+---------
+
+A limited number of platform built distributions (i.e. `wheels <https://packaging.python.org/en/latest/guides/distributing-packages-using-setuptools/#wheels>`_)
+are also available on the Python Package Index (PyPI). They can be installed
+using `pip`:
+
+.. code-block:: console
+   :caption: Install platform built distribution using `pip`
+
+   $ pip install evalhyd-python
+
+.. warning::
+
+   If no wheel is available for your platform and/or Python version,
+   `pip` will fall back on an installation through building from the
+   source distribution (also available on PyPI).
+
 
 From source
 -----------
