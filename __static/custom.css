@@ -116,6 +116,10 @@ html[data-theme="dark"] {
     --bs-dropdown-bg: var(--pst-color-panel-background);
 }
 
+.bd-sidebar-primary {
+    overflow-y: visible;
+}
+
 /* reduce font size in code blocks */
 pre {
     font-size: .815em;
