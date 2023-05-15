@@ -107,8 +107,9 @@ Brief usage overview
                 {5.3, 5.2, 5.7, 2.3, 3.9}}}};
          xt::xtensor<double, 2> thr = {{4., 5.}};
 
-         auto res = evalhyd::evalp(obs, prd, {"BS"},
-                                   thr, "high");
+         auto res = 
+             evalhyd::evalp(obs, prd, {"BS"},
+                            thr, "high");
 
          std::cout << res[0] << std::endl;
          // {{{{{ 0.222222,  0.133333}}}}}
