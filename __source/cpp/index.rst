@@ -107,12 +107,22 @@ Brief usage overview
                 {5.3, 5.2, 5.7, 2.3, 3.9}}}};
          xt::xtensor<double, 2> thr = {{4., 5.}};
 
-         auto res = 
+         auto res =
              evalhyd::evalp(obs, prd, {"BS"},
                             thr, "high");
 
          std::cout << res[0] << std::endl;
          // {{{{{ 0.222222,  0.133333}}}}}
+
+   .. grid-item::
+      :columns: 12 12 12 12
+
+      .. button-link:: https://mybinder.org/v2/git/https%3A%2F%2Fgitlab.irstea.fr%2FHYCAR-Hydro%2Fevalhyd%2Fevalhyd-notebooks%2Fcpp/HEAD?filepath=evalhyd-cpp.ipynb
+         :color: primary
+         :outline:
+         :expand:
+
+         Try it yourself in a notebook !
 
 
 .. toctree::

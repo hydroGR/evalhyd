@@ -87,6 +87,16 @@ Brief usage overview
          > --q_thr "./thr/" --events "high"
          {{{{{ 0.222222,  0.133333}}}}}
 
+   .. grid-item::
+      :columns: 12 12 12 12
+
+      .. button-link:: https://mybinder.org/v2/git/https%3A%2F%2Fgitlab.irstea.fr%2FHYCAR-Hydro%2Fevalhyd%2Fevalhyd-notebooks%2Fcli/HEAD?filepath=evalhyd-cli.ipynb
+         :color: primary
+         :outline:
+         :expand:
+
+         Try it yourself in a notebook !
+
 
 .. toctree::
    :hidden:

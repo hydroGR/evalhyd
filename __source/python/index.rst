@@ -106,6 +106,15 @@ Brief usage overview
          ...               thr, events="high")
          [array([[[[[0.22222222, 0.13333333]]]]])]
 
+   .. grid-item::
+      :columns: 12 12 12 12
+
+      .. button-link:: https://mybinder.org/v2/git/https%3A%2F%2Fgitlab.irstea.fr%2FHYCAR-Hydro%2Fevalhyd%2Fevalhyd-notebooks%2Fpython/HEAD?filepath=evalhyd-python.ipynb
+         :color: primary
+         :outline:
+         :expand:
+
+         Try it yourself in a notebook !
 
 .. toctree::
    :hidden:
