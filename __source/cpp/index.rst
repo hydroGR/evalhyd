@@ -122,7 +122,7 @@ Brief usage overview
          :outline:
          :expand:
 
-         Try it yourself in a notebook !
+         Try it yourself in a notebook
 
 
 .. toctree::
