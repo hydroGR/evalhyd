@@ -7,11 +7,7 @@ Memoisation
 Across metrics
 --------------
 
-.. image:: https://img.shields.io/badge/-deterministic-275662?style=flat-square
-   :alt: deterministic
-
-.. image:: https://img.shields.io/badge/-probabilistic-275662?style=flat-square
-   :alt: probabilistic
+:bdg-primary-line:`deterministic` :bdg-primary-line:`probabilistic`
 
 Since certain evaluation metrics require the same intermediate computations,
 there is scope for some optimisation by storing these intermediate computations
@@ -75,11 +71,7 @@ over:
 Across masks
 ------------
 
-.. image:: https://img.shields.io/badge/-deterministic-275662?style=flat-square
-   :alt: deterministic
-
-.. image:: https://img.shields.io/badge/-probabilistic-275662?style=flat-square
-   :alt: probabilistic
+:bdg-primary-line:`deterministic` :bdg-primary-line:`probabilistic`
 
 In addition, most evaluation metrics first perform intermediate computations
 on each time step individually (e.g. errors between individual observations

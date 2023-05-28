@@ -4,8 +4,7 @@
 Transformation
 ==============
 
-.. image:: https://img.shields.io/badge/-deterministic--only-275662?style=flat-square
-   :alt: deterministic-only
+:bdg-primary-line:`deterministic-only`
 
 It is common practice in hydrology to apply transform functions to the
 streamflow data prior to the computation of the evaluation metrics on them.

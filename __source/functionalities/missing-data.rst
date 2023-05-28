@@ -4,11 +4,7 @@
 Handling of missing data
 ========================
 
-.. image:: https://img.shields.io/badge/-deterministic-275662?style=flat-square
-   :alt: deterministic
-
-.. image:: https://img.shields.io/badge/-probabilistic-275662?style=flat-square
-   :alt: probabilistic
+:bdg-primary-line:`deterministic` :bdg-primary-line:`probabilistic`
 
 Missing data must be flagged as "not a number" regardless of the utility
 used in the `evalhyd` stack. Missing data can be present both in the
@@ -17,8 +13,7 @@ where either observations or predictions are missing are not taken into
 account in the computation of the metrics (a method sometimes referred
 to as *pairwise deletion*).
 
-.. image:: https://img.shields.io/badge/-probabilistic--only-275662?style=flat-square
-   :alt: probabilistic-only
+:bdg-primary-line:`probabilistic-only`
 
 For a given site, `evalhyd` expects that the time indices in the
 streamflow predictions and in the streamflow observations correspond to

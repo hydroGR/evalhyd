@@ -7,11 +7,7 @@ Diagnostics
 Completeness
 ------------
 
-.. image:: https://img.shields.io/badge/-deterministic-275662?style=flat-square
-   :alt: deterministic
-
-.. image:: https://img.shields.io/badge/-probabilistic-275662?style=flat-square
-   :alt: probabilistic
+:bdg-primary-line:`deterministic` :bdg-primary-line:`probabilistic`
 
 Because of :doc:`missing data <missing-data>`, the optional use of
 :doc:`temporal <temporal-masking>`/:doc:`conditional <conditional-masking>`,
@@ -22,14 +18,12 @@ diagnostic is available: it returns the number of time steps included in
 each period considered, i.e. once missing data have been discarded, and
 masking and bootstrapping temporal subsets have been performed.
 
-.. image:: https://img.shields.io/badge/-deterministic--only-275662?style=flat-square
-   :alt: deterministic-only
+:bdg-primary-line:`deterministic-only`
 
 The returned shape of the *completeness* diagnostic is
 ``(series, subsets, samples)``.
 
-.. image:: https://img.shields.io/badge/-probabilistic--only-275662?style=flat-square
-   :alt: probabilistic-only
+:bdg-primary-line:`probabilistic-only`
 
 The returned shape of the *completeness* diagnostic is
 ``(sites, lead times, subsets, samples)``.

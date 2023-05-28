@@ -4,11 +4,7 @@
 Temporal masking
 ================
 
-.. image:: https://img.shields.io/badge/-deterministic-275662?style=flat-square
-   :alt: deterministic
-
-.. image:: https://img.shields.io/badge/-probabilistic-275662?style=flat-square
-   :alt: probabilistic
+:bdg-primary-line:`deterministic` :bdg-primary-line:`probabilistic`
 
 The computation of many metrics are based on a time step by time step
 evaluation before a temporal summary statistic is calculated across study
