@@ -21,10 +21,12 @@ Getting started
 
    +++
 
-   .. link-button:: installation
-      :type: ref
-      :text: Installation
-      :classes: btn-outline-primary btn-block stretched-link
+   .. button-ref:: installation
+      :ref-type: ref
+      :color: primary
+      :outline:
+
+      Installation
 
    ---
 
@@ -32,10 +34,12 @@ Getting started
 
    +++
 
-   .. link-button:: api
-      :type: ref
-      :text: API reference
-      :classes: btn-outline-primary btn-block stretched-link
+   .. button-ref:: api
+      :ref-type: ref
+      :color: primary
+      :outline:
+
+      API reference
 
    ---
 
@@ -43,10 +47,11 @@ Getting started
 
    +++
 
-   .. link-button:: https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-python
-      :type: url
-      :text: Source code
-      :classes: btn-outline-primary btn-block stretched-link
+   .. button-link:: https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-python
+      :color: primary
+      :outline:
+
+      Source code :fas:`arrow-up-right-from-square`
 
    ---
 
@@ -54,10 +59,11 @@ Getting started
 
    +++
 
-   .. link-button:: https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-python/-/issues
-      :type: url
-      :text: Bug report
-      :classes: btn-outline-primary btn-block stretched-link
+   .. button-link:: https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-python/-/issues
+      :color: primary
+      :outline:
+
+      Bug report :fas:`arrow-up-right-from-square`
 
 
 Brief usage overview

@@ -335,21 +335,24 @@ rect.highlighted {
     background-color: var(--pst-color-background) !important;
 }
 
-.btn-outline-primary {
-    color: var(--pst-color-link);
-    border-color: transparent;
+.btn-outline-primary,
+.card-text .sd-btn-outline-primary {
+    color: var(--pst-color-link) !important;
+    border-color: transparent !important;
 }
 
-.btn-outline-primary:hover {
-    color: white;
-    border-color: var(--pst-color-link-hover);
-    background-color: var(--pst-color-link-hover);
+.btn-outline-primary:hover,
+.card-text .sd-btn-outline-primary:hover {
+    color: white !important;
+    border-color: var(--pst-color-link-hover) !important;
+    background-color: var(--pst-color-link-hover) !important;
 }
 
-.btn-outline-primary:not(.disabled):not(.disabled):active {
-    color: white;
-    border-color: var(--pst-color-link-active);
-    background-color: var(--pst-color-link-active);
+.btn-outline-primary:not(.disabled):not(.disabled):active,
+.card-text .sd-btn-outline-primary:not(.disabled):not(.disabled):active{
+    color: white !important;
+    border-color: var(--pst-color-link-active) !important;
+    background-color: var(--pst-color-link-active) !important;
 }
 
 /* override style for tabbed sphinx panels */

@@ -21,10 +21,12 @@ Getting started
 
    +++
 
-   .. link-button:: installation
-      :type: ref
-      :text: Installation
-      :classes: btn-outline-primary btn-block stretched-link
+   .. button-ref:: installation
+      :ref-type: ref
+      :color: primary
+      :outline:
+
+      Installation
 
    ---
 
@@ -32,10 +34,12 @@ Getting started
 
    +++
 
-   .. link-button:: cli
-      :type: ref
-      :text: CLI reference
-      :classes: btn-outline-primary btn-block stretched-link
+   .. button-ref:: cli
+      :ref-type: ref
+      :color: primary
+      :outline:
+
+      CLI reference
 
    ---
 
@@ -43,10 +47,11 @@ Getting started
 
    +++
 
-   .. link-button:: https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-cli
-      :type: url
-      :text: Source code
-      :classes: btn-outline-primary btn-block stretched-link
+   .. button-link:: https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-cli
+      :color: primary
+      :outline:
+
+      Source code :fas:`arrow-up-right-from-square`
 
    ---
 
@@ -54,10 +59,11 @@ Getting started
 
    +++
 
-   .. link-button:: https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-cli/-/issues
-      :type: url
-      :text: Bug report
-      :classes: btn-outline-primary btn-block stretched-link
+   .. button-link:: https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-cli/-/issues
+      :color: primary
+      :outline:
+
+      Bug report :fas:`arrow-up-right-from-square`
 
 
 Brief usage overview
