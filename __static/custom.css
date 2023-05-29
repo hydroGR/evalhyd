@@ -365,22 +365,6 @@ rect.highlighted {
 }
 
 /* customise footer */
-/*.footer-item {*/
-/*    box-sizing: border-box;*/
-/*    display: inline-block;*/
-/*    text-align: center;*/
-/*    vertical-align: middle;*/
-/*    width: 49.7%;*/
-/*}*/
-
-/*.footer-item:first-child {*/
-/*    text-align: left;*/
-/*}*/
-
-/*.footer-item:last-child {*/
-/*    text-align: right;*/
-/*}*/
-
 .bd-footer .footer-items__end, .bd-footer .footer-items__start {
     gap: 0
 }
