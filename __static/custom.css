@@ -341,16 +341,24 @@ rect.highlighted {
     border-color: transparent !important;
 }
 
+.sd-btn-outline-primary:hover {
+    color: var(--pst-color-background) !important;
+}
+
 .btn-outline-primary:hover,
 .card-text .sd-btn-outline-primary:hover {
-    color: white !important;
+    color: var(--pst-color-background) !important;
     border-color: var(--pst-color-link-hover) !important;
     background-color: var(--pst-color-link-hover) !important;
 }
 
+.sd-btn-outline-primary:not(.disabled):not(.disabled):active {
+    color: var(--pst-color-background) !important;
+}
+
 .btn-outline-primary:not(.disabled):not(.disabled):active,
-.card-text .sd-btn-outline-primary:not(.disabled):not(.disabled):active{
-    color: white !important;
+.card-text .sd-btn-outline-primary:not(.disabled):not(.disabled):active {
+    color: var(--pst-color-background) !important;
     border-color: var(--pst-color-link-active) !important;
     background-color: var(--pst-color-link-active) !important;
 }
