@@ -363,6 +363,11 @@ rect.highlighted {
     background-color: var(--pst-color-link-active) !important;
 }
 
+.theme-switch-button:hover, .theme-switch-button:active {
+    background-color: var(--pst-color-on-surface) !important;
+    border-color: var(--pst-color-on-background) !important;
+}
+
 /* override style for tabbed sphinx panels */
 .tabbed-label {
     margin-bottom: 0;
