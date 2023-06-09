@@ -95,7 +95,7 @@ Optionals
 .. option:: --exponent <FLOAT>
 
    The value of the exponent n to use when the transform is the power
-   function. If not provided (or set to default value 1), the streamflow
+   function. If not provided (or set to a value of 1), the streamflow
    observations and predictions remain untransformed.
 
 .. option:: --epsilon <FLOAT>
@@ -104,10 +104,10 @@ Optionals
    observations and predictions prior to the calculation of the
    *metrics* when the *transform* is the reciprocal function, the
    natural logarithm, or the power function with a negative exponent
-   (since none are defined for 0). If not provided (or set to default
-   value -9), one hundredth of the mean of the streamflow observations
-   is used as value for epsilon, as recommended by `Pushpalatha et al.
-   (2012) <https://doi.org/10.1016/j.jhydrol.2011.11.055>`_.
+   (since none are defined for 0). If not provided, one hundredth of
+   the mean of the streamflow observations is used as value for epsilon,
+   as recommended by `Pushpalatha et al. (2012)
+   <https://doi.org/10.1016/j.jhydrol.2011.11.055>`_.
 
 .. option:: --t_msk <TEXT:FILE>
 
