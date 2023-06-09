@@ -52,27 +52,27 @@ evalhyd::evald
          below threshold). It must be provided if *q_thr* is provided.
 
       transform, optional
-         The transformation to apply to both streamflow observations
-         and predictions prior to the calculation of the *metrics*.
+         A string specifying the transformation to apply to both
+         streamflow observations and predictions prior to the
+         calculation of the *metrics*.
 
          .. seealso:: :doc:`../../functionalities/transformation`
 
       exponent, optional
-         The value of the exponent n to use when the *transform* is
-         the power function. If not provided (or set to default value
-         1), the streamflow observations and predictions remain
-         untransformed.
+         A numeric scalar specifying the value of the exponent n to use
+         when the *transform* is the power function. If not provided (or
+         set to a value of 1), the streamflow observations and
+         predictions remain untransformed.
 
       epsilon, optional
-         The value of the small constant ε to add to both the
-         streamflow observations and predictions prior to the
-         calculation of the *metrics* when the *transform* is the
-         reciprocal function, the natural logarithm, or the power
+         A numeric scalar specifying the value of the small constant ε
+         to add to both the streamflow observations and predictions
+         prior to the calculation of the *metrics* when the *transform*
+         is the reciprocal function, the natural logarithm, or the power
          function with a negative exponent (since none are defined
-         for 0). If not provided (or set to default value -9),
-         one hundredth of the mean of the streamflow observations
-         is used as value for epsilon, as recommended by
-         `Pushpalatha et al. (2012)
+         for 0). If not provided, one hundredth of the mean of the
+         streamflow observations is used as value for epsilon, as
+         recommended by `Pushpalatha et al. (2012)
          <https://doi.org/10.1016/j.jhydrol.2011.11.055>`_.
 
       t_msk, optional
@@ -95,14 +95,14 @@ evalhyd::evald
          .. seealso:: :doc:`../../functionalities/temporal-masking`
 
       bootstrap, optional
-         The values for the parameters of the bootstrapping method used
-         to estimate the sampling uncertainty in the evaluation of the
-         predictions. It takes three parameters: `"n_samples"` the
-         number of random samples, `"len_samples"` the length of one
-         sample in number of years, and `"summary"` the statistics to
-         return to characterise the sampling distribution. If not
-         provided, no bootstrapping is performed. If provided, *dts*
-         must also be provided.
+         A list providing the values for the parameters of the
+         bootstrapping method used to estimate the sampling uncertainty
+         in the evaluation of the predictions. It takes three parameters:
+         `"n_samples"` the number of random samples, `"len_samples"` the
+         length of one sample in number of years, and `"summary"` the
+         statistics to return to characterise the sampling distribution.
+         If not provided, no bootstrapping is performed. If provided,
+         *dts* must also be provided.
 
          *Parameter example:*
 
