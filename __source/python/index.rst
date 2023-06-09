@@ -22,7 +22,7 @@ Getting started
    +++
 
    .. button-ref:: installation
-      :ref-type: ref
+      :ref-type: doc
       :color: primary
       :outline:
 
@@ -35,7 +35,7 @@ Getting started
    +++
 
    .. button-ref:: api
-      :ref-type: ref
+      :ref-type: doc
       :color: primary
       :outline:
 

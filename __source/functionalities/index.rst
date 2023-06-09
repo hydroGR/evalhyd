@@ -16,7 +16,7 @@ Functionalities
    +++
 
    .. button-ref:: memoisation
-      :ref-type: ref
+      :ref-type: doc
       :color: primary
       :outline:
 
@@ -68,7 +68,7 @@ Functionalities
    +++
 
    .. button-ref:: bootstrapping
-      :ref-type: ref
+      :ref-type: doc
       :color: primary
       :outline:
 
@@ -81,7 +81,7 @@ Functionalities
    +++
 
    .. button-ref:: transformation
-      :ref-type: ref
+      :ref-type: doc
       :color: primary
       :outline:
 
@@ -94,7 +94,7 @@ Functionalities
    +++
 
    .. button-ref:: diagnostics
-      :ref-type: ref
+      :ref-type: doc
       :color: primary
       :outline:
 
