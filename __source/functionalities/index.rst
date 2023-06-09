@@ -18,6 +18,7 @@ Functionalities
    .. button-ref:: memoisation
       :ref-type: doc
       :color: primary
+      :click-parent:
       :outline:
 
       Memoisation
@@ -31,6 +32,7 @@ Functionalities
    .. button-ref:: missing-data
       :ref-type: doc
       :color: primary
+      :click-parent:
       :outline:
 
       Missing data
@@ -44,6 +46,7 @@ Functionalities
    .. button-ref:: temporal-masking
       :ref-type: doc
       :color: primary
+      :click-parent:
       :outline:
 
       Temporal masking
@@ -57,6 +60,7 @@ Functionalities
    .. button-ref:: conditional-masking
       :ref-type: doc
       :color: primary
+      :click-parent:
       :outline:
 
       Conditional masking
@@ -70,6 +74,7 @@ Functionalities
    .. button-ref:: bootstrapping
       :ref-type: doc
       :color: primary
+      :click-parent:
       :outline:
 
       Bootstrapping
@@ -83,6 +88,7 @@ Functionalities
    .. button-ref:: transformation
       :ref-type: doc
       :color: primary
+      :click-parent:
       :outline:
 
       Transformation
@@ -96,6 +102,7 @@ Functionalities
    .. button-ref:: diagnostics
       :ref-type: doc
       :color: primary
+      :click-parent:
       :outline:
 
       Diagnostics

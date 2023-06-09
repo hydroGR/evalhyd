@@ -24,6 +24,7 @@ Getting started
    .. button-ref:: installation
       :ref-type: doc
       :color: primary
+      :click-parent:
       :outline:
 
       Installation
@@ -37,6 +38,7 @@ Getting started
    .. button-ref:: cli
       :ref-type: doc
       :color: primary
+      :click-parent:
       :outline:
 
       CLI reference
@@ -49,6 +51,7 @@ Getting started
 
    .. button-link:: https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-cli
       :color: primary
+      :click-parent:
       :outline:
 
       Source code :fas:`arrow-up-right-from-square`
@@ -61,6 +64,7 @@ Getting started
 
    .. button-link:: https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-cli/-/issues
       :color: primary
+      :click-parent:
       :outline:
 
       Bug report :fas:`arrow-up-right-from-square`
