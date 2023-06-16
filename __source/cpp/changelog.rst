@@ -1,4 +1,4 @@
 Changelog
 =========
 
-.. include:: ../../__code/evalhyd/changelog.rst
+.. include:: ../../__code/evalhyd-cpp/changelog.rst
