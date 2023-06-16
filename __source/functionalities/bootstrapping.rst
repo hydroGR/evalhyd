@@ -10,8 +10,17 @@ A bootstrapping method is available in `evalhyd` to assess the sampling
 uncertainty in the evaluation metrics computed. It follows a non-overlapping
 block bootstrapping approach (see e.g. `Clark et al. (2021)
 <https://doi.org/10.1029/2020WR029001>`_) where blocks are taken to be
-hydrological years of data. For a given period, the bootstrap method
-randomly draws with replacement from the hydrological years it contains.
+full years of data. For a given period, the bootstrap method randomly draws
+with replacement from the years it contains.
+
+.. note::
+
+   While providing full years is a requirement enforced by `evalhyd` to
+   preserve seasonal patterns and intra-annual auto-correlation, the
+   start of the year is left to the appreciation of the user (e.g.
+   hydrological years, calendar years, etc.). And the first date and
+   time provided via the parameter *dts* is used to define the start of
+   the year.
 
 This allows for the estimation of the sampling uncertainty of the
 evaluation metrics, i.e. the influence of the choice of the study period
