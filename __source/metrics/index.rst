@@ -44,9 +44,7 @@ For probabilistic predictions
 :ref:`CR`              Coverage Ratio
 :ref:`AW`              Average Width
 :ref:`AWN`             Average Width Normalised
-:ref:`AWI`             Average Width Index
 :ref:`WS`              Winkler Score
-:ref:`WSS`             Winkler Skill Score
 :ref:`ES`              Energy Score
 =====================  ========================================================
 

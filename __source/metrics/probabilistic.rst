@@ -410,32 +410,8 @@ AWN
 ---
 
 Average width of the predictive interval(s) normalised by the mean
-observation\ [2]_ (`"AWN"`).
-
-.. table::
-   :widths: 35 65
-
-   +-------------------------+------------------------------------------------+
-   | Required inputs         | Output shape                                   |
-   +=========================+================================================+
-   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
-   | `c_lvl`                 | intervals)`                                    |
-   +-------------------------+------------------------------------------------+
-
-AWI
----
-
-Average width index (`"AWI"`), computed as per
+observation\ [2]_ (`"AWN"`), computed as per
 `Bourgin et al. (2015) <https://doi.org/10.5194/hess-19-2535-2015>`_.
-
-.. math::
-
-   AWI = 1 - \frac{AW}{AW_{climatology}}
-
-where :math:`AW_{climatology}`\ [2]_ is the average width computed using the
-observed quantiles (drawn from the observed flow duration curve)
-corresponding to the confidence levels as a constant predictive interval
-for the study period.
 
 .. table::
    :widths: 35 65
@@ -461,30 +437,6 @@ where, for a given confidence level, :math:`\alpha` is the portion not included
 in the central predictive interval, :math:`u` and :math:`l` are the upper and
 lower bounds of the predictive interval, respectively, :math:`x` are the
 observations, and :math:`n` is the number of time steps.
-
-.. table::
-   :widths: 35 65
-
-   +-------------------------+------------------------------------------------+
-   | Required inputs         | Output shape                                   |
-   +=========================+================================================+
-   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
-   | `c_lvl`                 | intervals)`                                    |
-   +-------------------------+------------------------------------------------+
-
-WSS
----
-
-Winkler skill score (`"WSS"`), also known as interval skill score.
-
-.. math::
-
-   WSS = 1 - \frac{WS}{WS_{climatology}}
-
-where :math:`WS_{climatology}`\ [2]_ is the Winkler score computed using the
-observed quantiles (drawn from the observed flow duration curve)
-corresponding to the confidence levels as a constant predictive interval
-for the study period.
 
 .. table::
    :widths: 35 65
