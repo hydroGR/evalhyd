@@ -14,7 +14,7 @@ there is scope for some optimisation by storing these intermediate computations
 so that they can be used by all the evaluation metrics requiring them (i.e.
 the concept of *memoisation* in computing).
 
-For example, the determinist metrics *NSE* and *KGE* both require to compute
+For example, the deterministic metrics *NSE* and *KGE* both require to compute
 the quadratic error between the observations and their arithmetic mean, so it
 is more efficient to compute this quadratic error only once, and reuse it in
 the computation of both *NSE* and *KGE*.
