@@ -73,7 +73,7 @@ Examples using the bootstrapping functionality are provided below.
       ...     dts=dts
       ... )
       >>> res = evalhyd.evalp(
-      ...     obs, prd, ["CRPS"],
+      ...     obs, prd, ["CRPS_FROM_ECDF"],
       ...     bootstrap={"n_samples": 100, "len_sample": 10, "summary": 0},
       ...     dts=dts
       ... )
@@ -84,13 +84,13 @@ Examples using the bootstrapping functionality are provided below.
 
       > res <- evalhyd::evald(
       +     obs, prd, c("NSE"),
-      +     bootstrap=list(n_samples=100, len_sample=10, summary=0),
+      +     bootstrap = list(n_samples = 100, len_sample = 10, summary = 0),
       +     dts=dts
       + )
       > res <- evalhyd::evalp(
-      +     obs, prd, c("CRPS"),
-      +     bootstrap=list(n_samples=100, len_sample=10, summary=0),
-      +     dts=dts
+      +     obs, prd, c("CRPS_FROM_ECDF"),
+      +     bootstrap = list(n_samples = 100, len_sample = 10, summary = 0),
+      +     dts = dts
       + )
 
 .. tabbed:: CLI
@@ -99,5 +99,5 @@ Examples using the bootstrapping functionality are provided below.
 
       $ ./evalhyd evald "obs.csv" "prd.csv" "NSE" --to_file \
       > --bootstrap "n_samples" 100 "len_sample" 10 "summary" 0 --dts "dts.csv"
-      $ ./evalhyd evalp "./obs" "./prd" "CRPS" --to_file \
+      $ ./evalhyd evalp "./obs" "./prd" "CRPS_FROM_ECDF" --to_file \
       > --bootstrap "n_samples" 100 "len_sample" 10 "summary" 0 --dts "dts.csv"

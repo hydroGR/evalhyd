@@ -61,10 +61,10 @@ A few examples of flow transformations are provided below.
 
    .. code-block:: RConsole
 
-      > res <- evalhyd::evald(obs, prd, c("NSE"), transform="sqrt")
-      > res <- evalhyd::evald(obs, prd, c("RMSE"), transform="log")
-      > res <- evalhyd::evald(obs, prd, c("KGE"), transform="inv", epsilon=.5)
-      > res <- evalhyd::evald(obs, prd, c("NSE"), transform="pow", exponent=.8)
+      > res <- evalhyd::evald(obs, prd, c("NSE"), transform = "sqrt")
+      > res <- evalhyd::evald(obs, prd, c("RMSE"), transform = "log")
+      > res <- evalhyd::evald(obs, prd, c("KGE"), transform = "inv", epsilon = .5)
+      > res <- evalhyd::evald(obs, prd, c("NSE"), transform = "pow", exponent = .8)
 
 .. tabbed:: CLI
 

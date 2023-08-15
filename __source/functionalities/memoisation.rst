@@ -87,3 +87,63 @@ applies the masks only after the intermediate computations on individual
 time steps are computed, thus optimising the computation time by avoiding
 performing these intermediate computations on the same time steps several
 times.
+
+That is to say, prefer:
+
+.. tabbed:: Python
+
+   .. code-block:: python
+
+      >>> res = evalhyd.evald(
+      ...     obs, prd, ["NSE"],
+      ...     t_msk=np.array([[[True, True, False, True, False, True],
+      ...                      [False, True, True, True, False, True]]])
+      ... )
+
+.. tabbed:: R
+
+   .. code-block:: RConsole
+
+      > evalhyd::evald(
+      +     obs, prd, c("NSE")
+      +     t_msk = array(
+      +         data = rbind(c(TRUE, TRUE, FALSE, TRUE, FALSE, TRUE),
+      +                      c(FALSE, TRUE, TRUE, TRUE, FALSE, TRUE)),
+      +         dim = c(1, 2, 6)
+      +     )
+      + )
+
+over:
+
+
+.. tabbed:: Python
+
+   .. code-block:: python
+
+      >>> res = evalhyd.evald(
+      ...     obs, prd, ["NSE"],
+      ...     t_msk=np.array([[[True, True, False, True, False, True]]])
+      ... )
+      >>> res = evalhyd.evald(
+      ...     obs, prd, ["NSE"],
+      ...     t_msk=np.array([[[False, True, True, True, False, True]]])
+      ... )
+
+.. tabbed:: R
+
+   .. code-block:: RConsole
+
+      > evalhyd::evald(
+      +     obs, prd, c("NSE")
+      +     t_msk = array(
+      +         data = c(TRUE, TRUE, FALSE, TRUE, FALSE, TRUE),
+      +         dim = c(1, 1, 6)
+      +     )
+      + )
+      > evalhyd::evald(
+      +     obs, prd, c("NSE")
+      +     t_msk = array(
+      +         data = c(FALSE, TRUE, TRUE, TRUE, FALSE, TRUE),
+      +         dim = c(1, 1, 6)
+      +     )
+      + )

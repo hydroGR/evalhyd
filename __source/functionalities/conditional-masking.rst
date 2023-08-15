@@ -53,6 +53,8 @@ are included in the temporal subset.
 
 To illustrate, see the examples below.
 
+.. rubric:: Deterministic evaluation
+
 .. code-block:: text
 
    observations     351         367         377         378         330         324
@@ -62,6 +64,33 @@ To illustrate, see the examples below.
    -------------------------------------------------------------------------------------
    condition        q_obs{<360}
    mask             True        False       False       False       True        True
+
+.. tabbed:: Python
+
+   .. code-block:: python
+
+      >>> res = evalhyd.evald(
+      ...     obs, prd, ["NSE"],
+      ...     m_cdt=np.array([["q_obs{>=330,<370}", "q_obs{<360}"]])
+      ... )
+
+.. tabbed:: R
+
+   .. code-block:: RConsole
+
+      > res <- evalhyd::evald(
+      +     obs, prd, c("NSE"),
+      +     m_cdt = rbind(c("q_obs{>=330,<370}", "q_obs{<360}"))
+      + )
+
+.. tabbed:: CLI
+
+   .. code-block:: console
+
+      $ ./evalhyd evald "obs.csv" "prd.csv" "NSE" --to_file \
+      > --m_cdt "cdt.csv"
+
+.. rubric:: Probabilistic evaluation
 
 .. code-block:: text
 
@@ -75,6 +104,31 @@ To illustrate, see the examples below.
    -------------------------------------------------------------------------------------
    condition        q_prd_mean{>qtl0.2}
    mask             False       True        True        True        False       True
+
+.. tabbed:: Python
+
+   .. code-block:: python
+
+      >>> res = evalhyd.evalp(
+      ...     obs, prd, ["CRPS_FROM_ECDF"],
+      ...     m_cdt=np.array([["q_prd_mean{>qtl0.2}"]])
+      ... )
+
+.. tabbed:: R
+
+   .. code-block:: RConsole
+
+      > res <- evalhyd::evalp(
+      +     obs, prd, c("CRPS_FROM_ECDF"),
+      +     m_cdt = rbind(c("q_prd_mean{>qtl0.2}"))
+      + )
+
+.. tabbed:: CLI
+
+   .. code-block:: console
+
+      $ ./evalhyd evalp "./obs" "./prd" "CRPS_FROM_ECDF" --to_file \
+      > --m_cdt "./cdt"
 
 
 On time indices
@@ -124,3 +178,28 @@ To illustrate, see the examples below.
    -------------------------------------------------------------------------------------
    condition        t{:}
    mask             True        True        True        True        True        True
+
+.. tabbed:: Python
+
+   .. code-block:: python
+
+      >>> res = evalhyd.evald(
+      ...     obs, prd, ["NSE"],
+      ...     m_cdt=np.array([["t{0,1,4}", "t{1:4}", "t{:}"]])
+      ... )
+
+.. tabbed:: R
+
+   .. code-block:: RConsole
+
+      > res <- evalhyd::evald(
+      +     obs, prd, c("NSE"),
+      +     m_cdt = rbind(c("t{0,1,4}", "t{1:4}", "t{:}"))
+      + )
+
+.. tabbed:: CLI
+
+   .. code-block:: console
+
+      $ ./evalhyd evald "obs.csv" "prd.csv" "NSE" --to_file \
+      > --m_cdt "cdt.csv"

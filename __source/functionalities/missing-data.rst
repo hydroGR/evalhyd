@@ -13,6 +13,30 @@ where either observations or predictions are missing are not taken into
 account in the computation of the metrics (a method sometimes referred
 to as *pairwise deletion*).
 
+That is to say that these two calls to `evalhyd` yield the same result:
+
+.. tabbed:: Python
+
+   .. code-block:: python
+
+      >>> import evalhyd
+      >>> import numpy as np
+      >>> (
+      ...     evalhyd.evald(np.array([7, 3, 3, np.nan, 5]), np.array([5, 4, 3, 5, np.nan]), ["KGE"])
+      ...     == evalhyd.evald(np.array([7, 3, 3]), np.array([5, 4, 3]), ["KGE"])
+      ... )
+      True
+
+.. tabbed:: R
+
+   .. code-block:: RConsole
+
+      > all(
+      +    evalhyd::evald(c(7, 3, 3, NA, 5), c(5, 4, 3, 5, NA), c("KGE"))[[1]]
+      +    == evalhyd::evald(c(7, 3, 3), c(5, 4, 3), c("KGE"))[[1]]
+      + )
+      [1] TRUE
+
 :bdg-primary-line:`probabilistic-only`
 
 For a given site, `evalhyd` expects that the time indices in the
@@ -33,8 +57,8 @@ a single time series of streamflow observations can be used across the
 prediction lead times evaluated.
 
 To illustrate, let's look at the simple example below where streamflow
-forecasts are issued daily from the 1st until the 4th of January 2017
-with a one-day, two-day, and three-day lead time.
+forecasts (only one ensemble member shown) are issued daily from the 1st until
+the 4th of January 2017 with a one-day, two-day, and three-day lead time.
 
 .. code-block:: text
 
@@ -58,3 +82,59 @@ January, while the streamflow predictions must "flag" those time steps
 for which they are not making predictions as "not a number" (identified
 as `NaN` in the above example). Indeed, each forecast can only feature
 4 predicted values if forecasts were issued only on 4 consecutive days.
+
+This example translates into the following call to `evalhyd` (where the
+ensemble member shown above is duplicated four times for the only purpose
+of illustration):
+
+.. tabbed:: Python
+
+   .. code-block:: python
+
+      >>> import evalhyd
+      >>> import numpy as np
+      >>> res = evalhyd.evalp(
+      ...     q_obs=np.array([[351, 367, 377, 378, 330, 324]]),
+      ...     q_prd=np.array([[[[312, 335, 358, 342, np.nan, np.nan],
+      ...                       [312, 335, 358, 342, np.nan, np.nan],
+      ...                       [312, 335, 358, 342, np.nan, np.nan],
+      ...                       [312, 335, 358, 342, np.nan, np.nan]],
+      ...                      [[np.nan, 341, 364, 351, 332, np.nan],
+      ...                       [np.nan, 341, 364, 351, 332, np.nan],
+      ...                       [np.nan, 341, 364, 351, 332, np.nan],
+      ...                       [np.nan, 341, 364, 351, 332, np.nan]],
+      ...                      [[np.nan, np.nan, 361, 358, 327, 327],
+      ...                       [np.nan, np.nan, 361, 358, 327, 327],
+      ...                       [np.nan, np.nan, 361, 358, 327, 327],
+      ...                       [np.nan, np.nan, 361, 358, 327, 327]]]]),
+      ...     metrics=["CRPS_FROM_ECDF"]
+      ... )
+
+.. tabbed:: R
+
+   .. code-block:: RConsole
+
+      > res <- evalhyd::evalp(
+      +     q_obs = rbind(c(351, 367, 377, 378, 330, 324)),
+      +     q_prd = aperm(
+      +         array(
+      +             data = c(
+      +                 rbind(c(312, 335, 358, 342, NA, NA),
+      +                       c(312, 335, 358, 342, NA, NA),
+      +                       c(312, 335, 358, 342, NA, NA),
+      +                       c(312, 335, 358, 342, NA, NA)),
+      +                 rbind(c(NA, 341, 364, 351, 332, NA),
+      +                       c(NA, 341, 364, 351, 332, NA),
+      +                       c(NA, 341, 364, 351, 332, NA),
+      +                       c(NA, 341, 364, 351, 332, NA)),
+      +                 rbind(c(NA, NA, 361, 358, 327, 327),
+      +                       c(NA, NA, 361, 358, 327, 327),
+      +                       c(NA, NA, 361, 358, 327, 327),
+      +                       c(NA, NA, 361, 358, 327, 327))
+      +             ),
+      +             dim = c(4, 6, 3, 1)
+      +         ),
+      +         perm = c(4, 3, 1, 2)
+      +     ),
+      +     metrics = c("CRPS_FROM_ECDF")
+      + )

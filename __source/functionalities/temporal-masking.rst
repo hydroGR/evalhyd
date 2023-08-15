@@ -28,13 +28,57 @@ To illustrate, let's look at the simple dataset provided below.
 .. code-block:: text
 
    time index       0           1           2           3           4           5
+
    observations     351         367         377         378         330         324
+   predictions      312         335         358         342         327         327
 
    mask             True        True        False       True        False       True
 
 In this example, the mask provided will result in only considering the time
 steps at indices `0`, `1`, `3`, and `5` in the observations and in the
 predictions for the computation of the desired metrics.
+
+As a result, the two following calls to `evalhyd` yield the same result:
+
+.. tabbed:: Python
+
+   .. code-block:: python
+
+      >>> import evalhyd
+      >>> import numpy as np
+      >>> (
+      ...     evalhyd.evald(
+      ...         q_obs=np.array([351, 367, 377, 378, 330, 324]),
+      ...         q_prd=np.array([312, 335, 358, 342, 327, 327]),
+      ...         metrics=["NSE"],
+      ...         t_msk=np.array([[[True, True, False, True, False, True]]])
+      ...     )
+      ...     == evalhyd.evald(
+      ...         q_obs=np.array([351, 367, 378, 324]),
+      ...         q_prd=np.array([312, 335, 342, 327]),
+      ...         metrics=["NSE"]
+      ...     )
+      ... )
+      True
+
+.. tabbed:: R
+
+   .. code-block:: RConsole
+
+      > all(
+      +     evalhyd::evald(
+      +         q_obs = c(351, 367, 377, 378, 330, 324),
+      +         q_prd = c(312, 335, 358, 342, 327, 327),
+      +         metrics = c("NSE"),
+      +         t_msk = array(c(TRUE, TRUE, FALSE, TRUE, FALSE, TRUE), dim = c(1, 1, 6))
+      +     )[[1]]
+      +     == evalhyd::evald(
+      +         q_obs = c(351, 367, 378, 324),
+      +         q_prd = c(312, 335, 342, 327),
+      +         metrics = c("NSE")
+      +     )[[1]]
+      + )
+      [1] TRUE
 
 .. tip::
 
