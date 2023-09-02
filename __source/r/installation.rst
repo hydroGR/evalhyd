@@ -36,19 +36,23 @@ package manager and the conda-forge channel:
 
       $ rstudio
 
+   .. warning:: This method will not work for Windows users.
+
 
 From source
 -----------
 
-To build `evalhyd-r` from source, simply use `remotes` and point to
-our GitLab repository:
+To build `evalhyd-r` from source, use the following shell commands:
 
-.. code-block:: RConsole
+.. code-block:: console
+   :caption: Clone GitLab repository
 
-   > remotes::install_gitlab("hycar-hydro/evalhyd/evalhyd-r",
-   +                         host = "gitlab.irstea.fr",
-   +                         dependencies = TRUE,
-   +                         force = TRUE)
+   $ git clone --recursive "https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-r.git"
+
+.. code-block:: console
+   :caption: Install from cloned source
+
+   $ R CMD INSTALL evalhyd-r
 
 .. admonition:: Requirements
 
@@ -58,4 +62,4 @@ our GitLab repository:
 
       Rtools
       Rcpp
-      remotes
+      git
