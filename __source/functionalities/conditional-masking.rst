@@ -24,7 +24,7 @@ with one of the following syntaxes:
 where:
 
 - ``<var>`` is the streamflow variable to use to generate the mask and
-  can be the observed streamflow `q_obs` (and, for probabilist evaluation
+  can be the observed streamflow `q_obs` (and, for probabilistic evaluation
   only, the median or the mean across the predicted ensemble members
   `q_prd_median` or `q_prd_mean`, respectively) ;
 - ``<opr>`` can be one of the following operators: `>`, `<`, `>=`,
