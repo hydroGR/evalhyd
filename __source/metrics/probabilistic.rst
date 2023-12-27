@@ -251,6 +251,25 @@ Continuous Ranked Probability Score computed from the Quantile Scores
    | `q_obs`, `q_prd`        | `(sites, lead times, subsets, samples)`        |
    +-------------------------+------------------------------------------------+
 
+.. _CONT-TBL-P:
+
+CONT_TBL
+--------
+
+Cells of the Contingency Table (`"CONT_TBL"`), i.e. the hits :math:`a`,
+the false alarms :math:`b`, the misses :math:`c`, and the correct
+rejections :math:`d`, in this order.
+
+.. table::
+   :widths: 35 65
+
+   +-------------------------+------------------------------------------------+
+   | Required inputs         | Output shape                                   |
+   +=========================+================================================+
+   | `q_obs`, `q_prd`,       | `(sites, lead times, subsets, samples,         |
+   | `q_thr`, `events`\ [1]_ | levels, thresholds, 4)`                        |
+   +-------------------------+------------------------------------------------+
+
 POD
 ---
 

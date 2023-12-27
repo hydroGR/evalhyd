@@ -19,7 +19,7 @@ For deterministic predictions
 :ref:`KGEPRIME_D`      Modified Kling-Gupta Efficiency Decomposed
 :ref:`KGENP`           Non-Parametric Kling-Gupta Efficiency
 :ref:`KGENP_D`         Non-Parametric Kling-Gupta Efficiency Decomposed
-:ref:`CONT_TBL`        Contingency Table
+:ref:`CONT-TBL-D`      Contingency Table
 =====================  ========================================================
 
 For probabilistic predictions
@@ -35,6 +35,7 @@ For probabilistic predictions
 :ref:`CRPS_FROM_ECDF`  Continuous Ranked Probability Score from Empirical CDF
 :ref:`QS`              Quantile Scores
 :ref:`CRPS_FROM_QS`    Continuous Ranked Probability Score from Quantile Scores
+:ref:`CONT-TBL-P`      Contingency Table
 :ref:`POD`             Probability Of Detection
 :ref:`POFD`            Probability of False Detection
 :ref:`FAR`             False Alarm Rate
