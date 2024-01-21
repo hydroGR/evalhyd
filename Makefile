@@ -138,6 +138,11 @@ ifdef VERSION_RELEASE_EVALHYD
 	cp -R ${BLD_DIR}/html/* ${BLD_DIR}/html/${VERSION_RELEASE_EVALHYD}
 	rm -rf ${BLD_DIR}/html/${VERSION_RELEASE_EVALHYD}/${VERSION_RELEASE_EVALHYD}
 endif
+# -----------------------------------------------------------------------------
+# copy html build into root directory
+# -----------------------------------------------------------------------------
+	cp -R ${BLD_DIR}/html/* .
+
 
 build_docs:
 	$(MAKE) clone_repos
