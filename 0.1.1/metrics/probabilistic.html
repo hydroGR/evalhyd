@@ -1,0 +1,1160 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Probabilistic metrics &#8212; evalhyd v0.1.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/my_pygments_light.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/my_pygments_dark.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>window.MathJax = {"chtml": {"displayAlign": "left"}, "options": {"ignoreHtmlClass": "tex2jax_ignore", "processHtmlClass": "tex2jax_process"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'metrics/probabilistic';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://hydrogr.github.io/evalhyd/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'v0.1.1';
+        </script>
+    <link rel="canonical" href="https://hydrogr.github.io/evalhyd/metrics/probabilistic.html" />
+    <link rel="shortcut icon" href="../_static/evalhyd_favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Functionalities" href="../functionalities/index.html" />
+    <link rel="prev" title="Deterministic metrics" href="deterministic.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/evalhyd_logo+text.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/evalhyd_logo+text.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+    
+      <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      v0.1.1  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Metrics
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../functionalities/index.html">
+                        Functionalities
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../cpp/index.html">
+                        C++
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../python/index.html">
+                        Python
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../r/index.html">
+                        R
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../cli/index.html">
+                        Command Line
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd" title="GitLab" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-gitlab"></i></span>
+            <label class="sr-only">GitLab</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Metrics
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../functionalities/index.html">
+                        Functionalities
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../cpp/index.html">
+                        C++
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../python/index.html">
+                        Python
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../r/index.html">
+                        R
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../cli/index.html">
+                        Command Line
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd" title="GitLab" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-gitlab"></i></span>
+            <label class="sr-only">GitLab</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="deterministic.html">Deterministic metrics</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Probabilistic metrics</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Metrics</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Probabilistic metrics</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="probabilistic-metrics">
+<h1>Probabilistic metrics<a class="headerlink" href="#probabilistic-metrics" title="Permalink to this headline"><span class="fa fa-link"></a></h1>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>All the metrics listed below are accessible via <code class="docutils literal notranslate"><span class="pre">evalp</span></code>, the probabilistic
+entry point of <code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span></code>.</p>
+<p>For example, the Brier score can be computed as follows:</p>
+<div class="tabbed-set docutils">
+<input checked="checked" id="a6d10a3d-bb38-43ba-b0bf-5330388bba56" name="1acb796a-5cf8-4f53-90d9-7d5d0c08143e" type="radio">
+</input><label class="tabbed-label" for="a6d10a3d-bb38-43ba-b0bf-5330388bba56">
+C++</label><div class="tabbed-content docutils">
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xtensor/xtensor.hpp&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;xtensor/xio.hpp&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;evalhyd/evalp.hpp&gt;</span>
+
+<span class="n">xt</span><span class="o">::</span><span class="n">xtensor</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;</span><span class="w"> </span><span class="n">obs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="mf">4.7</span><span class="p">,</span><span class="w"> </span><span class="mf">4.3</span><span class="p">,</span><span class="w"> </span><span class="mf">5.5</span><span class="p">,</span><span class="w"> </span><span class="mf">2.7</span><span class="p">,</span><span class="w"> </span><span class="mf">4.1</span><span class="p">}};</span>
+<span class="n">xt</span><span class="o">::</span><span class="n">xtensor</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="o">&gt;</span><span class="w"> </span><span class="n">prd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{{{</span><span class="mf">5.3</span><span class="p">,</span><span class="w"> </span><span class="mf">4.2</span><span class="p">,</span><span class="w"> </span><span class="mf">5.7</span><span class="p">,</span><span class="w"> </span><span class="mf">2.3</span><span class="p">,</span><span class="w"> </span><span class="mf">3.1</span><span class="p">},</span>
+<span class="w">                                </span><span class="p">{</span><span class="mf">4.3</span><span class="p">,</span><span class="w"> </span><span class="mf">4.2</span><span class="p">,</span><span class="w"> </span><span class="mf">4.7</span><span class="p">,</span><span class="w"> </span><span class="mf">4.3</span><span class="p">,</span><span class="w"> </span><span class="mf">3.3</span><span class="p">},</span>
+<span class="w">                                </span><span class="p">{</span><span class="mf">5.3</span><span class="p">,</span><span class="w"> </span><span class="mf">5.2</span><span class="p">,</span><span class="w"> </span><span class="mf">5.7</span><span class="p">,</span><span class="w"> </span><span class="mf">2.3</span><span class="p">,</span><span class="w"> </span><span class="mf">3.9</span><span class="p">}}}};</span>
+<span class="n">xt</span><span class="o">::</span><span class="n">xtensor</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;</span><span class="w"> </span><span class="n">thr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{{</span><span class="mf">4.</span><span class="p">,</span><span class="w"> </span><span class="mf">5.</span><span class="p">}};</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">evalhyd</span><span class="o">::</span><span class="n">evalp</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;BS&quot;</span><span class="p">},</span><span class="w"> </span><span class="n">thr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;high&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="c1">// {{{{{ 0.222222,  0.133333}}}}}</span>
+</pre></div>
+</div>
+</div>
+<input id="f95cd511-7ca1-4ad4-b013-e67a591b0d92" name="1acb796a-5cf8-4f53-90d9-7d5d0c08143e" type="radio">
+</input><label class="tabbed-label" for="f95cd511-7ca1-4ad4-b013-e67a591b0d92">
+Python</label><div class="tabbed-content docutils">
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
+<span class="gp">... </span><span class="n">obs</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="p">[[</span><span class="mf">4.7</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">,</span> <span class="mf">4.1</span><span class="p">]]</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">... </span><span class="n">prd</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="p">[[[[</span><span class="mf">5.3</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">,</span> <span class="mf">5.7</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">],</span>
+<span class="gp">... </span>       <span class="p">[</span><span class="mf">4.3</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">,</span> <span class="mf">4.7</span><span class="p">,</span> <span class="mf">4.3</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">],</span>
+<span class="gp">... </span>       <span class="p">[</span><span class="mf">5.3</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">,</span> <span class="mf">5.7</span><span class="p">,</span> <span class="mf">2.3</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">]]]]</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">... </span><span class="n">thr</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">evalhyd</span>
+<span class="gp">... </span><span class="n">evalhyd</span><span class="o">.</span><span class="n">evalp</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">prd</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;BS&quot;</span><span class="p">],</span> <span class="n">thr</span><span class="p">,</span> <span class="n">events</span><span class="o">=</span><span class="s2">&quot;high&quot;</span><span class="p">)</span>
+<span class="go">[array([[[[[0.22222222, 0.13333333]]]]])]</span>
+</pre></div>
+</div>
+</div>
+<input id="30eb1a49-859f-41d6-812c-fa3c00ef5073" name="1acb796a-5cf8-4f53-90d9-7d5d0c08143e" type="radio">
+</input><label class="tabbed-label" for="30eb1a49-859f-41d6-812c-fa3c00ef5073">
+R</label><div class="tabbed-content docutils">
+<div class="highlight-RConsole notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt; </span><span class="n">obs</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span>
+<span class="gp">+ </span><span class="w">    </span><span class="nf">c</span><span class="p">(</span><span class="m">4.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.3</span><span class="p">,</span><span class="w"> </span><span class="m">5.5</span><span class="p">,</span><span class="w"> </span><span class="m">2.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.1</span><span class="p">)</span>
+<span class="gp">+ </span><span class="p">)</span>
+<span class="gp">&gt; </span><span class="n">prd</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">array</span><span class="p">(</span>
+<span class="gp">+ </span><span class="w">    </span><span class="nf">rbind</span><span class="p">(</span>
+<span class="gp">+ </span><span class="w">        </span><span class="nf">c</span><span class="p">(</span><span class="m">5.3</span><span class="p">,</span><span class="w"> </span><span class="m">4.2</span><span class="p">,</span><span class="w"> </span><span class="m">5.7</span><span class="p">,</span><span class="w"> </span><span class="m">2.3</span><span class="p">,</span><span class="w"> </span><span class="m">3.1</span><span class="p">),</span>
+<span class="gp">+ </span><span class="w">        </span><span class="nf">c</span><span class="p">(</span><span class="m">4.3</span><span class="p">,</span><span class="w"> </span><span class="m">4.2</span><span class="p">,</span><span class="w"> </span><span class="m">4.7</span><span class="p">,</span><span class="w"> </span><span class="m">4.3</span><span class="p">,</span><span class="w"> </span><span class="m">3.3</span><span class="p">),</span>
+<span class="gp">+ </span><span class="w">        </span><span class="nf">c</span><span class="p">(</span><span class="m">5.3</span><span class="p">,</span><span class="w"> </span><span class="m">5.2</span><span class="p">,</span><span class="w"> </span><span class="m">5.7</span><span class="p">,</span><span class="w"> </span><span class="m">2.3</span><span class="p">,</span><span class="w"> </span><span class="m">3.9</span><span class="p">)</span>
+<span class="gp">+ </span><span class="w">    </span><span class="p">),</span>
+<span class="gp">+ </span><span class="w">    </span><span class="n">dim</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">)</span>
+<span class="gp">+ </span><span class="p">)</span>
+<span class="gp">&gt; </span><span class="n">thr</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">rbind</span><span class="p">(</span>
+<span class="gp">+ </span><span class="w">    </span><span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="n">.</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="n">.</span><span class="p">)</span>
+<span class="gp">+ </span><span class="p">)</span>
+<span class="gp">&gt; </span><span class="nf">library</span><span class="p">(</span><span class="n">evalhyd</span><span class="p">)</span>
+<span class="gp">&gt; </span><span class="n">evalhyd</span><span class="o">::</span><span class="nf">evalp</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span><span class="w"> </span><span class="n">prd</span><span class="p">,</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;BS&quot;</span><span class="p">),</span><span class="w"> </span><span class="n">thr</span><span class="p">,</span><span class="w"> </span><span class="n">events</span><span class="o">=</span><span class="s">&quot;high&quot;</span><span class="p">)</span>
+<span class="go">[[1]]</span>
+<span class="go">, , 1, 1, 1</span>
+
+<span class="go">          [,1]</span>
+<span class="go">[1,] 0.2222222</span>
+
+<span class="go">, , 1, 1, 2</span>
+
+<span class="go">          [,1]</span>
+<span class="go">[1,] 0.1333333</span>
+</pre></div>
+</div>
+</div>
+<input id="67e702cf-266e-4fab-89cb-1a578b06e754" name="1acb796a-5cf8-4f53-90d9-7d5d0c08143e" type="radio">
+</input><label class="tabbed-label" for="67e702cf-266e-4fab-89cb-1a578b06e754">
+CLI</label><div class="tabbed-content docutils">
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>./evalhyd<span class="w"> </span>evalp<span class="w"> </span><span class="s2">&quot;./obs/&quot;</span><span class="w"> </span><span class="s2">&quot;./prd/&quot;</span><span class="w"> </span><span class="s2">&quot;BS&quot;</span><span class="w"> </span>--q_thr<span class="w"> </span><span class="s2">&quot;./thr/&quot;</span><span class="w"> </span>--events<span class="w"> </span><span class="s2">&quot;high&quot;</span>
+<span class="go">{{{{{ 0.222222,  0.133333}}}}}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<section id="bs">
+<h2>BS<a class="headerlink" href="#bs" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Brier Score (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;BS&quot;</span></code>) originally derived by <a class="reference external" href="https://doi.org/10.1175/1520-0493(1950)078&lt;0001:VOFEIT&gt;2.0.CO;2">Brier (1950)</a>, but
+computed as per <a class="reference external" href="https://doi.org/10.1016/B978-0-12-385022-5.00008-7">Wilks (2011)</a>:</p>
+<div class="math notranslate nohighlight">
+\[BS = \frac{1}{n} \sum_{k=1}^{n} (o_k - y_k)^2\]</div>
+<p>where, for a dichotomous event, <span class="math notranslate nohighlight">\(y_k\)</span> is the event forecast probability,
+<span class="math notranslate nohighlight">\(o_k\)</span> is the observed event outcome, and <span class="math notranslate nohighlight">\(n\)</span> is the number of time
+steps.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id15" id="id1">1</a></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">thresholds)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bss">
+<h2>BSS<a class="headerlink" href="#bss" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Brier Skill Score (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;BSS&quot;</span></code>), computed as per <a class="reference external" href="https://doi.org/10.1016/B978-0-12-385022-5.00008-7">Wilks (2011)</a>:</p>
+<div class="math notranslate nohighlight">
+\[BSS = 1 - \frac{BS}{BS_{reference}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(BS_{reference} = \frac{1}{n} \sum_{k=1}^{n} (o_k - \bar{o})^2\)</span><a class="footnote-reference brackets" href="#id16" id="id3">2</a>,
+<span class="math notranslate nohighlight">\(o_k\)</span> is the observed event outcome, <span class="math notranslate nohighlight">\(n\)</span> is the number of time
+steps, and <span class="math notranslate nohighlight">\(\bar{o}\)</span> is the mean observed event occurrence for the
+study period.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id15" id="id4">1</a></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">thresholds)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bs-crd">
+<h2>BS_CRD<a class="headerlink" href="#bs-crd" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Calibration-Refinement Decomposition of the Brier Score (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;BS_CRD&quot;</span></code>)
+into the three components reliability, resolution, and uncertainty
+[returned in this order].</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id15" id="id5">1</a></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">thresholds,</span> <span class="pre">3)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="bs-lbd">
+<h2>BS_LBD<a class="headerlink" href="#bs-lbd" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Likelihood-Base rate Decomposition of the Brier Score (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;BS_LBD&quot;</span></code>)
+into the three components type 2 bias, discrimination, and sharpness
+(a.k.a. refinement) [returned in this order].</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id15" id="id6">1</a></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">thresholds,</span> <span class="pre">3)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rel-diag">
+<h2>REL_DIAG<a class="headerlink" href="#rel-diag" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>X and Y axes of the reliability diagram (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;REL_DIAG&quot;</span></code>) and ordinates
+of its associated sampling histogram: forecast probabilities (X),
+observed frequencies (Y), and number of forecasts for each forecast
+probability [returned in this order].</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id15" id="id7">1</a></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">thresholds,</span> <span class="pre">bins,</span> <span class="pre">3)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crps-from-bs">
+<h2>CRPS_FROM_BS<a class="headerlink" href="#crps-from-bs" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Continuous Ranked Probability Score computed from 101 Brier Scores
+(<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;CRPS_FROM_BS&quot;</span></code>), i.e. using the observed minimum, the 99 observed
+percentiles, and the observed maximum as streamflow thresholds.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id15" id="id8">1</a></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crps-from-ecdf">
+<h2>CRPS_FROM_ECDF<a class="headerlink" href="#crps-from-ecdf" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Continuous Ranked Probability Score computed from the Empirical Cumulative
+Density Function (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;CRPS_FROM_ECDF&quot;</span></code>), i.e. constructed from the ensemble
+member predictions.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="qs">
+<h2>QS<a class="headerlink" href="#qs" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Quantile Scores (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;QS&quot;</span></code>) where the ensemble member predictions are treated
+as quantiles.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">quantiles)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="crps-from-qs">
+<h2>CRPS_FROM_QS<a class="headerlink" href="#crps-from-qs" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Continuous Ranked Probability Score computed from the Quantile Scores
+(<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;CRPS_FROM_QS&quot;</span></code>).</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pod">
+<h2>POD<a class="headerlink" href="#pod" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Probability Of Detection (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;POD&quot;</span></code>) also known as “hit rate”, derived
+from the contingency table.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id15" id="id9">1</a></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">levels,</span> <span class="pre">thresholds)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pofd">
+<h2>POFD<a class="headerlink" href="#pofd" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Probability Of False Detection (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;POFD&quot;</span></code>) also known as “false alarm rate”,
+derived from the contingency table.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id15" id="id10">1</a></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">levels,</span> <span class="pre">thresholds)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="far">
+<h2>FAR<a class="headerlink" href="#far" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>False Alarm Ratio (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;FAR&quot;</span></code>), derived from the contingency table.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id15" id="id11">1</a></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">levels,</span> <span class="pre">thresholds)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="csi">
+<h2>CSI<a class="headerlink" href="#csi" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Critical Success Index (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;CSI&quot;</span></code>), derived from the contingency table.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id15" id="id12">1</a></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">levels,</span> <span class="pre">thresholds)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rocss">
+<h2>ROCSS<a class="headerlink" href="#rocss" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Relative Operating Characteristic Skill Score (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;ROCSS&quot;</span></code>), derived from
+the contingency table, and based on computing the area under the ROC curve.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">q_thr</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">events</span></code><a class="footnote-reference brackets" href="#id15" id="id13">1</a></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">thresholds)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rank-hist">
+<h2>RANK_HIST<a class="headerlink" href="#rank-hist" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Frequencies of the Rank Histogram (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;RANK_HIST&quot;</span></code>), also known as the
+Talagrand diagram.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">ranks)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ds">
+<h2>DS<a class="headerlink" href="#ds" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Delta score (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;DS&quot;</span></code>) as per <a class="reference external" href="https://doi.org/10.1256/qj.04.71">Candille and Talagrand (2005)</a>.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="as">
+<h2>AS<a class="headerlink" href="#as" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Alpha score (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;AS&quot;</span></code>) as per <a class="reference external" href="https://doi.org/10.1029/2009WR008328">Renard et al. (2010)</a>.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cr">
+<h2>CR<a class="headerlink" href="#cr" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Coverage ratio (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;CR&quot;</span></code>), i.e. the portion of observations falling within the
+predictive intervals. It is a measure of the reliability of the predictions.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">c_lvl</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">intervals)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="aw">
+<h2>AW<a class="headerlink" href="#aw" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Average width (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;AW&quot;</span></code>) of the predictive interval(s). It is a measure of the
+sharpness of the predictions.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">c_lvl</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">intervals)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="awn">
+<h2>AWN<a class="headerlink" href="#awn" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Average width of the predictive interval(s) normalised by the mean
+observation<a class="footnote-reference brackets" href="#id16" id="id14">2</a> (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;AWN&quot;</span></code>), computed as per
+<a class="reference external" href="https://doi.org/10.5194/hess-19-2535-2015">Bourgin et al. (2015)</a>.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">c_lvl</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">intervals)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="ws">
+<h2>WS<a class="headerlink" href="#ws" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Winkler score (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;WS&quot;</span></code>), also known as interval score, computed as per
+<a class="reference external" href="https://doi.org/10.1198/016214506000001437">Gneiting and Raftery (2007)</a>.</p>
+<div class="math notranslate nohighlight">
+\[WS = \frac{1}{n} \sum_{k=1}^{n} (u_k - l_k) + \frac{2}{\alpha} (l_k - x_k)𝟙\{x_k &lt; l_k\} + \frac{2}{\alpha} (x_K - u_k)𝟙\{x_k &gt; u_k\}\]</div>
+<p>where, for a given confidence level, <span class="math notranslate nohighlight">\(\alpha\)</span> is the portion not included
+in the central predictive interval, <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(l\)</span> are the upper and
+lower bounds of the predictive interval, respectively, <span class="math notranslate nohighlight">\(x\)</span> are the
+observations, and <span class="math notranslate nohighlight">\(n\)</span> is the number of time steps.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code>,
+<code class="xref py py-obj docutils literal notranslate"><span class="pre">c_lvl</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(sites,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples,</span>
+<span class="pre">intervals)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="es">
+<h2>ES<a class="headerlink" href="#es" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Energy score (<code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;ES&quot;</span></code>) is a multivariate (i.e. multisite) generalisation
+of the continuous rank probability score.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Required inputs</p></th>
+<th class="head"><p>Output shape</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">q_obs</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">q_prd</span></code></p></td>
+<td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">lead</span> <span class="pre">times,</span> <span class="pre">subsets,</span> <span class="pre">samples)</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Footnotes</p>
+<dl class="footnote brackets">
+<dt class="label" id="id15"><span class="brackets">1</span><span class="fn-backref">(<a href="#id1">1</a>,<a href="#id4">2</a>,<a href="#id5">3</a>,<a href="#id6">4</a>,<a href="#id7">5</a>,<a href="#id8">6</a>,<a href="#id9">7</a>,<a href="#id10">8</a>,<a href="#id11">9</a>,<a href="#id12">10</a>,<a href="#id13">11</a>)</span></dt>
+<dd><p>The threshold value is included in the definition of the <em>events</em>
+both for low flow and high flow events, i.e. where a streamflow
+observation/prediction value is equal to the threshold value, the
+event is considered to have occurred.</p>
+</dd>
+<dt class="label" id="id16"><span class="brackets">2</span><span class="fn-backref">(<a href="#id3">1</a>,<a href="#id14">2</a>)</span></dt>
+<dd><p>The metric value returned is <span class="math notranslate nohighlight">\(-\infty\)</span> when the
+reference/climatology/normalisation value is zero.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bs">BS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bss">BSS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bs-crd">BS_CRD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bs-lbd">BS_LBD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rel-diag">REL_DIAG</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crps-from-bs">CRPS_FROM_BS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crps-from-ecdf">CRPS_FROM_ECDF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#qs">QS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crps-from-qs">CRPS_FROM_QS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pod">POD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pofd">POFD</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#far">FAR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#csi">CSI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rocss">ROCSS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rank-hist">RANK_HIST</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ds">DS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#as">AS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cr">CR</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#aw">AW</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#awn">AWN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ws">WS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#es">ES</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2022-2023, INRAE.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    <br/>
+  </p>
+</div>
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 16, 2023.
+  <br/>
+</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><a class="navbar-corporate" href="https://webgr.inrae.fr/" rel="noopener" target="_blank">
+  
+  
+    <img src="../_static/marianne+inrae-logo-light.svg" class="logo__image only-light" alt="Marianne+INRAE logo">
+    <img src="../_static/marianne+inrae-logo-dark.svg" class="logo__image only-dark" alt="Marianne+INRAE logo">
+</a></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

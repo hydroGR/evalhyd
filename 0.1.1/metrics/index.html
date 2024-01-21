@@ -1,0 +1,645 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Metrics &#8212; evalhyd v0.1.1 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/my_pygments_light.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/my_pygments_dark.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'metrics/index';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://hydrogr.github.io/evalhyd/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'v0.1.1';
+        </script>
+    <link rel="canonical" href="https://hydrogr.github.io/evalhyd/metrics/index.html" />
+    <link rel="shortcut icon" href="../_static/evalhyd_favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Deterministic metrics" href="deterministic.html" />
+    <link rel="prev" title="A polyglot evaluator for streamflow predictions" href="../index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/evalhyd_logo+text.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/evalhyd_logo+text.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+    
+      <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      v0.1.1  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Metrics
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../functionalities/index.html">
+                        Functionalities
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../cpp/index.html">
+                        C++
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../python/index.html">
+                        Python
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../r/index.html">
+                        R
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../cli/index.html">
+                        Command Line
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd" title="GitLab" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-gitlab"></i></span>
+            <label class="sr-only">GitLab</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Metrics
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../functionalities/index.html">
+                        Functionalities
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../cpp/index.html">
+                        C++
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../python/index.html">
+                        Python
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../r/index.html">
+                        R
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../cli/index.html">
+                        Command Line
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd" title="GitLab" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-gitlab"></i></span>
+            <label class="sr-only">GitLab</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="deterministic.html">Deterministic metrics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="probabilistic.html">Probabilistic metrics</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Metrics</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="metrics">
+<h1>Metrics<a class="headerlink" href="#metrics" title="Permalink to this headline"><span class="fa fa-link"></a></h1>
+<section id="for-deterministic-predictions">
+<h2>For deterministic predictions<a class="headerlink" href="#for-deterministic-predictions" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 73%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="deterministic.html#mae"><span class="std std-ref">MAE</span></a></p></td>
+<td><p>Mean Absolute Error</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="deterministic.html#mare"><span class="std std-ref">MARE</span></a></p></td>
+<td><p>Mean Absolute Relative Error</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="deterministic.html#mse"><span class="std std-ref">MSE</span></a></p></td>
+<td><p>Mean Square Error</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="deterministic.html#rmse"><span class="std std-ref">RMSE</span></a></p></td>
+<td><p>Root Mean Square Error</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="deterministic.html#nse"><span class="std std-ref">NSE</span></a></p></td>
+<td><p>Nash-Sutcliffe Efficiency</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="deterministic.html#kge"><span class="std std-ref">KGE</span></a></p></td>
+<td><p>Kling-Gupta Efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="deterministic.html#kge-d"><span class="std std-ref">KGE_D</span></a></p></td>
+<td><p>Kling-Gupta Efficiency Decomposed</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="deterministic.html#kgeprime"><span class="std std-ref">KGEPRIME</span></a></p></td>
+<td><p>Modified Kling-Gupta Efficiency</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="deterministic.html#kgeprime-d"><span class="std std-ref">KGEPRIME_D</span></a></p></td>
+<td><p>Modified Kling-Gupta Efficiency Decomposed</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="deterministic.html#cont-tbl"><span class="std std-ref">CONT_TBL</span></a></p></td>
+<td><p>Contingency Table</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="for-probabilistic-predictions">
+<h2>For probabilistic predictions<a class="headerlink" href="#for-probabilistic-predictions" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<table class="table">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 73%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="probabilistic.html#bs"><span class="std std-ref">BS</span></a></p></td>
+<td><p>Brier Score</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="probabilistic.html#bss"><span class="std std-ref">BSS</span></a></p></td>
+<td><p>Brier Skill Score</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="probabilistic.html#bs-crd"><span class="std std-ref">BS_CRD</span></a></p></td>
+<td><p>Calibration-Refinement Decomposition of the Brier Score</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="probabilistic.html#bs-lbd"><span class="std std-ref">BS_LBD</span></a></p></td>
+<td><p>Likelihood-Base rate Decomposition of the Brier Score</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="probabilistic.html#rel-diag"><span class="std std-ref">REL_DIAG</span></a></p></td>
+<td><p>Reliability Diagram</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="probabilistic.html#crps-from-bs"><span class="std std-ref">CRPS_FROM_BS</span></a></p></td>
+<td><p>Continuous Ranked Probability Score from Brier Scores</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="probabilistic.html#crps-from-ecdf"><span class="std std-ref">CRPS_FROM_ECDF</span></a></p></td>
+<td><p>Continuous Ranked Probability Score from Empirical CDF</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="probabilistic.html#qs"><span class="std std-ref">QS</span></a></p></td>
+<td><p>Quantile Scores</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="probabilistic.html#crps-from-qs"><span class="std std-ref">CRPS_FROM_QS</span></a></p></td>
+<td><p>Continuous Ranked Probability Score from Quantile Scores</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="probabilistic.html#pod"><span class="std std-ref">POD</span></a></p></td>
+<td><p>Probability Of Detection</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="probabilistic.html#pofd"><span class="std std-ref">POFD</span></a></p></td>
+<td><p>Probability of False Detection</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="probabilistic.html#far"><span class="std std-ref">FAR</span></a></p></td>
+<td><p>False Alarm Rate</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="probabilistic.html#csi"><span class="std std-ref">CSI</span></a></p></td>
+<td><p>Critical Success Index</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="probabilistic.html#rocss"><span class="std std-ref">ROCSS</span></a></p></td>
+<td><p>Relative Operating Characteristic Skill Score</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="probabilistic.html#rank-hist"><span class="std std-ref">RANK_HIST</span></a></p></td>
+<td><p>Rank Histogram</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="probabilistic.html#ds"><span class="std std-ref">DS</span></a></p></td>
+<td><p>Delta Score</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="probabilistic.html#as"><span class="std std-ref">AS</span></a></p></td>
+<td><p>Alpha Score</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="probabilistic.html#cr"><span class="std std-ref">CR</span></a></p></td>
+<td><p>Coverage Ratio</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="probabilistic.html#aw"><span class="std std-ref">AW</span></a></p></td>
+<td><p>Average Width</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="probabilistic.html#awn"><span class="std std-ref">AWN</span></a></p></td>
+<td><p>Average Width Normalised</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="probabilistic.html#ws"><span class="std std-ref">WS</span></a></p></td>
+<td><p>Winkler Score</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="probabilistic.html#es"><span class="std std-ref">ES</span></a></p></td>
+<td><p>Energy Score</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-deterministic-predictions">For deterministic predictions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-probabilistic-predictions">For probabilistic predictions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2022-2023, INRAE.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    <br/>
+  </p>
+</div>
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jun 16, 2023.
+  <br/>
+</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><a class="navbar-corporate" href="https://webgr.inrae.fr/" rel="noopener" target="_blank">
+  
+  
+    <img src="../_static/marianne+inrae-logo-light.svg" class="logo__image only-light" alt="Marianne+INRAE logo">
+    <img src="../_static/marianne+inrae-logo-dark.svg" class="logo__image only-dark" alt="Marianne+INRAE logo">
+</a></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
