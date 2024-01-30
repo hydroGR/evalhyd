@@ -5,11 +5,26 @@
 Installation
 ============
 
+From R-universe
+---------------
+
+The recommended way to install `evalhyd-r` is to use the R-universe platform:
+
+.. code-block:: RConsole
+   :caption: Install `evalhyd-r` from R-universe
+
+   > install.packages(
+   +     'evalhyd',
+   +     repos = c('https://hydrogr.r-universe.dev',
+   +               'https://cloud.r-project.org')
+   + )
+
+
 From conda-forge
 ----------------
 
-The recommended way to install `evalhyd-r` is to use a `conda`-like
-package manager and the conda-forge channel:
+`evalhyd-r` is also available on conda-forge, so that it
+can be installed with any `conda`-like package manager:
 
 .. code-block:: console
    :caption: Install using `mamba` and the conda-forge channel
