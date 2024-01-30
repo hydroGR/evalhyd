@@ -1,0 +1,145 @@
+.. currentmodule:: evalhyd
+.. default-role:: obj
+
+C++
+===
+
+`evalhyd-cpp` is a C++ library to evaluate deterministic and probabilistic
+streamflow predictions.
+
+Getting started
+---------------
+
+.. panels::
+   :card: + intro-card text-center
+   :column: col-lg-3 col-md-3 col-sm-6 col-xs-12 p-2
+   :footer: bg-white border-0
+
+   ---
+
+   :fas:`rocket;sd-text-info fa-4x`
+
+   +++
+
+   .. button-ref:: installation
+      :ref-type: doc
+      :color: primary
+      :click-parent:
+      :outline:
+
+      Installation
+
+   ---
+
+   :fas:`gear;sd-text-info fa-4x`
+
+   +++
+
+   .. button-ref:: api
+      :ref-type: doc
+      :color: primary
+      :click-parent:
+      :outline:
+
+      API reference
+
+   ---
+
+   :fas:`code;sd-text-info fa-4x`
+
+   +++
+
+   .. button-link:: https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-cpp
+      :color: primary
+      :click-parent:
+      :outline:
+
+      Source code :fas:`arrow-up-right-from-square`
+
+   ---
+
+   :fas:`bug;sd-text-info fa-4x`
+
+   +++
+
+   .. button-link:: https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-cpp/-/issues
+      :color: primary
+      :click-parent:
+      :outline:
+
+      Bug report :fas:`arrow-up-right-from-square`
+
+
+Brief usage overview
+--------------------
+
+.. grid::
+   :gutter: 3
+   :margin: 0
+   :padding: 0
+
+   .. grid-item::
+      :columns: 12 12 6 6
+
+      .. code-block:: cpp
+         :caption: Deterministic evaluation
+
+         #include <xtensor/xtensor.hpp>
+         #include <xtensor/xio.hpp>
+         #include <evalhyd/evald.hpp>
+
+         xt::xtensor<double, 2> obs =
+             {{4.7, 4.3, 5.5, 2.7}};
+         xt::xtensor<double, 2> prd =
+             {{5.3, 4.2, 5.7, 2.3}};
+
+         auto res =
+             evalhyd::evald(obs, prd, {"NSE"});
+
+         std::cout << res[0] << std::endl;
+         // {{{ 0.862981}}}
+
+   .. grid-item::
+      :columns: 12 12 6 6
+
+      .. code-block:: cpp
+         :caption: Probabilistic evaluation
+
+         #include <xtensor/xtensor.hpp>
+         #include <xtensor/xio.hpp>
+         #include <evalhyd/evalp.hpp>
+
+         xt::xtensor<double, 2> obs =
+             {{4.7, 4.3, 5.5, 2.7, 4.1}};
+         xt::xtensor<double, 4> prd =
+             {{{{5.3, 4.2, 5.7, 2.3, 3.1},
+                {4.3, 4.2, 4.7, 4.3, 3.3},
+                {5.3, 5.2, 5.7, 2.3, 3.9}}}};
+         xt::xtensor<double, 2> thr = {{4., 5.}};
+
+         auto res =
+             evalhyd::evalp(obs, prd, {"BS"},
+                            thr, "high");
+
+         std::cout << res[0] << std::endl;
+         // {{{{{ 0.222222,  0.133333}}}}}
+
+   .. grid-item::
+      :columns: 12 12 12 12
+
+      .. button-link:: https://mybinder.org/v2/git/https%3A%2F%2Fgitlab.irstea.fr%2FHYCAR-Hydro%2Fevalhyd%2Fevalhyd-notebooks%2Fcpp/HEAD?filepath=evalhyd-cpp.ipynb
+         :color: primary
+         :outline:
+         :expand:
+
+         Try it yourself in a notebook :fas:`arrow-up-right-from-square`
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 1
+
+   installation
+   api
+   changelog
+   licence

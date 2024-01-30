@@ -1,0 +1,888 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>evalhyd evalp &#8212; evalhyd-cli latest documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my_pygments_light.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my_pygments_dark.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cli/subcommands/evalhyd_evalp';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://hydrogr.github.io/evalhyd/cli/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'latest';
+        </script>
+    <link rel="canonical" href="https://hydrogr.github.io/evalhyd/cli/cli/subcommands/evalhyd_evalp.html" />
+    <link rel="shortcut icon" href="../../_static/evalhyd_favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Changelog" href="../changelog.html" />
+    <link rel="prev" title="evalhyd evald" href="evalhyd_evald.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/evalhyd-cli_logo+text.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/evalhyd-cli_logo+text.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+    
+      <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      latest  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../metrics/index.html">
+                        Metrics
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../functionalities/index.html">
+                        Functionalities
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../cpp/index.html">
+                        C++
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../python/index.html">
+                        Python
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../r/index.html">
+                        R
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Command Line
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd" title="GitLab" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-gitlab"></i></span>
+            <label class="sr-only">GitLab</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../metrics/index.html">
+                        Metrics
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../functionalities/index.html">
+                        Functionalities
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../cpp/index.html">
+                        C++
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../python/index.html">
+                        Python
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../r/index.html">
+                        R
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Command Line
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd" title="GitLab" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-gitlab"></i></span>
+            <label class="sr-only">GitLab</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../cli.html">CLI reference</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="evalhyd_evald.html">evalhyd evald</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">evalhyd evalp</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licence.html">Licence</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Command Line</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../cli.html" class="nav-link">CLI reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">evalhyd evalp</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="evalhyd-evalp">
+<span id="cli-evalp"></span><h1>evalhyd evalp<a class="headerlink" href="#evalhyd-evalp" title="Permalink to this headline"><span class="fa fa-link"></a></h1>
+<p>Evaluate probabilistic predictions.</p>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span> <span class="pre">evalp</span> <span class="pre">[OPTIONS]</span> <span class="pre">q_obs</span> <span class="pre">q_prd</span> <span class="pre">metrics...</span></code></p>
+</section>
+<section id="positionals">
+<h2>Positionals<a class="headerlink" href="#positionals" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-q_obs">
+<span id="cmdoption-arg-q-obs"></span><span class="sig-name descname"><span class="pre">q_obs</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT:DIR&gt;</span></span><a class="headerlink" href="#cmdoption-arg-q_obs" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>Path to directory where CSV files containing streamflow observations
+are. The directory must contain separate files for each site, whose
+filenames must match those found in <em>q_prd</em>.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">Directory structure to follow for observations.</span><a class="headerlink" href="#id1" title="Permalink to this code"><span class="fa fa-link"></a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;q_obs&gt;
+├── site_a.csv
+├── site_b.csv
+┆   ···
+└── site_z.csv
+</pre></div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Each CSV file must feature one line and as many columns as there
+are time steps in the study period [shape: (1, time)]. Time steps
+with missing observations must be assigned <code class="xref py py-obj docutils literal notranslate"><span class="pre">NAN</span></code> values. Those
+time steps will be ignored both in the observations and in the
+predictions before the <em>metrics</em> are computed.</p>
+</div>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-q_prd">
+<span id="cmdoption-arg-q-prd"></span><span class="sig-name descname"><span class="pre">q_prd</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT:DIR&gt;</span></span><a class="headerlink" href="#cmdoption-arg-q_prd" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>Path to directory where CSV files containing streamflow predictions
+are, following the example structure below to distinguish each
+leadtime and each site:</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">Directory structure to follow for predictions.</span><a class="headerlink" href="#id2" title="Permalink to this code"><span class="fa fa-link"></a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;q_prd&gt;
+├── leadtime_1
+│   ├── site_a.csv
+│   ├── site_b.csv
+│   ┆   ···
+│   └── site_z.csv
+├── leadtime_2
+│   ├── site_a.csv
+│   ├── site_b.csv
+│   ┆   ···
+│   └── site_z.csv
+┆   ···
+└── leadtime_9
+    ├── site_a.csv
+    ├── site_b.csv
+    ┆   ···
+    └── site_z.csv
+</pre></div>
+</div>
+</div>
+<p>The leadtime sub-directories must contain separate files for each
+site, whose filenames must match those found in <em>q_obs</em>, and each
+site must be found across all leadtimes. Time steps with missing
+observations must be assigned <code class="xref py py-obj docutils literal notranslate"><span class="pre">NAN</span></code> values.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Each CSV file must feature as many lines as there are ensemble
+members, and as many columns as there are time steps in the study
+period [shape: (members, time)]. Time steps with missing
+observations must be assigned <code class="xref py py-obj docutils literal notranslate"><span class="pre">NAN</span></code> values. Those time steps will
+be ignored both in the observations and in the predictions before
+the <em>metrics</em> are computed.</p>
+</div>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-metrics">
+<span class="sig-name descname"><span class="pre">metrics</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT</span> <span class="pre">...&gt;</span></span><a class="headerlink" href="#cmdoption-arg-metrics" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>List of evaluation metrics to compute.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For each computed metric, the output shape is (sites, lead times,
+subsets, samples, {quantiles,} {thresholds,} {components}). Each
+of the last three axes may or may not be present depending on the
+metric chosen (e.g. threshold-based, quantile-based, multi-component,
+etc.).</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../../metrics/probabilistic.html"><span class="doc">Probabilistic metrics</span></a></p>
+</div>
+</dd></dl>
+
+</section>
+<section id="optionals">
+<h2>Optionals<a class="headerlink" href="#optionals" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-q_thr">
+<span id="cmdoption-q-thr"></span><span class="sig-name descname"><span class="pre">--q_thr</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT:DIR&gt;</span></span><a class="headerlink" href="#cmdoption-q_thr" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>Path to directory where CSV files containing streamflow thresholds
+are. The directory must contain separate files for each site, whose
+filenames must match those found in <em>q_obs</em>.</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">Directory structure to follow for thresholds.</span><a class="headerlink" href="#id3" title="Permalink to this code"><span class="fa fa-link"></a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;q_thr&gt;
+├── site_a.csv
+├── site_b.csv
+┆   ···
+└── site_z.csv
+</pre></div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Each CSV file must feature one line and as many columns as there
+are thresholds in the study period [shape: (1, thresholds)].</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While the number of thresholds must be the same across all CSV
+files (i.e. across all sites), if some sites require less
+thresholds than others, it is possible to use <code class="xref py py-obj docutils literal notranslate"><span class="pre">NAN</span></code> to match
+the number of thresholds of the other sites.</p>
+</div>
+</div>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-events">
+<span class="sig-name descname"><span class="pre">--events</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TXT&gt;</span></span><a class="headerlink" href="#cmdoption-events" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>A string specifying the type of streamflow events to consider for
+threshold exceedance-based metrics. It can either be set as <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;high&quot;</span></code>
+when flooding conditions/high flow events are evaluated (i.e. event
+occurring when streamflow goes above threshold) or as <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;low&quot;</span></code> when
+drought conditions/low flow events are evaluated (i.e. event
+occurring when streamflow goes below threshold). It must be provided
+if <em>q_thr</em> is provided.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-c_lvl">
+<span id="cmdoption-c-lvl"></span><span class="sig-name descname"><span class="pre">--c_lvl</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;FLOAT</span> <span class="pre">...&gt;</span></span><a class="headerlink" href="#cmdoption-c_lvl" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>List of confidence interval(s) in % to consider for intervals-based
+metrics.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-t_msk">
+<span id="cmdoption-t-msk"></span><span class="sig-name descname"><span class="pre">--t_msk</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT:DIR&gt;</span></span><a class="headerlink" href="#cmdoption-t_msk" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>Path to directory where CSV files containing temporal subsets are,
+whose structure must be the same as for <em>q_prd</em> to distinguish each
+leadtime and each site:</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">Directory structure to follow for temporal masks.</span><a class="headerlink" href="#id4" title="Permalink to this code"><span class="fa fa-link"></a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;t_msk&gt;
+├── leadtime_1
+│   ├── site_a.csv
+│   ├── site_b.csv
+│   ┆   ···
+│   └── site_z.csv
+├── leadtime_2
+│   ├── site_a.csv
+│   ├── site_b.csv
+│   ┆   ···
+│   └── site_z.csv
+┆   ···
+└── leadtime_9
+    ├── site_a.csv
+    ├── site_b.csv
+    ┆   ···
+    └── site_z.csv
+</pre></div>
+</div>
+</div>
+<p>The leadtime sub-directories must contain separate files for each
+site, whose filenames must match those found in <em>q_prd</em>. Each subset
+consists in a series of <code class="xref py py-obj docutils literal notranslate"><span class="pre">0</span></code>/<code class="xref py py-obj docutils literal notranslate"><span class="pre">1</span></code> indicating which time steps to
+include/discard. If not provided and neither is <em>m_cdt</em>, no subset is
+performed and only one set of metrics is returned corresponding to
+the whole time series. If provided, as many sets of metrics are
+returned as they are masks provided.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Each CSV file must feature as many lines as there are temporal
+subsets, and as many columns as there are time steps in the study
+period [shape: (subsets, time)].</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../../functionalities/temporal-masking.html"><span class="doc">Temporal masking</span></a></p>
+</div>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-m_cdt">
+<span id="cmdoption-m-cdt"></span><span class="sig-name descname"><span class="pre">--m_cdt</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT:DIR&gt;</span></span><a class="headerlink" href="#cmdoption-m_cdt" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>Path to directory where CSV files containing masking conditions are.
+The directory must contain separate files for each site, whose
+filenames must match those found in <em>q_obs</em>. Each condition consists
+in a string and can be specified on observed/predicted streamflow
+values/statistics (mean, median, quantile), or on time indices. If
+provided in combination with <em>t_msk</em>, the latter takes precedence.
+If not provided and neither is <em>t_msk</em>, no subset is performed and
+only one set of metrics is returned corresponding to the whole time
+series. If provided, as many sets of metrics are returned as they are
+conditions provided.</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">Directory structure to follow for masking conditions.</span><a class="headerlink" href="#id5" title="Permalink to this code"><span class="fa fa-link"></a></div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&lt;m_cdt&gt;
+├── site_a.csv
+├── site_b.csv
+┆   ···
+└── site_z.csv
+</pre></div>
+</div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Each CSV file must feature as many lines as there are temporal
+subsets [shape: (conditions,)].</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../../functionalities/conditional-masking.html"><span class="doc">Conditional masking</span></a></p>
+</div>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-bootstrap">
+<span class="sig-name descname"><span class="pre">--bootstrap</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT</span> <span class="pre">...&gt;</span></span><a class="headerlink" href="#cmdoption-bootstrap" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>The values for the parameters of the bootstrapping method used to
+estimate the sampling uncertainty in the evaluation of the
+predictions. It takes three parameters: <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;n_samples&quot;</span></code> the number of
+random samples; <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;len_samples&quot;</span></code> the length of one sample in number of
+years; <code class="xref py py-obj docutils literal notranslate"><span class="pre">&quot;summary&quot;</span></code> the statistics to return to characterise the
+sampling distribution. If not provided, no bootstrapping is
+performed. If provided, <em>dts</em> must also be provided.</p>
+<p><em>Parameter example:</em></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="o">--</span><span class="n">bootstrap</span> <span class="s2">&quot;n_samples&quot;</span> <span class="mi">100</span> <span class="s2">&quot;len_sample&quot;</span> <span class="mi">10</span> <span class="s2">&quot;summary&quot;</span> <span class="mi">0</span>
+</pre></div>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../../functionalities/bootstrapping.html"><span class="doc">Bootstrapping</span></a></p>
+</div>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-dts">
+<span class="sig-name descname"><span class="pre">--dts</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT:FILE&gt;</span></span><a class="headerlink" href="#cmdoption-dts" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>Path to CSV file containing the corresponding dates and times for the
+temporal dimension of the streamflow observations and predictions.
+The date and time must be specified in a string following the
+ISO 8601-1:2019 standard, i.e. “YYYY-MM-DD hh:mm:ss” (e.g. the
+21st of May 2007 at 4 in the afternoon is “2007-05-21 16:00:00”).
+If provided, it is only used if <em>bootstrap</em> is also provided.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The CSV file must feature as many columns as there are time steps
+in the evaluation period [shape: (time,)].</p>
+</div>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-seed">
+<span class="sig-name descname"><span class="pre">--seed</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;INT&gt;</span></span><a class="headerlink" href="#cmdoption-seed" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>An integer value for the seed used by random generators. This
+parameter guarantees the reproducibility of the metric values
+between calls.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-arg-diagnostics">
+<span class="sig-name descname"><span class="pre">diagnostics</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT</span> <span class="pre">...&gt;</span></span><a class="headerlink" href="#cmdoption-arg-diagnostics" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>List of evaluation diagnostics to compute.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For each computed diagnostic, the output shape is (sites,
+lead times, subsets, samples).</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../../functionalities/diagnostics.html"><span class="doc">Diagnostics</span></a></p>
+</div>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-to_file">
+<span id="cmdoption-to-file"></span><span class="sig-name descname"><span class="pre">--to_file</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-to_file" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>Divert output to CSV file, otherwise output to console.</p>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-out_dir">
+<span id="cmdoption-out-dir"></span><span class="sig-name descname"><span class="pre">--out_dir</span></span><span class="sig-prename descclassname"> <span class="pre">&lt;TEXT:DIR&gt;</span></span><a class="headerlink" href="#cmdoption-out_dir" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>Path to output directory.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The generated content in the output directory will follow the same
+structure and the same namings as <em>q_prd</em>, i.e. each leadtime in a
+separate folder, and each site (and each metric) in a separate
+file within it. The shape in each CSV output file is (subsets,
+samples, {quantiles,} {thresholds,} {components}).</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Since CSV files are intrinsically two-dimensional (i.e. lines
+and columns), for three-dimensional outputs (e.g. <em>BS</em> or <em>QS</em>)
+or four-dimensional outputs (e.g. <em>BS_CRD</em> or <em>BS_LBD</em>), the
+first few dimensions are stacked on top of one another. For
+example, the output shape (4 subsets, 2 samples, 5 thresholds,
+3 components) is stored into a CSV file containing 40 lines and
+three columns (where the first five lines correspond to the
+five thresholds of the first subset and the first sample, the
+five following lines to the first subset and the second sample,
+the five following lines to the second subset and the first
+sample, and so on).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For multisite metrics, a single file with prefix <em>multisite</em>
+is generated.</p>
+</div>
+</div>
+</dd></dl>
+
+<dl class="std option">
+<dt class="sig sig-object std" id="cmdoption-h">
+<span id="cmdoption-help"></span><span class="sig-name descname"><span class="pre">-h</span></span><span class="sig-prename descclassname"></span><span class="sig-prename descclassname"><span class="pre">,</span> </span><span class="sig-name descname"><span class="pre">--help</span></span><span class="sig-prename descclassname"></span><a class="headerlink" href="#cmdoption-h" title="Permalink to this definition"><span class="fa fa-link"></a></dt>
+<dd><p>Print this help message and exit.</p>
+</dd></dl>
+
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>evalhyd<span class="w"> </span>evalp<span class="w"> </span><span class="s2">&quot;./q_obs&quot;</span><span class="w"> </span><span class="s2">&quot;./q_prd&quot;</span><span class="w"> </span><span class="s2">&quot;BS&quot;</span><span class="w"> </span><span class="s2">&quot;BS_LBD&quot;</span><span class="w"> </span>--q_thr<span class="w"> </span><span class="s2">&quot;./q_thr&quot;</span><span class="w"> </span>--events<span class="w"> </span><span class="s2">&quot;high&quot;</span>
+<span class="go">{{{{{ 0.222222,  0.133333}}}}}</span>
+<span class="go">{{{{{{ 0.072222,  0.027778,  0.177778},</span>
+<span class="go">     { 0.072222,  0.027778,  0.088889}}}}}}</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>evalhyd<span class="w"> </span>evalp<span class="w"> </span><span class="s2">&quot;./q_obs&quot;</span><span class="w"> </span><span class="s2">&quot;./q_prd&quot;</span><span class="w"> </span><span class="s2">&quot;CRPS_FROM_QS&quot;</span>
+<span class="go">{{{{ 0.241935}}}}</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>evalhyd<span class="w"> </span>evalp<span class="w"> </span><span class="s2">&quot;./q_obs&quot;</span><span class="w"> </span><span class="s2">&quot;./q_prd&quot;</span><span class="w"> </span><span class="s2">&quot;CRPS_FROM_QS&quot;</span><span class="w"> </span>--t_msk<span class="w"> </span><span class="s2">&quot;./t_msk&quot;</span>
+<span class="go">{{{{ 0.1875}}}}</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usage">Usage</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#positionals">Positionals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optionals">Optionals</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2022-2024, INRAE.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    <br/>
+  </p>
+</div>
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Jan 30, 2024.
+  <br/>
+</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><a class="navbar-corporate" href="https://webgr.inrae.fr/" rel="noopener" target="_blank">
+  
+  
+    <img src="../../_static/marianne+inrae-logo-light.svg" class="logo__image only-light" alt="Marianne+INRAE logo">
+    <img src="../../_static/marianne+inrae-logo-dark.svg" class="logo__image only-dark" alt="Marianne+INRAE logo">
+</a></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
