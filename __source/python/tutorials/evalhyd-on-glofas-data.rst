@@ -186,10 +186,11 @@ The persistence benchmark can be described as follows:
            metrics=['MAE']
        )[0]
 
- .. note::
 
-    Since, for a deterministic forecast, the CRPS is equal to the MAE,
-    the deterministic metric MAE is used for the persistence benchmark.
+.. note::
+
+   Since, for a deterministic forecast, the CRPS is equal to the MAE,
+   the deterministic metric MAE is used for the persistence benchmark.
 
 Climatology benchmark
 ^^^^^^^^^^^^^^^^^^^^^
