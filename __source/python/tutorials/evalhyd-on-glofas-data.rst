@@ -110,7 +110,7 @@ Compute scores to evaluate the prediction against the observation data
 ----------------------------------------------------------------------
 
 Now that the prediction and observation dates are aligned, `evalhyd` can
-be used to compute any of the :doc:`probabilistic metrics <probabilistic>`
+be used to compute any of the :doc:`probabilistic metrics <../../metrics/probabilistic>`
 it gives access to. Here, we show how to compute the CRPS computed from
 the empirical cumulative density function.
 
