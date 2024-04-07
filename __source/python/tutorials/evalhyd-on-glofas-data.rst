@@ -171,8 +171,9 @@ The persistence benchmark can be described as follows:
        # use mask to map observation data into array
        prs_arr[:, s, :][:, msk] = obs.sel(time=prd.time).values
 
+
 .. code-block:: python
-   :caption: Compute persistence benchmark CRPS one site at a time because evalhyd deterministic evaluation is 2D-only
+   :caption: Compute the persistence benchmark CRPS one site at a time because `evalhyd` deterministic evaluation is 2D-only
 
    crps_persistence = np.zeros(
        (prd.station.size, prd.step.size, 1, 1)
@@ -237,6 +238,9 @@ The climatology benchmark can be described as follows:
            qtl.sel(dayofyear=prd.valid_time.isel(step=s).dt.dayofyear)
            .values.transpose((0, 2, 1))
        )
+
+.. code-block:: python
+   :caption: Compute the climatology benchmark CRPS
 
    crps_climatology = evalhyd.evalp(
        q_obs=obs.sel(time=dts).values,
