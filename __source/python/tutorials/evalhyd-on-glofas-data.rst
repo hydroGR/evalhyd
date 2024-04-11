@@ -115,11 +115,6 @@ it gives access to. Here, we show how to compute the CRPS computed from
 the empirical cumulative density function.
 
 .. code-block:: python
-   :caption: Compute thresholds from climatology quantiles
-
-   thr = np.quantile(obs.values, 0.1, axis=1, keepdims=True)
-
-.. code-block:: python
    :caption: compute the CRPS probabilistic score using `evalhyd`
    
    import evalhyd
@@ -128,7 +123,6 @@ the empirical cumulative density function.
        q_obs=obs.sel(time=dts).values,
        q_prd=prd_arr,
        metrics=['CRPS_FROM_ECDF'],
-       q_thr=thr,
        events='low'
    )
 
