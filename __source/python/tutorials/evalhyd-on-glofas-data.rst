@@ -86,13 +86,13 @@ the dates for which prediction data was issued.
 .. code-block:: python
    :caption: Determine necessary observation data dates
 
+   import numpy as np
+
    dts = np.unique(prd.valid_time.values)
 
 
 .. code-block:: python
    :caption: Map prediction data onto observation dates
-
-   import numpy as np
 
    prd_arr = np.zeros(
        (prd.station.size, prd.step.size, prd.number.size, dts.size)
