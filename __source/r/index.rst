@@ -138,5 +138,6 @@ Brief usage overview
 
    installation
    api
+   tutorials/index
    changelog
    licence
