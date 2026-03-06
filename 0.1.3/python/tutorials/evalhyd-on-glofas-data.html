@@ -1,0 +1,836 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Use evalhyd to evaluate GloFAS reforecast data &#8212; evalhyd-python latest documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my_pygments_light.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/my_pygments_dark.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'python/tutorials/evalhyd-on-glofas-data';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://hydrogr.github.io/evalhyd/python/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'latest';
+        </script>
+    <link rel="canonical" href="https://hydrogr.github.io/evalhyd/python/python/tutorials/evalhyd-on-glofas-data.html" />
+    <link rel="shortcut icon" href="../../_static/evalhyd_favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Changelog" href="../changelog.html" />
+    <link rel="prev" title="Tutorials" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/evalhyd-python_logo+text.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/evalhyd-python_logo+text.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+    
+      <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      latest  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../metrics/index.html">
+                        Metrics
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../functionalities/index.html">
+                        Functionalities
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../cpp/index.html">
+                        C++
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Python
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../r/index.html">
+                        R
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../cli/index.html">
+                        Command Line
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd" title="GitLab" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-gitlab"></i></span>
+            <label class="sr-only">GitLab</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../metrics/index.html">
+                        Metrics
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../functionalities/index.html">
+                        Functionalities
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../cpp/index.html">
+                        C++
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Python
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../r/index.html">
+                        R
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../cli/index.html">
+                        Command Line
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd" title="GitLab" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-gitlab"></i></span>
+            <label class="sr-only">GitLab</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api.html">API reference</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../functions/evalhyd.evald.html">evalhyd.evald</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../functions/evalhyd.evalp.html">evalhyd.evalp</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Tutorials</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Use <em>evalhyd</em> to evaluate GloFAS reforecast data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../licence.html">Licence</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Python</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Tutorials</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Use <em>evalhyd</em> to evaluate GloFAS reforecast data</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="use-evalhyd-to-evaluate-glofas-reforecast-data">
+<h1>Use <em>evalhyd</em> to evaluate GloFAS reforecast data<a class="headerlink" href="#use-evalhyd-to-evaluate-glofas-reforecast-data" title="Permalink to this headline"><span class="fa fa-link"></a></h1>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This tutorial contains modified Copernicus Emergency Management Service
+information 2024. Neither the European Commission nor ECMWF is responsible
+for any use that may be made of the Copernicus information or data it contains.</p>
+</div>
+<p>The prediction data used in this tutorial is the GloFAS v2.2 river discharge
+reforecast data <a class="footnote-reference brackets" href="#id8" id="id1">1</a> produced by Zsoter et al. (2020) <a class="footnote-reference brackets" href="#id9" id="id2">2</a>.</p>
+<p>The observation data used in this tutorial is the GloFAS-ERA5 v2.1 river
+discharge reanalysis data <a class="footnote-reference brackets" href="#id10" id="id3">3</a> produced by Harrigan et al. (2021) <a class="footnote-reference brackets" href="#id11" id="id4">4</a>.</p>
+<p>These can both be downloaded from Copernicus’ <a class="reference external" href="https://cds.climate.copernicus.eu">Climate Data Store</a>.</p>
+<p>These datasets were downloaded as GRIB files before a subset of them was
+performed to extract specific grid boxes corresponding to the GloFAS stations
+G0518, G0554, and G0565 and stored as NetCDF files. The prediction and
+observation data for these three stations is made available on the GitHub
+page hosting this documentation (<a class="github reference external" href="https://github.com/hydrogr/evalhyd">hydrogr/evalhyd</a>).</p>
+<section id="load-the-prediction-and-observation-data">
+<h2>Load the prediction and observation data<a class="headerlink" href="#load-the-prediction-and-observation-data" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>The NetCDF prediction and observation data mentioned above must first be read
+at once as a multi-sites dataset. This can easily be done in Python using a
+library such as <code class="xref py py-obj docutils literal notranslate"><span class="pre">xarray</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id13">
+<div class="code-block-caption"><span class="caption-text">Read in the prediction and observation data using <code class="xref py py-obj docutils literal notranslate"><span class="pre">xarray</span></code></span><a class="headerlink" href="#id13" title="Permalink to this code"><span class="fa fa-link"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">xarray</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">xr</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">add_station_as_coord</span><span class="p">(</span><span class="n">xd</span><span class="p">):</span>
+    <span class="n">stn</span> <span class="o">=</span> <span class="n">xd</span><span class="o">.</span><span class="n">encoding</span><span class="p">[</span><span class="s1">&#39;source&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.nc&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">xd</span><span class="p">[</span><span class="s1">&#39;dis24&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">xd</span><span class="p">[</span><span class="s1">&#39;dis24&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">station</span><span class="o">=</span><span class="n">stn</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">xd</span>
+
+<span class="n">prd</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span>
+    <span class="s1">&#39;GloFAS-v2.2_river_discharge_reforecast_*.nc&#39;</span><span class="p">,</span>
+    <span class="n">preprocess</span><span class="o">=</span><span class="n">add_station_as_coord</span><span class="p">,</span>
+    <span class="n">combine</span><span class="o">=</span><span class="s1">&#39;nested&#39;</span><span class="p">,</span>
+    <span class="n">concat_dim</span><span class="o">=</span><span class="s1">&#39;station&#39;</span>
+<span class="p">)[</span><span class="s1">&#39;dis24&#39;</span><span class="p">]</span>
+
+<span class="n">obs</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span>
+    <span class="s1">&#39;GloFAS-ERA5_v2.1_river_discharge_reanalysis_*.nc&#39;</span><span class="p">,</span>
+    <span class="n">preprocess</span><span class="o">=</span><span class="n">add_station_as_coord</span><span class="p">,</span>
+    <span class="n">combine</span><span class="o">=</span><span class="s1">&#39;nested&#39;</span><span class="p">,</span>
+    <span class="n">concat_dim</span><span class="o">=</span><span class="s1">&#39;station&#39;</span>
+<span class="p">)[</span><span class="s1">&#39;dis24&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id14">
+<div class="code-block-caption"><span class="caption-text">Reorder the dimensions to follow <code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span></code> convention</span><a class="headerlink" href="#id14" title="Permalink to this code"><span class="fa fa-link"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">prd</span> <span class="o">=</span> <span class="n">prd</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span>
+    <span class="s1">&#39;station&#39;</span><span class="p">,</span>  <span class="c1"># sites</span>
+    <span class="s1">&#39;step&#39;</span><span class="p">,</span>  <span class="c1"># lead times</span>
+    <span class="s1">&#39;number&#39;</span><span class="p">,</span>  <span class="c1"># members</span>
+    <span class="s1">&#39;time&#39;</span>  <span class="c1"># time</span>
+<span class="p">)</span>
+<span class="n">obs</span> <span class="o">=</span> <span class="n">obs</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span>
+    <span class="s1">&#39;station&#39;</span><span class="p">,</span>  <span class="c1"># sites</span>
+    <span class="s1">&#39;time&#39;</span>  <span class="c1"># time</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="align-the-prediction-and-the-observation-dates">
+<h2>Align the prediction and the observation dates<a class="headerlink" href="#align-the-prediction-and-the-observation-dates" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p><code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span></code> expects to be given prediction and observation data whose time
+dimensions correspond to the same dates. These are the dates for which
+prediction data is valid for (i.e. issue date + lead time), rather than
+the dates for which prediction data was issued.</p>
+<div class="literal-block-wrapper docutils container" id="id15">
+<div class="code-block-caption"><span class="caption-text">Replace the observation <em>time</em> dimension coordinate with <em>valid_time</em> coordinate so that the <em>time</em> dimension can be used to get temporal subsets corresponding to the prediction data</span><a class="headerlink" href="#id15" title="Permalink to this code"><span class="fa fa-link"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obs</span><span class="o">.</span><span class="n">valid_time</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id16">
+<div class="code-block-caption"><span class="caption-text">Determine necessary observation data dates</span><a class="headerlink" href="#id16" title="Permalink to this code"><span class="fa fa-link"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">dts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">prd</span><span class="o">.</span><span class="n">valid_time</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id17">
+<div class="code-block-caption"><span class="caption-text">Map prediction data onto observation dates</span><a class="headerlink" href="#id17" title="Permalink to this code"><span class="fa fa-link"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">prd_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">prd</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">prd</span><span class="o">.</span><span class="n">step</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">prd</span><span class="o">.</span><span class="n">number</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">dts</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">prd_arr</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">prd</span><span class="o">.</span><span class="n">step</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+    <span class="c1"># get mask selecting dates where a prediction exists</span>
+    <span class="n">msk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">dts</span><span class="p">,</span> <span class="n">prd</span><span class="o">.</span><span class="n">valid_time</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">step</span><span class="o">=</span><span class="n">s</span><span class="p">))</span>
+    <span class="c1"># use mask to map prediction data into array</span>
+    <span class="n">prd_arr</span><span class="p">[:,</span> <span class="n">s</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:][:,</span> <span class="p">:,</span> <span class="n">msk</span><span class="p">]</span> <span class="o">=</span> <span class="n">prd</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span> <span class="n">s</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
+    <span class="n">prd_arr</span><span class="p">[:,</span> <span class="n">s</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:][:,</span> <span class="p">:,</span> <span class="n">msk</span><span class="p">]</span> <span class="o">=</span> <span class="n">prd</span><span class="o">.</span><span class="n">values</span><span class="p">[:,</span> <span class="n">s</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="compute-scores-to-evaluate-the-prediction-against-the-observation-data">
+<h2>Compute scores to evaluate the prediction against the observation data<a class="headerlink" href="#compute-scores-to-evaluate-the-prediction-against-the-observation-data" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Now that the prediction and observation dates are aligned, <code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span></code> can
+be used to compute any of the <a class="reference internal" href="../../metrics/probabilistic.html"><span class="doc">probabilistic metrics</span></a>
+it gives access to. Here, we show how to compute the CRPS computed from
+the empirical cumulative density function.</p>
+<div class="literal-block-wrapper docutils container" id="id18">
+<div class="code-block-caption"><span class="caption-text">compute the CRPS probabilistic score using <code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span></code></span><a class="headerlink" href="#id18" title="Permalink to this code"><span class="fa fa-link"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">evalhyd</span>
+
+<span class="n">crps_forecast</span><span class="p">,</span> <span class="o">=</span> <span class="n">evalhyd</span><span class="o">.</span><span class="n">evalp</span><span class="p">(</span>
+    <span class="n">q_obs</span><span class="o">=</span><span class="n">obs</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">dts</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">q_prd</span><span class="o">=</span><span class="n">prd_arr</span><span class="p">,</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CRPS_FROM_ECDF&#39;</span><span class="p">],</span>
+    <span class="n">events</span><span class="o">=</span><span class="s1">&#39;low&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="prepare-benchmarks-in-view-to-compute-skill-scores-from-scores">
+<h2>Prepare benchmarks in view to compute skill scores from scores<a class="headerlink" href="#prepare-benchmarks-in-view-to-compute-skill-scores-from-scores" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>As done by Harrigan et al. (2023) <a class="footnote-reference brackets" href="#id12" id="id5">5</a>, persistence and climatology benchmarks
+are often used as references to produce dimensionless skill scores from
+evaluation scores. Here, we will compute the CRPSS from the CRPS.</p>
+<section id="persistence-benchmark">
+<h3>Persistence benchmark<a class="headerlink" href="#persistence-benchmark" title="Permalink to this headline"><span class="fa fa-link"></a></h3>
+<p>The persistence benchmark can be described as follows:</p>
+<blockquote class="epigraph">
+<div><p>« Persistence benchmark forecast is defined as the single GloFAS-ERA5
+daily river discharge of the day preceding the reforecast start
+date. The same river discharge value is used for all lead times.
+For example, for a forecast issued on 3 January at 00:00 UTC, the
+persistence benchmark forecast is the average river discharge over
+the 24 h time step from 2 January 00:00 UTC to 3 January 00:00 UTC,
+and the same value is used as benchmark for all 30 lead times
+(i.e., 4 January to 2 February). »</p>
+<p class="attribution">—Harrigan et al. (2023) <a class="footnote-reference brackets" href="#id12" id="id6">5</a>, sect. 3.2</p>
+</div></blockquote>
+<div class="literal-block-wrapper docutils container" id="id19">
+<div class="code-block-caption"><span class="caption-text">Map persistence benchmark onto observations dates</span><a class="headerlink" href="#id19" title="Permalink to this code"><span class="fa fa-link"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">prs_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">prd</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">prd</span><span class="o">.</span><span class="n">step</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">dts</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">prs_arr</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">prd</span><span class="o">.</span><span class="n">step</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+    <span class="c1"># get mask selecting dates where a forecast exists</span>
+    <span class="n">msk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">dts</span><span class="p">,</span> <span class="n">prd</span><span class="o">.</span><span class="n">valid_time</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">step</span><span class="o">=</span><span class="n">s</span><span class="p">))</span>
+    <span class="c1"># use mask to map observation data into array</span>
+    <span class="n">prs_arr</span><span class="p">[:,</span> <span class="n">s</span><span class="p">,</span> <span class="p">:][:,</span> <span class="n">msk</span><span class="p">]</span> <span class="o">=</span> <span class="n">obs</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">prd</span><span class="o">.</span><span class="n">time</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id20">
+<div class="code-block-caption"><span class="caption-text">Compute the persistence benchmark CRPS one site at a time because <code class="xref py py-obj docutils literal notranslate"><span class="pre">evalhyd</span></code> deterministic evaluation is 2D-only</span><a class="headerlink" href="#id20" title="Permalink to this code"><span class="fa fa-link"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">crps_persistence</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">prd</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">prd</span><span class="o">.</span><span class="n">step</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">crps_persistence</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">prd</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+    <span class="n">crps_persistence</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">=</span> <span class="n">evalhyd</span><span class="o">.</span><span class="n">evald</span><span class="p">(</span>
+        <span class="n">q_obs</span><span class="o">=</span><span class="n">obs</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">station</span><span class="o">=</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">dts</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:],</span>
+        <span class="n">q_prd</span><span class="o">=</span><span class="n">prs_arr</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span>
+        <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;MAE&#39;</span><span class="p">]</span>
+    <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since, for a deterministic forecast, the CRPS is equal to the MAE,
+the deterministic metric MAE is used for the persistence benchmark.</p>
+</div>
+</section>
+<section id="climatology-benchmark">
+<h3>Climatology benchmark<a class="headerlink" href="#climatology-benchmark" title="Permalink to this headline"><span class="fa fa-link"></a></h3>
+<p>The climatology benchmark can be described as follows:</p>
+<blockquote class="epigraph">
+<div><p>« Climatology benchmark forecast is based on a 40-year climatological
+sample (1979–2018) of moving 31 d windows of GloFAS-ERA5 river
+discharge reanalysis values, centred on the date being evaluated
+(±15 d). From each 1240-valued climatological sample (i.e. 40 years
+× 31 d window), 11 fixed quantiles (Qn) at 10 % intervals were
+extracted (Q0, Q10, Q20, …, Q80, Q90, Q100). The fixed quantile
+climate distribution used therefore varies by lead time, capturing
+the temporal variability in local river discharge climatology. »</p>
+<p class="attribution">—Harrigan et al. (2023) <a class="footnote-reference brackets" href="#id12" id="id7">5</a>, sect. 3.2</p>
+</div></blockquote>
+<div class="literal-block-wrapper docutils container" id="id21">
+<div class="code-block-caption"><span class="caption-text">Apply 31-day rolling windows on 40-year climatological sample</span><a class="headerlink" href="#id21" title="Permalink to this code"><span class="fa fa-link"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">wdw</span> <span class="o">=</span> <span class="n">obs</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1979&#39;</span><span class="p">,</span> <span class="s1">&#39;2018&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id22">
+<div class="code-block-caption"><span class="caption-text">Compute quantiles for each day of year over time and window (i.e. across 40y and 31d)</span><a class="headerlink" href="#id22" title="Permalink to this code"><span class="fa fa-link"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">qtl</span> <span class="o">=</span> <span class="n">wdw</span><span class="o">.</span><span class="n">construct</span><span class="p">(</span><span class="s1">&#39;window&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">chunk</span><span class="p">({</span><span class="s2">&quot;time&quot;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">})</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.dayofyear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span>
+    <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;window&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id23">
+<div class="code-block-caption"><span class="caption-text">Map climatology benchmark onto observation dates</span><a class="headerlink" href="#id23" title="Permalink to this code"><span class="fa fa-link"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">clm_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">prd</span><span class="o">.</span><span class="n">station</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">prd</span><span class="o">.</span><span class="n">step</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">prd</span><span class="o">.</span><span class="n">number</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="n">dts</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
+<span class="n">clm_arr</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+<span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">prd</span><span class="o">.</span><span class="n">step</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+    <span class="c1"># get mask selecting dates where a forecast exists</span>
+    <span class="n">msk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">in1d</span><span class="p">(</span><span class="n">dts</span><span class="p">,</span> <span class="n">prd</span><span class="o">.</span><span class="n">valid_time</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">step</span><span class="o">=</span><span class="n">s</span><span class="p">))</span>
+    <span class="c1"># use mask to map quantiles into array</span>
+    <span class="n">clm_arr</span><span class="p">[:,</span> <span class="n">s</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:][:,</span> <span class="p">:,</span> <span class="n">msk</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">qtl</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">dayofyear</span><span class="o">=</span><span class="n">prd</span><span class="o">.</span><span class="n">valid_time</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">step</span><span class="o">=</span><span class="n">s</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">transpose</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id24">
+<div class="code-block-caption"><span class="caption-text">Compute the climatology benchmark CRPS</span><a class="headerlink" href="#id24" title="Permalink to this code"><span class="fa fa-link"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">crps_climatology</span> <span class="o">=</span> <span class="n">evalhyd</span><span class="o">.</span><span class="n">evalp</span><span class="p">(</span>
+    <span class="n">q_obs</span><span class="o">=</span><span class="n">obs</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">dts</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">q_prd</span><span class="o">=</span><span class="n">clm_arr</span><span class="p">,</span>
+    <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CRPS_FROM_ECDF&#39;</span><span class="p">]</span>
+<span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+<section id="compute-skill-scores">
+<h2>Compute skill scores<a class="headerlink" href="#compute-skill-scores" title="Permalink to this headline"><span class="fa fa-link"></a></h2>
+<p>Once the benchmarks have been computed, it is trivial to obtain the
+skill scores from the score and the benchmarks.</p>
+<div class="literal-block-wrapper docutils container" id="id25">
+<div class="code-block-caption"><span class="caption-text">Compute the CRPSS against the persistence benchmark</span><a class="headerlink" href="#id25" title="Permalink to this code"><span class="fa fa-link"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">crpss_persistence</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">crps_forecast</span> <span class="o">/</span> <span class="n">crps_persistence</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id26">
+<div class="code-block-caption"><span class="caption-text">Compute the CRPSS against the climatology benchmark</span><a class="headerlink" href="#id26" title="Permalink to this code"><span class="fa fa-link"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">crpss_climatology</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="n">crps_forecast</span> <span class="o">/</span> <span class="n">crps_climatology</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p class="rubric">Footnotes</p>
+<dl class="footnote brackets">
+<dt class="label" id="id8"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Copernicus Climate Change Service (C3S) (2020): Reforecasts of river
+discharge and related data by the Global Flood Awareness System.
+Copernicus Climate Change Service (C3S) Climate Data Store (CDS).
+DOI: <a class="reference external" href="https://doi.org/10.24381/cds.2d78664e">10.24381/cds.2d78664e</a>
+(Accessed on 10-May-2023)</p>
+</dd>
+<dt class="label" id="id9"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
+<dd><p>Zsoter, E., Harrigan, S., Barnard, C., Blick, M., Ferrario, I.,
+Wetterhall, F., Prudhomme, C. (2020): Reforecasts of river discharge
+and related data by the Global Flood Awareness System. v2.2. Copernicus
+Climate Change Service (C3S) Climate Data Store (CDS). URL:
+<a class="reference external" href="https://cds.climate.copernicus.eu/cdsapp#!/dataset/cems-glofas-reforecast">https://cds.climate.copernicus.eu/cdsapp#!/dataset/cems-glofas-reforecast</a>
+(Accessed on 10-May-2023)</p>
+</dd>
+<dt class="label" id="id10"><span class="brackets"><a class="fn-backref" href="#id3">3</a></span></dt>
+<dd><p>Copernicus Climate Change Service (C3S) (2019): River discharge and
+related historical data from the Global Flood Awareness System.
+Copernicus Climate Change Service (C3S) Climate Data Store (CDS).
+DOI: <a class="reference external" href="https://doi.org/10.24381/cds.a4fdd6b9">10.24381/cds.a4fdd6b9</a>
+(Accessed on 10-May-2023)</p>
+</dd>
+<dt class="label" id="id11"><span class="brackets"><a class="fn-backref" href="#id4">4</a></span></dt>
+<dd><p>Harrigan, S., Zsoter, E., Barnard, C., Wetterhall, F., Ferrario, I.,
+Mazzetti, C., Alfieri, L., Salamon, P., Prudhomme, C. (2021): River
+discharge and related historical data from the Global Flood Awareness
+System. v2.1. Copernicus Climate Change Service (C3S) Climate Data
+Store (CDS). URL: <a class="reference external" href="https://cds.climate.copernicus.eu/cdsapp#!/dataset/cems-glofas-historical">https://cds.climate.copernicus.eu/cdsapp#!/dataset/cems-glofas-historical</a>
+(Accessed on 10-May-2023)</p>
+</dd>
+<dt class="label" id="id12"><span class="brackets">5</span><span class="fn-backref">(<a href="#id5">1</a>,<a href="#id6">2</a>,<a href="#id7">3</a>)</span></dt>
+<dd><p>Harrigan, S., Zsoter, E., Cloke, H., Salamon, P., and Prudhomme, C.
+(2023): Daily ensemble river discharge reforecasts and real-time
+forecasts from the operational Global Flood Awareness System, Hydrol.
+Earth Syst. Sci., 27, 1–19, <a class="reference external" href="https://doi.org/10.5194/hess-27-1-2023">https://doi.org/10.5194/hess-27-1-2023</a>.</p>
+</dd>
+</dl>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-prediction-and-observation-data">Load the prediction and observation data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#align-the-prediction-and-the-observation-dates">Align the prediction and the observation dates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-scores-to-evaluate-the-prediction-against-the-observation-data">Compute scores to evaluate the prediction against the observation data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-benchmarks-in-view-to-compute-skill-scores-from-scores">Prepare benchmarks in view to compute skill scores from scores</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#persistence-benchmark">Persistence benchmark</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#climatology-benchmark">Climatology benchmark</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-skill-scores">Compute skill scores</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2022-2026, INRAE.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    <br/>
+  </p>
+</div>
+      
+        <div class="footer-item"><p class="last-updated">
+  Last updated on Mar 06, 2026.
+  <br/>
+</p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><a class="navbar-corporate" href="https://webgr.inrae.fr/" rel="noopener" target="_blank">
+  
+  
+    <img src="../../_static/marianne+inrae-logo-light.svg" class="logo__image only-light" alt="Marianne+INRAE logo">
+    <img src="../../_static/marianne+inrae-logo-dark.svg" class="logo__image only-dark" alt="Marianne+INRAE logo">
+</a></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

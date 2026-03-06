@@ -1,0 +1,60 @@
+.. default-role:: obj
+
+.. _cli_installation:
+
+Installation
+============
+
+From conda-forge
+----------------
+
+The recommended way to install `evalhyd-cli` is to use a `conda`-like
+package manager and the conda-forge channel:
+
+.. code-block:: console
+   :caption: Install using `mamba` and the conda-forge channel
+
+   $ mamba install -c conda-forge evalhyd-cli
+
+
+From source
+-----------
+
+To build `evalhyd-cli` from source, `cmake` can be used.
+
+.. tip::
+
+   It is recommended that the dependencies are installed using `mamba`:
+
+   .. code-block:: console
+      :caption: Install the dependencies in a new environment
+
+      $ mamba create -n evalhyd-env -f environment.yml
+
+   .. code-block:: console
+      :caption: Activate the environment
+
+      $ mamba activate evalhyd-env
+
+Then, the steps below can be followed:
+
+.. code-block:: console
+   :caption: Configure the CMake project
+
+   $ cmake -B build/ -D CMAKE_BUILD_TYPE=Release -D CMAKE_PREFIX_PATH="${CONDA_PREFIX}"
+
+.. code-block:: console
+   :caption: Build the CMake project
+
+   $ cmake --build build/ --parallel
+
+.. code-block:: console
+   :caption: Test the library
+
+   $ export PATH="${PWD}/build/apps/:${PATH}"
+   $ (cd ./tests && python run_all_tests.py)
+
+.. code-block:: console
+   :caption: Install the library
+
+   $ cmake --install build/ --prefix <path>
