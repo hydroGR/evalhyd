@@ -44,7 +44,7 @@ our GitLab repository:
 
 .. code-block:: console
 
-   $ pip install "git+https://gitlab.irstea.fr/hycar-hydro/evalhyd/evalhyd-python.git"
+   $ pip install "git+https://forge.inrae.fr/hydrogr/evalhyd/evalhyd-python.git"
 
 .. admonition:: Requirements
 

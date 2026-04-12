@@ -62,7 +62,7 @@ To build `evalhyd-r` from source, use the following shell commands:
 .. code-block:: console
    :caption: Clone GitLab repository
 
-   $ git clone --recursive "https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-r.git"
+   $ git clone --recursive "https://forge.inrae.fr/hydrogr/evalhyd/evalhyd-r.git"
 
 .. code-block:: console
    :caption: Install from cloned source

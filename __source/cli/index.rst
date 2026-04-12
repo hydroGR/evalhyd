@@ -49,7 +49,7 @@ Getting started
 
    +++
 
-   .. button-link:: https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-cli
+   .. button-link:: https://forge.inrae.fr/hydrogr/evalhyd/evalhyd-cli
       :color: primary
       :click-parent:
       :outline:
@@ -62,7 +62,7 @@ Getting started
 
    +++
 
-   .. button-link:: https://gitlab.irstea.fr/HYCAR-Hydro/evalhyd/evalhyd-cli/-/issues
+   .. button-link:: https://forge.inrae.fr/hydrogr/evalhyd/evalhyd-cli/-/issues
       :color: primary
       :click-parent:
       :outline:
@@ -100,7 +100,7 @@ Brief usage overview
    .. grid-item::
       :columns: 12 12 12 12
 
-      .. button-link:: https://mybinder.org/v2/git/https%3A%2F%2Fgitlab.irstea.fr%2FHYCAR-Hydro%2Fevalhyd%2Fevalhyd-notebooks%2Fcli/HEAD?filepath=evalhyd-cli.ipynb
+      .. button-link:: https://mybinder.org/v2/git/https%3A%2F%2Fforge.inrae.fr%2FhydroGR%2Fevalhyd%2Fevalhyd-notebooks%2Fcli/main?urlpath=%2Fdoc%2Ftree%2Fevalhyd-cli.ipynb
          :color: primary
          :outline:
          :expand:
